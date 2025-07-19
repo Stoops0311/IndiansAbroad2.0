@@ -79,20 +79,33 @@ export function Header() {
   useLayoutEffect(() => {
     const checkNavSpace = () => {
       if (navRef.current) {
-        const navRect = navRef.current.getBoundingClientRect()
-        const containerRect = navRef.current.parentElement?.getBoundingClientRect()
+        const nav = navRef.current
+        const header = nav.closest('header')
         
-        if (containerRect) {
-          // If we have less than 600px available for navigation, use hamburger
-          const availableWidth = containerRect.width - 400 // Account for logo space
-          setShowHamburger(availableWidth < 600)
+        if (header) {
+          // Get the actual scroll width vs client width to detect overflow
+          const isOverflowing = nav.scrollWidth > nav.clientWidth
+          
+          // Also check if nav is being squeezed by header container
+          const headerRect = header.getBoundingClientRect()
+          const navRect = nav.getBoundingClientRect()
+          
+          // If nav right edge is close to or past header right edge, switch to hamburger
+          const isNearEdge = navRect.right > headerRect.right - 20
+          
+          setShowHamburger(isOverflowing || isNearEdge)
         }
       }
     }
 
-    checkNavSpace()
+    // Use a timeout to ensure layout is complete
+    const timeoutId = setTimeout(checkNavSpace, 0)
+    
     window.addEventListener('resize', checkNavSpace)
-    return () => window.removeEventListener('resize', checkNavSpace)
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('resize', checkNavSpace)
+    }
   }, [])
 
   return (
