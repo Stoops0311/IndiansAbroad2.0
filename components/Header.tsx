@@ -66,28 +66,6 @@ const menuItems: MenuItem[] = [
   },
 ]
 
-const glowVariants = {
-  initial: { opacity: 0, scale: 0.8 },
-  hover: {
-    opacity: 1,
-    scale: 1.5,
-    transition: {
-      opacity: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
-      scale: { duration: 0.3, type: "spring", stiffness: 300, damping: 25 },
-    },
-  },
-}
-
-const navGlowVariants = {
-  initial: { opacity: 0 },
-  hover: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.4, 0, 0.2, 1],
-    },
-  },
-}
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -115,35 +93,14 @@ export function Header() {
           </Link>
 
           {/* Navigation */}
-          <motion.nav
-            className="hidden lg:block p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden"
-            initial="initial"
-            whileHover="hover"
-          >
-            <motion.div
-              className="absolute -inset-2 bg-gradient-radial from-transparent via-primary/20 via-30% via-accent/20 via-60% via-primary/20 via-90% to-transparent rounded-3xl z-0 pointer-events-none"
-              variants={navGlowVariants}
-            />
+          <nav className="hidden lg:block p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden">
             <ul className="flex items-center gap-1 relative z-10">
               {menuItems.map((item) => (
-                <motion.li key={item.label} className="relative">
-                  <motion.div
-                    className="block rounded-xl overflow-visible group relative"
-                    whileHover="hover"
-                    initial="initial"
-                  >
-                    <motion.div
-                      className="absolute inset-0 z-0 pointer-events-none"
-                      variants={glowVariants}
-                      style={{
-                        background: item.gradient,
-                        opacity: 0,
-                        borderRadius: "16px",
-                      }}
-                    />
+                <li key={item.label} className="relative">
+                  <div className="block rounded-xl overflow-visible group relative">
                     <Link
                       href={item.href}
-                      className="flex items-center gap-2 px-3 py-2 relative z-10 bg-transparent text-white hover:text-white/90 transition-colors rounded-xl text-sm font-medium"
+                      className="flex items-center gap-2 px-3 py-2 relative z-10 bg-transparent text-white hover:text-white/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium"
                     >
                       <span className={`transition-colors duration-300 ${item.iconColor}`}>
                         {item.icon}
@@ -151,11 +108,11 @@ export function Header() {
                       <span className="hidden xl:inline">{item.label}</span>
                       <span className="xl:hidden">{item.label.split(' ')[0]}</span>
                     </Link>
-                  </motion.div>
-                </motion.li>
+                  </div>
+                </li>
               ))}
             </ul>
-          </motion.nav>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button 
@@ -178,7 +135,7 @@ export function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              transition={{ duration: 0.3 }}
               className="lg:hidden mt-4 overflow-hidden"
             >
               <nav className="bg-background/90 backdrop-blur-lg border border-border/40 rounded-xl p-4">
