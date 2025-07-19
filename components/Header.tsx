@@ -1,9 +1,9 @@
 "use client"
 
 import type * as React from "react"
-import { useState } from "react"
+import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, Users, Briefcase, Globe, Trophy, CheckCircle, Phone, Menu, X } from "lucide-react"
+import { Home, Users, Briefcase, Globe, Trophy, CheckCircle, Phone, Menu, X, MoreHorizontal, ChevronDown } from "lucide-react"
 import Link from "next/link"
 
 interface MenuItem {
@@ -69,10 +69,31 @@ const menuItems: MenuItem[] = [
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [showHamburger, setShowHamburger] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
+
+  useLayoutEffect(() => {
+    const checkNavSpace = () => {
+      if (navRef.current) {
+        const navRect = navRef.current.getBoundingClientRect()
+        const containerRect = navRef.current.parentElement?.getBoundingClientRect()
+        
+        if (containerRect) {
+          // If we have less than 600px available for navigation, use hamburger
+          const availableWidth = containerRect.width - 400 // Account for logo space
+          setShowHamburger(availableWidth < 600)
+        }
+      }
+    }
+
+    checkNavSpace()
+    window.addEventListener('resize', checkNavSpace)
+    return () => window.removeEventListener('resize', checkNavSpace)
+  }, [])
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 bg-background/80 backdrop-blur-lg border-b border-border/40">
@@ -92,27 +113,42 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden lg:block p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden max-w-none">
-            <ul className="flex items-center gap-1 relative z-10">
-              {menuItems.map((item) => (
-                <li key={item.label} className="relative">
-                  <div className="block rounded-xl overflow-visible group relative">
-                    <Link
-                      href={item.href}
-                      className="flex items-center gap-2 px-3 py-2 relative z-10 bg-transparent text-white hover:text-white/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium whitespace-nowrap"
-                    >
-                      <span className={`transition-colors duration-300 ${item.iconColor}`}>
-                        {item.icon}
-                      </span>
-                      <span className="hidden lg:inline">{item.label}</span>
-                      <span className="lg:hidden">{item.label.split(' ')[0]}</span>
-                    </Link>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {/* Navigation - Show full nav when space available, hamburger when cramped */}
+          {!showHamburger ? (
+            <nav ref={navRef} className="hidden lg:block p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden max-w-none">
+              <ul className="flex items-center gap-3 relative z-10">
+                {menuItems.map((item) => (
+                  <li key={item.label} className="relative">
+                    <div className="block rounded-xl overflow-visible group relative">
+                      <Link
+                        href={item.href}
+                        className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-white hover:text-white/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium whitespace-nowrap"
+                      >
+                        <span className={`transition-colors duration-300 ${item.iconColor}`}>
+                          {item.icon}
+                        </span>
+                        <span className="hidden xl:inline">{item.label}</span>
+                        <span className="xl:hidden">{item.label.split(' ')[0]}</span>
+                      </Link>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : (
+            /* Hamburger Menu Button for desktop when cramped */
+            <button 
+              onClick={toggleMobileMenu}
+              className="hidden lg:block p-2 rounded-lg hover:bg-primary/10 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6 text-white" />
+              ) : (
+                <Menu className="h-6 w-6 text-white" />
+              )}
+            </button>
+          )}
 
           {/* Mobile Menu Button */}
           <button 
