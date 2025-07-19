@@ -93,20 +93,20 @@ export function Header() {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden lg:block p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden">
+          <nav className="hidden lg:block p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden max-w-none">
             <ul className="flex items-center gap-1 relative z-10">
               {menuItems.map((item) => (
                 <li key={item.label} className="relative">
                   <div className="block rounded-xl overflow-visible group relative">
                     <Link
                       href={item.href}
-                      className="flex items-center gap-2 px-3 py-2 relative z-10 bg-transparent text-white hover:text-white/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium"
+                      className="flex items-center gap-2 px-3 py-2 relative z-10 bg-transparent text-white hover:text-white/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium whitespace-nowrap"
                     >
                       <span className={`transition-colors duration-300 ${item.iconColor}`}>
                         {item.icon}
                       </span>
-                      <span className="hidden xl:inline">{item.label}</span>
-                      <span className="xl:hidden">{item.label.split(' ')[0]}</span>
+                      <span className="hidden lg:inline">{item.label}</span>
+                      <span className="lg:hidden">{item.label.split(' ')[0]}</span>
                     </Link>
                   </div>
                 </li>
