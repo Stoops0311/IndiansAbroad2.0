@@ -1,7 +1,9 @@
 "use client";
 
 import { BentoCard, BentoIcon, BentoTitle, BentoDescription } from "@/components/ui/bento";
-import { Shield, TrendingUp, Eye, Handshake, UserCheck, Route, Languages } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Shield, TrendingUp, Eye, Handshake, UserCheck, Route, Languages, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
@@ -80,6 +82,16 @@ export default function WhyChooseUs() {
               </div>
             );
           })}
+        </div>
+        
+        {/* Learn More Button */}
+        <div className="mt-6 pt-4 border-t border-white/10">
+          <Button asChild variant="outline" className="w-full border-primary/20 hover:border-primary/40 hover:bg-primary/10 transition-all group">
+            <Link href="/about">
+              Learn More About Us
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
         </div>
       </div>
     </BentoCard>
