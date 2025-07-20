@@ -229,10 +229,7 @@ export function Header() {
                                     >
                                       <IconComponent className="h-4 w-4 text-primary flex-shrink-0" />
                                       <div className="flex-1 min-w-0">
-                                        <div className="flex items-center gap-2">
-                                          <span className="text-white font-medium text-sm truncate">{service.title}</span>
-                                          <span className="text-primary text-xs font-semibold">{service.price}</span>
-                                        </div>
+                                        <span className="text-white font-medium text-sm truncate">{service.title}</span>
                                         <p className="text-white/70 text-xs mt-1 line-clamp-2">{service.summary}</p>
                                       </div>
                                     </button>
@@ -328,10 +325,7 @@ export function Header() {
                                 >
                                   <IconComponent className="h-4 w-4 text-primary flex-shrink-0" />
                                   <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-2">
-                                      <span className="text-white font-medium text-sm">{service.title}</span>
-                                      <span className="text-primary text-xs font-semibold">{service.price}</span>
-                                    </div>
+                                    <span className="text-white font-medium text-sm">{service.title}</span>
                                   </div>
                                 </button>
                               );

@@ -223,6 +223,20 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                     <blockquote className="text-sm text-white/90 italic leading-relaxed line-clamp-3">
                       "{testimonial.review}"
                     </blockquote>
+
+                    {/* Supporting Document Image */}
+                    {testimonial.supportingDocUrls && 
+                     testimonial.supportingDocUrls.length > 0 && 
+                     testimonial.supportingDocType === 'image' && (
+                      <div className="mt-3">
+                        <img
+                          src={testimonial.supportingDocUrls[0]}
+                          alt="Supporting document"
+                          className="w-full h-32 object-cover rounded-lg border border-primary/20"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
                     
                     <div className="flex items-center justify-between pt-3 border-t border-white/10">
                       <div className="flex items-center gap-2">
