@@ -1,17 +1,18 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Star, User, Briefcase, Search, Filter } from "lucide-react";
+import { Star, User, Search, Filter, FileText } from "lucide-react";
 
 interface Testimonial {
-  id: number;
+  _id: string;
   name: string;
-  profession: string;
   country: string;
   flag: string;
   rating: number;
@@ -19,310 +20,11 @@ interface Testimonial {
   achievement: string;
   timeframe: string;
   service: string;
+  photoUrl?: string | null;
+  supportingDocUrls?: string[];
+  supportingDocType?: string;
 }
 
-const mockTestimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: "Ritika Shah",
-    profession: "HR Executive",
-    country: "Australia",
-    flag: "🇦🇺",
-    rating: 5,
-    review: "From my IELTS to visa stamping, everything was taken care of. I never felt lost. The team guided me through every step.",
-    achievement: "PR Visa Approved",
-    timeframe: "8 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 2,
-    name: "Arjun Sharma",
-    profession: "Data Scientist",
-    country: "Netherlands",
-    flag: "🇳🇱",
-    rating: 5,
-    review: "Within 2 weeks of resume optimization, I had 5 interviews lined up. The visa process was seamless with their guidance.",
-    achievement: "€85k Job Offer",
-    timeframe: "5 months",
-    service: "Job Visa"
-  },
-  {
-    id: 3,
-    name: "Priya Gupta",
-    profession: "Marketing Manager",
-    country: "Canada",
-    flag: "🇨🇦",
-    rating: 5,
-    review: "Got my Express Entry invitation in first draw itself. Their point calculation and document preparation was spot-on.",
-    achievement: "Canada PR",
-    timeframe: "7 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 4,
-    name: "Vikram Singh",
-    profession: "Software Developer",
-    country: "Germany",
-    flag: "🇩🇪",
-    rating: 5,
-    review: "No IELTS required for Germany was true! They connected me with employers who sponsored my visa directly.",
-    achievement: "Job Visa Approved",
-    timeframe: "4 months",
-    service: "Job Visa"
-  },
-  {
-    id: 5,
-    name: "Meera Patel",
-    profession: "Nurse",
-    country: "UK",
-    flag: "🇬🇧",
-    rating: 5,
-    review: "The NHS application process was complex, but they made it simple. Got my nursing registration and visa together.",
-    achievement: "NHS Job + Visa",
-    timeframe: "6 months",
-    service: "Job Visa"
-  },
-  {
-    id: 6,
-    name: "Rohit Kumar",
-    profession: "Accountant",
-    country: "New Zealand",
-    flag: "🇳🇿",
-    rating: 5,
-    review: "Amazing support throughout the skilled migrant process. They know exactly what NZ immigration looks for.",
-    achievement: "Skilled Migrant Visa",
-    timeframe: "9 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 7,
-    name: "Anjali Desai",
-    profession: "Teacher",
-    country: "Canada",
-    flag: "🇨🇦",
-    rating: 4,
-    review: "Great help with document translation and credential evaluation. My teaching qualification was recognized quickly.",
-    achievement: "Teaching License + PR",
-    timeframe: "10 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 8,
-    name: "Karan Mehta",
-    profession: "Chef",
-    country: "Australia",
-    flag: "🇦🇺",
-    rating: 5,
-    review: "Found me a restaurant sponsor in Melbourne. The whole process was smooth and professional.",
-    achievement: "Sponsored Visa",
-    timeframe: "5 months",
-    service: "Job Visa"
-  },
-  {
-    id: 9,
-    name: "Divya Joshi",
-    profession: "Graphic Designer",
-    country: "USA",
-    flag: "🇺🇸",
-    rating: 4,
-    review: "H1B lottery was stressful, but they prepared everything perfectly. Got selected in the first attempt.",
-    achievement: "H1B Visa Approved",
-    timeframe: "12 months",
-    service: "Job Visa"
-  },
-  {
-    id: 10,
-    name: "Amit Verma",
-    profession: "Mechanical Engineer",
-    country: "Germany",
-    flag: "🇩🇪",
-    rating: 5,
-    review: "Blue Card process was explained clearly. They helped me negotiate a higher salary with the employer too.",
-    achievement: "EU Blue Card",
-    timeframe: "6 months",
-    service: "Job Visa"
-  },
-  {
-    id: 11,
-    name: "Sneha Rao",
-    profession: "Data Analyst",
-    country: "Singapore",
-    flag: "🇸🇬",
-    rating: 5,
-    review: "Tech Pass application was competitive, but their guidance made all the difference. Now working at a top fintech.",
-    achievement: "Tech Pass + S$120k",
-    timeframe: "4 months",
-    service: "Job Visa"
-  },
-  {
-    id: 12,
-    name: "Rahul Agarwal",
-    profession: "Doctor",
-    country: "UK",
-    flag: "🇬🇧",
-    rating: 5,
-    review: "Medical registration with GMC was complex. They handled everything from PLAB to visa applications.",
-    achievement: "NHS Doctor Position",
-    timeframe: "14 months",
-    service: "Job Visa"
-  },
-  {
-    id: 13,
-    name: "Kavya Reddy",
-    profession: "Pharmacist",
-    country: "Australia",
-    flag: "🇦🇺",
-    rating: 4,
-    review: "Pharmacy board registration and visa - both handled professionally. Working in Sydney now.",
-    achievement: "Pharmacist Registration",
-    timeframe: "8 months",
-    service: "Job Visa"
-  },
-  {
-    id: 14,
-    name: "Suresh Nair",
-    profession: "Project Manager",
-    country: "Canada",
-    flag: "🇨🇦",
-    rating: 5,
-    review: "PMP certification helped with CRS points. Their strategy got me an ITA in just 2 draws.",
-    achievement: "Express Entry ITA",
-    timeframe: "6 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 15,
-    name: "Pooja Sharma",
-    profession: "Software Tester",
-    country: "Netherlands",
-    flag: "🇳🇱",
-    rating: 5,
-    review: "Highly Skilled Migrant visa for tech sector. Great support in finding the right employer match.",
-    achievement: "HSM Visa + €70k",
-    timeframe: "5 months",
-    service: "Job Visa"
-  },
-  {
-    id: 16,
-    name: "Manish Gupta",
-    profession: "Business Analyst",
-    country: "Switzerland",
-    flag: "🇨🇭",
-    rating: 4,
-    review: "Swiss work permit is notoriously difficult, but they made it happen. Banking sector opportunity in Zurich.",
-    achievement: "Work Permit B",
-    timeframe: "7 months",
-    service: "Job Visa"
-  },
-  {
-    id: 17,
-    name: "Ritu Kapoor",
-    profession: "Dentist",
-    country: "New Zealand",
-    flag: "🇳🇿",
-    rating: 5,
-    review: "Dental council registration and skilled migrant visa together. Excellent coordination between processes.",
-    achievement: "Dental Practice License",
-    timeframe: "11 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 18,
-    name: "Sanjay Jain",
-    profession: "Civil Engineer",
-    country: "Canada",
-    flag: "🇨🇦",
-    rating: 5,
-    review: "Engineers Canada assessment was smooth. Got provincial nomination from Ontario.",
-    achievement: "PNP + Engineering License",
-    timeframe: "9 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 19,
-    name: "Nisha Patel",
-    profession: "UX Designer",
-    country: "Germany",
-    flag: "🇩🇪",
-    rating: 4,
-    review: "Berlin startup visa process was unique. They connected me with the right incubator program.",
-    achievement: "Startup Visa",
-    timeframe: "6 months",
-    service: "Job Visa"
-  },
-  {
-    id: 20,
-    name: "Deepak Kumar",
-    profession: "Network Engineer",
-    country: "Australia",
-    flag: "🇦🇺",
-    rating: 5,
-    review: "Skills assessment with ACS was tricky, but they guided me through every requirement perfectly.",
-    achievement: "Subclass 189 Visa",
-    timeframe: "8 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 21,
-    name: "Aditi Singh",
-    profession: "Physical Therapist",
-    country: "Canada",
-    flag: "🇨🇦",
-    rating: 5,
-    review: "Healthcare professional pathway was well-planned. Got job offer before landing in Toronto.",
-    achievement: "Healthcare PR",
-    timeframe: "7 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 22,
-    name: "Varun Malhotra",
-    profession: "DevOps Engineer",
-    country: "USA",
-    flag: "🇺🇸",
-    rating: 4,
-    review: "L1 to Green Card transition was seamless. They handled all the complex paperwork efficiently.",
-    achievement: "Green Card Approved",
-    timeframe: "18 months",
-    service: "PR Consulting"
-  },
-  {
-    id: 23,
-    name: "Shreya Agarwal",
-    profession: "Research Scientist",
-    country: "Germany",
-    flag: "🇩🇪",
-    rating: 5,
-    review: "Research visa for postdoc position. They coordinated with university and immigration perfectly.",
-    achievement: "Research Visa",
-    timeframe: "4 months",
-    service: "Job Visa"
-  },
-  {
-    id: 24,
-    name: "Ashish Bansal",
-    profession: "Product Manager",
-    country: "Singapore",
-    flag: "🇸🇬",
-    rating: 5,
-    review: "Employment Pass approval was quick. Great salary negotiation support with the tech company.",
-    achievement: "EP + S$140k Package",
-    timeframe: "3 months",
-    service: "Job Visa"
-  },
-  {
-    id: 25,
-    name: "Priyanka Mehta",
-    profession: "Financial Analyst",
-    country: "UK",
-    flag: "🇬🇧",
-    rating: 4,
-    review: "Skilled Worker visa for finance role in London. CFA certification helped with the application.",
-    achievement: "Skilled Worker Visa",
-    timeframe: "5 months",
-    service: "Job Visa"
-  }
-];
 
 interface ReviewsModalProps {
   open: boolean;
@@ -331,18 +33,24 @@ interface ReviewsModalProps {
 
 export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) {
   const [countryFilter, setCountryFilter] = useState("");
-  const [professionFilter, setProfessionFilter] = useState("");
+  const [serviceFilter, setServiceFilter] = useState("");
   const [ratingFilter, setRatingFilter] = useState("");
   const [timeframeFilter, setTimeframeFilter] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
 
-  const countries = Array.from(new Set(mockTestimonials.map(t => t.country))).sort();
-  const professions = Array.from(new Set(mockTestimonials.map(t => t.profession))).sort();
+  // Fetch testimonials from Convex
+  const testimonials = useQuery(api.testimonials.getAllTestimonials);
+
+  const countries = Array.from(new Set(testimonials?.map(t => t.country) || [])).sort();
+  const services = Array.from(new Set(testimonials?.map(t => t.service) || [])).sort();
 
   const filteredTestimonials = useMemo(() => {
-    return mockTestimonials.filter(testimonial => {
+    if (!testimonials) return [];
+    
+    return testimonials.filter(testimonial => {
       const matchesCountry = !countryFilter || testimonial.country === countryFilter;
-      const matchesProfession = !professionFilter || testimonial.profession === professionFilter;
+      const matchesService = !serviceFilter || testimonial.service === serviceFilter;
       const matchesRating = !ratingFilter || (
         ratingFilter === "5" ? testimonial.rating === 5 :
         ratingFilter === "4+" ? testimonial.rating >= 4 :
@@ -356,17 +64,18 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
       );
       const matchesSearch = !searchTerm || 
         testimonial.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        testimonial.profession.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        testimonial.service.toLowerCase().includes(searchTerm.toLowerCase()) ||
         testimonial.review.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        testimonial.country.toLowerCase().includes(searchTerm.toLowerCase());
+        testimonial.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        testimonial.achievement.toLowerCase().includes(searchTerm.toLowerCase());
 
-      return matchesCountry && matchesProfession && matchesRating && matchesTimeframe && matchesSearch;
+      return matchesCountry && matchesService && matchesRating && matchesTimeframe && matchesSearch;
     });
-  }, [countryFilter, professionFilter, ratingFilter, timeframeFilter, searchTerm]);
+  }, [countryFilter, serviceFilter, ratingFilter, timeframeFilter, searchTerm, testimonials]);
 
   const clearFilters = () => {
     setCountryFilter("");
-    setProfessionFilter("");
+    setServiceFilter("");
     setRatingFilter("");
     setTimeframeFilter("");
     setSearchTerm("");
@@ -413,14 +122,14 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                 </SelectContent>
               </Select>
 
-              <Select value={professionFilter} onValueChange={setProfessionFilter}>
+              <Select value={serviceFilter} onValueChange={setServiceFilter}>
                 <SelectTrigger>
-                  <SelectValue placeholder="All Professions" />
+                  <SelectValue placeholder="All Services" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Professions</SelectItem>
-                  {professions.map(profession => (
-                    <SelectItem key={profession} value={profession}>{profession}</SelectItem>
+                  <SelectItem value="">All Services</SelectItem>
+                  {services.map(service => (
+                    <SelectItem key={service} value={service}>{service}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -453,8 +162,8 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
 
             {/* Results Count & Clear Filters */}
             <div className="flex items-center justify-between text-sm text-white/70">
-              <span>Showing {filteredTestimonials.length} of {mockTestimonials.length} reviews</span>
-              {(countryFilter || professionFilter || ratingFilter || timeframeFilter || searchTerm) && (
+              <span>Showing {filteredTestimonials.length} of {testimonials?.length || 0} reviews</span>
+              {(countryFilter || serviceFilter || ratingFilter || timeframeFilter || searchTerm) && (
                 <button 
                   onClick={clearFilters}
                   className="text-primary hover:text-primary/80 transition-colors"
@@ -467,11 +176,42 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
 
           {/* Reviews Grid - Scrollable area */}
           <div className="flex-1 overflow-y-auto px-6 pb-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {filteredTestimonials.map((testimonial) => (
+            {!testimonials ? (
+              // Loading state
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="p-4 bg-white/5 border border-primary/20 rounded animate-pulse">
+                    <div className="space-y-3">
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map((j) => (
+                          <div key={j} className="w-3 h-3 bg-white/20 rounded"></div>
+                        ))}
+                      </div>
+                      <div className="space-y-2">
+                        <div className="h-4 bg-white/20 rounded w-full"></div>
+                        <div className="h-4 bg-white/20 rounded w-3/4"></div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 bg-white/20 rounded-full"></div>
+                          <div className="space-y-1">
+                            <div className="h-3 bg-white/20 rounded w-20"></div>
+                            <div className="h-2 bg-white/20 rounded w-16"></div>
+                          </div>
+                        </div>
+                        <div className="h-5 bg-white/20 rounded w-16"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {filteredTestimonials.map((testimonial) => (
                 <Card 
-                  key={testimonial.id}
-                  className="p-4 bg-white/5 border-primary/20 hover:border-primary/40 hover:bg-white/10 transition-all duration-300"
+                  key={testimonial._id}
+                  className="p-4 bg-white/5 border-primary/20 hover:border-primary/40 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                  onClick={() => setSelectedTestimonial(testimonial)}
                 >
                   <div className="space-y-3">
                     <div className="flex gap-1 mb-2">
@@ -486,16 +226,29 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                     
                     <div className="flex items-center justify-between pt-3 border-t border-white/10">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
-                          <User className="h-4 w-4 text-white" />
-                        </div>
+                        {testimonial.photoUrl ? (
+                          <img
+                            src={testimonial.photoUrl}
+                            alt={testimonial.name}
+                            className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+                          />
+                        ) : (
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
+                            <User className="h-4 w-4 text-white" />
+                          </div>
+                        )}
                         <div className="min-w-0">
                           <h5 className="font-semibold text-white text-sm leading-tight">
                             {testimonial.name}
                           </h5>
                           <div className="flex items-center gap-2 text-xs text-white/70">
-                            <Briefcase className="h-3 w-3 flex-shrink-0" />
-                            <span className="truncate">{testimonial.profession}</span>
+                            <span className="truncate">{testimonial.service}</span>
+                            {testimonial.supportingDocUrls && testimonial.supportingDocUrls.length > 0 && (
+                              <div className="flex items-center gap-1">
+                                <FileText className="h-3 w-3" />
+                                <span>{testimonial.supportingDocUrls.length}</span>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -515,24 +268,192 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                     </div>
                   </div>
                 </Card>
-              ))}
-            </div>
+                ))}
 
-            {filteredTestimonials.length === 0 && (
-              <div className="text-center py-12">
-                <Filter className="h-12 w-12 text-white/30 mx-auto mb-4" />
-                <p className="text-white/60">No reviews match your current filters.</p>
-                <button 
-                  onClick={clearFilters}
-                  className="text-primary hover:text-primary/80 transition-colors mt-2"
-                >
-                  Clear all filters
-                </button>
+                {filteredTestimonials.length === 0 && (
+                  <div className="text-center py-12 col-span-2">
+                    <Filter className="h-12 w-12 text-white/30 mx-auto mb-4" />
+                    <p className="text-white/60">No reviews match your current filters.</p>
+                    <button 
+                      onClick={clearFilters}
+                      className="text-primary hover:text-primary/80 transition-colors mt-2"
+                    >
+                      Clear all filters
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>
         </div>
       </DialogContent>
+
+      {/* Testimonial Detail Modal */}
+      {selectedTestimonial && (
+        <Dialog open={true} onOpenChange={() => setSelectedTestimonial(null)}>
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col p-0">
+            <DialogHeader className="flex-shrink-0 p-6 pb-4">
+              <DialogTitle className="flex items-center gap-3">
+                <span className="text-2xl">⭐</span>
+                {selectedTestimonial.name}'s Success Story
+              </DialogTitle>
+            </DialogHeader>
+
+            <div className="flex-1 overflow-y-auto px-6 pb-6">
+              <div className="space-y-6">
+              {/* Header with photo and basic info */}
+              <div className="flex items-start gap-4">
+                {selectedTestimonial.photoUrl ? (
+                  <img
+                    src={selectedTestimonial.photoUrl}
+                    alt={selectedTestimonial.name}
+                    className="w-20 h-20 rounded-full object-cover flex-shrink-0"
+                  />
+                ) : (
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
+                    <User className="h-10 w-10 text-white" />
+                  </div>
+                )}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-2xl font-bold text-white mb-2">{selectedTestimonial.name}</h3>
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <Badge className="bg-primary/20 text-primary">
+                      {selectedTestimonial.flag} {selectedTestimonial.country}
+                    </Badge>
+                    <Badge className="bg-blue-500/20 text-blue-400">
+                      {selectedTestimonial.service}
+                    </Badge>
+                  </div>
+                  <div className="flex items-center gap-2 mb-3">
+                    {Array.from({ length: selectedTestimonial.rating }).map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    ))}
+                    <span className="text-white/70 ml-2">({selectedTestimonial.rating}/5)</span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 text-sm text-white/70">
+                    <span className="text-primary font-medium">{selectedTestimonial.achievement}</span>
+                    <span>•</span>
+                    <span>{selectedTestimonial.timeframe}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Full testimonial */}
+              <div className="bg-white/5 border border-primary/20 rounded-lg p-4 md:p-6">
+                <h4 className="text-lg font-semibold text-white mb-3">Full Testimonial</h4>
+                <blockquote className="text-white/90 leading-relaxed text-base md:text-lg italic">
+                  "{selectedTestimonial.review}"
+                </blockquote>
+              </div>
+
+              {/* Supporting Document */}
+              {selectedTestimonial.supportingDocUrls && selectedTestimonial.supportingDocUrls.length > 0 && (
+                <div className="bg-white/5 border border-primary/20 rounded-lg p-4 md:p-6">
+                  <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                    <FileText className="h-5 w-5 text-primary" />
+                    Supporting Document
+                  </h4>
+                  {(() => {
+                    const docUrl = selectedTestimonial.supportingDocUrls[0]; // Only show first document
+                    console.log("Document URL:", docUrl); // Debug log
+                    
+                    if (!docUrl) {
+                      return <div className="text-white/60">No document available</div>;
+                    }
+                    
+                    // Use stored file type if available, otherwise fall back to URL detection
+                    const storedType = selectedTestimonial.supportingDocType;
+                    const hasExtension = docUrl.includes('.') && (docUrl.split('.').pop()?.length || 0) <= 4;
+                    
+                    let isImage = false;
+                    let isPDF = false;
+                    
+                    if (storedType) {
+                      // Use stored type information
+                      isImage = storedType === 'image';
+                      isPDF = storedType === 'pdf';
+                    } else {
+                      // Fall back to URL detection
+                      const isConvexUrl = docUrl.includes('convex.cloud');
+                      isImage = hasExtension ? Boolean(docUrl.match(/\.(jpg|jpeg|png|gif|webp|bmp|tiff|svg)$/i)) : isConvexUrl;
+                      isPDF = hasExtension ? Boolean(docUrl.match(/\.pdf$/i)) : false;
+                    }
+                    
+                    if (isImage) {
+                      return (
+                        <div className="space-y-3">
+                          <img
+                            src={docUrl}
+                            alt="Supporting document"
+                            className="w-full max-w-2xl mx-auto rounded-lg border border-primary/20"
+                            loading="eager"
+                            onLoad={() => {
+                              console.log("Image loaded successfully");
+                            }}
+                            onError={(e) => {
+                              console.error("Image failed to load:", docUrl);
+                              // Hide the image and show fallback
+                              e.currentTarget.style.display = 'none';
+                              const parent = e.currentTarget.parentElement;
+                              if (parent) {
+                                const fallback = document.createElement('div');
+                                fallback.className = 'text-center py-8';
+                                fallback.innerHTML = `
+                                  <div class="text-white/60 mb-2">Unable to display image</div>
+                                  <a href="${docUrl}" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 underline">
+                                    Click to view document
+                                  </a>
+                                `;
+                                parent.appendChild(fallback);
+                              }
+                            }}
+                          />
+                          <div className="text-center text-white/60 text-sm">Supporting Photo</div>
+                        </div>
+                      );
+                    } else if (isPDF) {
+                      return (
+                        <div className="space-y-3">
+                          <div className="w-full h-96 rounded-lg border border-primary/20 overflow-hidden bg-white">
+                            <object
+                              data={docUrl}
+                              type="application/pdf"
+                              className="w-full h-full"
+                            >
+                              <iframe
+                                src={`https://docs.google.com/viewer?url=${encodeURIComponent(docUrl)}&embedded=true`}
+                                className="w-full h-full"
+                                title="Supporting PDF Document"
+                              />
+                            </object>
+                          </div>
+                          <div className="text-center text-white/60 text-sm">PDF Document</div>
+                        </div>
+                      );
+                    } else {
+                      return (
+                        <div className="text-center py-8">
+                          <FileText className="h-12 w-12 text-white/30 mx-auto mb-4" />
+                          <div className="text-white/60 mb-2">Document available</div>
+                          <a
+                            href={docUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary hover:text-primary/80 underline"
+                          >
+                            Click to view document
+                          </a>
+                        </div>
+                      );
+                    }
+                  })()}
+                </div>
+              )}
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </Dialog>
   );
 }

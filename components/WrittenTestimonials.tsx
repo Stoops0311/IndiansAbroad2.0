@@ -6,57 +6,19 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Quote, Star, User, MapPin, Briefcase, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 import ReviewsModal from "./ReviewsModal";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Ritika Shah",
-    profession: "HR Executive",
-    country: "Australia",
-    flag: "🇦🇺",
-    rating: 5,
-    review: "From my IELTS to visa stamping, everything was taken care of. I never felt lost. The team guided me through every step.",
-    achievement: "PR Visa Approved",
-    timeframe: "8 months"
-  },
-  {
-    id: 2,
-    name: "Arjun Sharma",
-    profession: "Data Scientist", 
-    country: "Netherlands",
-    flag: "🇳🇱",
-    rating: 5,
-    review: "Within 2 weeks of resume optimization, I had 5 interviews lined up. The visa process was seamless with their guidance.",
-    achievement: "€85k Job Offer",
-    timeframe: "5 months"
-  },
-  {
-    id: 3,
-    name: "Priya Gupta",
-    profession: "Marketing Manager",
-    country: "Canada", 
-    flag: "🇨🇦",
-    rating: 5,
-    review: "Got my Express Entry invitation in first draw itself. Their point calculation and document preparation was spot-on.",
-    achievement: "Canada PR",
-    timeframe: "7 months"
-  },
-  {
-    id: 4,
-    name: "Vikram Singh",
-    profession: "Software Developer",
-    country: "Germany",
-    flag: "🇩🇪", 
-    rating: 5,
-    review: "No IELTS required for Germany was true! They connected me with employers who sponsored my visa directly.",
-    achievement: "Job Visa Approved",
-    timeframe: "4 months"
-  }
-];
 
 export default function WrittenTestimonials() {
   const [modalOpen, setModalOpen] = useState(false);
+  
+  // Fetch testimonials from Convex
+  const allTestimonials = useQuery(api.testimonials.getAllTestimonials);
+  
+  // Show first 4 testimonials in the component
+  const displayedTestimonials = allTestimonials?.slice(0, 4) || [];
+  const totalCount = allTestimonials?.length || 0;
 
   return (
     <>
@@ -80,9 +42,46 @@ export default function WrittenTestimonials() {
         </div>
         
         <div className="space-y-4 flex-1 overflow-y-auto max-h-[400px] pr-2 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
-          {testimonials.map((testimonial) => (
+          {!allTestimonials ? (
+            // Loading state
+            <div className="space-y-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="p-4 bg-white/5 border border-primary/20 rounded animate-pulse">
+                  <div className="space-y-3">
+                    <div className="flex gap-1">
+                      {[1, 2, 3, 4, 5].map((j) => (
+                        <div key={j} className="w-3 h-3 bg-white/20 rounded"></div>
+                      ))}
+                    </div>
+                    <div className="space-y-2">
+                      <div className="h-4 bg-white/20 rounded w-full"></div>
+                      <div className="h-4 bg-white/20 rounded w-3/4"></div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-white/20 rounded-full"></div>
+                        <div className="space-y-1">
+                          <div className="h-3 bg-white/20 rounded w-20"></div>
+                          <div className="h-2 bg-white/20 rounded w-16"></div>
+                        </div>
+                      </div>
+                      <div className="h-5 bg-white/20 rounded w-16"></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : displayedTestimonials.length === 0 ? (
+            // Empty state
+            <div className="text-center py-8">
+              <Quote className="h-12 w-12 text-white/30 mx-auto mb-4" />
+              <p className="text-white/60 text-sm">No testimonials available yet.</p>
+            </div>
+          ) : (
+            // Testimonials list
+            displayedTestimonials.map((testimonial) => (
             <Card 
-              key={testimonial.id}
+              key={testimonial._id}
               className="p-4 bg-white/5 border-primary/20 hover:border-primary/40 hover:bg-white/10 transition-all duration-300 group"
             >
               <div className="space-y-3">
@@ -98,16 +97,23 @@ export default function WrittenTestimonials() {
                 
                 <div className="flex items-center justify-between pt-3 border-t border-white/10">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
-                      <User className="h-4 w-4 text-white" />
-                    </div>
+                    {testimonial.photoUrl ? (
+                      <img
+                        src={testimonial.photoUrl}
+                        alt={testimonial.name}
+                        className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+                      />
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
+                        <User className="h-4 w-4 text-white" />
+                      </div>
+                    )}
                     <div className="min-w-0">
                       <h5 className="font-semibold text-white text-sm leading-tight">
                         {testimonial.name}
                       </h5>
                       <div className="flex items-center gap-2 text-xs text-white/70">
-                        <Briefcase className="h-3 w-3 flex-shrink-0" />
-                        <span className="truncate">{testimonial.profession}</span>
+                        <span className="truncate">{testimonial.service}</span>
                       </div>
                     </div>
                   </div>
@@ -127,7 +133,7 @@ export default function WrittenTestimonials() {
                 </div>
               </div>
             </Card>
-          ))}
+          )))}
         </div>
         
           <div className="mt-4 pt-4 border-t border-white/10">
@@ -140,7 +146,7 @@ export default function WrittenTestimonials() {
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <p className="text-xs text-white/60 text-center mt-2">
-              500+ written testimonials available
+              {totalCount}+ written testimonials available
             </p>
           </div>
         </div>
