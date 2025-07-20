@@ -37,14 +37,14 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 pt-0">
           {/* Left Column - Content */}
           <div className="space-y-6">
-            {/* Service Image */}
+            {/* Service GIF */}
             <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl border border-primary/20 overflow-hidden">
               <img
-                src={`/services/${service.id}.png`}
+                src={`/services/${service.id}.gif`}
                 alt={service.title}
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  // Fallback to placeholder if image doesn't exist
+                  // Fallback to placeholder if GIF doesn't exist
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                   const parent = target.parentElement;
@@ -54,10 +54,10 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
                         <div class="text-center">
                           <div class="p-4 rounded-full bg-primary/20 mb-4 mx-auto w-fit">
                             <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                             </svg>
                           </div>
-                          <p class="text-white/70 text-sm">Image Coming Soon</p>
+                          <p class="text-white/70 text-sm">Video Coming Soon</p>
                         </div>
                       </div>
                     `;
