@@ -4,6 +4,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import SuccessStories from "@/components/SuccessStories";
 import CountriesGrid from "@/components/CountriesGrid";
 import FinalCTA from "@/components/FinalCTA";
+import EligibilityForm from "@/components/EligibilityForm";
 import Footer from "@/components/Footer";
 import { BentoGrid } from "@/components/ui/bento";
 
@@ -33,6 +34,11 @@ export default function Home() {
       {/* Final CTA - Full Width */}
       <section className="w-full px-4 md:px-8 lg:px-12 py-6 md:py-8">
         <FinalCTA />
+      </section>
+      
+      {/* Free Eligibility Check */}
+      <section className="w-full px-4 md:px-8 lg:px-12 py-6 md:py-8">
+        <EligibilityForm />
       </section>
       
       {/* Footer */}

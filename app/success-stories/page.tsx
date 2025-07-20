@@ -4,6 +4,7 @@ import TrustMetrics from "@/components/TrustMetrics";
 import VideoTestimonials from "@/components/VideoTestimonials";
 import WrittenTestimonials from "@/components/WrittenTestimonials";
 import FinalCTA from "@/components/FinalCTA";
+import EligibilityForm from "@/components/EligibilityForm";
 
 export default function SuccessStoriesPage() {
   return (
@@ -27,6 +28,11 @@ export default function SuccessStoriesPage() {
         {/* Final CTA - Full Width */}
         <section className="w-full px-4 md:px-8 lg:px-12 py-6 md:py-8">
           <FinalCTA />
+        </section>
+        
+        {/* Free Eligibility Check */}
+        <section className="w-full px-4 md:px-8 lg:px-12 py-6 md:py-8">
+          <EligibilityForm />
         </section>
       </div>
       

@@ -37,17 +37,33 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 pt-0">
           {/* Left Column - Content */}
           <div className="space-y-6">
-            {/* Media Placeholder */}
-            <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl border border-primary/20 flex items-center justify-center group cursor-pointer hover:from-primary/30 hover:to-primary/10 transition-all">
-              <div className="text-center">
-                <div className="p-4 rounded-full bg-primary/20 mb-4 mx-auto w-fit">
-                  <ImageIcon className="h-8 w-8 text-primary" />
-                </div>
-                <p className="text-white/70 text-sm">Image/Video Coming Soon</p>
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Play className="h-6 w-6 text-primary" />
-                </div>
-              </div>
+            {/* Service Image */}
+            <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl border border-primary/20 overflow-hidden">
+              <img
+                src={`/services/${service.id}.png`}
+                alt={service.title}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback to placeholder if image doesn't exist
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent) {
+                    parent.innerHTML = `
+                      <div class="flex items-center justify-center h-full">
+                        <div class="text-center">
+                          <div class="p-4 rounded-full bg-primary/20 mb-4 mx-auto w-fit">
+                            <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                          </div>
+                          <p class="text-white/70 text-sm">Image Coming Soon</p>
+                        </div>
+                      </div>
+                    `;
+                  }
+                }}
+              />
             </div>
 
             {/* Description */}

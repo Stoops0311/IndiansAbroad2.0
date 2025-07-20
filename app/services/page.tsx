@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ServicesHero from "@/components/ServicesHero";
 import ServiceCard from "@/components/ServiceCard";
 import ProfileEvaluationCTA from "@/components/ProfileEvaluationCTA";
+import EligibilityForm from "@/components/EligibilityForm";
 import { servicesData } from "@/lib/services-data";
 
 export default function ServicesPage() {
@@ -35,6 +36,11 @@ export default function ServicesPage() {
           
           {/* Free Profile Evaluation CTA */}
           <ProfileEvaluationCTA />
+        </section>
+        
+        {/* Free Eligibility Check */}
+        <section className="w-full px-4 md:px-8 lg:px-12 py-6 md:py-8">
+          <EligibilityForm />
         </section>
       </div>
       <Footer />

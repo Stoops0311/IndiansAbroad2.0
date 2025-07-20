@@ -4,6 +4,7 @@ import DestinationsHero from "@/components/DestinationsHero";
 import CountryCard from "@/components/CountryCard";
 import CountryComparison from "@/components/CountryComparison";
 import FloatingCTA from "@/components/FloatingCTA";
+import EligibilityForm from "@/components/EligibilityForm";
 
 const countries = [
   {
@@ -190,6 +191,11 @@ export default function DestinationsPage() {
           
           {/* Country Comparison Tool */}
           <CountryComparison countries={countries} />
+        </section>
+        
+        {/* Free Eligibility Check */}
+        <section className="w-full px-4 md:px-8 lg:px-12 py-6 md:py-8">
+          <EligibilityForm />
         </section>
       </div>
       

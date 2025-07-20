@@ -5,6 +5,7 @@ import MissionVision from "@/components/MissionVision";
 import MissionCard from "@/components/MissionCard";
 import VisionCard from "@/components/VisionCard";
 import WhyChooseStats from "@/components/WhyChooseStats";
+import EligibilityForm from "@/components/EligibilityForm";
 
 export default function AboutPage() {
   return (
@@ -32,6 +33,11 @@ export default function AboutPage() {
             {/* Stats Section - Full Width */}
             <WhyChooseStats />
           </div>
+        </section>
+        
+        {/* Free Eligibility Check */}
+        <section className="w-full px-4 md:px-8 lg:px-12 py-6 md:py-8">
+          <EligibilityForm />
         </section>
       </div>
       <Footer />

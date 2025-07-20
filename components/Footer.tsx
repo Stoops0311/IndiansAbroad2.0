@@ -2,7 +2,8 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Home, Instagram, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Mail, Home, Instagram, ExternalLink, FileText } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -95,6 +96,17 @@ export default function Footer() {
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </div>
+              
+              <div className="flex items-center gap-3">
+                <FileText className="h-4 w-4 text-primary" />
+                <span className="text-xl mr-2">📄</span>
+                <Link 
+                  href="/terms"
+                  className="text-sm text-white/80 hover:text-primary transition-colors"
+                >
+                  Terms & Conditions
+                </Link>
+              </div>
             </div>
             
             <div className="pt-4">
@@ -113,10 +125,32 @@ export default function Footer() {
         </div>
         
         {/* Copyright */}
-        <div className="mt-8 pt-6 border-t border-white/10 text-center">
-          <p className="text-sm text-white/60">
-            © {new Date().getFullYear()} Indians Abroad. All rights reserved.
-          </p>
+        <div className="mt-8 pt-6 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-sm text-white/60">
+              <span>Product of Myst Education</span>
+              <span className="hidden md:inline">|</span>
+              <div className="flex items-center gap-2">
+                <span>Partnered with</span>
+                <img 
+                  src="/MARA.png" 
+                  alt="MARA - Migration Agents Registration Authority" 
+                  className="h-6 w-auto"
+                />
+                <span>|</span>
+                <img 
+                  src="/RCIC.png" 
+                  alt="RCIC - Regulated Canadian Immigration Consultant" 
+                  className="h-6 w-auto"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="text-center mt-4">
+            <p className="text-sm text-white/60">
+              All Rights Reserved. © 2018 Indians Abroad
+            </p>
+          </div>
         </div>
       </Card>
     </footer>
