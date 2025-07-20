@@ -124,32 +124,53 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* Copyright */}
+        {/* Legal Information Box */}
         <div className="mt-8 pt-6 border-t border-white/10">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
-            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-sm text-white/60">
-              <span>Product of Myst Education</span>
-              <span className="hidden md:inline">|</span>
-              <div className="flex items-center gap-2">
-                <span>Partnered with</span>
-                <img 
-                  src="/MARA.png" 
-                  alt="MARA - Migration Agents Registration Authority" 
-                  className="h-6 w-auto"
-                />
-                <span>|</span>
-                <img 
-                  src="/RCIC.png" 
-                  alt="RCIC - Regulated Canadian Immigration Consultant" 
-                  className="h-6 w-auto"
-                />
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 max-w-4xl mx-auto">
+            <div className="space-y-4">
+              {/* Product and Partnership Info */}
+              <div className="text-center">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-sm text-white/90 mb-4">
+                  <span className="font-medium">Product of Myst Education</span>
+                  <span className="hidden md:inline text-white/60">|</span>
+                  <span className="font-medium">Partnered with</span>
+                </div>
+                
+                {/* Partner Logos with Labels */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
+                  <div className="flex flex-col items-center gap-2">
+                    <img 
+                      src="/MARA.png" 
+                      alt="MARA - Migration Agents Registration Authority" 
+                      className="h-12 w-auto filter brightness-110 contrast-110"
+                    />
+                    <span className="text-xs text-white/80 text-center max-w-[140px] leading-tight">
+                      MARA - Migration Agents Registration Authority
+                    </span>
+                  </div>
+                  
+                  <div className="hidden sm:block text-white/40 text-lg">|</div>
+                  
+                  <div className="flex flex-col items-center gap-2">
+                    <img 
+                      src="/RCIC.png" 
+                      alt="RCIC - Regulated Canadian Immigration Consultant" 
+                      className="h-12 w-auto filter brightness-110 contrast-110"
+                    />
+                    <span className="text-xs text-white/80 text-center max-w-[140px] leading-tight">
+                      RCIC - Regulated Canadian Immigration Consultant
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Copyright */}
+              <div className="text-center pt-4 border-t border-white/20">
+                <p className="text-sm text-white/70 font-medium">
+                  All Rights Reserved. © 2018 Indians Abroad
+                </p>
               </div>
             </div>
-          </div>
-          <div className="text-center mt-4">
-            <p className="text-sm text-white/60">
-              All Rights Reserved. © 2018 Indians Abroad
-            </p>
           </div>
         </div>
       </Card>
