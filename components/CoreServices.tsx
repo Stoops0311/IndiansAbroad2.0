@@ -52,10 +52,10 @@ export default function CoreServices() {
               <Settings className="h-6 w-6 text-primary" />
             </BentoIcon>
             <div>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2">
                 Our Core Services
               </h2>
-              <p className="text-sm md:text-base lg:text-lg text-white/80">
+              <p className="text-sm md:text-base lg:text-lg text-muted-foreground">
                 Comprehensive support for your international career journey
               </p>
             </div>
@@ -69,17 +69,17 @@ export default function CoreServices() {
             return (
               <div
                 key={service.id}
-                className="p-4 md:p-5 rounded-xl bg-white/5 hover:bg-white/10 hover:scale-[1.02] transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary/20"
+                className="p-4 md:p-5 rounded-xl bg-foreground/5 hover:bg-foreground/10 hover:scale-[1.02] transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary/20"
               >
                 <div className="flex items-start gap-3">
                   <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
                     <Icon className="h-5 w-5 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-white text-base mb-2 leading-tight">
+                    <h3 className="font-semibold text-foreground text-base mb-2 leading-tight">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-white/70 leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
                   </div>

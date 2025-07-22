@@ -57,7 +57,7 @@ export default function WhyChooseUs() {
               <BentoTitle className="text-lg md:text-xl lg:text-2xl mb-2">
                 Why Choose Us
               </BentoTitle>
-              <BentoDescription className="text-sm md:text-base font-medium text-white/90 leading-relaxed">
+              <BentoDescription className="text-sm md:text-base font-medium text-muted-foreground leading-relaxed">
                 We're Not Just a Visa Agency. We're Your Abroad Partner.
               </BentoDescription>
             </div>
@@ -71,12 +71,12 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={feature.id}
-                className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-[1.02] transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary/20"
+                className="flex items-center gap-3 p-3 rounded-lg bg-foreground/5 hover:bg-foreground/10 hover:scale-[1.02] transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary/20"
               >
                 <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
                   <Icon className={`h-4 w-4 ${feature.color}`} />
                 </div>
-                <span className="text-sm text-white/90 font-medium leading-tight">
+                <span className="text-sm text-foreground font-medium leading-tight">
                   {feature.title}
                 </span>
               </div>
@@ -85,7 +85,7 @@ export default function WhyChooseUs() {
         </div>
         
         {/* Learn More Button */}
-        <div className="mt-6 pt-4 border-t border-white/10">
+        <div className="mt-6 pt-4 border-t border-border/20">
           <Button asChild variant="outline" className="w-full border-primary/20 hover:border-primary/40 hover:bg-primary/10 transition-all group">
             <Link href="/about">
               Learn More About Us

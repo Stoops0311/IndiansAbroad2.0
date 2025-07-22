@@ -73,7 +73,7 @@ export function BentoTitle({ children, className, ...props }: BentoTitleProps) {
   return (
     <h3
       className={cn(
-        "text-xl md:text-2xl font-bold text-white",
+        "text-xl md:text-2xl font-bold text-foreground",
         className
       )}
       {...props}
@@ -91,7 +91,7 @@ export function BentoDescription({ children, className, ...props }: BentoDescrip
   return (
     <p
       className={cn(
-        "text-sm md:text-base text-white/70",
+        "text-sm md:text-base text-muted-foreground",
         className
       )}
       {...props}

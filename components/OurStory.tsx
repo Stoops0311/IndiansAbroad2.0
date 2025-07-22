@@ -46,27 +46,27 @@ export default function OurStory() {
             Our Story
           </BentoTitle>
           
-          <BentoDescription className="text-base md:text-lg text-white/90 leading-relaxed mb-8">
+          <BentoDescription className="text-base md:text-lg text-foreground/90 leading-relaxed mb-8">
             We started with one goal — to help ordinary Indians build extraordinary lives abroad. 
             What began as a small initiative in a single room has now become a trusted name for 
             <span className="text-primary font-semibold"> 2000+ professionals</span> who successfully 
             moved to Canada, Germany, the UK, and Australia.
           </BentoDescription>
           
-          <BentoDescription className="text-base md:text-lg text-white/80 leading-relaxed">
+          <BentoDescription className="text-base md:text-lg text-foreground/80 leading-relaxed">
             Every visa is approved. Every client settled. Every happy story — is proof that we don't 
-            just process files, <span className="text-white font-medium">we change lives</span>.
+            just process files, <span className="text-foreground font-medium">we change lives</span>.
           </BentoDescription>
         </div>
         
         {/* Timeline */}
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-white mb-6">Our Journey So Far</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-6">Our Journey So Far</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {milestones.map((milestone, index) => (
               <Card 
                 key={index}
-                className="p-4 bg-white/5 border-primary/20 hover:bg-white/10 hover:border-primary/40 transition-all duration-300 group"
+                className="p-4 bg-foreground/5 border-primary/20 hover:bg-foreground/10 hover:border-primary/40 transition-all duration-300 group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
@@ -77,8 +77,8 @@ export default function OurStory() {
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold text-white text-sm mb-1">{milestone.title}</h4>
-                    <p className="text-xs text-white/70 leading-relaxed">{milestone.description}</p>
+                    <h4 className="font-semibold text-foreground text-sm mb-1">{milestone.title}</h4>
+                    <p className="text-xs text-foreground/70 leading-relaxed">{milestone.description}</p>
                   </div>
                 </div>
               </Card>
@@ -89,7 +89,7 @@ export default function OurStory() {
         {/* Story Image Placeholder */}
         <div className="mt-8">
           <div className="w-full h-32 md:h-40 bg-gradient-to-r from-primary/10 to-primary/5 rounded-xl border border-primary/20 flex items-center justify-center">
-            <div className="text-center text-white/60">
+            <div className="text-center text-foreground/60">
               <div className="text-sm font-medium">Story Image Placeholder</div>
               <div className="text-xs mt-1">Team photo or office image</div>
             </div>

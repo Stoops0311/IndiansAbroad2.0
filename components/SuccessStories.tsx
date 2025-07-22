@@ -53,7 +53,7 @@ export default function SuccessStories() {
             Success Stories
           </BentoTitle>
           
-          <BentoDescription className="text-white/90">
+          <BentoDescription className="text-muted-foreground">
             Real stories from people who made their dreams come true
           </BentoDescription>
         </div>
@@ -63,14 +63,14 @@ export default function SuccessStories() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-3">
               <Play className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-white/80">🎥 Video Testimonials</span>
+              <span className="text-sm font-medium text-muted-foreground">🎥 Video Testimonials</span>
             </div>
             
             {videoTestimonials.map((testimonial, index) => (
               <Card 
                 key={testimonial.id}
-                className={`p-4 bg-white/5 hover:bg-white/10 hover:scale-[1.02] transition-all duration-300 cursor-pointer border-primary/20 ${
-                  activeVideo === index ? 'border-primary/40 bg-white/10' : ''
+                className={`p-4 bg-foreground/5 hover:bg-foreground/10 hover:scale-[1.02] transition-all duration-300 cursor-pointer border-primary/20 ${
+                  activeVideo === index ? 'border-primary/40 bg-foreground/10' : ''
                 }`}
                 onClick={() => setActiveVideo(index)}
               >
@@ -82,16 +82,16 @@ export default function SuccessStories() {
                   </div>
                   
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-white text-sm mb-1 leading-tight">
+                    <h4 className="font-semibold text-foreground text-sm mb-1 leading-tight">
                       {testimonial.name}
                     </h4>
-                    <div className="flex items-center gap-2 text-xs text-white/70 mb-1">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
                       <MapPin className="h-3 w-3 flex-shrink-0" />
                       <span>{testimonial.country}</span>
                       <span>•</span>
                       <span>{testimonial.duration}</span>
                     </div>
-                    <p className="text-xs text-white/80 leading-relaxed">
+                    <p className="text-xs text-muted-foreground leading-relaxed">
                       {testimonial.quote}
                     </p>
                   </div>
@@ -104,10 +104,10 @@ export default function SuccessStories() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-3">
               <Quote className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-white/80">📖 Reviews</span>
+              <span className="text-sm font-medium text-muted-foreground">📖 Reviews</span>
             </div>
             
-            <Card className="p-4 bg-white/5 border-primary/20 h-fit hover:bg-white/10 transition-colors">
+            <Card className="p-4 bg-foreground/5 border-primary/20 h-fit hover:bg-foreground/10 transition-colors">
               <div className="space-y-3">
                 <div className="flex gap-1">
                   {Array.from({ length: writtenTestimonial.rating }).map((_, i) => (
@@ -115,19 +115,19 @@ export default function SuccessStories() {
                   ))}
                 </div>
                 
-                <blockquote className="text-sm text-white/90 italic leading-relaxed">
+                <blockquote className="text-sm text-foreground italic leading-relaxed">
                   "{writtenTestimonial.text}"
                 </blockquote>
                 
-                <div className="flex items-center gap-3 pt-3 border-t border-white/10">
+                <div className="flex items-center gap-3 pt-3 border-t border-border/20">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
                     <User className="h-4 w-4 text-white" />
                   </div>
                   <div className="min-w-0">
-                    <h5 className="font-semibold text-white text-sm leading-tight">
+                    <h5 className="font-semibold text-foreground text-sm leading-tight">
                       {writtenTestimonial.name}
                     </h5>
-                    <div className="flex items-center gap-2 text-xs text-white/70">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <Briefcase className="h-3 w-3 flex-shrink-0" />
                       <span>{writtenTestimonial.role}</span>
                       <span>•</span>

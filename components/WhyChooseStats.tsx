@@ -73,7 +73,7 @@ export default function WhyChooseStats() {
             Why People Choose Us
           </BentoTitle>
           
-          <BentoDescription className="text-white/90">
+          <BentoDescription className="text-muted-foreground">
             The numbers speak for themselves, but our commitment goes beyond statistics
           </BentoDescription>
         </div>
@@ -91,10 +91,10 @@ export default function WhyChooseStats() {
                     {stat.icon}
                   </div>
                 </div>
-                <div className="text-2xl md:text-3xl font-bold text-white">
+                <div className="text-2xl md:text-3xl font-bold text-foreground">
                   {stat.number}
                 </div>
-                <div className="text-xs md:text-sm text-white/70">
+                <div className="text-xs md:text-sm text-foreground/70">
                   {stat.label}
                 </div>
               </div>
@@ -104,21 +104,21 @@ export default function WhyChooseStats() {
         
         {/* Features Grid */}
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-white mb-6">What Sets Us Apart</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-6">What Sets Us Apart</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="p-4 bg-white/5 rounded-xl border border-primary/20 hover:bg-white/10 hover:border-primary/40 transition-all duration-300 group"
+                className="p-4 bg-foreground/5 rounded-xl border border-primary/20 hover:bg-foreground/10 hover:border-primary/40 transition-all duration-300 group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-primary/20 text-primary group-hover:bg-primary/30 transition-colors">
                       {feature.icon}
                     </div>
-                    <h4 className="font-semibold text-white text-sm">{feature.title}</h4>
+                    <h4 className="font-semibold text-foreground text-sm">{feature.title}</h4>
                   </div>
-                  <p className="text-xs text-white/70 leading-relaxed pl-11">
+                  <p className="text-xs text-muted-foreground leading-relaxed pl-11">
                     {feature.description}
                   </p>
                 </div>

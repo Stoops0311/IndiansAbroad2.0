@@ -51,7 +51,7 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-4 flex-1">
           {/* Full Name */}
           <div>
-            <label htmlFor="fullName" className="block text-sm font-medium text-white/90 mb-2">
+            <label htmlFor="fullName" className="block text-sm font-medium text-foreground/90 mb-2">
               Full Name *
             </label>
             <input
@@ -59,14 +59,14 @@ export default function ContactForm() {
               id="fullName"
               name="fullName"
               required
-              className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-primary/50 focus:bg-white/15 transition-all"
+              className="w-full px-3 py-2 bg-foreground/10 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 focus:bg-foreground/15 transition-all"
               placeholder="Enter your full name"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-white/90 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-foreground/90 mb-2">
               Email Address *
             </label>
             <input
@@ -74,14 +74,14 @@ export default function ContactForm() {
               id="email"
               name="email"
               required
-              className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-primary/50 focus:bg-white/15 transition-all"
+              className="w-full px-3 py-2 bg-foreground/10 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 focus:bg-foreground/15 transition-all"
               placeholder="your.email@example.com"
             />
           </div>
 
           {/* Mobile Number */}
           <div>
-            <label htmlFor="mobile" className="block text-sm font-medium text-white/90 mb-2">
+            <label htmlFor="mobile" className="block text-sm font-medium text-foreground/90 mb-2">
               Mobile Number *
             </label>
             <input
@@ -89,14 +89,14 @@ export default function ContactForm() {
               id="mobile"
               name="mobile"
               required
-              className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-primary/50 focus:bg-white/15 transition-all"
+              className="w-full px-3 py-2 bg-foreground/10 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 focus:bg-foreground/15 transition-all"
               placeholder="+91 9876543210"
             />
           </div>
 
           {/* Service Interested In */}
           <div>
-            <label htmlFor="service" className="block text-sm font-medium text-white/90 mb-2">
+            <label htmlFor="service" className="block text-sm font-medium text-foreground/90 mb-2">
               Service Interested In
             </label>
             <select
@@ -104,11 +104,11 @@ export default function ContactForm() {
               name="service"
               value={selectedService}
               onChange={(e) => setSelectedService(e.target.value)}
-              className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-primary/50 focus:bg-white/15 transition-all"
+              className="w-full px-3 py-2 bg-foreground/10 border border-border rounded-lg text-foreground focus:outline-none focus:border-primary/50 focus:bg-foreground/15 transition-all"
             >
-              <option value="" className="bg-gray-800 text-white">Select a service</option>
+              <option value="" className="bg-popover text-popover-foreground">Select a service</option>
               {services.map((service) => (
-                <option key={service.id} value={service.id} className="bg-gray-800 text-white">
+                <option key={service.id} value={service.id} className="bg-popover text-popover-foreground">
                   {service.name}
                 </option>
               ))}
@@ -117,14 +117,14 @@ export default function ContactForm() {
 
           {/* Message */}
           <div className="flex-1">
-            <label htmlFor="message" className="block text-sm font-medium text-white/90 mb-2">
+            <label htmlFor="message" className="block text-sm font-medium text-foreground/90 mb-2">
               Message
             </label>
             <textarea
               id="message"
               name="message"
               rows={4}
-              className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-primary/50 focus:bg-white/15 transition-all resize-none"
+              className="w-full px-3 py-2 bg-foreground/10 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 focus:bg-foreground/15 transition-all resize-none"
               placeholder="Tell us about your requirements..."
             />
           </div>

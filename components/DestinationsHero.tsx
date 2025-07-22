@@ -74,11 +74,11 @@ export default function DestinationsHero() {
         </div>
         
         {/* Main Title */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
           🌐 Work & Settle in These Top Countries
         </h1>
         
-        <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto mb-10">
+        <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-10">
           Explore global opportunities in countries where your skills are in demand. 
           Join thousands who've built successful careers abroad.
         </p>
@@ -92,10 +92,10 @@ export default function DestinationsHero() {
                   <Users className="h-6 w-6 text-primary" />
                 </div>
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                 {animatedCounts.professionals.toLocaleString()}+
               </div>
-              <div className="text-sm md:text-base text-white/70">
+              <div className="text-sm md:text-base text-muted-foreground">
                 Professionals Relocated
               </div>
             </div>
@@ -106,10 +106,10 @@ export default function DestinationsHero() {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                 {animatedCounts.countries}+
               </div>
-              <div className="text-sm md:text-base text-white/70">
+              <div className="text-sm md:text-base text-muted-foreground">
                 Countries & Growing
               </div>
             </div>
@@ -120,18 +120,18 @@ export default function DestinationsHero() {
                   <TrendingUp className="h-6 w-6 text-primary" />
                 </div>
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                 {animatedCounts.successRate}%
               </div>
-              <div className="text-sm md:text-base text-white/70">
+              <div className="text-sm md:text-base text-muted-foreground">
                 Average Success Rate
               </div>
             </div>
           </div>
           
           {/* Personal Touch */}
-          <div className="mt-6 pt-6 border-t border-white/10">
-            <p className="text-sm md:text-base text-white/80 italic">
+          <div className="mt-6 pt-6 border-t border-foreground/10">
+            <p className="text-sm md:text-base text-muted-foreground italic">
               "Find your perfect country match based on your skills, experience, and lifestyle preferences"
             </p>
           </div>

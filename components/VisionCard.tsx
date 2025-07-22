@@ -17,13 +17,13 @@ export default function VisionCard() {
           Our Vision
         </BentoTitle>
         
-        <BentoDescription className="text-sm md:text-base text-white/90 leading-relaxed flex-1">
+        <BentoDescription className="text-sm md:text-base text-foreground/90 leading-relaxed flex-1">
           To be India's most trusted name for ethical, transparent, and life-changing abroad consultancy services.
         </BentoDescription>
         
         <div className="mt-4 p-3 rounded-lg bg-primary/10 border border-primary/20">
           <div className="text-primary text-2xl font-bold">98%</div>
-          <div className="text-white/70 text-xs">Success Rate</div>
+          <div className="text-muted-foreground text-xs">Success Rate</div>
         </div>
       </div>
     </BentoCard>

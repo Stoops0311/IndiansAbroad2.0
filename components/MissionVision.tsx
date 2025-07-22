@@ -30,7 +30,7 @@ export default function MissionVision() {
               <div className="p-3 rounded-lg bg-primary/20 text-primary flex-shrink-0">
                 {value.icon}
               </div>
-              <span className="text-sm md:text-base text-white/90 leading-relaxed">
+              <span className="text-sm md:text-base text-foreground/90 leading-relaxed">
                 {value.text}
               </span>
             </div>
@@ -39,7 +39,7 @@ export default function MissionVision() {
         
         <div className="mt-4 p-3 rounded-lg bg-primary/10 border border-primary/20">
           <div className="text-primary text-2xl font-bold">15+</div>
-          <div className="text-white/70 text-xs">Years Experience</div>
+          <div className="text-foreground/70 text-xs">Years Experience</div>
         </div>
       </div>
     </BentoCard>

@@ -20,7 +20,7 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
         <DialogHeader>
           <div className="flex items-start justify-between gap-4 mb-4">
             <div className="flex-1">
-              <DialogTitle className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <DialogTitle className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                 {service.title}
               </DialogTitle>
               {service.price && (
@@ -57,7 +57,7 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                             </svg>
                           </div>
-                          <p class="text-white/70 text-sm">Video Coming Soon</p>
+                          <p class="text-muted-foreground text-sm">Video Coming Soon</p>
                         </div>
                       </div>
                     `;
@@ -68,8 +68,8 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
 
             {/* Description */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-4">Service Overview</h3>
-              <div className="space-y-4 text-white/80 leading-relaxed">
+              <h3 className="text-xl font-semibold text-foreground mb-4">Service Overview</h3>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
                 {service.detailedContent?.description.split('\n\n').map((paragraph, index) => (
                   <p key={index} className="text-sm md:text-base">
                     {paragraph}
@@ -82,12 +82,12 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
           {/* Right Column - Offering */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-white mb-4">What's Included</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-4">What's Included</h3>
               <div className="space-y-3">
                 {service.detailedContent?.offering.map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/90 text-sm md:text-base leading-relaxed">
+                    <span className="text-foreground/90 text-sm md:text-base leading-relaxed">
                       {item}
                     </span>
                   </div>
@@ -99,14 +99,14 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
             <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
               {service.price && (
                 <div className="text-center mb-4">
-                  <p className="text-white/70 text-sm mb-2">Starting at</p>
+                  <p className="text-muted-foreground text-sm mb-2">Starting at</p>
                   <p className="text-3xl font-bold text-primary">{service.price}</p>
                 </div>
               )}
               
               <Button 
                 asChild 
-                className="w-full bg-primary hover:bg-primary/90 text-black font-semibold py-3 text-base shadow-lg hover:shadow-primary/20 transition-all group"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 text-base shadow-lg hover:shadow-primary/20 transition-all group"
               >
                 <Link href={`/contact?service=${service.id}`}>
                   {service.ctaText}
@@ -114,15 +114,15 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
                 </Link>
               </Button>
               
-              <p className="text-white/60 text-xs text-center mt-3">
+              <p className="text-muted-foreground/80 text-xs text-center mt-3">
                 Free consultation • No hidden fees • Expert guidance
               </p>
             </div>
 
             {/* Additional Info */}
-            <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-              <h4 className="font-semibold text-white mb-2">Why Choose Us?</h4>
-              <ul className="text-white/70 text-sm space-y-1">
+            <div className="p-4 rounded-lg bg-foreground/5 border border-foreground/10">
+              <h4 className="font-semibold text-foreground mb-2">Why Choose Us?</h4>
+              <ul className="text-muted-foreground text-sm space-y-1">
                 <li>• 10+ years of immigration expertise</li>
                 <li>• 95% success rate</li>
                 <li>• End-to-end support</li>

@@ -17,13 +17,13 @@ export default function MissionCard() {
           Our Mission
         </BentoTitle>
         
-        <BentoDescription className="text-sm md:text-base text-white/90 leading-relaxed flex-1">
+        <BentoDescription className="text-sm md:text-base text-muted-foreground leading-relaxed flex-1">
           To simplify the global migration process so every deserving Indian can live, work, and thrive abroad.
         </BentoDescription>
         
         <div className="mt-4 p-3 rounded-lg bg-primary/10 border border-primary/20">
           <div className="text-primary text-2xl font-bold">2000+</div>
-          <div className="text-white/70 text-xs">Lives Changed</div>
+          <div className="text-muted-foreground text-xs">Lives Changed</div>
         </div>
       </div>
     </BentoCard>

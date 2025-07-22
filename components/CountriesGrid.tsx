@@ -12,7 +12,7 @@ const countries = [
     flag: "🇨🇦",
     benefits: "PR + High Paying Jobs",
     features: ["Express Entry", "Provincial Nominee", "High Salaries", "Quality Life"],
-    color: "from-red-500/20 to-red-600/20"
+    color: "from-red-500/60 to-red-600/60 dark:from-red-500/20 dark:to-red-600/20"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const countries = [
     flag: "🇩🇪",
     benefits: "No IELTS, High Demand",
     features: ["Tech Hub", "No Language Barrier", "EU Access", "Strong Economy"],
-    color: "from-yellow-500/20 to-yellow-600/20"
+    color: "from-yellow-500/60 to-yellow-600/60 dark:from-yellow-500/20 dark:to-yellow-600/20"
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const countries = [
     flag: "🇬🇧",
     benefits: "Work Visa + Family Support",
     features: ["Skilled Worker", "Family Visa", "English Speaking", "Global Hub"],
-    color: "from-blue-500/20 to-blue-600/20"
+    color: "from-blue-500/60 to-blue-600/60 dark:from-blue-500/20 dark:to-blue-600/20"
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const countries = [
     flag: "🇦🇺",
     benefits: "Fast PR Processing",
     features: ["Points System", "Regional Options", "Beach Life", "Mining Jobs"],
-    color: "from-green-500/20 to-green-600/20"
+    color: "from-green-500/60 to-green-600/60 dark:from-green-500/20 dark:to-green-600/20"
   }
 ];
 
@@ -71,10 +71,10 @@ export default function CountriesGrid() {
                 <div className="flex items-center gap-3">
                   <div className="text-2xl">{country.flag}</div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-white text-base leading-tight">
+                    <h3 className="font-bold text-foreground text-base leading-tight">
                       {country.name}
                     </h3>
-                    <p className="text-xs text-white/80 leading-tight">
+                    <p className="text-xs text-muted-foreground leading-tight">
                       {country.benefits}
                     </p>
                   </div>
@@ -84,7 +84,7 @@ export default function CountriesGrid() {
                   {country.features.slice(0, 3).map((feature, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <Star className="h-3 w-3 text-primary flex-shrink-0" />
-                      <span className="text-xs text-white/80 leading-tight">
+                      <span className="text-xs text-muted-foreground leading-tight">
                         {feature}
                       </span>
                     </div>

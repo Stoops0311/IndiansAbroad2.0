@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section className="w-full px-4 md:px-8 lg:px-12 py-8 md:py-16 lg:py-24">
-      <Card className="relative overflow-hidden border-primary/20 bg-gradient-to-br from-card via-background to-primary/5 p-6 md:p-8 lg:p-12 xl:p-16">
+      <Card className="relative overflow-hidden border-primary/20 bg-gradient-to-br from-gray-900 via-gray-800 to-primary/20 dark:from-card dark:via-background dark:to-primary/5 p-6 md:p-8 lg:p-12 xl:p-16">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <video
@@ -21,7 +21,7 @@ export default function Hero() {
             <source src="/city-night-movement.mp4" type="video/mp4" />
           </video>
           {/* Overlay gradient for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-primary/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-primary/30 dark:from-background/80 dark:via-background/60 dark:to-primary/20" />
         </div>
         
         <div className="relative z-10">
@@ -49,7 +49,7 @@ export default function Hero() {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 border-primary/20 hover:border-primary/40 hover:bg-primary/10 transition-all group text-white"
+                  className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 border-primary/20 hover:border-primary/40 hover:bg-primary/10 transition-all group text-black dark:text-white"
                   asChild
                 >
                   <a href="https://wa.me/919825574590" target="_blank" rel="noopener noreferrer">
@@ -61,25 +61,25 @@ export default function Hero() {
             </div>
             
             <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <Card className="p-4 md:p-6 bg-background/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-colors">
+              <Card className="p-4 md:p-6 bg-black/50 dark:bg-background/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-colors">
                 <Globe className="h-6 md:h-8 w-6 md:w-8 text-primary mb-2 md:mb-3" />
                 <div className="text-xl md:text-3xl font-bold text-white mb-1">20+</div>
                 <div className="text-xs md:text-sm text-white/70">Countries Covered</div>
               </Card>
               
-              <Card className="p-4 md:p-6 bg-background/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-colors">
+              <Card className="p-4 md:p-6 bg-black/50 dark:bg-background/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-colors">
                 <Users className="h-6 md:h-8 w-6 md:w-8 text-primary mb-2 md:mb-3" />
                 <div className="text-xl md:text-3xl font-bold text-white mb-1">5,000+</div>
                 <div className="text-xs md:text-sm text-white/70">Success Stories</div>
               </Card>
               
-              <Card className="p-4 md:p-6 bg-background/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-colors">
+              <Card className="p-4 md:p-6 bg-black/50 dark:bg-background/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-colors">
                 <Award className="h-6 md:h-8 w-6 md:w-8 text-primary mb-2 md:mb-3" />
                 <div className="text-xl md:text-3xl font-bold text-white mb-1">98%</div>
                 <div className="text-xs md:text-sm text-white/70">Success Rate</div>
               </Card>
               
-              <Card className="p-4 md:p-6 bg-background/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-colors">
+              <Card className="p-4 md:p-6 bg-black/50 dark:bg-background/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-colors">
                 <CheckCircle2 className="h-6 md:h-8 w-6 md:w-8 text-primary mb-2 md:mb-3" />
                 <div className="text-xl md:text-3xl font-bold text-white mb-1">15+</div>
                 <div className="text-xs md:text-sm text-white/70">Years Experience</div>

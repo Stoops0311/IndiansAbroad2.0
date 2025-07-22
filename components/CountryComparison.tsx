@@ -65,7 +65,7 @@ export default function CountryComparison({ countries }: CountryComparisonProps)
           Compare Countries
         </BentoTitle>
         
-        <p className="text-white/80 mb-6">
+        <p className="text-muted-foreground mb-6">
           Select up to 3 countries to compare their key metrics side by side
         </p>
 
@@ -78,8 +78,8 @@ export default function CountryComparison({ countries }: CountryComparisonProps)
               disabled={!selectedCountries.includes(country.id) && selectedCountries.length >= 3}
               className={`p-3 rounded-lg border transition-all ${
                 selectedCountries.includes(country.id)
-                  ? 'bg-primary/20 border-primary/40 text-white'
-                  : 'bg-white/5 border-white/20 text-white/80 hover:bg-white/10 hover:border-white/30'
+                  ? 'bg-primary/20 border-primary/40 text-primary dark:text-white'
+                  : 'bg-muted/50 border-border text-foreground hover:bg-muted/80'
               } ${
                 !selectedCountries.includes(country.id) && selectedCountries.length >= 3
                   ? 'opacity-50 cursor-not-allowed'
@@ -108,12 +108,12 @@ export default function CountryComparison({ countries }: CountryComparisonProps)
         {/* Comparison Table */}
         {showComparison && selectedCountries.length >= 2 && (
           <div className="overflow-x-auto">
-            <table className="w-full bg-white/5 rounded-lg border border-white/20">
+            <table className="w-full bg-muted/30 rounded-lg border border-border">
               <thead>
-                <tr className="border-b border-white/20">
-                  <th className="p-4 text-left text-white/90 font-semibold">Metric</th>
+                <tr className="border-b border-border">
+                  <th className="p-4 text-left text-foreground font-semibold">Metric</th>
                   {getComparisonData().map((country) => (
-                    <th key={country.id} className="p-4 text-center text-white/90 font-semibold">
+                    <th key={country.id} className="p-4 text-center text-foreground font-semibold">
                       <div className="flex flex-col items-center gap-2">
                         <span className="text-2xl">{country.flag}</span>
                         <span className="text-sm">{country.name}</span>
@@ -123,19 +123,19 @@ export default function CountryComparison({ countries }: CountryComparisonProps)
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-white/10">
-                  <td className="p-4 text-white/80 font-medium">Average Salary</td>
+                <tr className="border-b border-border">
+                  <td className="p-4 text-muted-foreground font-medium">Average Salary</td>
                   {getComparisonData().map((country) => (
                     <td key={country.id} className="p-4 text-center">
-                      <Badge variant="outline" className="bg-white/10 border-white/20 text-white/90">
+                      <Badge variant="outline" className="bg-muted/50 border-border text-foreground">
                         {country.stats.averageSalary}
                       </Badge>
                     </td>
                   ))}
                 </tr>
                 
-                <tr className="border-b border-white/10">
-                  <td className="p-4 text-white/80 font-medium">Processing Time</td>
+                <tr className="border-b border-border">
+                  <td className="p-4 text-muted-foreground font-medium">Processing Time</td>
                   {getComparisonData().map((country) => {
                     const score = getProcessingTimeScore(country.stats.processingTime);
                     const Icon = score.icon;
@@ -143,15 +143,15 @@ export default function CountryComparison({ countries }: CountryComparisonProps)
                       <td key={country.id} className="p-4 text-center">
                         <div className="flex items-center justify-center gap-2">
                           <Icon className={`h-4 w-4 ${score.color}`} />
-                          <span className="text-white/90 text-sm">{country.stats.processingTime}</span>
+                          <span className="text-foreground text-sm">{country.stats.processingTime}</span>
                         </div>
                       </td>
                     );
                   })}
                 </tr>
                 
-                <tr className="border-b border-white/10">
-                  <td className="p-4 text-white/80 font-medium">Success Rate</td>
+                <tr className="border-b border-border">
+                  <td className="p-4 text-muted-foreground font-medium">Success Rate</td>
                   {getComparisonData().map((country) => {
                     const score = getSuccessRateScore(country.stats.successRate);
                     const Icon = score.icon;
@@ -159,7 +159,7 @@ export default function CountryComparison({ countries }: CountryComparisonProps)
                       <td key={country.id} className="p-4 text-center">
                         <div className="flex items-center justify-center gap-2">
                           <Icon className={`h-4 w-4 ${score.color}`} />
-                          <span className="text-white/90 text-sm">{country.stats.successRate}</span>
+                          <span className="text-foreground text-sm">{country.stats.successRate}</span>
                         </div>
                       </td>
                     );
@@ -167,7 +167,7 @@ export default function CountryComparison({ countries }: CountryComparisonProps)
                 </tr>
                 
                 <tr>
-                  <td className="p-4 text-white/80 font-medium">Clients Placed</td>
+                  <td className="p-4 text-muted-foreground font-medium">Clients Placed</td>
                   {getComparisonData().map((country) => (
                     <td key={country.id} className="p-4 text-center">
                       <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30">
@@ -183,7 +183,7 @@ export default function CountryComparison({ countries }: CountryComparisonProps)
 
         {selectedCountries.length < 2 && (
           <div className="text-center py-8">
-            <p className="text-white/60">Select at least 2 countries to compare</p>
+            <p className="text-muted-foreground">Select at least 2 countries to compare</p>
           </div>
         )}
       </div>

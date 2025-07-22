@@ -4,11 +4,12 @@ import type * as React from "react"
 import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, Users, Briefcase, Globe, Trophy, CheckCircle, Phone, Menu, X, MoreHorizontal, ChevronDown, Search, GraduationCap, BookOpen } from "lucide-react"
+import { Home, Users, Briefcase, Globe, Trophy, CheckCircle, Phone, Menu, X, MoreHorizontal, ChevronDown, Search, GraduationCap, BookOpen, Sun, Moon, Monitor } from "lucide-react"
 import Link from "next/link"
 import { servicesData, type ServiceData } from "@/lib/services-data"
 import ServiceDetailModal from "@/components/ServiceDetailModal"
 import StudyAbroadModal from "@/components/StudyAbroadModal"
+import { useTheme } from "@/contexts/ThemeContext"
 
 interface MenuItem {
   icon: React.ReactNode
@@ -93,6 +94,7 @@ export function Header() {
   const [isMounted, setIsMounted] = useState(false)
   const navRef = useRef<HTMLElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const { theme, setTheme, resolvedTheme } = useTheme()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -164,22 +166,47 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 md:gap-3">
-            <img 
-              src="/logo-new.svg" 
-              alt="Indians Abroad Logo" 
-              className="h-[50px] w-[50px] md:h-[70px] md:w-[70px] lg:h-[80px] lg:w-[80px]"
-              style={{ filter: 'brightness(0) invert(1)' }}
-            />
+            <div className="relative h-[50px] w-[50px] md:h-[70px] md:w-[70px] lg:h-[80px] lg:w-[80px] group">
+              {/* Gradient glow effect on hover */}
+              <div className="absolute inset-0 bg-primary rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
+              
+              {/* Logo with solid purple color */}
+              <div className="relative h-full w-full">
+                <img 
+                  src="/logo-new.svg" 
+                  alt="Indians Abroad Logo" 
+                  className="absolute inset-0 h-full w-full object-contain"
+                  style={{
+                    filter: 'brightness(0) saturate(100%)',
+                    WebkitFilter: 'brightness(0) saturate(100%)'
+                  }}
+                />
+                <div 
+                  className="absolute inset-0 bg-primary"
+                  style={{
+                    maskImage: 'url(/logo-new.svg)',
+                    WebkitMaskImage: 'url(/logo-new.svg)',
+                    maskSize: 'contain',
+                    WebkitMaskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    WebkitMaskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                    WebkitMaskPosition: 'center'
+                  }}
+                ></div>
+              </div>
+            </div>
             <div className="flex flex-col">
-              <span className="text-lg md:text-2xl lg:text-3xl font-bold text-white leading-tight">INDIANS ABROAD</span>
-              <span className="text-xs md:text-sm text-white/70 hidden sm:block">Empowering Dreams Worldwide</span>
+              <span className="text-lg md:text-2xl lg:text-3xl font-bold text-primary leading-tight">INDIANS ABROAD</span>
+              <span className="text-xs md:text-sm text-muted-foreground hidden sm:block">Empowering Dreams Worldwide</span>
             </div>
           </Link>
 
           {/* Navigation - Show full nav when space available, hamburger when cramped */}
           {!showHamburger ? (
-            <nav ref={navRef} className="hidden lg:block p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative max-w-none">
-              <ul className="flex items-center gap-3 relative z-10">
+            <div className="hidden lg:flex items-center gap-3">
+              <nav ref={navRef} className="p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative max-w-none">
+                <ul className="flex items-center gap-3 relative z-10">
                 {menuItems.map((item) => (
                   <li key={item.label} className="relative">
                     {item.hasDropdown ? (
@@ -187,7 +214,7 @@ export function Header() {
                         <div className="block rounded-xl overflow-visible group relative">
                           <button
                             onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                            className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-white hover:text-white/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium whitespace-nowrap"
+                            className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-foreground hover:text-foreground/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium whitespace-nowrap"
                           >
                             <span className={`transition-colors duration-300 ${item.iconColor}`}>
                               {item.icon}
@@ -212,7 +239,7 @@ export function Header() {
                               <div className="p-2">
                                 <Link
                                   href="/services"
-                                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors text-white hover:text-white/90 border-b border-border/20 mb-2"
+                                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors text-foreground hover:text-foreground/90 border-b border-border/20 mb-2"
                                   onClick={() => setServicesDropdownOpen(false)}
                                 >
                                   <Briefcase className="h-5 w-5 text-primary" />
@@ -229,8 +256,8 @@ export function Header() {
                                     >
                                       <IconComponent className="h-4 w-4 text-primary flex-shrink-0" />
                                       <div className="flex-1 min-w-0">
-                                        <span className="text-white font-medium text-sm truncate">{service.title}</span>
-                                        <p className="text-white/70 text-xs mt-1 line-clamp-2">{service.summary}</p>
+                                        <span className="text-foreground font-medium text-sm truncate">{service.title}</span>
+                                        <p className="text-muted-foreground text-xs mt-1 line-clamp-2">{service.summary}</p>
                                       </div>
                                     </button>
                                   );
@@ -244,7 +271,7 @@ export function Header() {
                       <div className="block rounded-xl overflow-visible group relative">
                         <Link
                           href={item.href}
-                          className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-white hover:text-white/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium whitespace-nowrap"
+                          className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-foreground hover:text-foreground/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium whitespace-nowrap"
                         >
                           <span className={`transition-colors duration-300 ${item.iconColor}`}>
                             {item.icon}
@@ -256,35 +283,108 @@ export function Header() {
                     )}
                   </li>
                 ))}
-              </ul>
-            </nav>
+                </ul>
+              </nav>
+              
+              {/* Theme Toggle Desktop */}
+              <div className="relative">
+                <button
+                  onClick={() => {
+                    if (theme === 'light') setTheme('dark')
+                    else if (theme === 'dark') setTheme('system')
+                    else setTheme('light')
+                  }}
+                  className="p-2 rounded-lg hover:bg-primary/10 transition-colors group"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'light' ? (
+                    <Sun className="h-5 w-5 text-foreground" />
+                  ) : theme === 'dark' ? (
+                    <Moon className="h-5 w-5 text-foreground" />
+                  ) : (
+                    <Monitor className="h-5 w-5 text-foreground" />
+                  )}
+                </button>
+                <div className="absolute top-full right-0 mt-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-background/90 backdrop-blur-lg border border-border/40 rounded-lg px-3 py-1.5 text-xs text-foreground whitespace-nowrap">
+                  {theme === 'light' ? 'Light' : theme === 'dark' ? 'Dark' : 'System'} mode
+                </div>
+              </div>
+            </div>
           ) : (
-            /* Hamburger Menu Button for desktop when cramped */
-            <button 
-              onClick={toggleMobileMenu}
-              className="hidden lg:block p-2 rounded-lg hover:bg-primary/10 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6 text-white" />
-              ) : (
-                <Menu className="h-6 w-6 text-white" />
-              )}
-            </button>
+            <div className="hidden lg:flex items-center gap-2">
+              {/* Theme Toggle */}
+              <div className="relative">
+                <button
+                  onClick={() => {
+                    if (theme === 'light') setTheme('dark')
+                    else if (theme === 'dark') setTheme('system')
+                    else setTheme('light')
+                  }}
+                  className="p-2 rounded-lg hover:bg-primary/10 transition-colors group"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'light' ? (
+                    <Sun className="h-5 w-5 text-foreground" />
+                  ) : theme === 'dark' ? (
+                    <Moon className="h-5 w-5 text-foreground" />
+                  ) : (
+                    <Monitor className="h-5 w-5 text-foreground" />
+                  )}
+                </button>
+                <div className="absolute top-full right-0 mt-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-background/90 backdrop-blur-lg border border-border/40 rounded-lg px-3 py-1.5 text-xs text-foreground whitespace-nowrap">
+                  {theme === 'light' ? 'Light' : theme === 'dark' ? 'Dark' : 'System'} mode
+                </div>
+              </div>
+              
+              {/* Hamburger Menu Button for desktop when cramped */}
+              <button 
+                onClick={toggleMobileMenu}
+                className="p-2 rounded-lg hover:bg-primary/10 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6 text-foreground" />
+                ) : (
+                  <Menu className="h-6 w-6 text-foreground" />
+                )}
+              </button>
+            </div>
           )}
 
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={toggleMobileMenu}
-            className="lg:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors"
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-white" />
-            ) : (
-              <Menu className="h-6 w-6 text-white" />
-            )}
-          </button>
+          {/* Mobile Controls */}
+          <div className="lg:hidden flex items-center gap-2">
+            {/* Theme Toggle Mobile */}
+            <button
+              onClick={() => {
+                if (theme === 'light') setTheme('dark')
+                else if (theme === 'dark') setTheme('system')
+                else setTheme('light')
+              }}
+              className="p-2 rounded-lg hover:bg-primary/10 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? (
+                <Sun className="h-5 w-5 text-foreground" />
+              ) : theme === 'dark' ? (
+                <Moon className="h-5 w-5 text-foreground" />
+              ) : (
+                <Monitor className="h-5 w-5 text-foreground" />
+              )}
+            </button>
+            
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-lg hover:bg-primary/10 transition-colors"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6 text-foreground" />
+              ) : (
+                <Menu className="h-6 w-6 text-foreground" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -306,7 +406,7 @@ export function Header() {
                           <Link
                             href={item.href}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors text-white hover:text-white/90"
+                            className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors text-foreground hover:text-foreground/90"
                           >
                             <span className={`${item.iconColor}`}>
                               {item.icon}
@@ -325,7 +425,7 @@ export function Header() {
                                 >
                                   <IconComponent className="h-4 w-4 text-primary flex-shrink-0" />
                                   <div className="flex-1 min-w-0">
-                                    <span className="text-white font-medium text-sm">{service.title}</span>
+                                    <span className="text-foreground font-medium text-sm">{service.title}</span>
                                   </div>
                                 </button>
                               );

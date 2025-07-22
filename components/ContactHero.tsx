@@ -15,11 +15,11 @@ export default function ContactHero() {
           </div>
         </div>
         
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
           Contact Us + Free Eligibility Check
         </h1>
         
-        <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto">
+        <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
           Ready to start your abroad journey? Get in touch with our experts or check your eligibility for free.
         </p>
       </div>

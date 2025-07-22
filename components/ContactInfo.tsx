@@ -101,18 +101,18 @@ export default function ContactInfo() {
                 {detail.icon}
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-white text-sm mb-1">{detail.label}</h4>
+                <h4 className="font-semibold text-foreground text-sm mb-1">{detail.label}</h4>
                 {detail.href ? (
                   <a
                     href={detail.href}
-                    className="text-sm text-white/80 hover:text-primary transition-colors leading-relaxed break-words"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors leading-relaxed break-words"
                     target={detail.type === 'whatsapp' ? '_blank' : undefined}
                     rel={detail.type === 'whatsapp' ? 'noopener noreferrer' : undefined}
                   >
                     {detail.value}
                   </a>
                 ) : (
-                  <p className="text-sm text-white/80 leading-relaxed break-words">
+                  <p className="text-sm text-muted-foreground leading-relaxed break-words">
                     {detail.value}
                   </p>
                 )}
@@ -123,13 +123,13 @@ export default function ContactInfo() {
         
         {/* Social Media */}
         <div className="mb-8">
-          <h4 className="font-semibold text-white text-sm mb-4">Follow Us</h4>
+          <h4 className="font-semibold text-foreground text-sm mb-4">Follow Us</h4>
           <div className="flex gap-3">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
                 href={social.href}
-                className={`p-2 rounded-lg bg-white/5 text-white/70 ${social.color} transition-all hover:bg-white/10 hover:scale-110`}
+                className={`p-2 rounded-lg bg-foreground/5 text-muted-foreground ${social.color} transition-all hover:bg-foreground/10 hover:scale-110`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}

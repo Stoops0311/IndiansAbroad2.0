@@ -66,7 +66,7 @@ export default function VideoTestimonials() {
             Video Success Stories
           </BentoTitle>
           
-          <BentoDescription className="text-white/90">
+          <BentoDescription className="text-muted-foreground">
             Hear directly from our clients about their transformation journeys
           </BentoDescription>
         </div>
@@ -75,8 +75,8 @@ export default function VideoTestimonials() {
           {videoTestimonials.map((testimonial, index) => (
             <Card 
               key={testimonial.id}
-              className={`p-4 bg-white/5 hover:bg-white/10 hover:scale-[1.02] transition-all duration-300 cursor-pointer border-primary/20 group ${
-                activeVideo === index ? 'border-primary/40 bg-white/10' : ''
+              className={`p-4 bg-muted/30 hover:bg-muted/50 hover:scale-[1.02] transition-all duration-300 cursor-pointer border-border group ${
+                activeVideo === index ? 'border-primary/40 bg-muted/50' : ''
               }`}
               onClick={() => {
                 setActiveVideo(index);
@@ -102,7 +102,7 @@ export default function VideoTestimonials() {
                 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-semibold text-white text-base md:text-lg leading-tight">
+                    <h3 className="font-semibold text-foreground text-base md:text-lg leading-tight">
                       {testimonial.name}
                     </h3>
                     <Badge variant="outline" className="border-primary/30 text-primary text-xs">
@@ -110,7 +110,7 @@ export default function VideoTestimonials() {
                     </Badge>
                   </div>
                   
-                  <div className="flex items-center gap-3 text-xs md:text-sm text-white/70 mb-2">
+                  <div className="flex items-center gap-3 text-xs md:text-sm text-muted-foreground mb-2">
                     <div className="flex items-center gap-1">
                       <Briefcase className="h-3 w-3 flex-shrink-0" />
                       <span>{testimonial.profession}</span>
@@ -125,11 +125,11 @@ export default function VideoTestimonials() {
                     {testimonial.achievement}
                   </p>
                   
-                  <blockquote className="text-white/80 italic text-sm leading-relaxed">
+                  <blockquote className="text-foreground/80 italic text-sm leading-relaxed">
                     "{testimonial.quote}"
                   </blockquote>
                   
-                  <p className="text-xs text-white/60 mt-2">
+                  <p className="text-xs text-muted-foreground mt-2">
                     {testimonial.details}
                   </p>
                 </div>
@@ -138,8 +138,8 @@ export default function VideoTestimonials() {
           ))}
         </div>
         
-        <div className="mt-6 pt-4 border-t border-white/10 text-center">
-          <p className="text-xs text-white/60">
+        <div className="mt-6 pt-4 border-t border-border text-center">
+          <p className="text-xs text-muted-foreground">
             Click any story to watch their journey • More videos available on request
           </p>
         </div>

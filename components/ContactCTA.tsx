@@ -9,9 +9,9 @@ export default function ContactCTA() {
     <BentoCard className="col-span-full p-6 md:p-8 lg:p-12 bg-gradient-to-br from-primary/30 to-accent/20 min-h-[300px] md:min-h-[350px] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 right-10 w-24 h-24 border border-white/20 rounded-full"></div>
-        <div className="absolute bottom-20 left-20 w-16 h-16 border border-white/20 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-8 h-8 border border-white/20 rounded-full"></div>
+        <div className="absolute top-10 right-10 w-24 h-24 border border-border/20 rounded-full"></div>
+        <div className="absolute bottom-20 left-20 w-16 h-16 border border-border/20 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/4 w-8 h-8 border border-border/20 rounded-full"></div>
       </div>
       
       <div className="relative z-10 text-center max-w-4xl mx-auto space-y-6 md:space-y-8">
@@ -25,10 +25,10 @@ export default function ContactCTA() {
         
         {/* Main Headline */}
         <div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
             🚀 Your dream job or PR abroad is one step away
           </h2>
-          <p className="text-lg md:text-xl text-white/80">
+          <p className="text-lg md:text-xl text-muted-foreground">
             Don't wait any longer. Take the first step towards your international career today.
           </p>
         </div>
@@ -57,37 +57,37 @@ export default function ContactCTA() {
         </div>
         
         {/* Contact Options */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-border">
           <a 
             href="tel:+919825574590"
-            className="flex items-center justify-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all group"
+            className="flex items-center justify-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-all group"
           >
             <Phone className="h-4 w-4 text-primary" />
-            <span className="text-sm text-white/90 group-hover:text-white">Call Now</span>
+            <span className="text-sm text-foreground/90 group-hover:text-foreground">Call Now</span>
           </a>
           
           <a 
             href="https://wa.me/919825574590"
-            className="flex items-center justify-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all group"
+            className="flex items-center justify-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-all group"
             target="_blank"
             rel="noopener noreferrer"
           >
             <MessageCircle className="h-4 w-4 text-green-400" />
-            <span className="text-sm text-white/90 group-hover:text-white">WhatsApp</span>
+            <span className="text-sm text-foreground/90 group-hover:text-foreground">WhatsApp</span>
           </a>
           
           <a 
             href="mailto:contact@indiansabroad.com"
-            className="flex items-center justify-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all group"
+            className="flex items-center justify-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-all group"
           >
             <Mail className="h-4 w-4 text-primary" />
-            <span className="text-sm text-white/90 group-hover:text-white">Email Us</span>
+            <span className="text-sm text-foreground/90 group-hover:text-foreground">Email Us</span>
           </a>
         </div>
         
         {/* Final Trust Message */}
         <div className="pt-4">
-          <p className="text-sm text-white/60">
+          <p className="text-sm text-muted-foreground">
             Join 4000+ successful professionals who achieved their abroad dreams with our guidance
           </p>
         </div>

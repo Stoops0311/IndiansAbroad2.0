@@ -12,17 +12,17 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xl font-bold text-white mb-4">
+            <h3 className="text-xl font-bold text-foreground mb-4">
               Indians Abroad
             </h3>
-            <p className="text-white/70 max-w-md">
+            <p className="text-muted-foreground max-w-md">
               Your trusted partner for working and settling abroad. We provide end-to-end support for job visas, PR, and permanent settlement worldwide.
             </p>
           </div>
           
           {/* Contact Information */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white mb-4">
+            <h4 className="text-lg font-semibold text-foreground mb-4">
               Contact Info
             </h4>
             
@@ -31,7 +31,7 @@ export default function Footer() {
                 <MapPin className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <span className="text-2xl mr-2">📍</span>
-                  <span className="text-sm text-white/80">
+                  <span className="text-sm text-muted-foreground">
                     18th Floor Cyber One Business Park, Sector 30A, Vashi, Navi Mumbai, Maharashtra 400705
                   </span>
                 </div>
@@ -43,7 +43,7 @@ export default function Footer() {
                   <span className="text-xl mr-2">📞</span>
                   <a 
                     href="tel:+919825574590" 
-                    className="text-sm text-white/80 hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     +91 (982) 557-4590
                   </a>
@@ -56,7 +56,7 @@ export default function Footer() {
                   <span className="text-xl mr-2">📧</span>
                   <a 
                     href="mailto:contact@indiansabroad.com" 
-                    className="text-sm text-white/80 hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     contact@indiansabroad.com
                   </a>
@@ -67,7 +67,7 @@ export default function Footer() {
           
           {/* Links & Social */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white mb-4">
+            <h4 className="text-lg font-semibold text-foreground mb-4">
               Quick Links
             </h4>
             
@@ -90,7 +90,7 @@ export default function Footer() {
                   href="https://www.instagram.com/indians__abroad/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-sm text-white/80 hover:text-primary transition-colors flex items-center gap-1"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
                 >
                   Follow us on Instagram
                   <ExternalLink className="h-3 w-3" />
@@ -125,14 +125,14 @@ export default function Footer() {
         </div>
         
         {/* Legal Information Box */}
-        <div className="mt-8 pt-6 border-t border-white/10">
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 max-w-4xl mx-auto">
+        <div className="mt-8 pt-6 border-t border-border">
+          <div className="bg-foreground/10 backdrop-blur-sm border border-border rounded-xl p-6 max-w-4xl mx-auto">
             <div className="space-y-4">
               {/* Product and Partnership Info */}
               <div className="text-center">
-                <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-sm text-white/90 mb-4">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-sm text-foreground mb-4">
                   <span className="font-medium">Product of Myst Education</span>
-                  <span className="hidden md:inline text-white/60">|</span>
+                  <span className="hidden md:inline text-muted-foreground">|</span>
                   <span className="font-medium">Partnered with</span>
                 </div>
                 
@@ -144,12 +144,12 @@ export default function Footer() {
                       alt="MARA - Migration Agents Registration Authority" 
                       className="h-12 w-auto filter brightness-110 contrast-110"
                     />
-                    <span className="text-xs text-white/80 text-center max-w-[140px] leading-tight">
+                    <span className="text-xs text-muted-foreground text-center max-w-[140px] leading-tight">
                       MARA - Migration Agents Registration Authority
                     </span>
                   </div>
                   
-                  <div className="hidden sm:block text-white/40 text-lg">|</div>
+                  <div className="hidden sm:block text-muted-foreground text-lg">|</div>
                   
                   <div className="flex flex-col items-center gap-2">
                     <img 
@@ -157,7 +157,7 @@ export default function Footer() {
                       alt="RCIC - Regulated Canadian Immigration Consultant" 
                       className="h-12 w-auto filter brightness-110 contrast-110"
                     />
-                    <span className="text-xs text-white/80 text-center max-w-[140px] leading-tight">
+                    <span className="text-xs text-muted-foreground text-center max-w-[140px] leading-tight">
                       RCIC - Regulated Canadian Immigration Consultant
                     </span>
                   </div>
@@ -165,8 +165,8 @@ export default function Footer() {
               </div>
               
               {/* Copyright */}
-              <div className="text-center pt-4 border-t border-white/20">
-                <p className="text-sm text-white/70 font-medium">
+              <div className="text-center pt-4 border-t border-border">
+                <p className="text-sm text-muted-foreground font-medium">
                   All Rights Reserved. © 2018 Indians Abroad
                 </p>
               </div>

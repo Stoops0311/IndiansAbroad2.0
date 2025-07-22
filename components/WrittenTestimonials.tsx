@@ -36,7 +36,7 @@ export default function WrittenTestimonials() {
             Client Reviews
           </BentoTitle>
           
-          <BentoDescription className="text-white/90">
+          <BentoDescription className="text-muted-foreground">
             Real feedback from real people who trusted us with their dreams
           </BentoDescription>
         </div>
@@ -46,26 +46,26 @@ export default function WrittenTestimonials() {
             // Loading state
             <div className="space-y-4">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="p-4 bg-white/5 border border-primary/20 rounded animate-pulse">
+                <div key={i} className="p-4 bg-muted/30 border border-border rounded animate-pulse">
                   <div className="space-y-3">
                     <div className="flex gap-1">
                       {[1, 2, 3, 4, 5].map((j) => (
-                        <div key={j} className="w-3 h-3 bg-white/20 rounded"></div>
+                        <div key={j} className="w-3 h-3 bg-muted/50 rounded"></div>
                       ))}
                     </div>
                     <div className="space-y-2">
-                      <div className="h-4 bg-white/20 rounded w-full"></div>
-                      <div className="h-4 bg-white/20 rounded w-3/4"></div>
+                      <div className="h-4 bg-muted/50 rounded w-full"></div>
+                      <div className="h-4 bg-muted/50 rounded w-3/4"></div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-white/20 rounded-full"></div>
+                        <div className="w-8 h-8 bg-muted/50 rounded-full"></div>
                         <div className="space-y-1">
-                          <div className="h-3 bg-white/20 rounded w-20"></div>
-                          <div className="h-2 bg-white/20 rounded w-16"></div>
+                          <div className="h-3 bg-muted/50 rounded w-20"></div>
+                          <div className="h-2 bg-muted/50 rounded w-16"></div>
                         </div>
                       </div>
-                      <div className="h-5 bg-white/20 rounded w-16"></div>
+                      <div className="h-5 bg-muted/50 rounded w-16"></div>
                     </div>
                   </div>
                 </div>
@@ -74,15 +74,15 @@ export default function WrittenTestimonials() {
           ) : displayedTestimonials.length === 0 ? (
             // Empty state
             <div className="text-center py-8">
-              <Quote className="h-12 w-12 text-white/30 mx-auto mb-4" />
-              <p className="text-white/60 text-sm">No testimonials available yet.</p>
+              <Quote className="h-12 w-12 text-muted-foreground/50 mx-auto mb-4" />
+              <p className="text-muted-foreground text-sm">No testimonials available yet.</p>
             </div>
           ) : (
             // Testimonials list
             displayedTestimonials.map((testimonial) => (
             <Card 
               key={testimonial._id}
-              className="p-4 bg-white/5 border-primary/20 hover:border-primary/40 hover:bg-white/10 transition-all duration-300 group"
+              className="p-4 bg-muted/30 border-border hover:border-primary/40 hover:bg-muted/50 transition-all duration-300 group"
             >
               <div className="space-y-3">
                 <div className="flex gap-1 mb-2">
@@ -91,7 +91,7 @@ export default function WrittenTestimonials() {
                   ))}
                 </div>
                 
-                <blockquote className="text-sm text-white/90 italic leading-relaxed">
+                <blockquote className="text-sm text-foreground/90 italic leading-relaxed">
                   "{testimonial.review}"
                 </blockquote>
 
@@ -109,7 +109,7 @@ export default function WrittenTestimonials() {
                   </div>
                 )}
                 
-                <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                <div className="flex items-center justify-between pt-3 border-t border-border">
                   <div className="flex items-center gap-2">
                     {testimonial.photoUrl ? (
                       <img
@@ -123,10 +123,10 @@ export default function WrittenTestimonials() {
                       </div>
                     )}
                     <div className="min-w-0">
-                      <h5 className="font-semibold text-white text-sm leading-tight">
+                      <h5 className="font-semibold text-foreground text-sm leading-tight">
                         {testimonial.name}
                       </h5>
-                      <div className="flex items-center gap-2 text-xs text-white/70">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <span className="truncate">{testimonial.service}</span>
                       </div>
                     </div>
@@ -141,7 +141,7 @@ export default function WrittenTestimonials() {
                   <span className="text-primary font-medium">
                     {testimonial.achievement}
                   </span>
-                  <span className="text-white/60">
+                  <span className="text-muted-foreground">
                     {testimonial.timeframe}
                   </span>
                 </div>
@@ -150,7 +150,7 @@ export default function WrittenTestimonials() {
           )))}
         </div>
         
-          <div className="mt-4 pt-4 border-t border-white/10">
+          <div className="mt-4 pt-4 border-t border-border">
             <Button 
               onClick={() => setModalOpen(true)}
               variant="outline" 
@@ -159,7 +159,7 @@ export default function WrittenTestimonials() {
               View All Reviews
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <p className="text-xs text-white/60 text-center mt-2">
+            <p className="text-xs text-muted-foreground text-center mt-2">
               {totalCount}+ written testimonials available
             </p>
           </div>

@@ -54,7 +54,7 @@ export default function TrustMetrics() {
             Proven Track Record
           </BentoTitle>
           
-          <BentoDescription className="text-white/90">
+          <BentoDescription className="text-muted-foreground">
             Numbers that speak louder than words - our commitment to your success
           </BentoDescription>
         </div>
@@ -66,7 +66,7 @@ export default function TrustMetrics() {
             return (
               <div
                 key={metric.id}
-                className="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 hover:scale-[1.02] transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary/20"
+                className="text-center p-4 rounded-xl bg-foreground/5 hover:bg-foreground/10 hover:scale-[1.02] transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary/20"
               >
                 <div className="flex justify-center mb-3">
                   <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -74,15 +74,15 @@ export default function TrustMetrics() {
                   </div>
                 </div>
                 
-                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2">
                   {metric.number}
                 </div>
                 
-                <h4 className="font-semibold text-white text-sm md:text-base mb-1 leading-tight">
+                <h4 className="font-semibold text-foreground text-sm md:text-base mb-1 leading-tight">
                   {metric.label}
                 </h4>
                 
-                <p className="text-xs md:text-sm text-white/70 leading-relaxed">
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                   {metric.description}
                 </p>
               </div>

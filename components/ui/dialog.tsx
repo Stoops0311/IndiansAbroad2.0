@@ -104,7 +104,7 @@ export function DialogContent({ children, className, ...props }: DialogContentPr
       {/* Content */}
       <div
         className={cn(
-          "relative w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-xl border border-primary/20 bg-gradient-to-br from-card via-background to-primary/5 shadow-xl",
+          "relative w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-xl border border-primary/20 bg-background dark:bg-gradient-to-br dark:from-card dark:via-background dark:to-primary/5 shadow-xl",
           className
         )}
         {...props}
@@ -114,7 +114,7 @@ export function DialogContent({ children, className, ...props }: DialogContentPr
           onClick={() => onOpenChange(false)}
           className="absolute right-4 top-4 z-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
         >
-          <X className="h-6 w-6 text-white" />
+          <X className="h-6 w-6 text-foreground" />
           <span className="sr-only">Close</span>
         </button>
         {children}
@@ -139,7 +139,7 @@ export function DialogTitle({ children, className, ...props }: DialogTitleProps)
   return (
     <h2
       className={cn(
-        "text-2xl md:text-3xl font-bold text-white leading-tight",
+        "text-2xl md:text-3xl font-bold text-foreground leading-tight",
         className
       )}
       {...props}
@@ -155,7 +155,7 @@ export function DialogDescription({ children, className, ...props }: DialogDescr
   return (
     <p
       className={cn(
-        "text-sm md:text-base text-white/70 mt-2",
+        "text-sm md:text-base text-muted-foreground mt-2",
         className
       )}
       {...props}

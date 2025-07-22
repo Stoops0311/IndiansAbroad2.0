@@ -89,7 +89,7 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
             <span className="text-2xl">📝</span>
             All Client Reviews
           </DialogTitle>
-          <p className="text-white/70 mt-2">
+          <p className="text-muted-foreground mt-2">
             Browse through all our client testimonials and success stories
           </p>
         </DialogHeader>
@@ -99,12 +99,12 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
           <div className="flex-shrink-0 p-6 pb-4 space-y-4">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white/50" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground/50" />
               <Input
                 placeholder="Search reviews, names, professions..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-white/5 border-primary/20 text-white placeholder:text-white/50"
+                className="pl-10 bg-muted/30 border-border text-foreground placeholder:text-muted-foreground/50"
               />
             </div>
 
@@ -161,7 +161,7 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
             </div>
 
             {/* Results Count & Clear Filters */}
-            <div className="flex items-center justify-between text-sm text-white/70">
+            <div className="flex items-center justify-between text-sm text-muted-foreground">
               <span>Showing {filteredTestimonials.length} of {testimonials?.length || 0} reviews</span>
               {(countryFilter || serviceFilter || ratingFilter || timeframeFilter || searchTerm) && (
                 <button 
@@ -180,26 +180,26 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
               // Loading state
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="p-4 bg-white/5 border border-primary/20 rounded animate-pulse">
+                  <div key={i} className="p-4 bg-muted/30 border border-border rounded animate-pulse">
                     <div className="space-y-3">
                       <div className="flex gap-1">
                         {[1, 2, 3, 4, 5].map((j) => (
-                          <div key={j} className="w-3 h-3 bg-white/20 rounded"></div>
+                          <div key={j} className="w-3 h-3 bg-muted/50 rounded"></div>
                         ))}
                       </div>
                       <div className="space-y-2">
-                        <div className="h-4 bg-white/20 rounded w-full"></div>
-                        <div className="h-4 bg-white/20 rounded w-3/4"></div>
+                        <div className="h-4 bg-muted/50 rounded w-full"></div>
+                        <div className="h-4 bg-muted/50 rounded w-3/4"></div>
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 bg-white/20 rounded-full"></div>
+                          <div className="w-8 h-8 bg-muted/50 rounded-full"></div>
                           <div className="space-y-1">
-                            <div className="h-3 bg-white/20 rounded w-20"></div>
-                            <div className="h-2 bg-white/20 rounded w-16"></div>
+                            <div className="h-3 bg-muted/50 rounded w-20"></div>
+                            <div className="h-2 bg-muted/50 rounded w-16"></div>
                           </div>
                         </div>
-                        <div className="h-5 bg-white/20 rounded w-16"></div>
+                        <div className="h-5 bg-muted/50 rounded w-16"></div>
                       </div>
                     </div>
                   </div>
@@ -210,7 +210,7 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                 {filteredTestimonials.map((testimonial) => (
                 <Card 
                   key={testimonial._id}
-                  className="p-4 bg-white/5 border-primary/20 hover:border-primary/40 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                  className="p-4 bg-muted/30 border-border hover:border-primary/40 hover:bg-muted/50 transition-all duration-300 cursor-pointer"
                   onClick={() => setSelectedTestimonial(testimonial)}
                 >
                   <div className="space-y-3">
@@ -220,7 +220,7 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                       ))}
                     </div>
                     
-                    <blockquote className="text-sm text-white/90 italic leading-relaxed line-clamp-3">
+                    <blockquote className="text-sm text-foreground/90 italic leading-relaxed line-clamp-3">
                       "{testimonial.review}"
                     </blockquote>
 
@@ -238,7 +238,7 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                       </div>
                     )}
                     
-                    <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                    <div className="flex items-center justify-between pt-3 border-t border-border">
                       <div className="flex items-center gap-2">
                         {testimonial.photoUrl ? (
                           <img
@@ -248,14 +248,14 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                           />
                         ) : (
                           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
-                            <User className="h-4 w-4 text-white" />
+                            <User className="h-4 w-4 text-white dark:text-white" />
                           </div>
                         )}
                         <div className="min-w-0">
-                          <h5 className="font-semibold text-white text-sm leading-tight">
+                          <h5 className="font-semibold text-foreground text-sm leading-tight">
                             {testimonial.name}
                           </h5>
-                          <div className="flex items-center gap-2 text-xs text-white/70">
+                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
                             <span className="truncate">{testimonial.service}</span>
                             {testimonial.supportingDocUrls && testimonial.supportingDocUrls.length > 0 && (
                               <div className="flex items-center gap-1">
@@ -276,7 +276,7 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                       <span className="text-primary font-medium">
                         {testimonial.achievement}
                       </span>
-                      <span className="text-white/60">
+                      <span className="text-muted-foreground">
                         {testimonial.timeframe}
                       </span>
                     </div>
@@ -286,8 +286,8 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
 
                 {filteredTestimonials.length === 0 && (
                   <div className="text-center py-12 col-span-2">
-                    <Filter className="h-12 w-12 text-white/30 mx-auto mb-4" />
-                    <p className="text-white/60">No reviews match your current filters.</p>
+                    <Filter className="h-12 w-12 text-muted-foreground/50 mx-auto mb-4" />
+                    <p className="text-muted-foreground">No reviews match your current filters.</p>
                     <button 
                       onClick={clearFilters}
                       className="text-primary hover:text-primary/80 transition-colors mt-2"
@@ -325,11 +325,11 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                   />
                 ) : (
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
-                    <User className="h-10 w-10 text-white" />
+                    <User className="h-10 w-10 text-white dark:text-white" />
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-2xl font-bold text-white mb-2">{selectedTestimonial.name}</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">{selectedTestimonial.name}</h3>
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     <Badge className="bg-primary/20 text-primary">
                       {selectedTestimonial.flag} {selectedTestimonial.country}
@@ -342,9 +342,9 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                     {Array.from({ length: selectedTestimonial.rating }).map((_, i) => (
                       <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                     ))}
-                    <span className="text-white/70 ml-2">({selectedTestimonial.rating}/5)</span>
+                    <span className="text-muted-foreground ml-2">({selectedTestimonial.rating}/5)</span>
                   </div>
-                  <div className="flex flex-wrap items-center gap-2 text-sm text-white/70">
+                  <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                     <span className="text-primary font-medium">{selectedTestimonial.achievement}</span>
                     <span>•</span>
                     <span>{selectedTestimonial.timeframe}</span>
@@ -353,17 +353,17 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
               </div>
 
               {/* Full testimonial */}
-              <div className="bg-white/5 border border-primary/20 rounded-lg p-4 md:p-6">
-                <h4 className="text-lg font-semibold text-white mb-3">Full Testimonial</h4>
-                <blockquote className="text-white/90 leading-relaxed text-base md:text-lg italic">
+              <div className="bg-muted/30 border border-border rounded-lg p-4 md:p-6">
+                <h4 className="text-lg font-semibold text-foreground mb-3">Full Testimonial</h4>
+                <blockquote className="text-foreground/90 leading-relaxed text-base md:text-lg italic">
                   "{selectedTestimonial.review}"
                 </blockquote>
               </div>
 
               {/* Supporting Document */}
               {selectedTestimonial.supportingDocUrls && selectedTestimonial.supportingDocUrls.length > 0 && (
-                <div className="bg-white/5 border border-primary/20 rounded-lg p-4 md:p-6">
-                  <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                <div className="bg-muted/30 border border-border rounded-lg p-4 md:p-6">
+                  <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
                     <FileText className="h-5 w-5 text-primary" />
                     Supporting Document
                   </h4>
@@ -372,7 +372,7 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                     console.log("Document URL:", docUrl); // Debug log
                     
                     if (!docUrl) {
-                      return <div className="text-white/60">No document available</div>;
+                      return <div className="text-muted-foreground">No document available</div>;
                     }
                     
                     // Use stored file type if available, otherwise fall back to URL detection
@@ -413,7 +413,7 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                                 const fallback = document.createElement('div');
                                 fallback.className = 'text-center py-8';
                                 fallback.innerHTML = `
-                                  <div class="text-white/60 mb-2">Unable to display image</div>
+                                  <div class="text-muted-foreground mb-2">Unable to display image</div>
                                   <a href="${docUrl}" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 underline">
                                     Click to view document
                                   </a>
@@ -422,7 +422,7 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                               }
                             }}
                           />
-                          <div className="text-center text-white/60 text-sm">Supporting Photo</div>
+                          <div className="text-center text-muted-foreground text-sm">Supporting Photo</div>
                         </div>
                       );
                     } else if (isPDF) {
@@ -441,14 +441,14 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                               />
                             </object>
                           </div>
-                          <div className="text-center text-white/60 text-sm">PDF Document</div>
+                          <div className="text-center text-muted-foreground text-sm">PDF Document</div>
                         </div>
                       );
                     } else {
                       return (
                         <div className="text-center py-8">
-                          <FileText className="h-12 w-12 text-white/30 mx-auto mb-4" />
-                          <div className="text-white/60 mb-2">Document available</div>
+                          <FileText className="h-12 w-12 text-muted-foreground/50 mx-auto mb-4" />
+                          <div className="text-muted-foreground mb-2">Document available</div>
                           <a
                             href={docUrl}
                             target="_blank"

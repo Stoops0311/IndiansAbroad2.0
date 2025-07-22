@@ -67,7 +67,7 @@ export function SelectTrigger({ children, className, ...props }: SelectTriggerPr
     <button
       type="button"
       className={cn(
-        "flex h-10 w-full items-center justify-between rounded-lg border border-primary/20 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/50 hover:bg-white/10 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors",
+        "flex h-10 w-full items-center justify-between rounded-lg border border-border bg-muted/30 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground hover:bg-muted/50 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors",
         className
       )}
       onClick={() => setOpen(!open)}
@@ -143,7 +143,7 @@ export function SelectItem({ value, children, className, ...props }: SelectItemP
   return (
     <div
       className={cn(
-        "relative flex cursor-pointer select-none items-center rounded-sm px-3 py-2 text-sm text-white hover:bg-primary/10 hover:text-white transition-colors",
+        "relative flex cursor-pointer select-none items-center rounded-sm px-3 py-2 text-sm text-foreground hover:bg-primary/10 hover:text-foreground transition-colors",
         isSelected && "bg-primary/20 text-primary",
         className
       )}

@@ -83,11 +83,11 @@ export default function ServiceCard({ service }: ServiceCardProps) {
               <Icon className="h-6 w-6 text-primary" />
             </div>
             
-            <h3 className="text-lg md:text-xl font-bold text-white mb-3 leading-tight">
+            <h3 className="text-lg md:text-xl font-bold text-foreground mb-3 leading-tight">
               {service.title}
             </h3>
             
-            <p className="text-sm md:text-base text-white/80 leading-relaxed">
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
               {service.summary || service.description}
             </p>
           </div>
@@ -97,7 +97,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             {service.features.map((feature, index) => (
               <div key={index} className="flex items-center gap-3">
                 <CheckCircle2 className="h-4 w-4 text-green-400 flex-shrink-0" />
-                <span className="text-sm text-white/90">{feature}</span>
+                <span className="text-sm text-foreground/90">{feature}</span>
               </div>
             ))}
           </div>
