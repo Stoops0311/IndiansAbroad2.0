@@ -23,4 +23,29 @@ export default defineSchema({
     .index("by_isActive", ["isActive"])
     .index("by_rating", ["rating"])
     .index("by_createdAt", ["createdAt"]),
+
+  universities: defineTable({
+    name: v.string(),
+    country: v.string(),
+    popularPrograms: v.string(),
+    tuitionFees: v.string(),
+    duration: v.string(),
+    website: v.string(),
+    intakeMonths: v.string(),
+    scholarshipAvailability: v.boolean(),
+    scholarshipValue: v.string(),
+    isActive: v.boolean(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_country", ["country"])
+    .index("by_isActive", ["isActive"])
+    .searchIndex("search_universities", {
+      searchField: "name",
+      filterFields: ["country", "isActive"],
+    })
+    .searchIndex("search_programs", {
+      searchField: "popularPrograms",
+      filterFields: ["country", "isActive"],
+    }),
 });

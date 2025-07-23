@@ -1,0 +1,301 @@
+University Name,Country,Popular Programs,Tuition Fees (USD),Duration,Website,Intake Months,Scholarship Availability,Scholarship Value
+University of Oxford,UK,"Philosophy Politics Economics, Medicine, Law, Computer Science","$45,133-$75,853","3-4 years UG, 1-4 years PG",www.ox.ac.uk,"Sep/Oct, some Jan",Yes,"Rhodes (full), Reach Oxford (full), Crankstart ($7,578/year)"
+University of Cambridge,UK,"Natural Sciences, Engineering, Mathematics, Computer Science","$34,591-$90,309","3-4 years UG, 1-4 years PG",www.cam.ac.uk,October,Yes,"Gates Cambridge (full), Cambridge International, Trust"
+Imperial College London,UK,"Engineering, Computer Science, Medicine, Business, Materials","$46,080-$103,040","3-4 years UG, 1-4 years PG",www.imperial.ac.uk,"Sep/Oct, some Jan",Yes,"President's UG (full + $32,192), GREAT ($19,200)"
+University College London,UK,"Medicine, Psychology, Law, Architecture, Engineering","$48,000 UG, $30,720-$47,232 PG","3-4 years UG, 1-4 years PG",www.ucl.ac.uk,"Sep, some Jan",Yes,"Global Excellence, Wellcome Trust ($10,000-$50,000+)"
+London School of Economics,UK,"Economics, International Relations, Management, Law","$32,000-$57,600","3 years UG, 1-4 years PG",www.lse.ac.uk,September,Yes,"Graduate Support ($6,400-$19,200), Commonwealth"
+University of Edinburgh,UK,"Medicine, Engineering, Business, Computer Science","$30,720-$51,200","4 years UG, 1-4 years PG",www.ed.ac.uk,September,Yes,"Edinburgh Global, Dean's Excellence ($6,400-$12,800)"
+King's College London,UK,"Medicine, Law, International Relations, Business","$28,685-$74,842","3-6 years UG, 1-4 years PG",www.kcl.ac.uk,"Sep, some Jan",Yes,"International Scholarships ($5,000-$50,000+)"
+University of Manchester,UK,"Engineering, Business, Computer Science, Medicine","$30,720-$51,200","3-4 years UG, 1-4 years PG",www.manchester.ac.uk,"Sep, some Jan",Yes,"Global Excellence ($3,000-$10,000)"
+University of Bristol,UK,"Engineering, Medicine, Law, Economics, Computer Science","$31,616-$48,640","3-4 years UG, 1-4 years PG",www.bristol.ac.uk,September,Yes,"Think Big ($6,400-$25,600), Commonwealth"
+University of Warwick,UK,"Business, Engineering, Economics, Computer Science","$28,160-$44,800","3-4 years UG, 1-4 years PG",www.warwick.ac.uk,"Sep, some Jan",Yes,"Chancellor's International ($5,000-$15,000)"
+University of St Andrews,UK,"International Relations, Philosophy, Computer Science","$25,600-$40,960","4 years UG, 1-4 years PG",www.st-andrews.ac.uk,September,Yes,"Various international ($2,500-$12,800)"
+University of Glasgow,UK,"Medicine, Engineering, Business, Law, Veterinary","$25,600-$40,960","4 years UG, 1-4 years PG",www.gla.ac.uk,September,Yes,"International scholarships ($2,500-$12,800)"
+Durham University,UK,"Business, Law, Engineering, Natural Sciences","$25,600-$40,960","3-4 years UG, 1-4 years PG",www.dur.ac.uk,September,Yes,"International scholarships ($2,500-$12,800)"
+University of Birmingham,UK,"Medicine, Engineering, Business, Law, Computer Science","$25,600-$40,960","3-4 years UG, 1-4 years PG",www.birmingham.ac.uk,September,Yes,"International scholarships ($2,500-$12,800)"
+University of Sheffield,UK,"Engineering, Medicine, Business, Architecture","$25,600-$40,960","3-4 years UG, 1-4 years PG",www.sheffield.ac.uk,September,Yes,"International scholarships ($2,500-$12,800)"
+University of Southampton,UK,"Engineering, Computer Science, Business Management","$29,952-$43,392","3-4 years UG, 1-4 years PG",www.southampton.ac.uk,"Sep, Jan available",Yes,"Up to $3,840"
+University of Leeds,UK,"Business, Engineering, Medicine","$23,680-$33,280","3-4 years UG, 1-4 years PG",www.leeds.ac.uk,"Sep, Jan available",Yes,"Up to $7,680"
+University of Nottingham,UK,"Engineering, Business, Medicine","$23,808-$30,720","3-4 years UG, 1-4 years PG",www.nottingham.ac.uk,"Sep, Jan available",Yes,"$2,560-$6,400"
+Queen Mary University London,UK,"Medicine, Engineering, Business","$32,000","3-6 years UG, 1-4 years PG",www.qmul.ac.uk,"Sep, some Jan",Yes,Various amounts
+Lancaster University,UK,"Business, Psychology, Computer Science","$26,790","3-4 years UG, 1-4 years PG",www.lancaster.ac.uk,"Sep, Jan available",Yes,Various amounts
+University of Bath,UK,"Engineering, Business, Architecture, Computer Science","$28,160-$40,960","3-4 years UG, 1-4 years PG",www.bath.ac.uk,"Sep, some Jan",Yes,International Excellence
+University of York,UK,"Computer Science, Psychology, Economics, History","$25,600-$38,400","3-4 years UG, 1-4 years PG",www.york.ac.uk,"Sep, some Jan",Yes,Various awards
+University of Exeter,UK,"Business, Engineering, Medicine, Environmental Sciences","$28,160-$40,960","3-4 years UG, 1-4 years PG",www.exeter.ac.uk,"Sep, some Jan",Yes,Global Excellence
+Cardiff University,UK,"Medicine, Engineering, Business, Journalism","$25,600-$38,400","3-4 years UG, 1-4 years PG",www.cardiff.ac.uk,"Sep, some Jan",Yes,International Student
+University of Surrey,UK,"Engineering, Business, Hospitality, Health Sciences","$25,600-$38,400","3-4 years UG, 1-4 years PG",www.surrey.ac.uk,"Sep, Jan available",Yes,Merit scholarships
+Newcastle University,UK,"Medicine, Engineering, Business, Architecture","$25,600-$38,400","3-4 years UG, 1-4 years PG",www.ncl.ac.uk,"Sep, some Jan",Yes,Family Discount
+University of Liverpool,UK,"Medicine, Engineering, Business, Veterinary Science","$25,600-$38,400","3-4 years UG, 1-4 years PG",www.liverpool.ac.uk,"Sep, some Jan",Yes,Various international
+University of Leicester,UK,"Medicine, Space Sciences, Business, Law","$25,600-$38,400","3-4 years UG, 1-4 years PG",www.le.ac.uk,"Sep, some Jan",Yes,International available
+Loughborough University,UK,"Engineering, Sports Science, Business, Design","$28,160-$40,960","3-4 years UG, 1-4 years PG",www.lboro.ac.uk,"Sep, some Jan",Yes,International available
+University of Reading,UK,"Agriculture, Business, Psychology, Meteorology","$23,040-$32,256","3-4 years UG, 1-4 years PG",www.reading.ac.uk,"Sep, Jan available",Yes,International Student
+University of Sussex,UK,"International Relations, Psychology, Media Studies","$25,600-$38,400","3-4 years UG, 1-4 years PG",www.sussex.ac.uk,"Sep, some Jan",Yes,Chancellor's International
+Queen's University Belfast,UK,"Medicine, Engineering, Law, Business","$22,400-$33,600","3-4 years UG, 1-4 years PG",www.qub.ac.uk,"Sep, some Jan",Yes,International available
+Heriot-Watt University,UK,"Engineering, Business, Computer Science, Energy","$22,400-$33,600","3-4 years UG, 1-4 years PG",www.hw.ac.uk,"Sep, Jan available",Yes,Various available
+University of Strathclyde,UK,"Engineering, Business, Pharmacy, Architecture","$22,400-$33,600","3-4 years UG, 1-4 years PG",www.strath.ac.uk,"Sep, some Jan",Yes,International available
+Swansea University,UK,"Engineering, Medicine, Computer Science, Business","$20,480-$30,720","3-4 years UG, 1-4 years PG",www.swansea.ac.uk,"Sep, Jan available",Yes,International Excellence
+University of Kent,UK,"Business, Law, Computer Science, Psychology","$22,080-$32,640","3-4 years UG, 1-4 years PG",www.kent.ac.uk,"Sep, Jan available",Yes,International available
+University of Essex,UK,"Economics, Computer Science, Psychology, Law","$20,480-$30,720","3-4 years UG, 1-4 years PG",www.essex.ac.uk,"Sep, Jan available",Yes,International Excellence
+Brunel University London,UK,"Engineering, Business, Design, Health Sciences","$20,480-$30,720","3-4 years UG, 1-4 years PG",www.brunel.ac.uk,"Sep, Jan available",Yes,International Excellence
+Coventry University,UK,"Engineering, Business, Art & Design, Health","$16,800-$25,200","3-4 years UG, 1-4 years PG",www.coventry.ac.uk,"Sep, Jan available",Yes,Various awards
+"City, University of London",UK,"Business, Engineering, Journalism, Law","$20,480-$30,720","3-4 years UG, 1-4 years PG",www.city.ac.uk,"Sep, some Jan",Yes,International available
+University of Hull,UK,"Business, Engineering, Medicine, Marine Sciences","$16,640-$24,960","3-4 years UG, 1-4 years PG",www.hull.ac.uk,"Sep, Jan available",Yes,Various available
+Keele University,UK,"Medicine, Pharmacy, Psychology, Environmental","$18,720-$28,080","3-4 years UG, 1-4 years PG",www.keele.ac.uk,"Sep, some Jan",Yes,International available
+University of Portsmouth,UK,"Engineering, Business, Pharmacy, Creative Arts","$18,720-$28,080","3-4 years UG, 1-4 years PG",www.port.ac.uk,"Sep, Jan available",Yes,International available
+Oxford Brookes University,UK,"Business, Architecture, Engineering, Health","$16,900-$25,350","3-4 years UG, 1-4 years PG",www.brookes.ac.uk,"Sep, Jan available",Yes,International Excellence
+University of Plymouth,UK,"Marine Sciences, Engineering, Business, Health","$16,640-$24,960","3-4 years UG, 1-4 years PG",www.plymouth.ac.uk,"Sep, Jan available",Yes,International Student
+Northumbria University,UK,"Business, Engineering, Design, Health Sciences","$16,640-$24,960","3-4 years UG, 1-4 years PG",www.northumbria.ac.uk,"Sep, Jan available",Yes,International available
+University of Lincoln,UK,"Engineering, Business, Agriculture, Psychology","$16,640-$24,960","3-4 years UG, 1-4 years PG",www.lincoln.ac.uk,"Sep, Jan available",Yes,Various awards
+De Montfort University,UK,"Engineering, Business, Pharmacy, Creative Arts","$15,680-$23,520","3-4 years UG, 1-4 years PG",www.dmu.ac.uk,"Sep, Jan available",Yes,International available
+University of Hertfordshire,UK,"Engineering, Business, Computer Science, Health","$15,680-$23,520","3-4 years UG, 1-4 years PG",www.herts.ac.uk,"Sep, Jan available",Yes,International available
+Manchester Metropolitan,UK,"Business, Art & Design, Engineering, Health","$16,640-$24,960","3-4 years UG, 1-4 years PG",www.mmu.ac.uk,"Sep, Jan available",Yes,International Excellence
+Sheffield Hallam University,UK,"Engineering, Business, Health Sciences, Art & Design","$15,680-$23,520","3-4 years UG, 1-4 years PG",www.shu.ac.uk,"Sep, Jan available",Yes,Transform Together
+University of Central Lancashire,UK,"Engineering, Business, Health Sciences, Journalism","$15,680-$23,520","3-4 years UG, 1-4 years PG",www.uclan.ac.uk,"Sep, Jan available",Yes,International available
+University of Greenwich,UK,"Engineering, Business, Architecture, Computing","$15,680-$23,520","3-4 years UG, 1-4 years PG",www.gre.ac.uk,"Sep, Jan available",Yes,International available
+University of Westminster,UK,"Business, Media, Architecture, Engineering","$15,680-$23,520","3-4 years UG, 1-4 years PG",www.westminster.ac.uk,"Sep, Jan available",Yes,Westminster International
+University of Brighton,UK,"Engineering, Business, Art & Design, Pharmacy","$15,680-$23,520","3-4 years UG, 1-4 years PG",www.brighton.ac.uk,"Sep, Jan available",Yes,International available
+University of Salford,UK,"Engineering, Business, Health Sciences, Media","$15,680-$23,520","3-4 years UG, 1-4 years PG",www.salford.ac.uk,"Sep, Jan available",Yes,Vice-Chancellor's Excellence
+Staffordshire University,UK,"Engineering, Business, Games Development, Health","$14,720-$22,080","3-4 years UG, 1-4 years PG",www.staffs.ac.uk,"Sep, Jan available",Yes,International Excellence
+University of Bedfordshire,UK,"Business, Computer Science, Health Sciences, Media","$14,720-$22,080","3-4 years UG, 1-4 years PG",www.beds.ac.uk,"Sep, Jan available",Yes,Vice-Chancellor's
+Bangor University,UK,"Marine Sciences, Psychology, Business, Engineering","$16,500-$24,750","3-4 years UG, 1-4 years PG",www.bangor.ac.uk,"Sep, Jan available",Yes,International Excellence
+University of South Wales,UK,"Engineering, Business, Creative Industries, Health","$14,720-$22,080","3-4 years UG, 1-4 years PG",www.southwales.ac.uk,"Sep, Jan available",Yes,International available
+Massachusetts Institute of Technology,USA,"Computer Science, Engineering, Physics, Economics","$64,310 (Total: ~$88,357)","4 years UG, 1-6 years Grad",web.mit.edu,"EA (Nov 1), RD (Jan 1)",Yes,"Need-blind, families <$200K tuition-free"
+Harvard University,USA,"Business, Law, Medicine, Economics, Computer Science","$61,618 (Total: ~$84,450)","4 years UG, 1-4 years Grad",harvard.edu,"EA (Nov 1), RD (Jan 1)",Yes,"Need-blind, families <$150K tuition-free"
+Stanford University,USA,"Computer Science, Engineering, Business, Medicine","$65,127 (Total: ~$92,892)","4 years UG, 1-7 years Grad",stanford.edu,"REA (Nov 1), RD (Jan 5)",Yes,"Need-aware international, limited aid"
+Princeton University,USA,"Engineering, Public Affairs, Economics, Computer Science","~$62,000 (Total: ~$83,000)","4 years UG, 2-7 years Grad",princeton.edu,"ED (Nov 1), RD (Jan 1)",Yes,"Need-blind, meets 100% need, no-loan"
+Yale University,USA,"Law, Medicine, Drama, International Relations","~$64,700 (Total: ~$87,900)","4 years UG, 1-7 years Grad",yale.edu,"SCEA (Nov 1), RD (Jan 2)",Yes,Need-blind international
+California Institute of Technology,USA,"Engineering, Physics, Chemistry, Biology","~$63,471 (Total: ~$86,031)","4 years UG, 5-6 years PhD",www.caltech.edu,RD (Jan 3),Yes,"Need-based, meets 100% need"
+University of Pennsylvania,USA,"Business (Wharton), Engineering, Medicine, Law","~$66,200 (Total: ~$89,400)","4 years UG, 2-4 years Grad",www.upenn.edu,"ED (Nov 1), RD (Jan 5)",Yes,Need-aware international
+Columbia University,USA,"Business, Journalism, Engineering, Medicine","~$68,400 (Total: ~$92,000)","4 years UG, 2+ years Grad",www.columbia.edu,"ED (Nov 1), RD (Jan 1)",Yes,"Need-blind, meets 100% need"
+Duke University,USA,"Business, Medicine, Law, Engineering","~$65,737 (Total: ~$88,000)","4 years UG, 2+ years Grad",www.duke.edu,"ED (Nov 1), RD (Jan 2)",Yes,Need-aware international
+Northwestern University,USA,"Business (Kellogg), Engineering, Journalism","~$65,997 (Total: ~$88,500)","4 years UG, 2+ years Grad",www.northwestern.edu,"ED (Nov 1), RD (Jan 1)",Yes,Need-aware international
+University of Chicago,USA,"Economics, Business, Medicine, Law","~$65,619 (Total: ~$88,000)","4 years UG, various Grad",www.uchicago.edu,"EA (Nov 1), RD (Jan 2)",Yes,Need-aware international
+Cornell University,USA,"Engineering, Agriculture, Business, Medicine","~$65,204 (Total: ~$87,500)","4 years UG, various Grad",www.cornell.edu,"ED (Nov 1), RD (Jan 2)",Yes,Need-blind select countries
+Johns Hopkins University,USA,"Medicine, Public Health, Engineering","~$63,340 (Total: ~$85,500)","4 years UG, 4+ years Grad",www.jhu.edu,"ED (Nov 1), RD (Jan 3)",Yes,Need-aware international
+Dartmouth College,USA,"Business, Engineering, Medicine, Liberal Arts","~$65,511 (Total: ~$87,000)","4 years UG, 2+ years Grad",www.dartmouth.edu,"ED (Nov 1), RD (Jan 3)",Yes,Need-aware international
+Brown University,USA,"Engineering, Medicine, International Relations","~$65,656 (Total: ~$87,500)","4 years UG, various Grad",www.brown.edu,"ED (Nov 1), RD (Jan 5)",Yes,Need-aware international
+UC Berkeley,USA,"Engineering, Computer Science, Business","$51,032","4 years UG, 2+ years Grad",www.berkeley.edu,Fall primary,Yes,Limited international aid
+Rice University,USA,"Engineering, Natural Sciences, Business","$62,474-$66,540","4 years UG, 2+ years Grad",www.rice.edu,Fall primary,Yes,"Need-aware, meets 100% need"
+Vanderbilt University,USA,"Engineering, Medicine, Business, Education","~$63,946","4 years UG, 2+ years Grad",www.vanderbilt.edu,"ED (Nov 1), RD (Jan 1)",Yes,Need-aware international
+Washington University in St. Louis,USA,"Medicine, Business, Engineering, Social Work","~$64,020","4 years UG, 2+ years Grad",www.wustl.edu,"ED (Nov 1), RD (Jan 2)",Yes,Need-aware international
+University of Notre Dame,USA,"Business, Engineering, Liberal Arts","~$62,693","4 years UG, 2+ years Grad",www.nd.edu,"EA (Nov 1), RD (Jan 1)",Yes,Need-aware international
+UCLA,USA,"Film, Business, Engineering, Medicine","$48,596","4 years UG, 2+ years Grad",www.ucla.edu,Fall primary,Yes,Limited international aid
+Emory University,USA,"Business, Medicine, Liberal Arts, Public Health","~$61,816","4 years UG, 2+ years Grad",www.emory.edu,"ED (Nov 1), RD (Jan 1)",Yes,Need-aware international
+Carnegie Mellon University,USA,"Computer Science, Engineering, Drama, Business","~$64,596","4 years UG, 2+ years Grad",www.cmu.edu,"ED (Nov 1), RD (Jan 1)",Yes,Limited international aid
+Georgetown University,USA,"International Affairs, Business, Law, Medicine","~$64,896","4 years UG, 2+ years Grad",www.georgetown.edu,"EA (Nov 1), RD (Jan 10)",Yes,Need-aware international
+University of Michigan,USA,"Engineering, Business (Ross), Medicine, Law","$58,072","4 years UG, 2+ years Grad",www.umich.edu,"EA (Nov 1), RD (Feb 1)",Yes,Limited international aid
+University of Virginia,USA,"Business (Darden), Engineering, Medicine, Law","$60,024","4 years UG, 2+ years Grad",www.virginia.edu,"EA (Nov 1), RD (Jan 1)",Yes,Need-aware international
+Wake Forest University,USA,"Business, Medicine, Law","~$64,758","4 years UG, 2+ years Grad",www.wfu.edu,"ED (Nov 1), RD (Jan 1)",Yes,Need-aware international
+University of Rochester,USA,"Engineering, Medicine, Business, Optics","~$65,480","4 years UG, 2+ years Grad",www.rochester.edu,"ED (Nov 1), RD (Jan 5)",Yes,Need-aware international
+Tufts University,USA,"International Relations, Engineering, Medicine","~$67,844","4 years UG, 2+ years Grad",www.tufts.edu,"ED (Nov 1), RD (Jan 1)",Yes,Need-aware international
+Boston College,USA,"Business, Liberal Arts, Education","~$67,680","4 years UG, 2+ years Grad",www.bc.edu,"EA (Nov 1), RD (Jan 1)",Yes,Need-aware international
+New York University,USA,"Business (Stern), Film, Arts, Medicine","~$62,796","4 years UG, 2+ years Grad",www.nyu.edu,"ED (Nov 1), RD (Jan 5)",Yes,Limited international aid
+UC San Diego,USA,"Engineering, Biology, Computer Science","$48,630","4 years UG, 2+ years Grad",www.ucsd.edu,Fall primary,Yes,Limited international aid
+University of Southern California,USA,"Film, Engineering, Business, Communications","~$68,237","4 years UG, 2+ years Grad",www.usc.edu,"EA (Nov 1), RD (Jan 15)",Yes,Merit scholarships available
+UC Davis,USA,"Agriculture, Veterinary Medicine, Engineering","$48,802","4 years UG, 2+ years Grad",www.ucdavis.edu,Fall primary,Yes,Limited international aid
+Case Western Reserve University,USA,"Engineering, Medicine, Business","~$65,594","4 years UG, 2+ years Grad",www.case.edu,"ED/EA (Nov 1), RD (Jan 15)",Yes,Merit scholarships available
+Tulane University,USA,"Business, Public Health, Liberal Arts","~$65,880","4 years UG, 2+ years Grad",www.tulane.edu,"ED/EA (Nov 15), RD (Jan 15)",Yes,Merit scholarships available
+Boston University,USA,"Business, Communications, Engineering, Medicine","~$65,906","4 years UG, 2+ years Grad",www.bu.edu,"ED (Nov 1), RD (Jan 4)",Yes,Limited international aid
+University of Wisconsin-Madison,USA,"Engineering, Business, Agriculture, Medicine","$42,582","4 years UG, 2+ years Grad",www.wisc.edu,Fall primary,Yes,Limited international aid
+Georgia Institute of Technology,USA,"Engineering, Computer Science, Business","$33,964","4 years UG, 2+ years Grad",www.gatech.edu,"EA (Oct 15), RD (Jan 1)",Yes,Limited international aid
+University of Illinois Urbana-Champaign,USA,"Engineering, Business, Agriculture, Computer Science","$38,214","4 years UG, 2+ years Grad",www.illinois.edu,"EA (Nov 1), RD (Jan 2)",Yes,Limited international aid
+Lehigh University,USA,"Engineering, Business, Liberal Arts","~$63,930","4 years UG, 2+ years Grad",www.lehigh.edu,"ED (Nov 1), RD (Jan 1)",Yes,Need-aware international
+Rensselaer Polytechnic Institute,USA,"Engineering, Computer Science, Architecture","~$63,200","4 years UG, 2+ years Grad",www.rpi.edu,"ED (Nov 1), RD (Jan 15)",Yes,Merit scholarships available
+UC Santa Barbara,USA,"Engineering, Business, Liberal Arts","$48,822","4 years UG, 2+ years Grad",www.ucsb.edu,Fall primary,Yes,Limited international aid
+UC Irvine,USA,"Engineering, Business, Medicine, Computer Science","$48,810","4 years UG, 2+ years Grad",www.uci.edu,Fall primary,Yes,Limited international aid
+University of Miami,USA,"Business, Marine Science, Medicine, Communications","~$62,284","4 years UG, 2+ years Grad",www.miami.edu,"ED/EA (Nov 1), RD (Jan 1)",Yes,Merit scholarships available
+Villanova University,USA,"Business, Engineering, Nursing","~$67,715","4 years UG, 2+ years Grad",www.villanova.edu,"EA (Nov 1), RD (Jan 15)",Yes,Need-aware international
+UNC Chapel Hill,USA,"Business, Medicine, Public Health, Journalism","$39,338","4 years UG, 2+ years Grad",www.unc.edu,"EA (Oct 15), RD (Jan 15)",Yes,Limited international aid
+UT Austin,USA,"Engineering, Business, Computer Science, Liberal Arts","$42,778","4 years UG, 2+ years Grad",www.utexas.edu,Fall primary,Yes,Limited international aid
+University of Washington,USA,"Engineering, Medicine, Computer Science, Business","$42,786","4 years UG, 2+ years Grad",www.washington.edu,Fall primary,Yes,Limited international aid
+Purdue University,USA,"Engineering, Agriculture, Business, Aviation","$31,104","4 years UG, 2+ years Grad",www.purdue.edu,"EA (Nov 1), RD (Jan 15)",Yes,Limited international aid
+Ohio State University,USA,"Engineering, Business, Medicine, Agriculture","$37,904","4 years UG, 2+ years Grad",www.osu.edu,"EA (Nov 1), RD (Feb 1)",Yes,Merit scholarships available
+Pennsylvania State University,USA,"Engineering, Business, Agriculture, Communications","$39,256","4 years UG, 2+ years Grad",www.psu.edu,Fall primary,Yes,Limited international aid
+University of Florida,USA,"Engineering, Business, Medicine, Agriculture","$28,658","4 years UG, 2+ years Grad",www.ufl.edu,Fall primary,Yes,Limited international aid
+University of Minnesota,USA,"Engineering, Business, Medicine, Liberal Arts","$35,892","4 years UG, 2+ years Grad",www.umn.edu,Fall primary,Yes,Limited international aid
+Virginia Tech,USA,"Engineering, Agriculture, Architecture, Business","$35,798","4 years UG, 2+ years Grad",www.vt.edu,"ED (Nov 1), RD (Jan 15)",Yes,Limited international aid
+University of Maryland,USA,"Engineering, Business, Computer Science, Journalism","$41,504","4 years UG, 2+ years Grad",www.umd.edu,"EA (Nov 1), RD (Jan 20)",Yes,Limited international aid
+Texas A&M University,USA,"Engineering, Agriculture, Business, Veterinary Medicine","$40,607","4 years UG, 2+ years Grad",www.tamu.edu,Fall primary,Yes,Limited international aid
+University of Pittsburgh,USA,"Medicine, Engineering, Business, Health Sciences","~$40,000","4 years UG, 2+ years Grad",www.pitt.edu,Fall primary,Yes,Merit scholarships available
+Arizona State University,USA,"Engineering, Business, Journalism, Sustainability","$32,780","4 years UG, 2+ years Grad",www.asu.edu,"Fall, Spring, Summer",Yes,Merit scholarships available
+University of Arizona,USA,"Engineering, Business, Medicine, Optics","$38,718","4 years UG, 2+ years Grad",www.arizona.edu,Fall primary,Yes,Merit scholarships available
+UC Boulder,USA,"Engineering, Business, Environmental Studies","$40,428","4 years UG, 2+ years Grad",www.colorado.edu,Fall primary,Yes,Limited international aid
+University of Connecticut,USA,"Engineering, Business, Agriculture, Pharmacy","$43,034","4 years UG, 2+ years Grad",www.uconn.edu,Fall primary,Yes,Limited international aid
+University of Delaware,USA,"Engineering, Business, Chemical Engineering","$38,320","4 years UG, 2+ years Grad",www.udel.edu,Fall primary,Yes,Merit scholarships available
+University of Georgia,USA,"Business, Agriculture, Engineering, Journalism","$31,120","4 years UG, 2+ years Grad",www.uga.edu,"EA (Oct 15), RD (Jan 15)",Yes,Limited international aid
+Indiana University,USA,"Business (Kelley), Music, Public Affairs","$40,636","4 years UG, 2+ years Grad",www.indiana.edu,Fall primary,Yes,Limited international aid
+University of Iowa,USA,"Business, Engineering, Medicine, Creative Writing","$32,927","4 years UG, 2+ years Grad",www.uiowa.edu,Fall primary,Yes,Limited international aid
+University of Kansas,USA,"Engineering, Business, Medicine, Journalism","$28,034","4 years UG, 2+ years Grad",www.ku.edu,Fall primary,Yes,Merit scholarships available
+University of Kentucky,USA,"Engineering, Business, Medicine, Agriculture","$32,396","4 years UG, 2+ years Grad",www.uky.edu,Fall primary,Yes,Merit scholarships available
+Louisiana State University,USA,"Engineering, Business, Agriculture, Petroleum Engineering","$30,112","4 years UG, 2+ years Grad",www.lsu.edu,Fall primary,Yes,Merit scholarships available
+UMass Amherst,USA,"Engineering, Business, Computer Science","$39,984","4 years UG, 2+ years Grad",www.umass.edu,"EA (Nov 1), RD (Jan 15)",Yes,Limited international aid
+Michigan State University,USA,"Engineering, Business, Agriculture, Veterinary Medicine","$42,690","4 years UG, 2+ years Grad",www.msu.edu,Fall primary,Yes,Merit scholarships available
+University of Missouri,USA,"Engineering, Business, Journalism, Medicine","$32,406","4 years UG, 2+ years Grad",www.missouri.edu,Fall primary,Yes,Merit scholarships available
+University of Nebraska,USA,"Engineering, Business, Agriculture, Medicine","$26,720","4 years UG, 2+ years Grad",www.unl.edu,Fall primary,Yes,Merit scholarships available
+UNLV,USA,"Business, Engineering, Hospitality, Medicine","$25,892","4 years UG, 2+ years Grad",www.unlv.edu,Fall primary,Yes,Merit scholarships available
+University of New Mexico,USA,"Engineering, Medicine, Fine Arts, Business","$24,631","4 years UG, 2+ years Grad",www.unm.edu,Fall primary,Yes,Merit scholarships available
+NC State,USA,"Engineering, Agriculture, Textiles, Veterinary Medicine","$31,608","4 years UG, 2+ years Grad",www.ncsu.edu,"EA (Oct 15), RD (Jan 15)",Yes,Limited international aid
+University of Oklahoma,USA,"Engineering, Business, Meteorology, Petroleum Engineering","$26,504","4 years UG, 2+ years Grad",www.ou.edu,Fall primary,Yes,Merit scholarships available
+Oregon State University,USA,"Engineering, Agriculture, Forestry, Marine Sciences","$34,506","4 years UG, 2+ years Grad",www.oregonstate.edu,Fall primary,Yes,Merit scholarships available
+University of Oregon,USA,"Business, Journalism, Architecture, Liberal Arts","$40,761","4 years UG, 2+ years Grad",www.uoregon.edu,Fall primary,Yes,Merit scholarships available
+University of South Carolina,USA,"Business, Engineering, Medicine, International Business","$35,034","4 years UG, 2+ years Grad",www.sc.edu,Fall primary,Yes,Merit scholarships available
+University of Tennessee,USA,"Engineering, Business, Agriculture, Veterinary Medicine","$32,888","4 years UG, 2+ years Grad",www.utk.edu,Fall primary,Yes,Merit scholarships available
+University of Utah,USA,"Engineering, Medicine, Business, Mining","$32,378","4 years UG, 2+ years Grad",www.utah.edu,Fall primary,Yes,Merit scholarships available
+University of Vermont,USA,"Business, Engineering, Medicine, Agriculture","$46,284","4 years UG, 2+ years Grad",www.uvm.edu,"EA (Nov 1), RD (Jan 15)",Yes,Limited international aid
+Washington State University,USA,"Agriculture, Engineering, Veterinary Medicine, Business","$27,506","4 years UG, 2+ years Grad",www.wsu.edu,Fall primary,Yes,Merit scholarships available
+West Virginia University,USA,"Engineering, Medicine, Business, Agriculture","$26,568","4 years UG, 2+ years Grad",www.wvu.edu,Fall primary,Yes,Merit scholarships available
+University of Toronto,Canada,"Computer Science, Engineering, Business, Medicine","$45,056-$68,992","4-5 years UG, 1-4 years Grad",www.utoronto.ca,"Fall, Winter, Summer",Yes,"Lester B. Pearson (full), International Scholars"
+McGill University,Canada,"Medicine, Engineering, Business, Sciences, Arts","$30,660-$40,150","4 years UG, 1-4 years Grad",www.mcgill.ca,"Fall, Winter",Yes,"McCall MacBain (full + $1,679/month)"
+University of British Columbia,Canada,"Engineering, Commerce, Computer Science, Sciences","$36,170-$46,803","4 years UG, 1-4 years Grad",www.ubc.ca,"Fall, Winter, Summer",Yes,Various entrance scholarships
+University of Waterloo,Canada,"Engineering, Computer Science, Mathematics, Co-op","$42,000-$58,000","4-5 years UG, 1-4 years Grad",uwaterloo.ca,"Fall, Winter, Spring",Yes,"President's Scholarship, International Entrance"
+University of Alberta,Canada,"Engineering, Business, Medicine, Science","$22,146-$30,774","4 years UG, 1-4 years Grad",www.ualberta.ca,"Fall, Winter, Spring/Summer",Yes,International Student Scholarship
+McMaster University,Canada,"Health Sciences, Engineering, Business","$30,966-$47,406","4 years UG, 1-4 years Grad",www.mcmaster.ca,"Fall, Winter",Yes,"Entrance awards up to $7,500"
+Western University,Canada,"Business (Ivey), Medicine, Engineering","$30,824-$41,268","4 years UG, 1-4 years Grad",www.uwo.ca,Fall,Yes,"National Scholarship $2,000-$3,000"
+Queen's University,Canada,"Commerce, Engineering, Medicine, Law","$36,696-$50,226","4 years UG, 1-4 years Grad",www.queensu.ca,Fall,Yes,Merit-based scholarships
+University of Calgary,Canada,"Engineering, Business, Medicine, Energy","$19,367-$25,413","4 years UG, 1-4 years Grad",www.ucalgary.ca,"Fall, Winter, Spring",Yes,International Entrance Scholarship
+Simon Fraser University,Canada,"Computing Science, Business, Engineering","$30,195-$44,802","4 years UG, 1-4 years Grad",www.sfu.ca,"Fall, Spring, Summer",Yes,Various entrance awards
+University of Ottawa,Canada,"Engineering, Medicine, Law, Business","$27,189-$37,451","4 years UG, 1-4 years Grad",www.uottawa.ca,"Fall, Winter",Yes,International scholarships
+Dalhousie University,Canada,"Medicine, Engineering, Business","$21,090-$28,764","4 years UG, 1-4 years Grad",www.dal.ca,"Fall, Winter",Yes,"Entrance scholarships up to $30,000"
+University of Saskatchewan,Canada,"Agriculture, Engineering, Medicine","$19,344-$33,840","4 years UG, 1-4 years Grad",www.usask.ca,"Fall, Winter, Spring/Summer",Yes,Guaranteed entrance scholarships
+University of Manitoba,Canada,"Engineering, Medicine, Business","$14,970-$25,800","4 years UG, 1-4 years Grad",www.umanitoba.ca,"Fall, Winter, Summer",Yes,International College Entrance
+University of Victoria,Canada,"Science, Engineering, Humanities","$22,525-$25,385","4 years UG, 1-4 years Grad",www.uvic.ca,"Fall, Winter, Spring/Summer",Yes,Automatic entrance scholarships
+Carleton University,Canada,"Engineering, Computer Science, Business","$29,262-$44,460","4 years UG, 1-4 years Grad",www.carleton.ca,"Fall, Winter",Yes,Entrance scholarships
+York University,Canada,"Business (Schulich), Engineering, Liberal Arts","$30,423-$55,195","4 years UG, 1-4 years Grad",www.yorku.ca,"Fall, Winter, Summer",Yes,International entrance
+Concordia University,Canada,"Engineering, Business, Fine Arts","$21,326-$31,482","4 years UG, 1-4 years Grad",www.concordia.ca,"Fall, Winter, Summer",Yes,International tuition award
+Memorial University,Canada,"Engineering, Medicine, Business","$8,800-$17,640","4 years UG, 1-4 years Grad",www.mun.ca,"Fall, Winter, Spring",Yes,Various amounts
+University of New Brunswick,Canada,"Engineering, Business, Computer Science","$16,946-$19,734","4 years UG, 1-4 years Grad",www.unb.ca,"Fall, Winter",Yes,Merit and need-based
+Toronto Metropolitan (Ryerson),Canada,"Business, Engineering, Media","$32,081-$39,017","4 years UG, 1-4 years Grad",www.torontomu.ca,"Fall, Winter",Yes,Secondary school awards
+University of Windsor,Canada,"Engineering, Business, Computer Science","$25,770-$31,980","4 years UG, 1-4 years Grad",www.uwindsor.ca,"Fall, Winter, Spring/Summer",Yes,International entrance
+University of Guelph,Canada,"Agriculture, Veterinary Medicine, Engineering","$30,650-$50,000","4 years UG, 1-4 years Grad",www.uoguelph.ca,"Fall, Winter",Yes,International entrance
+Brock University,Canada,"Business, Education, Applied Health Sciences","$28,250-$31,750","4 years UG, 1-4 years Grad",www.brocku.ca,"Fall, Winter",Yes,International student
+University of Regina,Canada,"Engineering, Business, Education","$20,253-$28,593","4 years UG, 1-4 years Grad",www.uregina.ca,"Fall, Winter, Spring/Summer",Yes,Guaranteed entrance
+Lakehead University,Canada,"Engineering, Business, Health Sciences","$22,530-$28,100","4 years UG, 1-4 years Grad",www.lakeheadu.ca,"Fall, Winter",Yes,International entrance
+University of Northern BC,Canada,"Natural Resources, Health Sciences, Engineering","$18,088-$22,110","4 years UG, 1-4 years Grad",www.unbc.ca,"Fall, Winter, Summer",Yes,International excellence
+Mount Allison University,Canada,"Liberal Arts, Sciences, Commerce","$18,340-$19,980","4 years UG, 1-4 years Grad",www.mta.ca,Fall,Yes,Academic and leadership
+Acadia University,Canada,"Business, Computer Science, Sciences","$17,916-$19,446","4 years UG, 1-4 years Grad",www.acadiau.ca,"Fall, Winter",Yes,International student
+Cape Breton University,Canada,"Business, Engineering, Education","$16,404-$18,216","4 years UG, 1-4 years Grad",www.cbu.ca,"Fall, Winter, Summer",Yes,Various entrance
+St. Francis Xavier University,Canada,"Business, Sciences, Education","$18,730-$20,260","4 years UG, 1-4 years Grad",www.stfx.ca,Fall,Yes,Academic excellence
+University of Prince Edward Island,Canada,"Veterinary Medicine, Business, Engineering","$14,598-$16,362","4 years UG, 1-4 years Grad",www.upei.ca,"Fall, Winter",Yes,International student
+Thompson Rivers University,Canada,"Business, Computing Science, Tourism","$16,940-$19,360","4 years UG, 1-4 years Grad",www.tru.ca,"Fall, Winter, Summer",Yes,International awards
+Vancouver Island University,Canada,"Business, Arts, Trades","$16,416-$17,688","3-4 years UG, 1-2 years Grad",www.viu.ca,"Fall, Winter, Summer",Yes,Entrance scholarships
+University of Lethbridge,Canada,"Management, Sciences, Education","$18,342-$20,166","4 years UG, 1-4 years Grad",www.uleth.ca,"Fall, Winter, Spring",Yes,International student
+Saint Mary's University,Canada,"Business, Science, Liberal Arts","$18,696-$20,226","4 years UG, 1-4 years Grad",www.smu.ca,"Fall, Winter, Summer",Yes,Academic achievement
+Mount Royal University,Canada,"Business, Nursing, Engineering","$19,116-$21,246","4 years UG, 1-2 years Grad",www.mtroyal.ca,"Fall, Winter",Yes,International entrance
+Trent University,Canada,"Liberal Arts, Sciences, Business","$21,693-$24,018","4 years UG, 1-4 years Grad",www.trentu.ca,"Fall, Winter",Yes,Entrance scholarships
+Wilfrid Laurier University,Canada,"Business, Music, Social Work","$27,194-$31,464","4 years UG, 1-4 years Grad",www.wlu.ca,"Fall, Winter",Yes,International scholarships
+University of Ontario Institute,Canada,"Engineering, IT, Business","$26,852-$31,128","4 years UG, 1-4 years Grad",www.ontariotechu.ca,"Fall, Winter",Yes,International entrance
+Laurentian University,Canada,"Engineering, Architecture, Health","$22,560-$26,160","4 years UG, 1-4 years Grad",www.laurentian.ca,"Fall, Winter",Yes,International scholarships
+Nipissing University,Canada,"Education, Arts, Sciences","$19,760-$22,880","4 years UG, 1-2 years Grad",www.nipissingu.ca,"Fall, Winter",Yes,International entrance
+Algoma University,Canada,"Community Development, Computer Science","$17,680-$20,480","4 years UG, 1-2 years Grad",www.algomau.ca,"Fall, Winter",Yes,International scholarships
+Brandon University,Canada,"Music, Education, Health Studies","$16,944-$19,632","4 years UG, 1-2 years Grad",www.brandonu.ca,"Fall, Winter",Yes,International entrance
+St. Thomas University,Canada,"Liberal Arts, Social Work, Education","$17,160-$19,890","4 years UG, 1-2 years Grad",www.stu.ca,"Fall, Winter",Yes,International scholarships
+Bishop's University,Canada,"Liberal Arts, Business, Sciences","$23,760-$27,540","4 years UG, 1-2 years Grad",www.ubishops.ca,"Fall, Winter",Yes,International entrance
+University of King's College,Canada,"Liberal Arts, Journalism","$19,218-$22,266","4 years UG, 1-2 years Grad",www.ukings.ca,Fall,Yes,International scholarships
+Emily Carr University,Canada,"Art, Design, Media","$25,102-$29,118","4 years UG, 2 years Grad",www.ecuad.ca,"Fall, Spring",Yes,International entrance
+OCAD University,Canada,"Art, Design, Liberal Studies","$24,372-$28,278","4 years UG, 2 years Grad",www.ocadu.ca,"Fall, Winter",Yes,International scholarships
+Quest University,Canada,"Liberal Arts, Sciences","$35,700-$41,400",4 years UG,www.questu.ca,"Fall, Spring",Yes,Merit-based scholarships
+Technical University of Munich,Germany,"Aerospace Engineering, Data Engineering, Computer Science","$2,160-6,480/semester","3-3.5 years Bachelor, 2 years Master",www.tum.de/en,"Winter (Oct), Summer (Apr)",Yes,"DAAD ($1,070-1,400/month), TUM scholarships"
+LMU Munich,Germany,"Economics, Physics, Management, Statistics, Neuroscience",$162-432/semester,"3 years Bachelor, 2 years Master",www.lmu.de/en,"Winter (Oct), Summer (Apr)",Yes,"DAAD, Deutschlandstipendium ($324/month)"
+Heidelberg University,Germany,"Economics, Physics, American Studies, Health Economics","$1,620/semester (non-EU), $174 (EU)","3 years Bachelor, 2 years Master",www.uni-heidelberg.de/en,"Winter (Oct), Summer (Apr)",Yes,"DAAD, university scholarships"
+University of Bonn,Germany,"Law, Medicine, Economics, Mathematics, Computer Science",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-bonn.de/en,"Winter (Oct), Summer (Apr)",Yes,"DAAD, Deutschlandstipendium ($324/month)"
+Humboldt University Berlin,Germany,"Philosophy, Sociology, History, Medicine, Natural Sciences",$162-324/semester,"3 years Bachelor, 2 years Master",www.hu-berlin.de/en,"Winter (Oct), Summer (Apr)",Yes,"DAAD, Berlin scholarships ($324-1,400/month)"
+University of Hamburg,Germany,"Law, Medicine, Economics, Social Sciences, Natural Sciences",$162-378/semester,"3 years Bachelor, 2 years Master",www.uni-hamburg.de/en,"Winter (Oct), Summer (Apr)",Yes,"DAAD, Hamburg scholarships"
+Free University of Berlin,Germany,"Political Science, Medicine, Philosophy, Economics",$162-324/semester,"3 years Bachelor, 2 years Master",www.fu-berlin.de/en,"Winter (Oct), Summer (Apr)",Yes,"DAAD, Berlin scholarships ($324-1,400/month)"
+RWTH Aachen University,Germany,"Mechanical Engineering, Electrical Engineering, Computer Science",$162-324/semester,"3 years Bachelor, 2 years Master",www.rwth-aachen.de,"Winter (Oct), Summer (Apr)",Yes,"DAAD, RWTH scholarships ($324-1,400/month)"
+TU Berlin,Germany,"Engineering, Computer Science, Architecture, Urban Planning",$162-378/semester,"3 years Bachelor, 2 years Master",www.tu-berlin.de,"Winter (Oct), Summer (Apr)",Yes,"DAAD, TU Berlin scholarships"
+University of Frankfurt,Germany,"Economics, Law, Medicine, Social Sciences, Natural Sciences",$162-378/semester,"3 years Bachelor, 2 years Master",www.uni-frankfurt.de/english,"Winter (Oct), Summer (Apr)",Yes,"DAAD, Hessen scholarships ($324-1,400/month)"
+University of Göttingen,Germany,"Physics, Mathematics, Medicine, Forest Sciences, Agriculture",$162-378/semester,"3 years Bachelor, 2 years Master",www.uni-goettingen.de/en,"Winter (Oct), Summer (Apr)",Yes,"DAAD, Lower Saxony scholarships"
+University of Cologne,Germany,"Law, Economics, Medicine, Management, Cultural Studies",$162-378/semester,"3 years Bachelor, 2 years Master",www.uni-koeln.de,"Winter (Oct), Summer (Apr)",Yes,"DAAD, NRW scholarships ($324-1,400/month)"
+University of Mannheim,Germany,"Business Administration, Economics, Social Sciences, Computer Science","$1,620/semester (Baden-Württemberg non-EU), $162-378 others","3 years Bachelor, 2 years Master",www.uni-mannheim.de/en,"Fall (Sep), Spring (Feb)",Yes,"DAAD, Baden-Württemberg scholarships"
+Dresden University of Technology,Germany,"Engineering, Natural Sciences, Medicine, Computer Science",$162-378/semester,"3 years Bachelor, 2 years Master",tu-dresden.de,"Winter (Oct), Summer (Apr)",Yes,"DAAD, Saxony scholarships"
+University of Stuttgart,Germany,"Aerospace Engineering, Automotive Engineering, Computer Science","$1,620/semester (Baden-Württemberg non-EU), $162-378 others","3 years Bachelor, 2 years Master",www.uni-stuttgart.de/en,"Winter (Oct), Summer (Apr)",Yes,"DAAD, Baden-Württemberg scholarships"
+University of Würzburg,Germany,"Computer Science, Life Sciences, Physics",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-wuerzburg.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+Karlsruhe Institute of Technology,Germany,"Engineering, Computer Science","$1,620/semester (Baden-Württemberg)","3 years Bachelor, 2 years Master",www.kit.edu/english,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Freiburg,Germany,"Environmental Sciences, Economics","$1,620/semester (Baden-Württemberg non-EU)","3 years Bachelor, 2 years Master",www.uni-freiburg.de/university,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Leipzig,Germany,"Medicine, Global Mass Communication",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-leipzig.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+Ruhr University Bochum,Germany,"Engineering, Natural Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.ruhr-uni-bochum.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Düsseldorf,Germany,"Medicine, Law, Economics",$108-378/semester,"3 years Bachelor, 2 years Master",www.hhu.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+TU Darmstadt,Germany,"Engineering, Computer Science",$108-378/semester,"3 years Bachelor, 2 years Master",www.tu-darmstadt.de/index.en.jsp,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Erlangen-Nuremberg,Germany,"Medicine, Engineering, Business",$108-378/semester,"3 years Bachelor, 2 years Master",www.fau.eu,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Jena,Germany,"Chemistry, Physics, Life Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-jena.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Kiel,Germany,"Marine Sciences, Medicine",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-kiel.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Mainz,Germany,"Medicine, Natural Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-mainz.de/eng,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Münster,Germany,"Economics, Law, Medicine",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-muenster.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+TU Braunschweig,Germany,"Engineering, Computer Science",$108-378/semester,"3 years Bachelor, 2 years Master",www.tu-braunschweig.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Hannover,Germany,"Engineering, Natural Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-hannover.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Kassel,Germany,"Engineering, Environmental Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-kassel.de/uni/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Konstanz,Germany,"Life Sciences, Economics","$1,620/semester (Baden-Württemberg non-EU)","3 years Bachelor, 2 years Master",www.uni-konstanz.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Marburg,Germany,"Medicine, Life Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-marburg.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Regensburg,Germany,"Medicine, Economics",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-regensburg.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Rostock,Germany,"Medicine, Engineering",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-rostock.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Saarbrücken,Germany,"Computer Science, Medicine",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-saarland.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+TU Chemnitz,Germany,"Engineering, Computer Science",$108-378/semester,"3 years Bachelor, 2 years Master",www.tu-chemnitz.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Ulm,Germany,"Medicine, Engineering","$1,620/semester (Baden-Württemberg non-EU)","3 years Bachelor, 2 years Master",www.uni-ulm.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Bielefeld,Germany,"Sociology, Psychology",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-bielefeld.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Bremen,Germany,"Engineering, Marine Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-bremen.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+TU Dortmund,Germany,"Engineering, Computer Science",$108-378/semester,"3 years Bachelor, 2 years Master",www.tu-dortmund.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Duisburg-Essen,Germany,"Engineering, Medicine",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-due.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Giessen,Germany,"Veterinary Medicine, Life Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-giessen.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Greifswald,Germany,"Medicine, Life Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-greifswald.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Halle-Wittenberg,Germany,"Natural Sciences, Medicine",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-halle.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Hohenheim,Germany,"Agriculture, Economics","$1,620/semester (Baden-Württemberg non-EU)","3 years Bachelor, 2 years Master",www.uni-hohenheim.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+TU Ilmenau,Germany,"Engineering, Computer Science",$108-378/semester,"3 years Bachelor, 2 years Master",www.tu-ilmenau.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Magdeburg,Germany,"Engineering, Medicine",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-magdeburg.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Oldenburg,Germany,"Marine Sciences, Renewable Energy",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-oldenburg.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Osnabrück,Germany,"Cognitive Science, Psychology",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-osnabrueck.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Paderborn,Germany,"Computer Science, Engineering",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-paderborn.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Passau,Germany,"Business, Computer Science",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-passau.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Potsdam,Germany,"Earth Sciences, Economics",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-potsdam.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Siegen,Germany,"Engineering, Economics",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-siegen.de/start/index.html.en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Trier,Germany,"Psychology, Computer Science",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-trier.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Tübingen,Germany,"Medicine, Life Sciences, Economics","$1,620/semester (Baden-Württemberg non-EU)","3 years Bachelor, 2 years Master",www.uni-tuebingen.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Wuppertal,Germany,"Engineering, Architecture",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-wuppertal.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+Clausthal University of Technology,Germany,"Engineering, Earth Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.tu-clausthal.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Bayreuth,Germany,"Economics, African Studies",$108-378/semester,"3 years Bachelor, 2 years Master",www.uni-bayreuth.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+Brandenburg University of Technology,Germany,"Engineering, Environmental Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.b-tu.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+HAW Hamburg,Germany,"Engineering, Life Sciences",$108-378/semester,"3 years Bachelor, 2 years Master",www.haw-hamburg.de/en,"Winter (Oct), Summer (Apr)",Yes,DAAD scholarships
+University of Melbourne,Australia,"Engineering, Business, Medicine, Law, Arts, Science","$19,500-$32,500 UG, $32,175-$36,713 PG","3-4 years UG, 1-2 years PG",www.unimelb.edu.au,"Semester 1 (Feb-Mar), Semester 2 (Jul-Aug)",Yes,"Melbourne International UG (50-100% + $25,025)"
+University of Sydney,Australia,"Business, Engineering, Medicine, Law, Arts, Architecture","$30,485-$40,755 UG, $29,380-$52,000 PG","3-4 years UG, 1-2 years PG",www.sydney.edu.au,"Semester 1 (Feb-Mar), Semester 2 (Jul-Aug)",Yes,"International scholarships, Research Training Program"
+UNSW Sydney,Australia,"Engineering, Business, Computer Science, Medicine, Law","$16,965-$61,476","3-4 years UG, 1-2 years PG",www.unsw.edu.au,"Term 1 (Feb-Mar), Term 2 (Jun), Term 3 (Sep)",Yes,"International Student Award (15%), Scientia (full or $13,000)"
+Australian National University,Australia,"Public Policy, International Relations, Science, Engineering","$35,760-$40,320 UG, $31,680-$39,024 PG","3-4 years UG, 1-2 years PG",www.anu.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,ANU Chancellor's International (25-100%)
+Monash University,Australia,"Engineering, Medicine, Business, IT, Pharmacy","$31,200-$38,600 UG, $32,400-$42,600 PG","3-4 years UG, 1-2 years PG",www.monash.edu,"Semester 1 (Feb-Mar), Semester 2 (Jul-Aug)",Yes,"Monash International Merit ($10,000/year)"
+University of Queensland,Australia,"Medicine, Engineering, Business, Science, Agriculture","$32,272-$41,968 UG, $33,280-$40,320 PG","3-4 years UG, 1-2 years PG",www.uq.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"UQ Excellence ($6,000-$12,000/year)"
+University of Adelaide,Australia,"Medicine, Engineering, Agriculture, Wine Business","$32,500-$40,000 UG, $34,000-$42,500 PG","3 years UG, 1.5-2 years PG",www.adelaide.edu.au,"Semester 1 (Feb-Mar), Semester 2 (Jul-Aug)",Yes,Global Citizens (15-30% reduction)
+University of Western Australia,Australia,"Medicine, Engineering, Business, Science, Mining","$32,400-$40,700 UG, $33,200-$41,600 PG","3 years UG, 1.5-2 years PG",www.uwa.edu.au,"Semester 1 (Feb-Mar), Semester 2 (Jul-Aug)",Yes,"Global Excellence ($5,000-$12,000/year)"
+University of Technology Sydney,Australia,"Engineering, IT, Business, Design, Communication","$32,640-$40,320 UG, $33,840-$42,240 PG","3-4 years UG, 1-2 years PG",www.uts.edu.au,"Autumn (Feb-Mar), Spring (Jul-Aug)",Yes,"UTS International ($5,000-$10,000/year)"
+Macquarie University,Australia,"Business, Medicine, Engineering, Arts, Science","$30,840-$38,400 UG, $32,400-$40,800 PG","3 years UG, 1-2 years PG",www.mq.edu.au,"Session 1 (Feb-Mar), Session 2 (Jul-Aug)",Yes,"Vice-Chancellor's International ($10,000/year)"
+Queensland University of Technology,Australia,"Business, Engineering, IT, Creative Industries, Health","$30,600-$37,200 UG, $31,800-$39,000 PG","3-4 years UG, 1-2 years PG",www.qut.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"QUT International Merit ($5,000/semester)"
+University of Wollongong,Australia,"Engineering, IT, Business, Medicine, Arts","$28,800-$35,280 UG, $29,520-$36,480 PG","3 years UG, 1-2 years PG",www.uow.edu.au,"Autumn (Feb-Mar), Spring (Jul)",Yes,"International Excellence ($6,000-$18,000/year)"
+Deakin University,Australia,"Business, Health, Engineering, Education, IT","$28,800-$36,000 UG, $30,000-$37,200 PG","3 years UG, 1-2 years PG",www.deakin.edu.au,"Trimester 1 (Mar), Trimester 2 (Jul), Trimester 3 (Nov)",Yes,"STEM (20% reduction), International Scholarship"
+RMIT University,Australia,"Engineering, Business, Design, IT, Art","$30,720-$37,440 UG, $32,160-$39,360 PG","3-4 years UG, 1-2 years PG",www.rmit.edu.au,"Semester 1 (Feb-Mar), Semester 2 (Jul)",Yes,"International Excellence ($5,000/year)"
+Griffith University,Australia,"Business, Health, Education, Engineering, Arts","$27,500-$33,500 UG, $28,500-$35,000 PG","3 years UG, 1-2 years PG",www.griffith.edu.au,"Trimester 1 (Feb), Trimester 2 (Jul), Trimester 3 (Oct)",Yes,"International Student Academic Excellence ($5,000/year)"
+La Trobe University,Australia,"Business, Engineering, Nursing","$21,190-$27,430","3 years UG, 1-2 years PG",www.latrobe.edu.au,"Semester 1 (Feb-Mar), Semester 2 (Jul-Aug)",Yes,Up to 25% tuition reduction
+Flinders University,Australia,"Medicine, Nursing, Business","$18,850-$26,585","3 years UG, 1-2 years PG",www.flinders.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,Various amounts
+University of Tasmania,Australia,"Medicine, Maritime, Business, Creative Arts","$25,650-$32,950","3 years UG, 1-2 years PG",www.utas.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,Tasmania International (25% reduction)
+Charles Darwin University,Australia,"Engineering, Health Sciences, Business, Education","$22,752-$31,680","3 years UG, 1-2 years PG",www.cdu.edu.au,"Semester 1 (Feb-Mar), Semester 2 (Jul-Aug)",Yes,International Excellence (25-50% reduction)
+Swinburne University,Australia,"Engineering, IT, Business, Design","$29,460-$35,760","3-4 years UG, 1-2 years PG",www.swinburne.edu.au,"Semester 1 (Feb-Mar), Semester 2 (Jul-Aug)",Yes,"Chancellor's International ($5,000-$25,000)"
+Curtin University,Australia,"Engineering, Business, Health Sciences, Mining","$28,400-$37,900","3-4 years UG, 1-2 years PG",www.curtin.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"International Merit ($10,000/year)"
+Victoria University,Australia,"Business, Health, Engineering, Education","$24,800-$31,200","3 years UG, 1-2 years PG",www.vu.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"International Excellence ($3,000-$5,000)"
+Murdoch University,Australia,"Veterinary Medicine, Business, Engineering, Health","$25,770-$32,550","3 years UG, 1-2 years PG",www.murdoch.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"International Welcome ($3,000/year)"
+Bond University,Australia,"Business, Law, Medicine, Health Sciences","$38,364-$76,944","3 years UG, 1-2 years PG",www.bond.edu.au,"January, May, September",Yes,Excellence (25-50% reduction)
+Western Sydney University,Australia,"Business, Health, Engineering, Education","$26,400-$33,120","3 years UG, 1-2 years PG",www.westernsydney.edu.au,"Autumn (Feb-Mar), Spring (Jul-Aug)",Yes,"International ($6,000-$30,000)"
+Southern Cross University,Australia,"Business, Health, Education, Environmental Science","$24,800-$30,400","3 years UG, 1-2 years PG",www.scu.edu.au,"Trimester 1 (Feb), Trimester 2 (Jun), Trimester 3 (Oct)",Yes,"International Excellence ($5,000)"
+University of the Sunshine Coast,Australia,"Business, Nursing, Engineering, Creative Arts","$23,200-$29,600","3 years UG, 1-2 years PG",www.usc.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"International Excellence ($5,000)"
+Central Queensland University,Australia,"Engineering, Business, Health, Education","$24,480-$30,240","3 years UG, 1-2 years PG",www.cqu.edu.au,"Study Period 1 (Mar), 2 (Jul), 3 (Nov)",Yes,"International Student ($4,000-$6,000)"
+University of New England,Australia,"Business, Health, Education, Agriculture","$23,760-$29,520","3 years UG, 1-2 years PG",www.une.edu.au,"Trimester 1 (Feb), 2 (Jun), 3 (Oct)",Yes,"UNE International ($5,000-$8,000)"
+Edith Cowan University,Australia,"Business, Engineering, Health, Education","$25,100-$31,750","3 years UG, 1-2 years PG",www.ecu.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"International Masters ($4,000)"
+University of Southern Queensland,Australia,"Engineering, Business, Health, Education","$23,840-$29,280","3 years UG, 1-2 years PG",www.usq.edu.au,"Semester 1 (Feb), 2 (Jul), 3 (Nov)",Yes,"Excellence ($5,000)"
+Australian Catholic University,Australia,"Nursing, Education, Business, Health Sciences","$23,168-$28,704","3 years UG, 1-2 years PG",www.acu.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"International Student ($2,000-$5,000)"
+Federation University Australia,Australia,"Engineering, Business, Health, Education","$22,200-$28,600","3 years UG, 1-2 years PG",www.federation.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"International Excellence ($4,000)"
+University of Canberra,Australia,"Business, Health, IT, Design","$25,800-$32,000","3 years UG, 1-2 years PG",www.canberra.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"UC International Excellence ($2,000-$10,000)"
+Charles Sturt University,Australia,"Agriculture, Health, Education, Business","$23,200-$28,480","3 years UG, 1-2 years PG",www.csu.edu.au,"Session 1 (Feb), Session 2 (Jul)",Yes,"International Student ($5,000)"
+University of Notre Dame Australia,Australia,"Medicine, Law, Business, Health Sciences","$26,280-$68,320","3 years UG, 1-2 years PG",www.notredame.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,Limited international scholarships
+James Cook University,Australia,"Medicine, Marine Biology, Engineering, Business","$27,360-$62,400","3 years UG, 1-2 years PG",www.jcu.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,"International Student ($5,000)"
+University of Divinity,Australia,"Theology, Philosophy, Counseling","$18,400-$22,800","3 years UG, 1-2 years PG",www.divinity.edu.au,"Semester 1 (Feb), Semester 2 (Jul)",Yes,Merit-based scholarships
+Torrens University Australia,Australia,"Business, Design, Health, Hospitality","$25,920-$32,400","3 years UG, 1-2 years PG",www.torrens.edu.au,Multiple throughout year,Yes,Excellence (10-25% reduction)
+Melbourne Institute of Technology,Australia,"Business, IT, Engineering","$23,000-$28,500","3 years UG, 1-2 years PG",www.mit.edu.au,"Feb, May, Sep",Yes,"Academic Excellence ($3,000)"
+SAE Institute,Australia,"Creative Media, Game Development, Audio Production","$24,480-$29,760","2-3 years UG, 1-2 years PG",www.sae.edu.au,"Feb, May, Sep",Yes,"Women in Games, Creative Excellence"
+Holmesglen Institute,Australia,"Applied Sciences, Business, Creative Arts","$19,500-$24,000","2-3 years UG, 1-2 years PG",www.holmesglen.edu.au,"Feb, July",Yes,International Student Scholarship
+Academy of Information Technology,Australia,"IT, Games, Mobile Apps","$21,600-$25,200","2-3 years UG, 1-2 years PG",www.ait.edu.au,"Feb, May, Aug, Nov",Yes,Academic Merit Scholarship
+Kaplan Business School,Australia,"Business, Accounting, Management","$20,160-$24,480","3 years UG, 1-2 years PG",www.kbs.edu.au,"Feb, May, Sep",Yes,Academic Achievement Award
+William Angliss Institute,Australia,"Hospitality, Culinary Arts, Tourism","$18,500-$23,000","2-3 years UG, 1-2 years PG",www.angliss.edu.au,"Feb, July",Yes,Industry Excellence Scholarship

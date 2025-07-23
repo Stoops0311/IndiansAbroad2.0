@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import UniversityExplorerModal from "@/components/UniversityExplorerModal";
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -16,7 +17,8 @@ import {
   TrendingUp,
   DollarSign,
   Home,
-  Award
+  Award,
+  Building2
 } from "lucide-react";
 import Link from "next/link";
 import { studyAbroadCountries, type Country } from "@/lib/study-abroad-data";
@@ -29,6 +31,7 @@ interface StudyAbroadModalProps {
 export default function StudyAbroadModal({ isOpen, onClose }: StudyAbroadModalProps) {
   const [currentStep, setCurrentStep] = useState<'selection' | 'details'>('selection');
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
+  const [showUniversityExplorer, setShowUniversityExplorer] = useState(false);
 
   const handleCountrySelect = (country: Country) => {
     setSelectedCountry(country);
@@ -51,8 +54,9 @@ export default function StudyAbroadModal({ isOpen, onClose }: StudyAbroadModalPr
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-7xl max-h-[95vh] overflow-y-auto">
+    <>
+      <Dialog open={isOpen} onOpenChange={handleClose}>
+        <DialogContent className="max-w-7xl max-h-[95vh] overflow-y-auto">
         {currentStep === 'selection' ? (
           // Step 1: Country Selection
           <div>
@@ -64,6 +68,21 @@ export default function StudyAbroadModal({ isOpen, onClose }: StudyAbroadModalPr
                 Select a country to explore detailed information about studying abroad
               </p>
             </DialogHeader>
+
+            {/* University Explorer Button */}
+            <div className="mt-6 p-6 pb-0">
+              <Button
+                onClick={() => setShowUniversityExplorer(true)}
+                className="w-full md:w-auto mx-auto flex items-center gap-3 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-lg"
+                size="lg"
+              >
+                <Building2 className="h-5 w-5" />
+                Explore Universities We're Associated With
+                <Badge className="bg-primary-foreground/20 text-primary-foreground border-0 ml-2">
+                  300+ Partners
+                </Badge>
+              </Button>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 p-6">
               {studyAbroadCountries.map((country) => (
@@ -446,7 +465,14 @@ export default function StudyAbroadModal({ isOpen, onClose }: StudyAbroadModalPr
             </div>
           )
         )}
-      </DialogContent>
-    </Dialog>
+        </DialogContent>
+      </Dialog>
+      
+      {/* University Explorer Modal */}
+      <UniversityExplorerModal
+        isOpen={showUniversityExplorer}
+        onClose={() => setShowUniversityExplorer(false)}
+      />
+    </>
   );
 }
