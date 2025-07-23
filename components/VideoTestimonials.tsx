@@ -52,7 +52,7 @@ export default function VideoTestimonials() {
   const [activeVideo, setActiveVideo] = useState(0);
 
   return (
-    <BentoCard className="lg:col-span-2 p-4 md:p-6 lg:p-8 min-h-[500px] md:min-h-[550px]">
+    <BentoCard className="p-4 md:p-6 lg:p-8 min-h-[500px] md:min-h-[550px] h-full">
       <div className="h-full flex flex-col">
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-4">
@@ -83,9 +83,9 @@ export default function VideoTestimonials() {
                 window.open(testimonial.videoUrl, '_blank');
               }}
             >
-              <div className="flex gap-4">
-                <div className="relative flex-shrink-0">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden relative">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="relative flex-shrink-0 mx-auto sm:mx-0">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden relative">
                     <img 
                       src={testimonial.thumbnail} 
                       alt={`${testimonial.name} testimonial`}

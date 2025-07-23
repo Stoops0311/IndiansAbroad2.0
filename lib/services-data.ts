@@ -24,7 +24,7 @@ export const servicesData = [
   },
   {
     id: "pr-canada",
-    title: "Permanent Residency Canada",
+    title: "Canada Permanent Residency",
     icon: "home",
     price: "₹50,000", 
     description: "Complete end-to-end support for Canadian permanent residency through Express Entry and Provincial Nominee Programs.",
@@ -54,7 +54,7 @@ export const servicesData = [
   },
   {
     id: "pr-australia", 
-    title: "Permanent Residency Australia",
+    title: "Australia Permanent Residency",
     icon: "globe",
     price: "₹50,000",
     description: "Comprehensive support for Australian permanent residency through SkillSelect and state nomination programs.",

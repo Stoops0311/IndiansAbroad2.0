@@ -182,7 +182,7 @@ export function Header() {
                   }}
                 />
                 <div 
-                  className="absolute inset-0 bg-primary"
+                  className="absolute inset-0 bg-primary dark:bg-white"
                   style={{
                     maskImage: 'url(/logo-new.svg)',
                     WebkitMaskImage: 'url(/logo-new.svg)',
@@ -197,7 +197,7 @@ export function Header() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-lg md:text-2xl lg:text-3xl font-bold text-primary leading-tight">INDIANS ABROAD</span>
+              <span className="text-base md:text-xl lg:text-2xl font-bold text-primary dark:text-white leading-tight">INDIANS ABROAD</span>
               <span className="text-xs md:text-sm text-muted-foreground hidden sm:block">Empowering Dreams Worldwide</span>
             </div>
           </Link>
@@ -255,10 +255,7 @@ export function Header() {
                                       className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors text-left"
                                     >
                                       <IconComponent className="h-4 w-4 text-primary flex-shrink-0" />
-                                      <div className="flex-1 min-w-0">
-                                        <span className="text-foreground font-medium text-sm truncate">{service.title}</span>
-                                        <p className="text-muted-foreground text-xs mt-1 line-clamp-2">{service.summary}</p>
-                                      </div>
+                                      <span className="text-foreground font-medium text-sm">{service.title}</span>
                                     </button>
                                   );
                                 })}

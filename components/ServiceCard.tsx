@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import ServiceDetailModal from "@/components/ServiceDetailModal";
 import StudyAbroadModal from "@/components/StudyAbroadModal";
+import ServiceInquiryModal from "@/components/ServiceInquiryModal";
 import { type ServiceData } from "@/lib/services-data";
-import Link from "next/link";
 import { 
   Briefcase, 
   Home, 
@@ -46,6 +46,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service }: ServiceCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isInquiryModalOpen, setIsInquiryModalOpen] = useState(false);
   const Icon = iconMap[service.icon as keyof typeof iconMap];
   const isComingSoon = false; // All services are active now
 
@@ -127,11 +128,12 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                 Notify Me When Available
               </Button>
             ) : (
-              <Button asChild className="w-full shadow-lg hover:shadow-primary/20 transition-all group">
-                <Link href={`/contact?service=${service.id}`}>
-                  {service.ctaText}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+              <Button 
+                className="w-full shadow-lg hover:shadow-primary/20 transition-all group"
+                onClick={() => setIsInquiryModalOpen(true)}
+              >
+                {service.ctaText}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             )}
           </div>
@@ -153,6 +155,13 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           />
         )
       )}
+
+      {/* Service Inquiry Modal */}
+      <ServiceInquiryModal
+        isOpen={isInquiryModalOpen}
+        onClose={() => setIsInquiryModalOpen(false)}
+        service={service}
+      />
     </>
   );
 }

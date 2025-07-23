@@ -4,6 +4,7 @@ import { BentoCard, BentoIcon, BentoTitle, BentoDescription } from "@/components
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Globe, ArrowRight, Star } from "lucide-react";
+import Link from "next/link";
 
 const countries = [
   {
@@ -91,24 +92,28 @@ export default function CountriesGrid() {
                   ))}
                 </div>
                 
-                <Button 
-                  size="sm" 
-                  variant="outline" 
-                  className="w-full text-xs border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all"
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
-                </Button>
+                <Link href="/services" className="w-full">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="w-full text-xs border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
               </div>
             </Card>
           ))}
         </div>
         
         <div className="mt-6 text-center">
-          <Button className="text-sm px-6">
-            View All Countries
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link href="/services">
+            <Button className="text-sm px-6">
+              View All Countries
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </BentoCard>

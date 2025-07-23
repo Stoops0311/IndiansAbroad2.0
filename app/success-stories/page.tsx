@@ -17,10 +17,14 @@ export default function SuccessStoriesPage() {
             {/* Trust Metrics - Full Width */}
             <TrustMetrics />
             
-            {/* Video Testimonials + Written Reviews Row */}
+            {/* Written Reviews + Video Testimonials Row */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-              <VideoTestimonials />
-              <WrittenTestimonials />
+              <div className="lg:col-span-2">
+                <WrittenTestimonials />
+              </div>
+              <div className="lg:col-span-1">
+                <VideoTestimonials />
+              </div>
             </div>
           </div>
         </section>

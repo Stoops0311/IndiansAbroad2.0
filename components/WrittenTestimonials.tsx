@@ -22,7 +22,7 @@ export default function WrittenTestimonials() {
 
   return (
     <>
-      <BentoCard className="lg:col-span-1 p-4 md:p-6 lg:p-8 min-h-[500px] md:min-h-[550px]">
+      <BentoCard className="p-4 md:p-6 lg:p-8 min-h-[500px] md:min-h-[550px] h-full">
         <div className="h-full flex flex-col">
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-4">
@@ -41,11 +41,11 @@ export default function WrittenTestimonials() {
           </BentoDescription>
         </div>
         
-        <div className="space-y-4 flex-1 overflow-y-auto max-h-[400px] pr-2 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1 overflow-y-auto max-h-[400px] pr-2 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
           {!allTestimonials ? (
             // Loading state
-            <div className="space-y-4">
-              {[1, 2, 3].map((i) => (
+            <>
+              {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="p-4 bg-muted/30 border border-border rounded animate-pulse">
                   <div className="space-y-3">
                     <div className="flex gap-1">
@@ -70,10 +70,10 @@ export default function WrittenTestimonials() {
                   </div>
                 </div>
               ))}
-            </div>
+            </>
           ) : displayedTestimonials.length === 0 ? (
             // Empty state
-            <div className="text-center py-8">
+            <div className="col-span-full text-center py-8">
               <Quote className="h-12 w-12 text-muted-foreground/50 mx-auto mb-4" />
               <p className="text-muted-foreground text-sm">No testimonials available yet.</p>
             </div>
@@ -82,7 +82,7 @@ export default function WrittenTestimonials() {
             displayedTestimonials.map((testimonial) => (
             <Card 
               key={testimonial._id}
-              className="p-4 bg-muted/30 border-border hover:border-primary/40 hover:bg-muted/50 transition-all duration-300 group"
+              className="p-3 bg-muted/30 border-border hover:border-primary/40 hover:bg-muted/50 transition-all duration-300 group h-fit"
             >
               <div className="space-y-3">
                 <div className="flex gap-1 mb-2">
@@ -91,7 +91,7 @@ export default function WrittenTestimonials() {
                   ))}
                 </div>
                 
-                <blockquote className="text-sm text-foreground/90 italic leading-relaxed">
+                <blockquote className="text-xs md:text-sm text-foreground/90 italic leading-relaxed line-clamp-3">
                   "{testimonial.review}"
                 </blockquote>
 
@@ -103,7 +103,7 @@ export default function WrittenTestimonials() {
                     <img
                       src={testimonial.supportingDocUrls[0]}
                       alt="Supporting document"
-                      className="w-full h-24 object-cover rounded-lg border border-primary/20"
+                      className="w-full h-16 object-cover rounded-lg border border-primary/20"
                       loading="lazy"
                     />
                   </div>
@@ -123,10 +123,10 @@ export default function WrittenTestimonials() {
                       </div>
                     )}
                     <div className="min-w-0">
-                      <h5 className="font-semibold text-foreground text-sm leading-tight">
+                      <h5 className="font-semibold text-foreground text-xs leading-tight">
                         {testimonial.name}
                       </h5>
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-2 text-[10px] text-muted-foreground">
                         <span className="truncate">{testimonial.service}</span>
                       </div>
                     </div>

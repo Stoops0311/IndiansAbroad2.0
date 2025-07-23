@@ -77,7 +77,7 @@ export default function Footer() {
                 <span className="text-xl mr-2">🔗</span>
                 <a 
                   href="/" 
-                  className="text-sm text-white/80 hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Home
                 </a>
@@ -102,7 +102,7 @@ export default function Footer() {
                 <span className="text-xl mr-2">📄</span>
                 <Link 
                   href="/terms"
-                  className="text-sm text-white/80 hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Terms & Conditions
                 </Link>
