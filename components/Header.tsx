@@ -433,7 +433,7 @@ export function Header() {
                         <Link
                           href={item.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors text-white hover:text-white/90"
+                          className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors text-foreground hover:text-foreground/90"
                         >
                           <span className={`${item.iconColor}`}>
                             {item.icon}
