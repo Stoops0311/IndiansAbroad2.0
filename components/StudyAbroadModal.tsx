@@ -18,7 +18,8 @@ import {
   DollarSign,
   Home,
   Award,
-  Building2
+  Building2,
+  Globe
 } from "lucide-react";
 import Link from "next/link";
 import { studyAbroadCountries, type Country } from "@/lib/study-abroad-data";
@@ -69,22 +70,8 @@ export default function StudyAbroadModal({ isOpen, onClose }: StudyAbroadModalPr
               </p>
             </DialogHeader>
 
-            {/* University Explorer Button */}
-            <div className="mt-6 p-6 pb-0">
-              <Button
-                onClick={() => setShowUniversityExplorer(true)}
-                className="w-full md:w-auto mx-auto flex items-center gap-3 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-lg"
-                size="lg"
-              >
-                <Building2 className="h-5 w-5" />
-                Explore Universities We're Associated With
-                <Badge className="bg-primary-foreground/20 text-primary-foreground border-0 ml-2">
-                  300+ Partners
-                </Badge>
-              </Button>
-            </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 p-6">
+              {/* Country Cards */}
               {studyAbroadCountries.map((country) => (
                 <button
                   key={country.id}
@@ -115,6 +102,35 @@ export default function StudyAbroadModal({ isOpen, onClose }: StudyAbroadModalPr
                   </div>
                 </button>
               ))}
+              
+              {/* University Explorer Card - Last */}
+              <button
+                onClick={() => setShowUniversityExplorer(true)}
+                className="group p-6 rounded-xl bg-gradient-to-br from-primary/10 via-primary/5 to-background border-2 border-primary/40 hover:border-primary/60 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20"
+              >
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🎓</div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Partner Universities</h3>
+                  <div className="space-y-2 text-sm text-muted-foreground">
+                    <div className="flex items-center justify-center gap-2">
+                      <Building2 className="h-4 w-4" />
+                      <span>300+ Universities</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <Globe className="h-4 w-4" />
+                      <span>5 Countries</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <Award className="h-4 w-4" />
+                      <span>Scholarship Partners</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center justify-center gap-2 text-primary">
+                    <span className="text-sm font-medium">Explore All</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </button>
             </div>
           </div>
         ) : (
