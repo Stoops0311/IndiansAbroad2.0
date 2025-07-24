@@ -56,6 +56,8 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(testimonial?.photoUrl || null);
   const [supportingFiles, setSupportingFiles] = useState<File[]>([]);
+  const [existingSupportingDocs, setExistingSupportingDocs] = useState<string[]>(testimonial?.supportingDocUrls || []);
+  const [supportingDocsToRemove, setSupportingDocsToRemove] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const photoInputRef = useRef<HTMLInputElement>(null);
@@ -104,6 +106,11 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
     setSupportingFiles(prev => prev.filter((_, i) => i !== index));
   };
 
+  const removeExistingSupportingDoc = (docUrl: string) => {
+    setExistingSupportingDocs(prev => prev.filter(url => url !== docUrl));
+    setSupportingDocsToRemove(prev => [...prev, docUrl]);
+  };
+
   const uploadFile = async (file: File) => {
     const uploadUrl = await generateUploadUrl();
     const response = await fetch(uploadUrl, {
@@ -131,6 +138,19 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
       // Upload photo if new one is selected
       if (photoFile) {
         photoStorageId = await uploadFile(photoFile);
+      }
+
+      // Handle existing supporting documents removal
+      if (supportingDocsToRemove.length > 0 && testimonial?.supportingDocs) {
+        // Filter out removed documents by comparing URLs
+        const remainingDocIds = [];
+        for (let i = 0; i < (testimonial.supportingDocUrls || []).length; i++) {
+          const docUrl = testimonial.supportingDocUrls[i];
+          if (!supportingDocsToRemove.includes(docUrl)) {
+            remainingDocIds.push(testimonial.supportingDocs[i]);
+          }
+        }
+        supportingDocStorageIds = remainingDocIds;
       }
 
       // Upload supporting documents if any
@@ -198,7 +218,7 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Client's full name"
-                className="bg-white/5 border-primary/20 text-white"
+                className="bg-muted/30 border-primary/20 text-foreground"
                 required
               />
             </div>
@@ -206,7 +226,7 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
             <div className="space-y-2">
               <Label htmlFor="country">Country *</Label>
               <Select value={formData.country} onValueChange={handleCountryChange}>
-                <SelectTrigger className="bg-white/5 border-primary/20 text-white">
+                <SelectTrigger className="bg-muted/30 border-primary/20 text-foreground [&>span]:text-foreground">
                   <SelectValue placeholder="Select country" />
                 </SelectTrigger>
                 <SelectContent>
@@ -228,7 +248,7 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
                 value={formData.rating.toString()} 
                 onValueChange={(value) => handleInputChange("rating", parseInt(value))}
               >
-                <SelectTrigger className="bg-white/5 border-primary/20 text-white">
+                <SelectTrigger className="bg-muted/30 border-primary/20 text-foreground [&>span]:text-foreground">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -251,7 +271,7 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
             <div className="space-y-2">
               <Label htmlFor="service">Service *</Label>
               <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)}>
-                <SelectTrigger className="bg-white/5 border-primary/20 text-white">
+                <SelectTrigger className="bg-muted/30 border-primary/20 text-foreground [&>span]:text-foreground">
                   <SelectValue placeholder="Select service" />
                 </SelectTrigger>
                 <SelectContent>
@@ -273,7 +293,7 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
               value={formData.review}
               onChange={(e) => handleInputChange("review", e.target.value)}
               placeholder="Client's testimonial..."
-              className="w-full h-32 px-3 py-2 bg-white/5 border border-primary/20 rounded-md text-white placeholder:text-white/50 resize-none"
+              className="w-full h-32 px-3 py-2 bg-muted/30 border border-primary/20 rounded-md text-foreground placeholder:text-muted-foreground/50 resize-none"
               required
             />
           </div>
@@ -287,7 +307,7 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
                 value={formData.achievement}
                 onChange={(e) => handleInputChange("achievement", e.target.value)}
                 placeholder="e.g., PR Visa Approved, €85k Job Offer"
-                className="bg-white/5 border-primary/20 text-white"
+                className="bg-muted/30 border-primary/20 text-foreground"
                 required
               />
             </div>
@@ -299,7 +319,7 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
                 value={formData.timeframe}
                 onChange={(e) => handleInputChange("timeframe", e.target.value)}
                 placeholder="e.g., 6 months, 1 year"
-                className="bg-white/5 border-primary/20 text-white"
+                className="bg-muted/30 border-primary/20 text-foreground"
                 required
               />
             </div>
@@ -325,8 +345,8 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
                   </button>
                 </div>
               ) : (
-                <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                  <User className="h-8 w-8 text-white/50" />
+                <div className="w-16 h-16 rounded-full bg-muted/30 flex items-center justify-center">
+                  <User className="h-8 w-8 text-muted-foreground/50" />
                 </div>
               )}
               <Button
@@ -352,11 +372,31 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
           <div className="space-y-2">
             <Label>Supporting Document (Optional)</Label>
             <div className="space-y-2">
-              {supportingFiles.length > 0 && (
-                <div className="flex items-center justify-between p-2 bg-white/5 rounded border border-primary/20">
+              {/* Existing supporting documents */}
+              {existingSupportingDocs.map((docUrl, index) => (
+                <div key={docUrl} className="flex items-center justify-between p-2 bg-muted/30 rounded border border-primary/20">
                   <div className="flex items-center gap-2">
                     <FileText className="h-4 w-4 text-primary" />
-                    <span className="text-sm text-white">{supportingFiles[0].name}</span>
+                    <span className="text-sm text-foreground">Existing Document {index + 1}</span>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => removeExistingSupportingDoc(docUrl)}
+                    className="text-red-400 hover:bg-red-400/10"
+                  >
+                    <Trash2 className="h-3 w-3" />
+                  </Button>
+                </div>
+              ))}
+              
+              {/* New supporting documents */}
+              {supportingFiles.length > 0 && (
+                <div className="flex items-center justify-between p-2 bg-muted/30 rounded border border-primary/20">
+                  <div className="flex items-center gap-2">
+                    <FileText className="h-4 w-4 text-primary" />
+                    <span className="text-sm text-foreground">{supportingFiles[0].name}</span>
                   </div>
                   <Button
                     type="button"
@@ -390,12 +430,12 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
           </div>
 
           {/* Form Actions */}
-          <div className="flex gap-3 pt-4 border-t border-white/10">
+          <div className="flex gap-3 pt-4 border-t border-border">
             <Button
               type="button"
               variant="outline"
               onClick={onClose}
-              className="flex-1 border-white/20 text-white hover:bg-white/10"
+              className="flex-1 border-border text-foreground hover:bg-muted/50"
               disabled={isSubmitting}
             >
               Cancel

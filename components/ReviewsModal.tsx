@@ -369,7 +369,6 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                   </h4>
                   {(() => {
                     const docUrl = selectedTestimonial.supportingDocUrls[0]; // Only show first document
-                    console.log("Document URL:", docUrl); // Debug log
                     
                     if (!docUrl) {
                       return <div className="text-muted-foreground">No document available</div>;
@@ -401,9 +400,6 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                             alt="Supporting document"
                             className="w-full max-w-2xl mx-auto rounded-lg border border-primary/20"
                             loading="eager"
-                            onLoad={() => {
-                              console.log("Image loaded successfully");
-                            }}
                             onError={(e) => {
                               console.error("Image failed to load:", docUrl);
                               // Hide the image and show fallback
@@ -414,9 +410,6 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                                 fallback.className = 'text-center py-8';
                                 fallback.innerHTML = `
                                   <div class="text-muted-foreground mb-2">Unable to display image</div>
-                                  <a href="${docUrl}" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 underline">
-                                    Click to view document
-                                  </a>
                                 `;
                                 parent.appendChild(fallback);
                               }
@@ -429,34 +422,22 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
                       return (
                         <div className="space-y-3">
                           <div className="w-full h-96 rounded-lg border border-primary/20 overflow-hidden bg-white">
-                            <object
-                              data={docUrl}
-                              type="application/pdf"
+                            <iframe
+                              src={`https://docs.google.com/viewer?url=${encodeURIComponent(docUrl)}&embedded=true&toolbar=0&navpanes=0&scrollbar=0`}
                               className="w-full h-full"
-                            >
-                              <iframe
-                                src={`https://docs.google.com/viewer?url=${encodeURIComponent(docUrl)}&embedded=true`}
-                                className="w-full h-full"
-                                title="Supporting PDF Document"
-                              />
-                            </object>
+                              title="Supporting PDF Document"
+                              sandbox="allow-same-origin"
+                            />
                           </div>
-                          <div className="text-center text-muted-foreground text-sm">PDF Document</div>
+                          <div className="text-center text-muted-foreground text-sm">PDF Document Preview (View Only)</div>
                         </div>
                       );
                     } else {
                       return (
                         <div className="text-center py-8">
                           <FileText className="h-12 w-12 text-muted-foreground/50 mx-auto mb-4" />
-                          <div className="text-muted-foreground mb-2">Document available</div>
-                          <a
-                            href={docUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary hover:text-primary/80 underline"
-                          >
-                            Click to view document
-                          </a>
+                          <div className="text-muted-foreground mb-2">Supporting Document Attached</div>
+                          <div className="text-sm text-muted-foreground">Document preview not available</div>
                         </div>
                       );
                     }
