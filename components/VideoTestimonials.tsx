@@ -32,6 +32,19 @@ const videoTestimonials = [
     achievement: "Opportunity Card Success",
     quote: "Inspiring journey to Germany",
     details: "Yogita Lunkad's Inspiring Abroad Journey | Indians_Abroad Success Story | Opportunity Card"
+  },
+  {
+    id: 3,
+    name: "Rohit Punjabi",
+    profession: "Business Systems Specialist",
+    country: "Abroad",
+    flag: "🌍",
+    duration: "Success Story",
+    thumbnail: "https://img.youtube.com/vi/3zlQbkcYmOA/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=3zlQbkcYmOA",
+    achievement: "Business Systems Specialist Success",
+    quote: "Real abroad journey transformation",
+    details: "Rohit Punjabi's Real Abroad Journey | Business Systems Specialist Success Story | Indians_Abroad"
   }
 ];
 

@@ -29,6 +29,16 @@ const videoTestimonials = [
     thumbnail: "https://img.youtube.com/vi/IvGYk6owjUk/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/watch?v=IvGYk6owjUk",
     quote: "Yogita Lunkad's Inspiring Abroad Journey | Opportunity Card"
+  },
+  {
+    id: 3,
+    name: "Rohit Punjabi",
+    country: "Abroad",
+    duration: "Business Systems Success",
+    role: "Business Systems Specialist",
+    thumbnail: "https://img.youtube.com/vi/3zlQbkcYmOA/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=3zlQbkcYmOA",
+    quote: "Rohit Punjabi's Real Abroad Journey | Business Systems Specialist Success Story"
   }
 ];
 
