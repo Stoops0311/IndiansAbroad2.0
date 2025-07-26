@@ -6,11 +6,15 @@ import CountriesGrid from "@/components/CountriesGrid";
 import FinalCTA from "@/components/FinalCTA";
 import EligibilityForm from "@/components/EligibilityForm";
 import Footer from "@/components/Footer";
+import DesktopSidebar from "@/components/DesktopSidebar";
 import { BentoGrid } from "@/components/ui/bento";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      {/* Desktop Sidebar */}
+      <DesktopSidebar />
+      
       {/* Hero Section - Full Width */}
       <Hero />
       
