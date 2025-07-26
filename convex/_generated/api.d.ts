@@ -13,7 +13,11 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as crons from "../crons.js";
+import type * as generateNews from "../generateNews.js";
 import type * as importAllUniversities from "../importAllUniversities.js";
+import type * as news from "../news.js";
+import type * as scheduledArticles from "../scheduledArticles.js";
 import type * as testimonials from "../testimonials.js";
 import type * as universities from "../universities.js";
 
@@ -26,7 +30,11 @@ import type * as universities from "../universities.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  crons: typeof crons;
+  generateNews: typeof generateNews;
   importAllUniversities: typeof importAllUniversities;
+  news: typeof news;
+  scheduledArticles: typeof scheduledArticles;
   testimonials: typeof testimonials;
   universities: typeof universities;
 }>;

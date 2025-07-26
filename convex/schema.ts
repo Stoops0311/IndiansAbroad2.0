@@ -50,4 +50,56 @@ export default defineSchema({
       searchField: "popularPrograms",
       filterFields: ["country", "isActive"],
     }),
+
+  newsArticles: defineTable({
+    title: v.string(),
+    content: v.string(), // Markdown-formatted article body
+    summary: v.string(), // Brief summary for preview
+    category: v.string(), // immigration|education|visa|career|culture|success
+    tags: v.array(v.string()), // Array of relevant tags
+    metadata: v.optional(v.any()), // JSON object for storing citations and sources
+    status: v.string(), // draft|published|archived
+    publishedAt: v.optional(v.number()), // Publication timestamp
+    generatedAt: v.number(), // When the article was created
+    isActive: v.boolean(), // For soft delete
+    featuredImage: v.optional(v.string()), // Optional image URL
+    readingTime: v.number(), // Estimated reading time in minutes
+    rawOutput: v.optional(v.string()), // Store original AI response for debugging
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_status", ["status"])
+    .index("by_category", ["category"])
+    .index("by_isActive", ["isActive"])
+    .index("by_publishedAt", ["publishedAt"])
+    .index("by_createdAt", ["createdAt"])
+    .searchIndex("search_articles", {
+      searchField: "title",
+      filterFields: ["category", "status", "isActive"],
+    })
+    .searchIndex("search_content", {
+      searchField: "content",
+      filterFields: ["category", "status", "isActive"],
+    }),
+
+  scheduledArticles: defineTable({
+    title: v.string(), // Admin-defined title for the article
+    category: v.string(), // immigration|education|visa|career|culture|success
+    customPrompt: v.optional(v.string()), // Optional custom prompt override
+    scheduledFor: v.number(), // Unix timestamp when article should be generated
+    priority: v.string(), // low|medium|high
+    status: v.string(), // pending|processing|completed|failed
+    generatedArticleId: v.optional(v.id("newsArticles")), // Link to generated article
+    metadata: v.optional(v.any()), // Additional scheduling metadata
+    createdBy: v.optional(v.string()), // Admin who scheduled this
+    notes: v.optional(v.string()), // Admin notes about the scheduled article
+    isActive: v.boolean(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_status", ["status"])
+    .index("by_category", ["category"])
+    .index("by_scheduledFor", ["scheduledFor"])
+    .index("by_isActive", ["isActive"])
+    .index("by_priority", ["priority"]),
 });

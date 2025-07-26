@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Home, Instagram, ExternalLink, FileText } from "lucide-react";
+import { MapPin, Phone, Mail, Home, Instagram, ExternalLink, FileText, Newspaper } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -81,6 +81,17 @@ export default function Footer() {
                 >
                   Home
                 </a>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Newspaper className="h-4 w-4 text-primary" />
+                <span className="text-xl mr-2">📰</span>
+                <Link 
+                  href="/news"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  News & Updates
+                </Link>
               </div>
               
               <div className="flex items-center gap-3">
