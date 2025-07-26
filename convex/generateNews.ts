@@ -48,44 +48,171 @@ const ARTICLE_SCHEMA = {
       items: {
         type: "string"
       },
-      description: "3-5 key points from the article (separate from content)"
+      description: "3-5 key points from the article"
     },
     tags: {
       type: "array",
       items: {
         type: "string"
       },
-      description: "5 relevant tags for the article (separate from content)"
+      description: "5 relevant tags for the article"
     }
   },
   required: ["summary", "content", "keyTakeaways", "tags"]
 };
 
-// Extract JSON from Perplexity reasoning model response
-function extractJsonFromReasoningResponse(response: string): any | null {
+// Parse tag-based response format
+function parseTaggedResponse(response: string): {
+  title?: string;
+  summary?: string;
+  content?: string;
+  keyTakeaways?: string[];
+  tags?: string[];
+} | null {
   try {
+    const result: any = {};
+    
+    // Extract content after </think> tag if present
+    let content = response;
     const thinkEndIndex = response.lastIndexOf('</think>');
-    
-    let jsonContent = '';
     if (thinkEndIndex !== -1) {
-      jsonContent = response.substring(thinkEndIndex + 8).trim();
-    } else {
-      jsonContent = response.trim();
+      content = response.substring(thinkEndIndex + 8).trim();
     }
     
-    const parsed = JSON.parse(jsonContent);
-    return parsed;
-  } catch (error) {
-    try {
-      const jsonMatch = response.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        return JSON.parse(jsonMatch[0]);
-      }
-    } catch (regexError) {
-      console.error('Error extracting JSON from response:', error);
+    // Extract Title
+    const titleMatch = content.match(/<Title>([\s\S]*?)<\/Title>/i);
+    if (titleMatch) {
+      result.title = titleMatch[1].trim();
     }
+    
+    // Extract Summary
+    const summaryMatch = content.match(/<Summary>([\s\S]*?)<\/Summary>/i);
+    if (summaryMatch) {
+      result.summary = summaryMatch[1].trim();
+    }
+    
+    // Extract Content
+    const contentMatch = content.match(/<Content>([\s\S]*?)<\/Content>/i);
+    if (contentMatch) {
+      result.content = contentMatch[1].trim();
+    }
+    
+    // Extract Key Takeaways
+    const keyTakeawaysMatch = content.match(/<KeyTakeaways>([\s\S]*?)<\/KeyTakeaways>/i);
+    if (keyTakeawaysMatch) {
+      // Split by newlines and filter empty lines
+      result.keyTakeaways = keyTakeawaysMatch[1]
+        .split(/[\n\r]+/)
+        .map(line => line.trim())
+        .filter(line => line.length > 0);
+    }
+    
+    // Extract Tags
+    const tagsMatch = content.match(/<Tags>([\s\S]*?)<\/Tags>/i);
+    if (tagsMatch) {
+      // Split by commas
+      result.tags = tagsMatch[1]
+        .split(',')
+        .map(tag => tag.trim())
+        .filter(tag => tag.length > 0);
+    }
+    
+    // Validate we have the minimum required fields
+    if (!result.content || !result.summary) {
+      console.error('Missing required fields in tagged response');
+      return null;
+    }
+    
+    return result;
+  } catch (error) {
+    console.error('Error parsing tagged response:', error);
     return null;
   }
+}
+
+// Convert content to markdown format
+function convertToMarkdown(content: string): string {
+  let markdown = content;
+  
+  // Convert HTML-style headings to markdown
+  markdown = markdown.replace(/<h1>(.*?)<\/h1>/gi, '# $1');
+  markdown = markdown.replace(/<h2>(.*?)<\/h2>/gi, '## $1');
+  markdown = markdown.replace(/<h3>(.*?)<\/h3>/gi, '### $1');
+  
+  // Convert bold
+  markdown = markdown.replace(/<b>(.*?)<\/b>/gi, '**$1**');
+  markdown = markdown.replace(/<strong>(.*?)<\/strong>/gi, '**$1**');
+  
+  // Convert italic
+  markdown = markdown.replace(/<i>(.*?)<\/i>/gi, '*$1*');
+  markdown = markdown.replace(/<em>(.*?)<\/em>/gi, '*$1*');
+  
+  // Replace //n with actual newlines
+  markdown = markdown.replace(/\/\/n/g, '\n');
+  
+  return markdown;
+}
+
+// Clean content from AI artifacts and ensure proper formatting
+function cleanArticleContent(content: string): string {
+  let cleaned = content;
+  
+  // Remove internal reasoning markers like <*...>
+  cleaned = cleaned.replace(/<\*[^>]*>/g, '');
+  
+  // Remove editorial notes in square brackets that aren't citations
+  // Keep [1], [2], etc. but remove [Note: ...] or [Editorial: ...]
+  cleaned = cleaned.replace(/\[[^\]]*(?:Note|Editorial|Comment|TODO|FIXME)[^\]]*\]/gi, '');
+  
+  // Remove any remaining <think> tags or similar
+  cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '');
+  cleaned = cleaned.replace(/<\/?think>/g, '');
+  
+  // Detect and remove corrupted endings (random characters, code fragments)
+  // Look for suspicious patterns at the end
+  const lines = cleaned.split('\n');
+  let lastValidLine = lines.length - 1;
+  
+  // Check from the end for corrupted content
+  for (let i = lines.length - 1; i >= Math.max(0, lines.length - 10); i--) {
+    const line = lines[i].trim();
+    // Detect corruption patterns: excessive special chars, random Unicode, code syntax
+    if (line.length > 0 && (
+      /[\u0400-\u04FF]{5,}/.test(line) || // Cyrillic spam
+      /[\u4E00-\u9FFF]{5,}/.test(line) || // Chinese characters spam  
+      /[{}\[\]()<>]{10,}/.test(line) || // Code syntax spam
+      /\w{50,}/.test(line) || // Very long unbroken strings
+      /[^\x20-\x7E\n\r\t]{10,}/.test(line) // Non-printable characters
+    )) {
+      lastValidLine = i - 1;
+    } else if (line.length > 0) {
+      // Found a valid line, stop checking
+      break;
+    }
+  }
+  
+  // Truncate at last valid line if corruption detected
+  if (lastValidLine < lines.length - 1) {
+    cleaned = lines.slice(0, lastValidLine + 1).join('\n');
+  }
+  
+  // Ensure content doesn't end mid-sentence
+  cleaned = cleaned.trim();
+  const lastChar = cleaned[cleaned.length - 1];
+  if (lastChar && !'.!?"\'`)'.includes(lastChar)) {
+    // Try to find the last complete sentence
+    const lastPeriodIndex = cleaned.lastIndexOf('.');
+    const lastExclamationIndex = cleaned.lastIndexOf('!');
+    const lastQuestionIndex = cleaned.lastIndexOf('?');
+    const lastCompleteIndex = Math.max(lastPeriodIndex, lastExclamationIndex, lastQuestionIndex);
+    
+    if (lastCompleteIndex > cleaned.length * 0.8) {
+      // Only truncate if we're not losing too much content
+      cleaned = cleaned.substring(0, lastCompleteIndex + 1);
+    }
+  }
+  
+  return cleaned.trim();
 }
 
 // Calculate reading time based on content
@@ -134,8 +261,8 @@ RESEARCH REQUIREMENTS:
 
 CONTENT REQUIREMENTS:
 - Write in an informative yet engaging tone
-- Target length: 1200-2000 words (detailed and comprehensive)
-- Use markdown formatting for the main content:
+- Target length: 1000-1500 words (comprehensive but focused)
+- Use standard markdown formatting:
   - ## for main headings
   - ### for subheadings
   - **bold** for emphasis
@@ -143,20 +270,22 @@ CONTENT REQUIREMENTS:
   - > for important quotes
   - - or * for bullet points
   - [text](url) for links
+- AVOID TABLES - use bullet points for data presentation instead
 
-STRUCTURE:
-- Write a compelling 150-200 character summary
-- Create detailed, well-structured main content that supports the title: "${args.title}"
-- DO NOT include key takeaways or tags within the article content itself
-- Keep key takeaways and tags separate in the JSON structure
-- Focus on comprehensive, in-depth coverage in the main content
+OUTPUT FORMAT:
+Return a JSON object with the following fields:
+- summary: A compelling 150-200 character summary
+- content: The main article content in markdown format
+- keyTakeaways: An array of 3-5 key points from the article
+- tags: An array of 5 relevant tags
 
-IMPORTANT: 
-- The "content" field should be pure article content without any "Key Takeaways" or "Tags" sections
-- Key takeaways and tags will be handled separately in the JSON structure
-- Make the article content longer and more detailed than typical news articles
-
-Please return the information in the exact JSON format requested. Do NOT include a title field since it's already provided.`;
+CRITICAL RULES:
+- The content field should contain ONLY the article text, no metadata
+- Keep all sections complete - do not cut off mid-sentence
+- Focus on comprehensive, factual reporting
+- Ensure the article directly addresses the title: "${args.title}"
+- DO NOT include "Key Takeaways" or "Tags" sections in the content itself
+- These will be handled separately in the JSON structure`;
 
       console.log(`Generating article with title: "${args.title}" for category: ${args.category}`);
       
@@ -168,7 +297,7 @@ Please return the information in the exact JSON format requested. Do NOT include
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          model: "sonar-reasoning",
+          model: "sonar-pro",
           messages: [
             { role: "user", content: prompt }
           ],
@@ -191,11 +320,34 @@ Please return the information in the exact JSON format requested. Do NOT include
         throw new Error('No response content from Perplexity');
       }
 
-      // Extract JSON from reasoning response
-      const parsedArticle = extractJsonFromReasoningResponse(aiResponse);
-      
-      if (!parsedArticle) {
-        throw new Error('Failed to parse Perplexity response');
+      console.log('AI Response length:', aiResponse.length);
+      console.log('AI Response preview:', aiResponse.substring(0, 500));
+
+      // Parse the JSON response
+      let parsedArticle;
+      try {
+        parsedArticle = JSON.parse(aiResponse);
+      } catch (error) {
+        console.error('Failed to parse JSON response:', error);
+        console.error('Full response:', aiResponse);
+        // Save the failed response for debugging
+        const errorId = await ctx.runMutation(internal.news.createInternal, {
+          title: `PARSE_ERROR: ${args.title}`,
+          content: `Failed to parse AI response. See rawOutput for details.`,
+          summary: 'Parsing error',
+          category: args.category,
+          tags: ['error', 'parsing-failed'],
+          metadata: {
+            error: 'Failed to parse JSON response',
+            timestamp: new Date().toISOString(),
+          },
+          status: 'error',
+          generatedAt: Date.now(),
+          isActive: false,
+          readingTime: 0,
+          rawOutput: aiResponse,
+        });
+        throw new Error(`Failed to parse JSON response. Debug article ID: ${errorId}`);
       }
 
       // Validate required fields
@@ -203,8 +355,21 @@ Please return the information in the exact JSON format requested. Do NOT include
         throw new Error('Missing required fields in parsed article');
       }
 
+      // Clean the content and summary
+      const cleanedContent = cleanArticleContent(parsedArticle.content);
+      const cleanedSummary = cleanArticleContent(parsedArticle.summary);
+
+      // Validate cleaned content
+      if (cleanedContent.length < 100) {
+        throw new Error('Article content too short after cleaning - possible corruption');
+      }
+
+      if (cleanedSummary.length < 50) {
+        throw new Error('Article summary too short after cleaning');
+      }
+
       // Calculate reading time
-      const readingTime = calculateReadingTime(parsedArticle.content);
+      const readingTime = calculateReadingTime(cleanedContent);
 
       // Create metadata object with Perplexity citations
       const metadata = {
@@ -224,8 +389,8 @@ Please return the information in the exact JSON format requested. Do NOT include
       // Store the article in the database
       const articleId: string = await ctx.runMutation(internal.news.createInternal, {
         title: args.title, // Use the admin-provided title
-        content: parsedArticle.content,
-        summary: parsedArticle.summary,
+        content: cleanedContent, // Use cleaned content
+        summary: cleanedSummary, // Use cleaned summary
         category: args.category,
         tags: parsedArticle.tags || [],
         metadata,

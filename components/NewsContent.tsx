@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 
 interface NewsContentProps {
   content: string;
@@ -11,49 +11,44 @@ interface NewsContentProps {
 }
 
 export default function NewsContent({ content, sources = [] }: NewsContentProps) {
-  const [showCitationTooltip, setShowCitationTooltip] = useState<number | null>(null);
 
-  // Enhanced markdown parser with table and citation support
+  // Enhanced markdown parser with table support
   const parseMarkdown = (text: string) => {
     let html = text;
 
     // 1. Parse and convert tables
     html = parseTable(html);
 
-    // 2. Parse inline citations [1], [2], [1][2], etc.
-    html = parseCitations(html);
-
-    // 3. Convert headers
+    // 2. Convert headers (process in order from most specific to least)
+    html = html.replace(/^#### (.*$)/gim, '<h4 class="text-lg font-bold mt-6 mb-3">$1</h4>');
     html = html.replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold mt-8 mb-4">$1</h3>');
     html = html.replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mt-10 mb-6">$1</h2>');
     html = html.replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mt-12 mb-8">$1</h1>');
 
-    // 4. Convert bold text
+    // 3. Convert bold text
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>');
 
-    // 5. Convert italic text  
+    // 4. Convert italic text  
     html = html.replace(/\*(.*?)\*/g, '<em class="italic">$1</em>');
 
-    // 6. Convert links (but preserve citation links)
+    // 5. Convert links
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, url) => {
-      // Skip if this looks like a citation
-      if (/^\d+$/.test(text)) return match;
       return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">${text}</a>`;
     });
 
-    // 7. Convert blockquotes
+    // 6. Convert blockquotes
     html = html.replace(/^> (.*$)/gim, '<blockquote class="border-l-4 border-primary pl-4 my-4 italic text-muted-foreground">$1</blockquote>');
 
-    // 8. Convert bullet points
+    // 7. Convert bullet points
     html = html.replace(/^\* (.*$)/gim, '<li class="ml-4">$1</li>');
     html = html.replace(/^- (.*$)/gim, '<li class="ml-4">$1</li>');
 
-    // 9. Wrap consecutive list items in ul tags
+    // 8. Wrap consecutive list items in ul tags
     html = html.replace(/(<li class="ml-4">.*?<\/li>(?:\s*<li class="ml-4">.*?<\/li>)*)/g, (match) => {
       return `<ul class="list-disc list-inside space-y-2 my-4">${match}</ul>`;
     });
 
-    // 10. Convert line breaks to paragraphs
+    // 9. Convert line breaks to paragraphs
     const paragraphs = html.split('\n\n').filter(p => p.trim());
     html = paragraphs.map(p => {
       const trimmed = p.trim();
@@ -110,60 +105,8 @@ export default function NewsContent({ content, sources = [] }: NewsContentProps)
     });
   };
 
-  // Parse inline citations like [1], [2], [1][2]
-  const parseCitations = (text: string) => {
-    // Match patterns like [1], [2], [1][2], etc.
-    const citationRegex = /(\[\d+\])+/g;
-    
-    return text.replace(citationRegex, (match) => {
-      // Extract individual citation numbers
-      const citations = match.match(/\[(\d+)\]/g);
-      if (!citations) return match;
-
-      const citationElements = citations.map(citation => {
-        const num = citation.replace(/[\[\]]/g, '');
-        const citationIndex = parseInt(num) - 1;
-        const source = sources[citationIndex];
-        
-        const citationHtml = `
-          <span 
-            class="citation-link inline-flex items-center justify-center w-5 h-5 text-xs bg-primary text-primary-foreground rounded-full cursor-pointer hover:bg-primary/80 mx-0.5 relative"
-            data-citation="${num}"
-            onclick="window.openCitation('${source?.url || '#'}', '${source?.source || `Source ${num}`}')"
-            onmouseenter="if(this.nextElementSibling) this.nextElementSibling.style.display='block'"
-            onmouseleave="if(this.nextElementSibling) this.nextElementSibling.style.display='none'"
-          >
-            ${num}
-            <div class="citation-tooltip absolute z-10 p-2 bg-black text-white text-sm rounded shadow-lg max-w-xs hidden pointer-events-none">
-              ${source?.source || `Source ${num}`}
-              ${source?.url ? `<br><span class="text-gray-300 text-xs">${source.url}</span>` : ''}
-            </div>
-          </span>
-        `;
-        
-        return citationHtml;
-      });
-
-      return citationElements.join('');
-    });
-  };
 
   const htmlContent = parseMarkdown(content);
-
-  // Add global function for citation clicks
-  React.useEffect(() => {
-    (window as any).openCitation = (url: string, title: string) => {
-      if (url && url !== '#') {
-        window.open(url, '_blank', 'noopener,noreferrer');
-      } else {
-        alert(`Citation: ${title}`);
-      }
-    };
-
-    return () => {
-      delete (window as any).openCitation;
-    };
-  }, []);
 
   return (
     <div className="prose prose-lg max-w-none">
@@ -179,7 +122,8 @@ export default function NewsContent({ content, sources = [] }: NewsContentProps)
         
         .news-content h1,
         .news-content h2,
-        .news-content h3 {
+        .news-content h3,
+        .news-content h4 {
           color: hsl(var(--foreground));
         }
         
@@ -242,39 +186,6 @@ export default function NewsContent({ content, sources = [] }: NewsContentProps)
 
         .table-container tr:hover td {
           background-color: hsl(var(--muted) / 0.3);
-        }
-
-        .citation-link {
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          vertical-align: super;
-          font-size: 0.7rem;
-          transition: all 0.2s ease;
-        }
-
-        .citation-link:hover {
-          transform: scale(1.1);
-        }
-
-        .citation-tooltip {
-          position: absolute;
-          bottom: 100%;
-          left: 50%;
-          transform: translateX(-50%);
-          margin-bottom: 5px;
-          z-index: 1000;
-        }
-
-        .citation-tooltip::after {
-          content: '';
-          position: absolute;
-          top: 100%;
-          left: 50%;
-          transform: translateX(-50%);
-          border: 5px solid transparent;
-          border-top-color: black;
         }
       `}</style>
     </div>
