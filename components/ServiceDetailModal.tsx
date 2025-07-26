@@ -41,10 +41,15 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
   // Get testimonial service values for this service
   const serviceValues = getTestimonialServiceValues(service.id);
   
-  // Fetch testimonials for this service
+  // Determine the country filter for PR services
+  const countryFilter = service.id === "pr-canada" ? "Canada" : 
+                       service.id === "pr-australia" ? "Australia" : 
+                       undefined;
+  
+  // Fetch testimonials for this service with optional country filter
   const testimonials = useQuery(
-    api.testimonials.getTestimonialsByServiceValues,
-    serviceValues.length > 0 ? { serviceValues } : "skip"
+    api.testimonials.getTestimonialsByServiceAndCountry,
+    serviceValues.length > 0 ? { serviceValues, country: countryFilter } : "skip"
   ) as Testimonial[] | undefined;
   
   // Get first 3 testimonials for display
@@ -293,6 +298,7 @@ export default function ServiceDetailModal({ isOpen, onClose, service }: Service
       open={reviewsModalOpen} 
       onOpenChange={setReviewsModalOpen}
       prefilterService={prefilterService}
+      prefilterCountry={countryFilter}
     />
     </>
   );

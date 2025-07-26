@@ -135,6 +135,60 @@ export const getTestimonialsByServiceValues = query({
   },
 });
 
+// Query to get testimonials by service values and optionally by country
+export const getTestimonialsByServiceAndCountry = query({
+  args: { 
+    serviceValues: v.array(v.string()),
+    country: v.optional(v.string())
+  },
+  handler: async (ctx, args) => {
+    const allTestimonials = await ctx.db
+      .query("testimonials")
+      .withIndex("by_isActive", (q) => q.eq("isActive", true))
+      .order("desc")
+      .collect();
+
+    // Filter by service values and optionally by country
+    const filteredTestimonials = allTestimonials.filter(testimonial => {
+      const matchesService = args.serviceValues.some(value => 
+        value.toLowerCase() === testimonial.service.toLowerCase()
+      );
+      const matchesCountry = !args.country || testimonial.country === args.country;
+      return matchesService && matchesCountry;
+    });
+
+    return await Promise.all(
+      filteredTestimonials.map(async (testimonial) => {
+        let photoUrl = testimonial.photoUrl || null;
+        
+        // Fallback to legacy storage if no direct URL
+        if (!photoUrl && testimonial.photo) {
+          photoUrl = await ctx.storage.getUrl(testimonial.photo);
+        }
+
+        let supportingDocUrls: string[] = testimonial.supportingDocUrls || [];
+        
+        // Fallback to legacy storage if no direct URLs
+        if (supportingDocUrls.length === 0 && testimonial.supportingDocs) {
+          supportingDocUrls = await Promise.all(
+            testimonial.supportingDocs.map(async (docId) => {
+              const url = await ctx.storage.getUrl(docId);
+              return url || "";
+            })
+          );
+          supportingDocUrls = supportingDocUrls.filter(url => url !== "");
+        }
+
+        return {
+          ...testimonial,
+          photoUrl,
+          supportingDocUrls,
+        };
+      })
+    );
+  },
+});
+
 // Query to get testimonials by country
 export const getTestimonialsByCountry = query({
   args: { country: v.string() },

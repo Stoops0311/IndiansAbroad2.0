@@ -30,21 +30,27 @@ interface ReviewsModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   prefilterService?: string; // Optional prefilter for service-specific modals
+  prefilterCountry?: string; // Optional prefilter for country-specific modals
 }
 
-export default function ReviewsModal({ open, onOpenChange, prefilterService }: ReviewsModalProps) {
+export default function ReviewsModal({ open, onOpenChange, prefilterService, prefilterCountry }: ReviewsModalProps) {
   const [countryFilter, setCountryFilter] = useState("");
   const [serviceFilter, setServiceFilter] = useState("");
   const [ratingFilter, setRatingFilter] = useState("");
   const [timeframeFilter, setTimeframeFilter] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   
-  // Set prefilter when modal opens with a specific service
+  // Set prefilters when modal opens with specific service or country
   React.useEffect(() => {
-    if (open && prefilterService && prefilterService !== serviceFilter) {
-      setServiceFilter(prefilterService);
+    if (open) {
+      if (prefilterService && prefilterService !== serviceFilter) {
+        setServiceFilter(prefilterService);
+      }
+      if (prefilterCountry && prefilterCountry !== countryFilter) {
+        setCountryFilter(prefilterCountry);
+      }
     }
-  }, [open, prefilterService]);
+  }, [open, prefilterService, prefilterCountry]);
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
 
   // Fetch testimonials from Convex
@@ -82,7 +88,8 @@ export default function ReviewsModal({ open, onOpenChange, prefilterService }: R
   }, [countryFilter, serviceFilter, ratingFilter, timeframeFilter, searchTerm, testimonials]);
 
   const clearFilters = () => {
-    setCountryFilter("");
+    // Keep the prefilter country if it exists, otherwise clear
+    setCountryFilter(prefilterCountry || "");
     // Keep the prefilter service if it exists, otherwise clear
     setServiceFilter(prefilterService || "");
     setRatingFilter("");
@@ -96,7 +103,9 @@ export default function ReviewsModal({ open, onOpenChange, prefilterService }: R
         <DialogHeader>
           <DialogTitle className="flex items-center gap-3">
             <span className="text-2xl">📝</span>
-            {prefilterService ? `${prefilterService} Reviews` : "All Client Reviews"}
+            {prefilterService && prefilterCountry ? `${prefilterService} Reviews - ${prefilterCountry}` : 
+             prefilterService ? `${prefilterService} Reviews` : 
+             "All Client Reviews"}
           </DialogTitle>
           <p className="text-muted-foreground mt-2">
             {prefilterService 
