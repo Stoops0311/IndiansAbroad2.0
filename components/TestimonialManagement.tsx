@@ -29,9 +29,11 @@ export default function TestimonialManagement({ onLogout }: TestimonialManagemen
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this testimonial? This action cannot be undone.")) {
       try {
+        // Just delete testimonial from database (files remain in B2)
         await deleteTestimonial({ id: id as any });
       } catch (error) {
         console.error("Error deleting testimonial:", error);
+        alert("Failed to delete testimonial. Please try again.");
       }
     }
   };

@@ -55,17 +55,18 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
   
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(testimonial?.photoUrl || null);
+  const [removeExistingPhoto, setRemoveExistingPhoto] = useState(false);
   const [supportingFiles, setSupportingFiles] = useState<File[]>([]);
   const [existingSupportingDocs, setExistingSupportingDocs] = useState<string[]>(testimonial?.supportingDocUrls || []);
   const [supportingDocsToRemove, setSupportingDocsToRemove] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<{[key: string]: number}>({});
 
   const photoInputRef = useRef<HTMLInputElement>(null);
   const docsInputRef = useRef<HTMLInputElement>(null);
 
   const createTestimonial = useMutation(api.testimonials.createTestimonial);
   const updateTestimonial = useMutation(api.testimonials.updateTestimonial);
-  const generateUploadUrl = useMutation(api.testimonials.generateUploadUrl);
 
   const handleInputChange = (field: string, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -81,6 +82,7 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
     const file = e.target.files?.[0];
     if (file) {
       setPhotoFile(file);
+      setRemoveExistingPhoto(false); // Reset removal flag when new photo is selected
       const reader = new FileReader();
       reader.onload = () => setPhotoPreview(reader.result as string);
       reader.readAsDataURL(file);
@@ -97,6 +99,10 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
   const removePhotoPreview = () => {
     setPhotoFile(null);
     setPhotoPreview(null);
+    // If we're editing and removing an existing photo, mark it for removal
+    if (testimonial?.photoUrl) {
+      setRemoveExistingPhoto(true);
+    }
     if (photoInputRef.current) {
       photoInputRef.current.value = "";
     }
@@ -111,54 +117,66 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
     setSupportingDocsToRemove(prev => [...prev, docUrl]);
   };
 
-  const uploadFile = async (file: File) => {
-    const uploadUrl = await generateUploadUrl();
-    const response = await fetch(uploadUrl, {
-      method: "POST",
-      headers: { "Content-Type": file.type },
-      body: file,
+  const uploadFile = async (file: File, type: 'profile' | 'document') => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('type', type);
+    
+    const response = await fetch('/api/upload', {
+      method: 'POST',
+      body: formData,
     });
     
     if (!response.ok) {
-      throw new Error("Failed to upload file");
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to upload file');
     }
     
-    const { storageId } = await response.json();
-    return storageId;
+    const result = await response.json();
+    return result.url;
   };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      let photoStorageId = testimonial?.photo;
-      let supportingDocStorageIds = testimonial?.supportingDocs || [];
+      let photoUrl = testimonial?.photoUrl;
+      let supportingDocUrls = testimonial?.supportingDocUrls || [];
 
       // Upload photo if new one is selected
       if (photoFile) {
-        photoStorageId = await uploadFile(photoFile);
+        setUploadProgress({ photo: 0 });
+        try {
+          photoUrl = await uploadFile(photoFile, 'profile');
+          setUploadProgress({ photo: 100 });
+        } catch (error) {
+          setUploadProgress({});
+          throw error;
+        }
       }
 
       // Handle existing supporting documents removal
-      if (supportingDocsToRemove.length > 0 && testimonial?.supportingDocs) {
-        // Filter out removed documents by comparing URLs
-        const remainingDocIds = [];
-        for (let i = 0; i < (testimonial.supportingDocUrls || []).length; i++) {
-          const docUrl = testimonial.supportingDocUrls[i];
-          if (!supportingDocsToRemove.includes(docUrl)) {
-            remainingDocIds.push(testimonial.supportingDocs[i]);
-          }
-        }
-        supportingDocStorageIds = remainingDocIds;
+      if (supportingDocsToRemove.length > 0) {
+        supportingDocUrls = supportingDocUrls.filter((url: string) => 
+          !supportingDocsToRemove.includes(url)
+        );
       }
 
       // Upload supporting documents if any
       if (supportingFiles.length > 0) {
-        const newDocIds = await Promise.all(
-          supportingFiles.map(file => uploadFile(file))
-        );
-        supportingDocStorageIds = [...supportingDocStorageIds, ...newDocIds];
+        setUploadProgress({ documents: 0 });
+        try {
+          const newDocUrls = await Promise.all(
+            supportingFiles.map(file => uploadFile(file, 'document'))
+          );
+          supportingDocUrls = [...supportingDocUrls, ...newDocUrls];
+          setUploadProgress({ documents: 100 });
+        } catch (error) {
+          setUploadProgress({});
+          throw error;
+        }
       }
 
       // Determine supporting document type
@@ -172,13 +190,36 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
         }
       }
 
-      const testimonialData = {
+      const testimonialData: any = {
         ...formData,
         flag: selectedCountry?.flag || "🌍",
-        photo: photoStorageId,
-        supportingDocs: supportingDocStorageIds.length > 0 ? supportingDocStorageIds : undefined,
         supportingDocType,
       };
+
+      // Handle photo URL - either set new URL or mark for removal
+      if (photoFile) {
+        testimonialData.photoUrl = photoUrl;
+      } else if (removeExistingPhoto) {
+        testimonialData.removePhotoUrl = true; // This will clear both photoUrl and legacy photo field
+      } else if (testimonial?.photoUrl) {
+        // Keep existing photo URL if no changes
+        testimonialData.photoUrl = testimonial.photoUrl;
+      }
+
+      // Handle supporting doc URLs
+      if (supportingDocUrls.length > 0) {
+        testimonialData.supportingDocUrls = supportingDocUrls;
+      } else if (supportingDocsToRemove.length > 0) {
+        // Check if all existing docs were removed (from either storage system)
+        const originalDocsCount = (testimonial?.supportingDocUrls?.length || 0) + (testimonial?.supportingDocs?.length || 0);
+        const hasRemovedAllDocs = originalDocsCount > 0 && supportingDocUrls.length === 0;
+        
+        if (hasRemovedAllDocs) {
+          testimonialData.removeSupportingDocUrls = true; // This will clear both URL and legacy fields
+        } else {
+          testimonialData.supportingDocUrls = supportingDocUrls; // Update with remaining URLs
+        }
+      }
 
       if (testimonial) {
         await updateTestimonial({
@@ -195,6 +236,7 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
       alert("Failed to save testimonial. Please try again.");
     } finally {
       setIsSubmitting(false);
+      setUploadProgress({});
     }
   };
 
@@ -445,7 +487,19 @@ export default function TestimonialForm({ testimonial, onClose }: TestimonialFor
               className="flex-1 bg-primary hover:bg-primary/90 text-white"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Saving..." : testimonial ? "Update Testimonial" : "Create Testimonial"}
+              {isSubmitting ? (
+                <div className="flex items-center gap-2">
+                  {uploadProgress.photo !== undefined && (
+                    <span>Uploading photo... {uploadProgress.photo}%</span>
+                  )}
+                  {uploadProgress.documents !== undefined && (
+                    <span>Uploading documents... {uploadProgress.documents}%</span>
+                  )}
+                  {Object.keys(uploadProgress).length === 0 && "Saving..."}
+                </div>
+              ) : (
+                testimonial ? "Update Testimonial" : "Create Testimonial"
+              )}
             </Button>
           </div>
         </form>

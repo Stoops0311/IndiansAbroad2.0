@@ -11,8 +11,10 @@ export default defineSchema({
     achievement: v.string(),
     timeframe: v.string(),
     service: v.string(), // "PR Consulting" | "Job Visa" | "Study Abroad"
-    photo: v.optional(v.id("_storage")), // Optional profile photo file ID
-    supportingDocs: v.optional(v.array(v.id("_storage"))), // Optional supporting document file IDs
+    photo: v.optional(v.id("_storage")), // Optional profile photo file ID (legacy)
+    photoUrl: v.optional(v.string()), // Direct URL to photo in B2
+    supportingDocs: v.optional(v.array(v.id("_storage"))), // Optional supporting document file IDs (legacy)
+    supportingDocUrls: v.optional(v.array(v.string())), // Direct URLs to documents in B2
     supportingDocType: v.optional(v.string()), // "image" or "pdf" to track the type
     isActive: v.boolean(), // For soft delete/hide
     createdAt: v.number(),
