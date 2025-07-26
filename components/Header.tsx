@@ -4,8 +4,9 @@ import type * as React from "react"
 import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, Users, Briefcase, Globe, Trophy, CheckCircle, Phone, Menu, X, MoreHorizontal, ChevronDown, Search, GraduationCap, BookOpen, Sun, Moon, Monitor, Newspaper } from "lucide-react"
+import { Home, Users, Briefcase, Globe, Trophy, CheckCircle, Phone, Menu, X, MoreHorizontal, ChevronDown, Search, GraduationCap, BookOpen, Sun, Moon, Monitor, Newspaper, LogIn } from "lucide-react"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 import { servicesData, type ServiceData } from "@/lib/services-data"
 import ServiceDetailModal from "@/components/ServiceDetailModal"
 import StudyAbroadModal from "@/components/StudyAbroadModal"
@@ -78,6 +79,13 @@ const menuItems: MenuItem[] = [
     icon: <Phone className="h-5 w-5" />,
     label: "Contact Us",
     href: "/contact",
+    gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+    iconColor: "text-primary",
+  },
+  {
+    icon: <LogIn className="h-5 w-5" />,
+    label: "Sign In",
+    href: "/signin",
     gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
     iconColor: "text-primary",
   },

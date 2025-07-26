@@ -86,6 +86,55 @@ export const getTestimonialsByService = query({
   },
 });
 
+// Query to get testimonials by multiple service values (for service modals)
+export const getTestimonialsByServiceValues = query({
+  args: { serviceValues: v.array(v.string()) },
+  handler: async (ctx, args) => {
+    const allTestimonials = await ctx.db
+      .query("testimonials")
+      .withIndex("by_isActive", (q) => q.eq("isActive", true))
+      .order("desc")
+      .collect();
+
+    // Filter by service values in JavaScript since Convex doesn't support "in" queries on indexes
+    const filteredTestimonials = allTestimonials.filter(testimonial => 
+      args.serviceValues.some(value => 
+        value.toLowerCase() === testimonial.service.toLowerCase()
+      )
+    );
+
+    return await Promise.all(
+      filteredTestimonials.map(async (testimonial) => {
+        let photoUrl = testimonial.photoUrl || null;
+        
+        // Fallback to legacy storage if no direct URL
+        if (!photoUrl && testimonial.photo) {
+          photoUrl = await ctx.storage.getUrl(testimonial.photo);
+        }
+
+        let supportingDocUrls: string[] = testimonial.supportingDocUrls || [];
+        
+        // Fallback to legacy storage if no direct URLs
+        if (supportingDocUrls.length === 0 && testimonial.supportingDocs) {
+          supportingDocUrls = await Promise.all(
+            testimonial.supportingDocs.map(async (docId) => {
+              const url = await ctx.storage.getUrl(docId);
+              return url || "";
+            })
+          );
+          supportingDocUrls = supportingDocUrls.filter(url => url !== "");
+        }
+
+        return {
+          ...testimonial,
+          photoUrl,
+          supportingDocUrls,
+        };
+      })
+    );
+  },
+});
+
 // Query to get testimonials by country
 export const getTestimonialsByCountry = query({
   args: { country: v.string() },

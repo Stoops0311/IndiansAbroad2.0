@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -29,14 +29,22 @@ interface Testimonial {
 interface ReviewsModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  prefilterService?: string; // Optional prefilter for service-specific modals
 }
 
-export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) {
+export default function ReviewsModal({ open, onOpenChange, prefilterService }: ReviewsModalProps) {
   const [countryFilter, setCountryFilter] = useState("");
   const [serviceFilter, setServiceFilter] = useState("");
   const [ratingFilter, setRatingFilter] = useState("");
   const [timeframeFilter, setTimeframeFilter] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  
+  // Set prefilter when modal opens with a specific service
+  React.useEffect(() => {
+    if (open && prefilterService && prefilterService !== serviceFilter) {
+      setServiceFilter(prefilterService);
+    }
+  }, [open, prefilterService]);
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
 
   // Fetch testimonials from Convex
@@ -75,7 +83,8 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
 
   const clearFilters = () => {
     setCountryFilter("");
-    setServiceFilter("");
+    // Keep the prefilter service if it exists, otherwise clear
+    setServiceFilter(prefilterService || "");
     setRatingFilter("");
     setTimeframeFilter("");
     setSearchTerm("");
@@ -87,10 +96,13 @@ export default function ReviewsModal({ open, onOpenChange }: ReviewsModalProps) 
         <DialogHeader>
           <DialogTitle className="flex items-center gap-3">
             <span className="text-2xl">📝</span>
-            All Client Reviews
+            {prefilterService ? `${prefilterService} Reviews` : "All Client Reviews"}
           </DialogTitle>
           <p className="text-muted-foreground mt-2">
-            Browse through all our client testimonials and success stories
+            {prefilterService 
+              ? `Browse through testimonials and success stories for ${prefilterService} service`
+              : "Browse through all our client testimonials and success stories"
+            }
           </p>
         </DialogHeader>
 

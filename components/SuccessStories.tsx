@@ -3,40 +3,45 @@
 import { BentoCard, BentoIcon, BentoTitle, BentoDescription } from "@/components/ui/bento";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Star, Play, User, MapPin, Briefcase, Quote } from "lucide-react";
+import { Star, Play, User, MapPin, Briefcase, Quote, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import ReviewsModal from "./ReviewsModal";
 
 const videoTestimonials = [
   {
     id: 1,
-    name: "Ravi Kumar",
+    name: "Kulveer Singh",
     country: "Germany",
-    duration: "3 months",
-    role: "Software Developer",
-    thumbnail: "/placeholder.jpg",
-    quote: "Got my Germany Job Visa in 3 months"
+    duration: "Financial Analyst Journey",
+    role: "Financial Analyst",
+    thumbnail: "https://img.youtube.com/vi/4zqYn_0y78A/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=4zqYn_0y78A",
+    quote: "How Kulveer Singh Moved Abroad as a Financial Analyst"
   },
   {
     id: 2,
-    name: "Sneha Patel",
-    country: "Canada",
-    duration: "4 months",
-    role: "Data Analyst",
-    thumbnail: "/placeholder.jpg",
-    quote: "Relocated to Canada with PR & job offer"
+    name: "Yogita Lunkad",
+    country: "Germany",
+    duration: "Opportunity Card Success",
+    role: "Immigration Success Story",
+    thumbnail: "https://img.youtube.com/vi/IvGYk6owjUk/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=IvGYk6owjUk",
+    quote: "Yogita Lunkad's Inspiring Abroad Journey | Opportunity Card"
   }
 ];
 
-const writtenTestimonial = {
-  name: "Manish Thakur",
-  role: "Software Engineer",
-  country: "Germany",
-  text: "I was struggling with my Germany job search. This team helped me with my resume, job applications, visa process – everything! I'm now working in Berlin.",
-  rating: 5
-};
 
 export default function SuccessStories() {
   const [activeVideo, setActiveVideo] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  
+  // Fetch testimonials from Convex
+  const allTestimonials = useQuery(api.testimonials.getAllTestimonials);
+  
+  // Get a featured testimonial for display
+  const featuredTestimonial = allTestimonials?.[0];
 
   return (
     <BentoCard className="lg:col-span-3 p-4 md:p-6 lg:p-8 min-h-[400px] md:min-h-[450px]">
@@ -72,12 +77,32 @@ export default function SuccessStories() {
                 className={`p-4 bg-foreground/5 hover:bg-foreground/10 hover:scale-[1.02] transition-all duration-300 cursor-pointer border-primary/20 ${
                   activeVideo === index ? 'border-primary/40 bg-foreground/10' : ''
                 }`}
-                onClick={() => setActiveVideo(index)}
+                onClick={() => {
+                  setActiveVideo(index);
+                  window.open(testimonial.videoUrl, '_blank');
+                }}
               >
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="h-4 w-4 text-white ml-0.5" />
+                    <div className="w-12 h-8 rounded overflow-hidden relative">
+                      <img 
+                        src={testimonial.thumbnail} 
+                        alt={`${testimonial.name} video thumbnail`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback to play button if thumbnail fails
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.className = 'w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center group-hover:scale-110 transition-transform';
+                            parent.innerHTML = '<svg class="h-4 w-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+                          }
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <Play className="h-3 w-3 text-white" />
+                      </div>
                     </div>
                   </div>
                   
@@ -91,7 +116,7 @@ export default function SuccessStories() {
                       <span>•</span>
                       <span>{testimonial.duration}</span>
                     </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
                       {testimonial.quote}
                     </p>
                   </div>
@@ -107,39 +132,84 @@ export default function SuccessStories() {
               <span className="text-sm font-medium text-muted-foreground">📖 Reviews</span>
             </div>
             
-            <Card className="p-4 bg-foreground/5 border-primary/20 h-fit hover:bg-foreground/10 transition-colors">
-              <div className="space-y-3">
-                <div className="flex gap-1">
-                  {Array.from({ length: writtenTestimonial.rating }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                
-                <blockquote className="text-sm text-foreground italic leading-relaxed">
-                  "{writtenTestimonial.text}"
-                </blockquote>
-                
-                <div className="flex items-center gap-3 pt-3 border-t border-border/20">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
-                    <User className="h-4 w-4 text-white" />
+            {!featuredTestimonial ? (
+              // Loading state
+              <Card className="p-4 bg-foreground/5 border-primary/20 h-fit animate-pulse">
+                <div className="space-y-3">
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <div key={i} className="w-4 h-4 bg-muted/50 rounded"></div>
+                    ))}
                   </div>
-                  <div className="min-w-0">
-                    <h5 className="font-semibold text-foreground text-sm leading-tight">
-                      {writtenTestimonial.name}
-                    </h5>
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <Briefcase className="h-3 w-3 flex-shrink-0" />
-                      <span>{writtenTestimonial.role}</span>
-                      <span>•</span>
-                      <span>{writtenTestimonial.country}</span>
+                  <div className="space-y-2">
+                    <div className="h-4 bg-muted/50 rounded w-full"></div>
+                    <div className="h-4 bg-muted/50 rounded w-3/4"></div>
+                  </div>
+                  <div className="flex items-center gap-3 pt-3 border-t border-border/20">
+                    <div className="w-8 h-8 bg-muted/50 rounded-full"></div>
+                    <div className="space-y-1">
+                      <div className="h-3 bg-muted/50 rounded w-20"></div>
+                      <div className="h-2 bg-muted/50 rounded w-16"></div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            ) : (
+              <Card className="p-4 bg-foreground/5 border-primary/20 h-fit hover:bg-foreground/10 transition-colors cursor-pointer" onClick={() => setModalOpen(true)}>
+                <div className="space-y-3">
+                  <div className="flex gap-1">
+                    {Array.from({ length: featuredTestimonial.rating }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  
+                  <blockquote className="text-sm text-foreground italic leading-relaxed line-clamp-3">
+                    "{featuredTestimonial.review}"
+                  </blockquote>
+                  
+                  <div className="flex items-center gap-3 pt-3 border-t border-border/20">
+                    {featuredTestimonial.photoUrl ? (
+                      <img
+                        src={featuredTestimonial.photoUrl}
+                        alt={featuredTestimonial.name}
+                        className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+                      />
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
+                        <User className="h-4 w-4 text-white" />
+                      </div>
+                    )}
+                    <div className="min-w-0">
+                      <h5 className="font-semibold text-foreground text-sm leading-tight">
+                        {featuredTestimonial.name}
+                      </h5>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <Briefcase className="h-3 w-3 flex-shrink-0" />
+                        <span>{featuredTestimonial.service}</span>
+                        <span>•</span>
+                        <span>{featuredTestimonial.flag} {featuredTestimonial.country}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            )}
+            
+            {/* View All Reviews Button */}
+            <Button 
+              onClick={() => setModalOpen(true)}
+              variant="outline" 
+              size="sm"
+              className="w-full border-primary/20 hover:border-primary/40 hover:bg-primary/10 transition-all group text-xs"
+            >
+              View All Reviews
+              <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
+            </Button>
           </div>
         </div>
       </div>
+      
+      <ReviewsModal open={modalOpen} onOpenChange={setModalOpen} />
     </BentoCard>
   );
 }

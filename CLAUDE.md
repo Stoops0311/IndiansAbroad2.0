@@ -5,50 +5,87 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build Commands
 - `npm run dev`: Start development server with Turbopack
 - `npm run build`: Build the production application
+- `npm run start`: Start production server
 - `npm run lint`: Run Next.js linting
 - `npm run upload-testimonials`: Execute bulk testimonial upload script
 - `npm run parse-universities`: Parse universities CSV data
+- `npm run migrate-to-backblaze`: Migrate files to Backblaze B2 storage (dev)
+- `npm run migrate-to-backblaze-prod`: Migrate files to Backblaze B2 storage (production)
 
 ## Project Architecture
 
-This is a Next.js 15.4.2 application with TypeScript, using the App Router pattern. The project is a study abroad/immigration consulting website with the following key components:
+This is a Next.js 15.4.2 application with TypeScript, using the App Router pattern. The project is a study abroad/immigration consulting website with comprehensive content management capabilities.
 
 ### Technology Stack
 - **Frontend**: Next.js 15.4.2, React 19.1.0, TypeScript 5
-- **Database**: Convex (real-time backend)
-- **Styling**: Tailwind CSS v4, Framer Motion
-- **UI Components**: Custom components with Radix UI primitives
+- **Database**: Convex (real-time backend with live queries)
+- **Styling**: Tailwind CSS v4, Framer Motion for animations
+- **UI Components**: Custom components with Radix UI primitives (shadcn/ui patterns)
 - **3D Graphics**: Three.js with React Three Fiber
+- **File Storage**: Backblaze B2 cloud storage for photos/documents
+- **AI Integration**: Perplexity Sonar Reasoning API for automated content generation
 
-### Directory Structure
-- `/app` - Next.js App Router pages and layouts
-  - Core pages: about, admin, contact, destinations, eligibility, services, success-stories, terms
-- `/components` - React components organized by feature
-  - UI components in `/components/ui` following shadcn/ui patterns
-- `/convex` - Backend functions and database schema
-  - Schema defines testimonials and universities tables
-  - Includes mutations and queries for data management
-- `/contexts` - React context providers (ThemeContext)
-- `/lib` - Utility functions and data files
-- `/scripts` - Data migration and upload utilities
+### Database Schema (Convex)
+The application uses four main data tables:
 
-### Key Features
-1. **Bento Grid Layout**: Main page uses a custom bento grid system for component organization
-2. **Admin Panel**: Protected admin interface at `/admin` for content management
-3. **Database Schema**: 
-   - Testimonials with file storage support for photos/documents
-   - Universities with search capabilities and filtering
-4. **Real-time Data**: Convex integration for live updates
-5. **Responsive Design**: Mobile-first approach with breakpoint-specific layouts
+1. **testimonials**: Client reviews with photo/document storage, ratings, and service categorization
+2. **universities**: Partner institution database with search capabilities and program details
+3. **newsArticles**: AI-generated immigration/education news with markdown content and metadata
+4. **scheduledArticles**: Admin-controlled article scheduling system with custom prompts and titles
+
+### News Management System
+- **Automated Content Generation**: Cron job runs hourly to process scheduled articles using AI
+- **Admin Control**: Admins set custom titles, research prompts, categories, and scheduling
+- **Content Parser**: Enhanced markdown parser supporting tables and inline citations with tooltips
+- **Draft System**: Admin preview functionality for articles before publication
+- **Real-time Stats**: Live dashboard showing article statistics and scheduling status
+
+### Admin Interface Architecture
+- **Protected Routes**: Session-based authentication for admin areas
+- **Unified Management**: Combined interface for published articles and scheduled content
+- **Bulk Operations**: Support for testimonial uploads and data migrations
+- **File Management**: Integration with Backblaze B2 for photo/document storage
+
+### Component Organization
+- **Feature-based Components**: NewsManagement, TestimonialManagement, UniversityExplorer
+- **Layout Components**: Header with responsive navigation, Footer with quicklinks, DesktopSidebar
+- **UI Components**: Following shadcn/ui patterns in `/components/ui`
+- **Modal System**: Service details, testimonial forms, university exploration
+- **Theme System**: Dark/light mode support via React Context
+
+### Navigation Architecture
+- **Header**: Main navigation with collapsible menu and theme toggle
+- **Desktop Sidebar**: Floating sidebar for quick access to key features (News, Careers, Blog, Contact)
+- **Footer**: Contact information, quicklinks, and partner certifications
 
 ### Development Patterns
-- Components use TypeScript with proper type definitions
-- Convex functions handle all database operations
-- CSS uses Tailwind utility classes with custom bento grid implementation
-- File uploads handled through Convex storage system
+- **TypeScript**: Strict typing with Convex ID types and proper error handling
+- **Real-time Queries**: All data fetching uses Convex live queries for instant updates
+- **Responsive Design**: Mobile-first approach with breakpoint-specific layouts
+- **Error Boundaries**: Graceful handling of component failures
+- **Performance**: Next.js 15 optimizations with Turbopack development server
 
-## Website Design
+### File Storage Integration
+- **Backblaze B2**: Primary storage for user photos and supporting documents
+- **Migration Scripts**: Automated tools for moving files between storage systems
+- **URL Management**: Direct B2 URLs for optimized file serving
 
-- This website uses a bento layout pattern for the homepage
-- Components are designed to fit into grid cells with responsive sizing
-- Dark/light theme support through ThemeContext
+### Content Management Workflow
+1. **Scheduled Articles**: Admin creates scheduled articles with custom titles/prompts
+2. **AI Generation**: Hourly cron processes due articles using Perplexity API
+3. **Content Parsing**: Enhanced markdown parsing with table and citation support
+4. **Admin Review**: Draft articles viewable via admin preview links
+5. **Publication**: Manual approval process before articles go live
+
+### Cron Job System
+- **File**: `/convex/crons.js` defines scheduled tasks
+- **Frequency**: Hourly processing of scheduled articles
+- **Function**: `internal.generateNews.processScheduledArticles`
+
+## Website Design Patterns
+
+- **Bento Grid Layout**: Homepage uses custom bento grid system for component organization
+- **Theme Support**: Comprehensive dark/light theme implementation
+- **Responsive Breakpoints**: Mobile-first design with careful attention to tablet and desktop layouts
+- **Animation System**: Framer Motion for page transitions and component animations
+- **Accessibility**: ARIA labels, keyboard navigation, and screen reader support

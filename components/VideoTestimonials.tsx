@@ -9,42 +9,29 @@ import { useState } from "react";
 const videoTestimonials = [
   {
     id: 1,
-    name: "Ravi Kumar",
-    profession: "Software Engineer",
+    name: "Kulveer Singh",
+    profession: "Financial Analyst",
     country: "Germany",
     flag: "🇩🇪",
-    duration: "3 months",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    achievement: "€75k salary package",
-    quote: "From uncertainty to my dream job in Berlin",
-    details: "Got Germany Job Visa + landed at a top tech company"
+    duration: "Success Story",
+    thumbnail: "https://img.youtube.com/vi/4zqYn_0y78A/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=4zqYn_0y78A",
+    achievement: "Moved Abroad Successfully",
+    quote: "From India to Germany as Financial Analyst",
+    details: "How Kulveer Singh Moved Abroad as a Financial Analyst | Real Story by Indians_Abroad"
   },
   {
     id: 2,
-    name: "Sneha Patel", 
-    profession: "Nurse",
-    country: "UK",
-    flag: "🇬🇧",
-    duration: "4 months",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg", 
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    achievement: "NHS job secured",
-    quote: "Now working at London's top hospital",
-    details: "UK Skilled Worker Visa + NHS placement"
-  },
-  {
-    id: 3,
-    name: "Amit & Neha",
-    profession: "IT Couple",
-    country: "Canada",
-    flag: "🇨🇦",
-    duration: "6 months",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    achievement: "Both got Toronto jobs",
-    quote: "Living our Canadian dream together",
-    details: "Canada PR + dual employment success"
+    name: "Yogita Lunkad", 
+    profession: "Immigration Success",
+    country: "Germany",
+    flag: "🇩🇪",
+    duration: "Opportunity Card",
+    thumbnail: "https://img.youtube.com/vi/IvGYk6owjUk/maxresdefault.jpg", 
+    videoUrl: "https://www.youtube.com/watch?v=IvGYk6owjUk",
+    achievement: "Opportunity Card Success",
+    quote: "Inspiring journey to Germany",
+    details: "Yogita Lunkad's Inspiring Abroad Journey | Indians_Abroad Success Story | Opportunity Card"
   }
 ];
 
@@ -90,6 +77,11 @@ export default function VideoTestimonials() {
                       src={testimonial.thumbnail} 
                       alt={`${testimonial.name} testimonial`}
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        // Fallback to a placeholder if thumbnail fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEyIiBoZWlnaHQ9IjExMiIgdmlld0JveD0iMCAwIDExMiAxMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMTIiIGhlaWdodD0iMTEyIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik00MCA0MEw3MiA1NkwNNCA3MlY0MEg0MFoiIGZpbGw9IiM2MzY2RjEiLz4KPC9zdmc+';
+                      }}
                     />
                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                       <Play className="h-6 w-6 md:h-8 md:w-8 text-white group-hover:scale-110 transition-transform" />
