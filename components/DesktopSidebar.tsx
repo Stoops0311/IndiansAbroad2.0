@@ -69,7 +69,7 @@ export default function DesktopSidebar() {
     },
     {
       icon: <MessageCircle className="h-8 w-8" />,
-      label: "Talk To Counselor",
+      label: "Talk To Aira",
       gradient: "from-orange-500/20 to-orange-600/10",
       onClick: () => {
         setIsChatOpen(true)
