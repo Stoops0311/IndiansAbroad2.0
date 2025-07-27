@@ -1,4 +1,4 @@
-import { mutation, query, internalMutation } from "./_generated/server";
+import { mutation, query, internalMutation, internalQuery } from "./_generated/server";
 import { v } from "convex/values";
 
 // Create a new news article
@@ -304,5 +304,27 @@ export const getRelated = query({
       .take(args.limit || 3);
 
     return relatedArticles;
+  },
+});
+
+// Get articles by date range (internal)
+export const getArticlesByDateRange = internalQuery({
+  args: {
+    startDate: v.number(),
+    endDate: v.number(),
+    category: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    let q = ctx.db
+      .query("newsArticles")
+      .filter((q) => q.gte(q.field("createdAt"), args.startDate))
+      .filter((q) => q.lte(q.field("createdAt"), args.endDate))
+      .filter((q) => q.eq(q.field("isActive"), true));
+
+    if (args.category) {
+      q = q.filter((q) => q.eq(q.field("category"), args.category));
+    }
+
+    return await q.collect();
   },
 });
