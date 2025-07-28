@@ -13,7 +13,7 @@ const videoTestimonials = [
   {
     id: 1,
     name: "Kulveer Singh",
-    country: "Germany",
+    country: "Canada",
     duration: "Financial Analyst Journey",
     role: "Financial Analyst",
     thumbnail: "https://img.youtube.com/vi/4zqYn_0y78A/maxresdefault.jpg",
