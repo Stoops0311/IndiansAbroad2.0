@@ -17,12 +17,12 @@ export const serviceTestimonialMappings: ServiceTestimonialMapping[] = [
   },
   {
     serviceId: "pr-canada", 
-    testimonialServiceValues: ["Permanent Residency Canada", "PR Consulting"],
+    testimonialServiceValues: ["PR Consulting"],
     displayName: "Canada PR"
   },
   {
     serviceId: "pr-australia",
-    testimonialServiceValues: ["Permanent Residency Australia", "PR Consulting"], 
+    testimonialServiceValues: ["PR Consulting"], 
     displayName: "Australia PR"
   },
   {
