@@ -360,7 +360,7 @@ export default function DesktopSidebar() {
                       
                       {/* Label */}
                       <div className="relative z-10 text-center">
-                        <span className="font-bold text-white dark:text-foreground/90 group-hover:text-white transition-colors duration-300 text-sm leading-tight">
+                        <span className="text-white dark:text-foreground/90 group-hover:text-white transition-colors duration-300 text-sm leading-tight">
                           {item.label}
                         </span>
                       </div>
@@ -388,7 +388,7 @@ export default function DesktopSidebar() {
                       
                       {/* Label */}
                       <div className="relative z-10 text-center">
-                        <span className="font-bold text-white dark:text-foreground/90 group-hover:text-white transition-colors duration-300 text-sm leading-tight">
+                        <span className="text-white dark:text-foreground/90 group-hover:text-white transition-colors duration-300 text-sm leading-tight">
                           {item.label}
                         </span>
                       </div>

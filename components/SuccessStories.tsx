@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import ReviewsModal from "./ReviewsModal";
+import VideoTestimonialsModal from "./VideoTestimonialsModal";
 
 const videoTestimonials = [
   {
@@ -46,6 +47,7 @@ const videoTestimonials = [
 export default function SuccessStories() {
   const [activeVideo, setActiveVideo] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
   
   // Fetch testimonials from Convex
   const allTestimonials = useQuery(api.testimonials.getAllTestimonials);
@@ -61,7 +63,6 @@ export default function SuccessStories() {
             <BentoIcon>
               <Star className="h-6 w-6 text-primary" />
             </BentoIcon>
-            <span className="text-2xl">🎯</span>
           </div>
           
           <BentoTitle className="text-xl md:text-2xl lg:text-3xl mb-2">
@@ -78,7 +79,7 @@ export default function SuccessStories() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-3">
               <Play className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-muted-foreground">🎥 Video Testimonials</span>
+              <span className="text-sm font-medium text-muted-foreground">Video Testimonials</span>
             </div>
             
             {videoTestimonials.map((testimonial, index) => (
@@ -94,7 +95,7 @@ export default function SuccessStories() {
               >
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="w-12 h-8 rounded overflow-hidden relative">
+                    <div className="w-16 h-12 rounded overflow-hidden relative">
                       <img 
                         src={testimonial.thumbnail} 
                         alt={`${testimonial.name} video thumbnail`}
@@ -133,13 +134,24 @@ export default function SuccessStories() {
                 </div>
               </Card>
             ))}
+            
+            {/* View All Videos Button */}
+            <Button 
+              onClick={() => setVideoModalOpen(true)}
+              variant="outline" 
+              size="sm"
+              className="w-full border-primary/20 hover:border-primary/40 hover:bg-primary/10 transition-all group text-xs"
+            >
+              View All Videos
+              <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
+            </Button>
           </div>
           
           {/* Written Testimonial */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-3">
               <Quote className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-muted-foreground">📖 Reviews</span>
+              <span className="text-sm font-medium text-muted-foreground">Reviews</span>
             </div>
             
             {!featuredTestimonial ? (
@@ -220,6 +232,7 @@ export default function SuccessStories() {
       </div>
       
       <ReviewsModal open={modalOpen} onOpenChange={setModalOpen} />
+      <VideoTestimonialsModal open={videoModalOpen} onOpenChange={setVideoModalOpen} />
     </BentoCard>
   );
 }

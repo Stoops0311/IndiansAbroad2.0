@@ -3,8 +3,10 @@
 import { BentoCard, BentoIcon, BentoTitle, BentoDescription } from "@/components/ui/bento";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Play, MapPin, Briefcase, Clock } from "lucide-react";
+import { Play, MapPin, Briefcase, Clock, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import VideoTestimonialsModal from "./VideoTestimonialsModal";
 
 const videoTestimonials = [
   {
@@ -12,7 +14,7 @@ const videoTestimonials = [
     name: "Kulveer Singh",
     profession: "Financial Analyst",
     country: "Germany",
-    flag: "🇩🇪",
+    flag: "",
     duration: "Success Story",
     thumbnail: "https://img.youtube.com/vi/4zqYn_0y78A/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/watch?v=4zqYn_0y78A",
@@ -25,7 +27,7 @@ const videoTestimonials = [
     name: "Yogita Lunkad", 
     profession: "Immigration Success",
     country: "Germany",
-    flag: "🇩🇪",
+    flag: "",
     duration: "Opportunity Card",
     thumbnail: "https://img.youtube.com/vi/IvGYk6owjUk/maxresdefault.jpg", 
     videoUrl: "https://www.youtube.com/watch?v=IvGYk6owjUk",
@@ -38,7 +40,7 @@ const videoTestimonials = [
     name: "Rohit Punjabi",
     profession: "Business Systems Specialist",
     country: "Abroad",
-    flag: "🌍",
+    flag: "",
     duration: "Success Story",
     thumbnail: "https://img.youtube.com/vi/3zlQbkcYmOA/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/watch?v=3zlQbkcYmOA",
@@ -50,6 +52,7 @@ const videoTestimonials = [
 
 export default function VideoTestimonials() {
   const [activeVideo, setActiveVideo] = useState(0);
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   return (
     <BentoCard className="p-4 md:p-6 lg:p-8 min-h-[500px] md:min-h-[550px] h-full">
@@ -59,7 +62,6 @@ export default function VideoTestimonials() {
             <BentoIcon>
               <Play className="h-6 w-6 text-primary" />
             </BentoIcon>
-            <span className="text-2xl">🎥</span>
           </div>
           
           <BentoTitle className="text-xl md:text-2xl lg:text-3xl mb-2">
@@ -85,7 +87,7 @@ export default function VideoTestimonials() {
             >
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="relative flex-shrink-0 mx-auto sm:mx-0">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden relative">
+                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-xl overflow-hidden relative">
                     <img 
                       src={testimonial.thumbnail} 
                       alt={`${testimonial.name} testimonial`}
@@ -143,12 +145,23 @@ export default function VideoTestimonials() {
           ))}
         </div>
         
-        <div className="mt-6 pt-4 border-t border-border text-center">
-          <p className="text-xs text-muted-foreground">
-            Click any story to watch their journey • More videos available on request
+        {/* View All Videos Button */}
+        <div className="mt-6 pt-4 border-t border-border">
+          <Button 
+            onClick={() => setVideoModalOpen(true)}
+            className="w-full bg-primary hover:bg-primary/90 transition-all group"
+          >
+            View All Video Testimonials
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+          
+          <p className="text-xs text-muted-foreground text-center mt-3">
+            Click any story to watch their journey • More videos available
           </p>
         </div>
       </div>
+      
+      <VideoTestimonialsModal open={videoModalOpen} onOpenChange={setVideoModalOpen} />
     </BentoCard>
   );
 }

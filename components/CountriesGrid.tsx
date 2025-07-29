@@ -50,7 +50,6 @@ export default function CountriesGrid() {
             <BentoIcon>
               <Globe className="h-6 w-6 text-primary" />
             </BentoIcon>
-            <span className="text-2xl">🌍</span>
           </div>
           
           <BentoTitle className="text-xl md:text-2xl lg:text-3xl mb-2">

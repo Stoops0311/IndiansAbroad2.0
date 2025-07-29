@@ -26,7 +26,7 @@ export default function ContactCTA() {
         {/* Main Headline */}
         <div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
-            🚀 Your dream job or PR abroad is one step away
+            Your dream job or PR abroad is one step away
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
             Don't wait any longer. Take the first step towards your international career today.

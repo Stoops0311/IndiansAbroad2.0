@@ -21,7 +21,7 @@ export default function ProfileEvaluationCTA() {
             Free Profile Evaluation
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
-            🎯 Not sure which visa or country suits your profile?
+            Not sure which visa or country suits your profile?
           </p>
         </div>
         
