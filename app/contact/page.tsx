@@ -5,10 +5,12 @@ import ContactInfo from "@/components/ContactInfo";
 import ContactForm from "@/components/ContactForm";
 import EligibilityForm from "@/components/EligibilityForm";
 import ContactCTA from "@/components/ContactCTA";
+import DesktopSidebar from "@/components/DesktopSidebar";
 
 export default function ContactPage() {
   return (
     <main className="min-h-screen">
+      <DesktopSidebar />
       <Header />
       <div className="pt-12 md:pt-16">
         <ContactHero />

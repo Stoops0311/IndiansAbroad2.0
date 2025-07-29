@@ -1,10 +1,12 @@
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
 import EligibilityForm from "@/components/EligibilityForm";
+import DesktopSidebar from "@/components/DesktopSidebar";
 
 export default function EligibilityPage() {
   return (
     <main className="min-h-screen">
+      <DesktopSidebar />
       <Header />
       <div className="pt-12 md:pt-16">
         

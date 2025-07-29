@@ -5,6 +5,7 @@ import CountryCard from "@/components/CountryCard";
 import CountryComparison from "@/components/CountryComparison";
 import FloatingCTA from "@/components/FloatingCTA";
 import EligibilityForm from "@/components/EligibilityForm";
+import DesktopSidebar from "@/components/DesktopSidebar";
 
 const countries = [
   {
@@ -177,6 +178,7 @@ const countries = [
 export default function DestinationsPage() {
   return (
     <main className="min-h-screen">
+      <DesktopSidebar />
       <Header />
       <div className="pt-12 md:pt-16">
         <DestinationsHero />

@@ -5,10 +5,12 @@ import VideoTestimonials from "@/components/VideoTestimonials";
 import WrittenTestimonials from "@/components/WrittenTestimonials";
 import FinalCTA from "@/components/FinalCTA";
 import EligibilityForm from "@/components/EligibilityForm";
+import DesktopSidebar from "@/components/DesktopSidebar";
 
 export default function SuccessStoriesPage() {
   return (
     <main className="min-h-screen">
+      <DesktopSidebar />
       <Header />
       
       <div className="pt-12 md:pt-16">

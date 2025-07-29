@@ -6,10 +6,12 @@ import MissionCard from "@/components/MissionCard";
 import VisionCard from "@/components/VisionCard";
 import WhyChooseStats from "@/components/WhyChooseStats";
 import EligibilityForm from "@/components/EligibilityForm";
+import DesktopSidebar from "@/components/DesktopSidebar";
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen">
+      <DesktopSidebar />
       <Header />
       <div className="pt-12 md:pt-16">
         <section className="w-full px-4 md:px-8 lg:px-12">

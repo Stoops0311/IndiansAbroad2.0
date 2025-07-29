@@ -101,15 +101,15 @@ interface VideoTestimonialsModalProps {
 export default function VideoTestimonialsModal({ open, onOpenChange }: VideoTestimonialsModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl h-[90vh] p-0">
-        <DialogHeader className="p-6 border-b border-border">
+      <DialogContent className="max-w-4xl h-[90vh] p-0 flex flex-col">
+        <DialogHeader className="p-6 border-b border-border flex-shrink-0">
           <DialogTitle className="text-2xl font-bold flex items-center gap-3">
             <Play className="h-6 w-6 text-primary" />
             All Video Testimonials
           </DialogTitle>
         </DialogHeader>
         
-        <div className="p-6 overflow-y-auto">
+        <div className="flex-1 p-6 overflow-y-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {allVideoTestimonials.map((testimonial) => (
               <Card 
@@ -189,7 +189,7 @@ export default function VideoTestimonialsModal({ open, onOpenChange }: VideoTest
           </div>
         </div>
         
-        <div className="p-6 border-t border-border text-center bg-muted/30">
+        <div className="p-6 border-t border-border text-center bg-muted/30 flex-shrink-0">
           <p className="text-sm text-muted-foreground">
             Click any video to watch the full story • More success stories available on our YouTube channel
           </p>
