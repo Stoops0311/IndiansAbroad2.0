@@ -29,7 +29,6 @@ export default function WrittenTestimonials() {
             <BentoIcon>
               <Quote className="h-6 w-6 text-primary" />
             </BentoIcon>
-            <span className="text-2xl">📝</span>
           </div>
           
           <BentoTitle className="text-lg md:text-xl lg:text-2xl mb-2">
@@ -133,7 +132,7 @@ export default function WrittenTestimonials() {
                   </div>
                   
                   <Badge className="bg-primary/20 text-primary text-xs">
-                    {testimonial.flag} {testimonial.country}
+                    {testimonial.country}
                   </Badge>
                 </div>
                 
