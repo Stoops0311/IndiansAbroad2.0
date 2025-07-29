@@ -95,7 +95,7 @@ export default function SuccessStories() {
               >
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="w-24 h-16 rounded overflow-hidden relative">
+                    <div className="w-28 h-20 rounded overflow-hidden relative">
                       <img 
                         src={testimonial.thumbnail} 
                         alt={`${testimonial.name} video thumbnail`}

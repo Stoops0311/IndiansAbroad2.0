@@ -301,7 +301,7 @@ export default function DesktopSidebar() {
               stiffness: 300,
               duration: 0.4
             }}
-            className="fixed right-4 top-4 bottom-4 w-[100px] rounded-2xl shadow-2xl z-50 hidden lg:flex flex-col overflow-hidden"
+            className="fixed right-4 top-4 bottom-4 w-[100px] rounded-2xl shadow-2xl z-[60] hidden lg:flex flex-col overflow-hidden"
             onMouseLeave={() => setIsVisible(false)}
             style={{
               background: 'transparent',

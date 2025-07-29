@@ -55,7 +55,7 @@ export default function VideoTestimonials() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   return (
-    <BentoCard className="p-4 md:p-6 lg:p-8 min-h-[500px] md:min-h-[550px] h-full">
+    <BentoCard className="p-4 md:p-6 lg:p-8 min-h-[600px] md:min-h-[650px] h-full">
       <div className="h-full flex flex-col">
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-4">

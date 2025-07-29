@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build Commands
 - `npm run dev`: Start development server with Turbopack
-- `npm run build`: Build the production application
+- `npm run build`: Build the production application (ALWAYS run before pushing to GitHub)
 - `npm run start`: Start production server
 - `npm run lint`: Run Next.js linting
 - `npm run upload-testimonials`: Execute bulk testimonial upload script
@@ -79,13 +79,35 @@ The application uses four main data tables:
 
 ### Cron Job System
 - **File**: `/convex/crons.js` defines scheduled tasks
-- **Frequency**: Hourly processing of scheduled articles
-- **Function**: `internal.generateNews.processScheduledArticles`
+- **Scheduled Articles**: Hourly processing via `internal.generateNews.processScheduledArticles`
+- **Daily Digest**: Daily RSS feed processing at 6 AM UTC via `internal.generateDailyDigest.generateDailyDigest`
+
+## Critical Development Rules
+
+### Pre-Commit Requirements
+- **ALWAYS** run `npm run build` before pushing changes to GitHub to ensure the application compiles successfully
+- Test all changes in development mode first with `npm run dev`
+
+### Component Development Patterns  
+- **DesktopSidebar**: Present on all major pages (homepage, success-stories, about, destinations, contact, eligibility) for consistent navigation
+- **Modal System**: Uses shadcn/ui Dialog components with proper z-index layering
+- **Video Components**: YouTube thumbnails should be appropriately sized (current: w-24 h-16 for main page, w-32+ for dedicated pages)
+- **Country Flags**: Maintain emoji flags in components for UX - only remove decorative emojis, not functional ones
+
+### Database Operations
+- **Real-time Updates**: All data fetching uses Convex live queries (`useQuery`) for instant updates
+- **Table Structure**: Four main tables - testimonials, universities, newsArticles, scheduledArticles
+- **File Storage**: Backblaze B2 URLs in `photoUrl` and `supportingDocUrls` fields, legacy `_storage` IDs being phased out
+
+### AI Content Generation
+- **News System**: Scheduled articles processed hourly via Perplexity Sonar API
+- **Content Format**: Enhanced markdown with table support and inline citations
+- **Admin Control**: All AI generation controlled through admin interface with custom prompts
 
 ## Website Design Patterns
 
 - **Bento Grid Layout**: Homepage uses custom bento grid system for component organization
-- **Theme Support**: Comprehensive dark/light theme implementation
+- **Theme Support**: Comprehensive dark/light theme implementation  
 - **Responsive Breakpoints**: Mobile-first design with careful attention to tablet and desktop layouts
 - **Animation System**: Framer Motion for page transitions and component animations
 - **Accessibility**: ARIA labels, keyboard navigation, and screen reader support
