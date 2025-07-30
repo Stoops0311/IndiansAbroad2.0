@@ -30,7 +30,6 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <span className="text-2xl mr-2">📍</span>
                   <span className="text-sm text-muted-foreground">
                     18th Floor Cyber One Business Park, Sector 30A, Vashi, Navi Mumbai, Maharashtra 400705
                   </span>
@@ -40,7 +39,6 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-primary flex-shrink-0" />
                 <div>
-                  <span className="text-xl mr-2">📞</span>
                   <a 
                     href="tel:+919825574590" 
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -53,7 +51,6 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                 <div>
-                  <span className="text-xl mr-2">📧</span>
                   <a 
                     href="mailto:contact@indiansabroad.com" 
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -74,7 +71,6 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Home className="h-4 w-4 text-primary" />
-                <span className="text-xl mr-2">🔗</span>
                 <a 
                   href="/" 
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -85,7 +81,6 @@ export default function Footer() {
               
               <div className="flex items-center gap-3">
                 <Newspaper className="h-4 w-4 text-primary" />
-                <span className="text-xl mr-2">📰</span>
                 <Link 
                   href="/news"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -96,7 +91,6 @@ export default function Footer() {
               
               <div className="flex items-center gap-3">
                 <Instagram className="h-4 w-4 text-primary" />
-                <span className="text-xl mr-2">🔗</span>
                 <a 
                   href="https://www.instagram.com/indians__abroad/" 
                   target="_blank" 
@@ -110,7 +104,6 @@ export default function Footer() {
               
               <div className="flex items-center gap-3">
                 <FileText className="h-4 w-4 text-primary" />
-                <span className="text-xl mr-2">📄</span>
                 <Link 
                   href="/terms"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"

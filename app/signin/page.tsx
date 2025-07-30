@@ -23,18 +23,12 @@ export default function SignInPage() {
     setIsLoading(true);
     setError("");
 
-    try {
-      // Add your authentication logic here
-      // For now, we'll simulate a successful login
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Redirect to dashboard or previous page
-      router.push("/");
-    } catch (err) {
-      setError("Invalid email or password. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+    // Simulate loading time
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Always show unauthorized message
+    setError("You are not authorized to access this system.");
+    setIsLoading(false);
   };
 
   return (

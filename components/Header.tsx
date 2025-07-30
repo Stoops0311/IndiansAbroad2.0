@@ -174,7 +174,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 md:gap-3">
-            <div className="relative h-[50px] w-[50px] md:h-[70px] md:w-[70px] lg:h-[80px] lg:w-[80px] group">
+            <div className="relative h-[47px] w-[47px] md:h-[67px] md:w-[67px] lg:h-[77px] lg:w-[77px] group">
               {/* Gradient glow effect on hover */}
               <div className="absolute inset-0 bg-primary rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
               
@@ -205,8 +205,8 @@ export function Header() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-base md:text-xl lg:text-2xl font-bold text-primary dark:text-white leading-tight">INDIANS ABROAD</span>
-              <span className="text-xs md:text-sm text-muted-foreground hidden sm:block">Empowering Dreams Worldwide</span>
+              <span className="text-sm md:text-lg lg:text-xl font-bold text-primary dark:text-white leading-tight">INDIANS ABROAD</span>
+              <span className="text-[11px] md:text-xs text-muted-foreground hidden sm:block">Empowering Dreams Worldwide</span>
             </div>
           </Link>
 
@@ -222,7 +222,7 @@ export function Header() {
                         <div className="block rounded-xl overflow-visible group relative">
                           <button
                             onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                            className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-foreground hover:text-foreground/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium whitespace-nowrap"
+                            className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-foreground hover:text-foreground/90 hover:bg-primary/10 transition-all rounded-xl text-xs font-medium whitespace-nowrap"
                           >
                             <span className={`transition-colors duration-300 ${item.iconColor}`}>
                               {item.icon}
@@ -276,7 +276,7 @@ export function Header() {
                       <div className="block rounded-xl overflow-visible group relative">
                         <Link
                           href={item.href}
-                          className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-foreground hover:text-foreground/90 hover:bg-primary/10 transition-all rounded-xl text-sm font-medium whitespace-nowrap"
+                          className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-foreground hover:text-foreground/90 hover:bg-primary/10 transition-all rounded-xl text-xs font-medium whitespace-nowrap"
                         >
                           <span className={`transition-colors duration-300 ${item.iconColor}`}>
                             {item.icon}
