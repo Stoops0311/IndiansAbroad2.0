@@ -426,6 +426,16 @@ export function Header() {
             className="lg:hidden fixed inset-0 z-[9999] bg-background/95 backdrop-blur-lg"
           >
             <div className="h-full overflow-y-auto pt-20">
+              {/* Close button */}
+              <div className="absolute top-4 right-4 z-10">
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 rounded-lg hover:bg-primary/10 transition-colors bg-background/90 backdrop-blur-lg border border-border/40"
+                  aria-label="Close mobile menu"
+                >
+                  <X className="h-6 w-6 text-foreground" />
+                </button>
+              </div>
               <nav className="bg-background/90 backdrop-blur-lg border border-border/40 rounded-xl p-4 m-4">
                 <ul className="space-y-2">
                   {menuItems.map((item) => (
