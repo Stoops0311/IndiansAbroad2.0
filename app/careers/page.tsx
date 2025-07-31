@@ -361,7 +361,7 @@ export default function CareersPage() {
                         <div className="flex items-center gap-2 text-sm">
                           <DollarSign className="h-4 w-4 text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/70 transition-colors duration-300" />
                           <span className="text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/80 transition-colors duration-300">
-                            {job.salary}
+                            Monthly CTC: {job.salary}
                           </span>
                         </div>
                         <div className="flex items-center gap-2 text-sm">
@@ -438,7 +438,7 @@ export default function CareersPage() {
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-background border">
                   <DollarSign className="h-5 w-5 text-primary" />
                   <div>
-                    <p className="text-xs text-muted-foreground">Salary</p>
+                    <p className="text-xs text-muted-foreground">Monthly CTC</p>
                     <p className="text-sm font-medium">{selectedJob.salary}</p>
                   </div>
                 </div>
