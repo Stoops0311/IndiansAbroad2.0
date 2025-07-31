@@ -5,9 +5,8 @@ import { motion } from "framer-motion"
 import { Briefcase, MapPin, DollarSign, Calendar, Clock, Users, Star, Send, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 
 interface JobListing {
   id: string
@@ -23,13 +22,6 @@ interface JobListing {
   icon: React.ReactNode
 }
 
-interface ContactForm {
-  name: string
-  email: string
-  phone: string
-  message: string
-  position: string
-}
 
 const jobListings: JobListing[] = [
   {
@@ -276,27 +268,6 @@ const jobListings: JobListing[] = [
 
 export default function CareersPage() {
   const [selectedJob, setSelectedJob] = useState<JobListing | null>(null)
-  const [contactForm, setContactForm] = useState<ContactForm>({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    position: ""
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleContactSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Reset form and close modal
-    setContactForm({ name: "", email: "", phone: "", message: "", position: "" })
-    setSelectedJob(null)
-    setIsSubmitting(false)
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -313,7 +284,7 @@ export default function CareersPage() {
               <div className="p-3 rounded-full bg-primary/10">
                 <Briefcase className="h-8 w-8 text-primary" />
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground">
                 Join Our Team
               </h1>
             </div>
@@ -363,40 +334,40 @@ export default function CareersPage() {
                           {job.icon}
                         </div>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-white transition-colors duration-300 mb-2">
+                          <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-foreground dark:group-hover:text-white transition-colors duration-300 mb-2">
                             {job.title}
                           </h3>
                           <div className="flex flex-wrap gap-2 mb-3">
-                            <Badge variant="secondary" className="group-hover:bg-white/20 group-hover:text-white transition-colors duration-300">
+                            <Badge variant="secondary" className="group-hover:bg-white/20 group-hover:text-foreground dark:group-hover:text-white transition-colors duration-300">
                               {job.department}
                             </Badge>
-                            <Badge variant={job.type === "Internship" ? "destructive" : "default"} className="group-hover:bg-white/20 group-hover:text-white transition-colors duration-300">
+                            <Badge variant={job.type === "Internship" ? "destructive" : "default"} className="group-hover:bg-white/20 group-hover:text-foreground dark:group-hover:text-white transition-colors duration-300">
                               {job.type}
                             </Badge>
                           </div>
                         </div>
                       </div>
 
-                      <p className="text-muted-foreground group-hover:text-white/80 transition-colors duration-300 mb-4 leading-relaxed">
+                      <p className="text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/80 transition-colors duration-300 mb-4 leading-relaxed">
                         {job.description}
                       </p>
 
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div className="flex items-center gap-2 text-sm">
-                          <Calendar className="h-4 w-4 text-muted-foreground group-hover:text-white/70 transition-colors duration-300" />
-                          <span className="text-muted-foreground group-hover:text-white/80 transition-colors duration-300">
+                          <Calendar className="h-4 w-4 text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/70 transition-colors duration-300" />
+                          <span className="text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/80 transition-colors duration-300">
                             {job.experience}
                           </span>
                         </div>
                         <div className="flex items-center gap-2 text-sm">
-                          <DollarSign className="h-4 w-4 text-muted-foreground group-hover:text-white/70 transition-colors duration-300" />
-                          <span className="text-muted-foreground group-hover:text-white/80 transition-colors duration-300">
+                          <DollarSign className="h-4 w-4 text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/70 transition-colors duration-300" />
+                          <span className="text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/80 transition-colors duration-300">
                             {job.salary}
                           </span>
                         </div>
                         <div className="flex items-center gap-2 text-sm">
-                          <MapPin className="h-4 w-4 text-muted-foreground group-hover:text-white/70 transition-colors duration-300" />
-                          <span className="text-muted-foreground group-hover:text-white/80 transition-colors duration-300">
+                          <MapPin className="h-4 w-4 text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/70 transition-colors duration-300" />
+                          <span className="text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/80 transition-colors duration-300">
                             {job.location}
                           </span>
                         </div>
@@ -409,7 +380,7 @@ export default function CareersPage() {
                         <DialogTrigger asChild>
                           <Button 
                             variant="outline" 
-                            className="group-hover:bg-white/20 group-hover:text-white group-hover:border-white/30 transition-all duration-300"
+                            className="group-hover:bg-white/20 group-hover:text-foreground dark:group-hover:text-white group-hover:border-white/30 transition-all duration-300"
                             onClick={() => setSelectedJob(job)}
                           >
                             View Details
@@ -417,64 +388,15 @@ export default function CareersPage() {
                         </DialogTrigger>
                       </Dialog>
                       
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button 
-                            className="bg-primary hover:bg-primary/90 group-hover:bg-white group-hover:text-primary transition-all duration-300"
-                            onClick={() => {
-                              setContactForm(prev => ({ ...prev, position: job.title }))
-                            }}
-                          >
-                            <Send className="h-4 w-4 mr-2" />
-                            Contact Us
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-md">
-                          <DialogHeader>
-                            <DialogTitle>Apply for {job.title}</DialogTitle>
-                          </DialogHeader>
-                          <form onSubmit={handleContactSubmit} className="space-y-4">
-                            <div>
-                              <Input
-                                placeholder="Your Name"
-                                value={contactForm.name}
-                                onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
-                                required
-                              />
-                            </div>
-                            <div>
-                              <Input
-                                type="email"
-                                placeholder="Email Address"
-                                value={contactForm.email}
-                                onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
-                                required
-                              />
-                            </div>
-                            <div>
-                              <Input
-                                type="tel"
-                                placeholder="Phone Number"
-                                value={contactForm.phone}
-                                onChange={(e) => setContactForm(prev => ({ ...prev, phone: e.target.value }))}
-                                required
-                              />
-                            </div>
-                            <div>
-                              <Textarea
-                                placeholder="Tell us about yourself and why you're interested in this position..."
-                                value={contactForm.message}
-                                onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
-                                rows={4}
-                                required
-                              />
-                            </div>
-                            <Button type="submit" className="w-full" disabled={isSubmitting}>
-                              {isSubmitting ? "Submitting..." : "Submit Application"}
-                            </Button>
-                          </form>
-                        </DialogContent>
-                      </Dialog>
+                      <Button 
+                        className="bg-primary hover:bg-primary/90 group-hover:bg-white group-hover:text-primary transition-all duration-300"
+                        asChild
+                      >
+                        <Link href="/contact">
+                          <Send className="h-4 w-4 mr-2" />
+                          Contact Us
+                        </Link>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -487,116 +409,79 @@ export default function CareersPage() {
       {/* Job Details Modal */}
       {selectedJob && (
         <Dialog open={!!selectedJob} onOpenChange={() => setSelectedJob(null)}>
-          <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-            <DialogHeader>
+          <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto p-6">
+            <DialogHeader className="pb-4">
               <div className="flex items-center gap-3">
-                <div className={`p-2 rounded-lg bg-gradient-to-br ${selectedJob.gradient}`}>
+                <div className={`p-3 rounded-xl bg-gradient-to-br ${selectedJob.gradient}`}>
                   {selectedJob.icon}
                 </div>
                 <div>
-                  <DialogTitle className="text-xl">{selectedJob.title}</DialogTitle>
-                  <p className="text-sm text-muted-foreground">{selectedJob.department} • {selectedJob.type}</p>
+                  <DialogTitle className="text-xl font-bold">{selectedJob.title}</DialogTitle>
+                  <p className="text-sm text-muted-foreground mt-1">{selectedJob.department} • {selectedJob.type}</p>
                 </div>
               </div>
             </DialogHeader>
             
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-semibold mb-2">Job Description</h4>
-                <p className="text-muted-foreground">{selectedJob.description}</p>
+            <div className="space-y-6 px-1">
+              <div className="bg-muted/30 rounded-lg p-4">
+                <h4 className="font-semibold mb-3 text-foreground">Job Description</h4>
+                <p className="text-muted-foreground leading-relaxed">{selectedJob.description}</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">Experience: {selectedJob.experience}</span>
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-background border">
+                  <Calendar className="h-5 w-5 text-primary" />
+                  <div>
+                    <p className="text-xs text-muted-foreground">Experience</p>
+                    <p className="text-sm font-medium">{selectedJob.experience}</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <DollarSign className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">Salary: {selectedJob.salary}</span>
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-background border">
+                  <DollarSign className="h-5 w-5 text-primary" />
+                  <div>
+                    <p className="text-xs text-muted-foreground">Salary</p>
+                    <p className="text-sm font-medium">{selectedJob.salary}</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">Location: {selectedJob.location}</span>
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-background border">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <div>
+                    <p className="text-xs text-muted-foreground">Location</p>
+                    <p className="text-sm font-medium">{selectedJob.location}</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">Type: {selectedJob.type}</span>
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-background border">
+                  <Clock className="h-5 w-5 text-primary" />
+                  <div>
+                    <p className="text-xs text-muted-foreground">Type</p>
+                    <p className="text-sm font-medium">{selectedJob.type}</p>
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <h4 className="font-semibold mb-3">Key Responsibilities</h4>
-                <ul className="space-y-2">
+              <div className="bg-muted/30 rounded-lg p-4">
+                <h4 className="font-semibold mb-4 text-foreground">Key Responsibilities</h4>
+                <ul className="space-y-3">
                   {selectedJob.responsibilities.map((responsibility, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      <span>{responsibility}</span>
+                    <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="leading-relaxed">{responsibility}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="flex gap-3 pt-4">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button 
-                      className="flex-1"
-                      onClick={() => {
-                        setContactForm(prev => ({ ...prev, position: selectedJob.title }))
-                      }}
-                    >
-                      <Send className="h-4 w-4 mr-2" />
-                      Apply Now
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-md">
-                    <DialogHeader>
-                      <DialogTitle>Apply for {selectedJob.title}</DialogTitle>
-                    </DialogHeader>
-                    <form onSubmit={handleContactSubmit} className="space-y-4">
-                      <div>
-                        <Input
-                          placeholder="Your Name"
-                          value={contactForm.name}
-                          onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Input
-                          type="email"
-                          placeholder="Email Address"
-                          value={contactForm.email}
-                          onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Input
-                          type="tel"
-                          placeholder="Phone Number"
-                          value={contactForm.phone}
-                          onChange={(e) => setContactForm(prev => ({ ...prev, phone: e.target.value }))}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Textarea
-                          placeholder="Tell us about yourself and why you're interested in this position..."
-                          value={contactForm.message}
-                          onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
-                          rows={4}
-                          required
-                        />
-                      </div>
-                      <Button type="submit" className="w-full" disabled={isSubmitting}>
-                        {isSubmitting ? "Submitting..." : "Submit Application"}
-                      </Button>
-                    </form>
-                  </DialogContent>
-                </Dialog>
-                <Button variant="outline" onClick={() => setSelectedJob(null)}>
+              <div className="flex gap-3 pt-4 border-t">
+                <Button 
+                  className="flex-1"
+                  asChild
+                >
+                  <Link href="/contact">
+                    <Send className="h-4 w-4 mr-2" />
+                    Apply Now
+                  </Link>
+                </Button>
+                <Button variant="outline" onClick={() => setSelectedJob(null)} className="px-6">
                   Close
                 </Button>
               </div>
