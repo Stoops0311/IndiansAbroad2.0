@@ -58,7 +58,7 @@ export default function DesktopSidebar() {
     {
       icon: <Briefcase className="h-8 w-8" />,
       label: "Careers",
-      href: "/coming-soon",
+      href: "/careers",
       gradient: "from-green-500/20 to-green-600/10",
     },
     {

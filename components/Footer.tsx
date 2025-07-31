@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Home, Instagram, ExternalLink, FileText, Newspaper } from "lucide-react";
+import { MapPin, Phone, Mail, Home, Instagram, ExternalLink, FileText, Newspaper, Briefcase } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -86,6 +86,16 @@ export default function Footer() {
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   News & Updates
+                </Link>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Briefcase className="h-4 w-4 text-primary" />
+                <Link 
+                  href="/careers"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Careers
                 </Link>
               </div>
               
