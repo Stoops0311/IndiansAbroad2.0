@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Briefcase, MapPin, DollarSign, Calendar, Clock, Users, Star, Send, Mail, Phone } from "lucide-react"
+import { Briefcase, MapPin, DollarSign, Calendar, Clock, Users, Star, Send, Mail, Phone, IndianRupee } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
@@ -435,7 +435,7 @@ export default function CareersPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-background border">
-                  <DollarSign className="h-5 w-5 text-primary" />
+                  <IndianRupee className="h-5 w-5 text-primary" />
                   <div>
                     <p className="text-xs text-muted-foreground">Monthly CTC</p>
                     <p className="text-sm font-medium">{selectedJob.salary}</p>
