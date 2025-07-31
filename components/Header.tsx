@@ -219,8 +219,8 @@ export function Header() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-primary dark:text-white leading-tight whitespace-nowrap">INDIANS ABROAD</span>
-              <span className="text-[10px] sm:text-[11px] md:text-xs text-muted-foreground hidden sm:block whitespace-nowrap">Empowering Dreams Worldwide</span>
+              <span className="text-sm md:text-lg lg:text-xl font-bold text-primary dark:text-white leading-tight">INDIANS ABROAD</span>
+              <span className="text-[11px] md:text-xs text-muted-foreground hidden sm:block">Empowering Dreams Worldwide</span>
             </div>
           </Link>
 
