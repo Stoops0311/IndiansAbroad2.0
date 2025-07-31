@@ -29,7 +29,7 @@ const jobListings: JobListing[] = [
     title: "Business Development Executive – Sales",
     department: "Sales",
     experience: "1–2 Years",
-    salary: "₹20,000 – ₹25,000 + Incentives",
+    salary: "₹20,000 – ₹25,000",
     type: "Full-time",
     location: "Office",
     description: "Generate qualified leads and drive sales growth through client relationships and strategic pitching.",
@@ -53,7 +53,7 @@ const jobListings: JobListing[] = [
     title: "Business Development Manager – Sales",
     department: "Sales",
     experience: "3–7 Years",
-    salary: "₹50,000 – ₹75,000 + Incentives",
+    salary: "₹50,000 – ₹75,000",
     type: "Full-time",
     location: "Office",
     description: "Lead sales teams and develop strategic initiatives to drive revenue growth across multiple verticals.",
@@ -359,7 +359,6 @@ export default function CareersPage() {
                           </span>
                         </div>
                         <div className="flex items-center gap-2 text-sm">
-                          <DollarSign className="h-4 w-4 text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/70 transition-colors duration-300" />
                           <span className="text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-white/80 transition-colors duration-300">
                             Monthly CTC: {job.salary}
                           </span>
