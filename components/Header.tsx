@@ -4,7 +4,7 @@ import type * as React from "react"
 import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, Users, Briefcase, Globe, Trophy, CheckCircle, Phone, Menu, X, MoreHorizontal, ChevronDown, Search, GraduationCap, BookOpen, Sun, Moon, Monitor, Newspaper, LogIn } from "lucide-react"
+import { Home, Users, Briefcase, Globe, Trophy, CheckCircle, Phone, Menu, X, MoreHorizontal, ChevronDown, Search, GraduationCap, BookOpen, Sun, Moon, Newspaper, LogIn } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { servicesData, type ServiceData } from "@/lib/services-data"
@@ -69,13 +69,6 @@ const menuItems: MenuItem[] = [
     iconColor: "text-primary",
   },
   {
-    icon: <CheckCircle className="h-5 w-5" />,
-    label: "Free Eligibility Check",
-    href: "/eligibility",
-    gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
-    iconColor: "text-primary",
-  },
-  {
     icon: <Phone className="h-5 w-5" />,
     label: "Contact Us",
     href: "/contact",
@@ -105,7 +98,15 @@ export function Header() {
   const { theme, setTheme, resolvedTheme } = useTheme()
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
+    const newState = !isMobileMenuOpen
+    setIsMobileMenuOpen(newState)
+    
+    // Prevent/allow body scroll when mobile menu is opened/closed
+    if (newState) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
   }
 
   const handleServiceClick = (service: ServiceData) => {
@@ -123,6 +124,19 @@ export function Header() {
   useEffect(() => {
     setIsMounted(true)
   }, [])
+
+  // Cleanup body scroll on unmount or when mobile menu closes
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMobileMenuOpen])
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -212,9 +226,9 @@ export function Header() {
 
           {/* Navigation - Show full nav when space available, hamburger when cramped */}
           {!showHamburger ? (
-            <div className="hidden lg:flex items-center gap-3">
-              <nav ref={navRef} className="p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative max-w-none">
-                <ul className="flex items-center gap-3 relative z-10">
+            <div className="hidden lg:flex items-center gap-1.5">
+              <nav ref={navRef} className="p-1.5 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative max-w-none">
+                <ul className="flex items-center gap-1.5 relative z-10">
                 {menuItems.map((item) => (
                   <li key={item.label} className="relative">
                     {item.hasDropdown ? (
@@ -222,7 +236,7 @@ export function Header() {
                         <div className="block rounded-xl overflow-visible group relative">
                           <button
                             onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                            className="flex items-center gap-2 px-2 py-2 relative z-10 bg-transparent text-foreground hover:text-foreground/90 hover:bg-primary/10 transition-all rounded-xl text-xs font-medium whitespace-nowrap"
+                            className="flex items-center gap-1.5 px-1.5 py-1.5 relative z-10 bg-transparent text-foreground hover:text-foreground/90 hover:bg-primary/10 transition-all rounded-xl text-xs font-medium whitespace-nowrap"
                           >
                             <span className={`transition-colors duration-300 ${item.iconColor}`}>
                               {item.icon}
@@ -295,49 +309,41 @@ export function Header() {
               <div className="relative">
                 <button
                   onClick={() => {
-                    if (theme === 'light') setTheme('dark')
-                    else if (theme === 'dark') setTheme('system')
-                    else setTheme('light')
+                    setTheme(theme === 'light' ? 'dark' : 'light')
                   }}
                   className="p-2 rounded-lg hover:bg-primary/10 transition-colors group"
                   aria-label="Toggle theme"
                 >
                   {theme === 'light' ? (
                     <Sun className="h-5 w-5 text-foreground" />
-                  ) : theme === 'dark' ? (
-                    <Moon className="h-5 w-5 text-foreground" />
                   ) : (
-                    <Monitor className="h-5 w-5 text-foreground" />
+                    <Moon className="h-5 w-5 text-foreground" />
                   )}
                 </button>
                 <div className="absolute top-full right-0 mt-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-background/90 backdrop-blur-lg border border-border/40 rounded-lg px-3 py-1.5 text-xs text-foreground whitespace-nowrap">
-                  {theme === 'light' ? 'Light' : theme === 'dark' ? 'Dark' : 'System'} mode
+                  {theme === 'light' ? 'Light' : 'Dark'} mode
                 </div>
               </div>
             </div>
           ) : (
-            <div className="hidden lg:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-1.5">
               {/* Theme Toggle */}
               <div className="relative">
                 <button
                   onClick={() => {
-                    if (theme === 'light') setTheme('dark')
-                    else if (theme === 'dark') setTheme('system')
-                    else setTheme('light')
+                    setTheme(theme === 'light' ? 'dark' : 'light')
                   }}
                   className="p-2 rounded-lg hover:bg-primary/10 transition-colors group"
                   aria-label="Toggle theme"
                 >
                   {theme === 'light' ? (
                     <Sun className="h-5 w-5 text-foreground" />
-                  ) : theme === 'dark' ? (
-                    <Moon className="h-5 w-5 text-foreground" />
                   ) : (
-                    <Monitor className="h-5 w-5 text-foreground" />
+                    <Moon className="h-5 w-5 text-foreground" />
                   )}
                 </button>
                 <div className="absolute top-full right-0 mt-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-background/90 backdrop-blur-lg border border-border/40 rounded-lg px-3 py-1.5 text-xs text-foreground whitespace-nowrap">
-                  {theme === 'light' ? 'Light' : theme === 'dark' ? 'Dark' : 'System'} mode
+                  {theme === 'light' ? 'Light' : 'Dark'} mode
                 </div>
               </div>
               
@@ -361,19 +367,15 @@ export function Header() {
             {/* Theme Toggle Mobile */}
             <button
               onClick={() => {
-                if (theme === 'light') setTheme('dark')
-                else if (theme === 'dark') setTheme('system')
-                else setTheme('light')
+                setTheme(theme === 'light' ? 'dark' : 'light')
               }}
               className="p-2 rounded-lg hover:bg-primary/10 transition-colors"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? (
                 <Sun className="h-5 w-5 text-foreground" />
-              ) : theme === 'dark' ? (
-                <Moon className="h-5 w-5 text-foreground" />
               ) : (
-                <Monitor className="h-5 w-5 text-foreground" />
+                <Moon className="h-5 w-5 text-foreground" />
               )}
             </button>
             
@@ -396,13 +398,14 @@ export function Header() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden mt-4 overflow-hidden"
+              className="lg:hidden fixed inset-0 z-[9999] bg-background/95 backdrop-blur-lg"
             >
-              <nav className="bg-background/90 backdrop-blur-lg border border-border/40 rounded-xl p-4">
+              <div className="h-full overflow-y-auto pt-20">
+                <nav className="bg-background/90 backdrop-blur-lg border border-border/40 rounded-xl p-4 m-4">
                 <ul className="space-y-2">
                   {menuItems.map((item) => (
                     <li key={item.label}>
@@ -452,7 +455,8 @@ export function Header() {
                     </li>
                   ))}
                 </ul>
-              </nav>
+                </nav>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

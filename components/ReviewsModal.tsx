@@ -342,11 +342,11 @@ export default function ReviewsModal({ open, onOpenChange, prefilterService, pre
                   <img
                     src={selectedTestimonial.photoUrl}
                     alt={selectedTestimonial.name}
-                    className="w-20 h-20 rounded-full object-cover flex-shrink-0"
+                    className="w-14 h-14 rounded-full object-cover flex-shrink-0"
                   />
                 ) : (
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
-                    <User className="h-10 w-10 text-white dark:text-white" />
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
+                    <User className="h-7 w-7 text-white dark:text-white" />
                   </div>
                 )}
                 <div className="flex-1 min-w-0">

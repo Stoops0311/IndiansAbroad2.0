@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
-type Theme = 'light' | 'dark' | 'system'
+type Theme = 'light' | 'dark'
 
 interface ThemeContextType {
   theme: Theme
@@ -14,19 +14,22 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'system',
+  defaultTheme = 'light',
 }: {
   children: React.ReactNode
   defaultTheme?: Theme
 }) {
   const [theme, setThemeState] = useState<Theme>(defaultTheme)
-  const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('dark')
+  const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light')
 
   useEffect(() => {
-    // Load theme from localStorage on mount
+    // Load theme from localStorage on mount, default to light if no saved theme
     const savedTheme = localStorage.getItem('theme') as Theme | null
-    if (savedTheme) {
+    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
       setThemeState(savedTheme)
+    } else {
+      setThemeState('light')
+      localStorage.setItem('theme', 'light')
     }
   }, [])
 
@@ -34,23 +37,9 @@ export function ThemeProvider({
     // Update localStorage when theme changes
     localStorage.setItem('theme', theme)
 
-    // Determine the resolved theme
-    if (theme === 'system') {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-      const handleChange = () => {
-        const systemTheme = mediaQuery.matches ? 'dark' : 'light'
-        setResolvedTheme(systemTheme)
-        updateDocumentTheme(systemTheme)
-      }
-      
-      handleChange() // Set initial value
-      mediaQuery.addEventListener('change', handleChange)
-      
-      return () => mediaQuery.removeEventListener('change', handleChange)
-    } else {
-      setResolvedTheme(theme)
-      updateDocumentTheme(theme)
-    }
+    // Set the resolved theme directly (no system theme)
+    setResolvedTheme(theme)
+    updateDocumentTheme(theme)
   }, [theme])
 
   const updateDocumentTheme = (theme: 'light' | 'dark') => {
