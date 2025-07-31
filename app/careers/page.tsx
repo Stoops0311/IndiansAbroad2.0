@@ -289,8 +289,7 @@ export default function CareersPage() {
               </h1>
             </div>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Build your career with India's leading study abroad consultancy. We're looking for passionate individuals 
-              to help students achieve their dreams of international education.
+              Join India's top immigration consultancy and help candidates turn their dream of settling abroad into a reality.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
