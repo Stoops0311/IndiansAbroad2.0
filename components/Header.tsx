@@ -394,18 +394,39 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+      </div>
+      
+      {/* Service Detail Modal - Rendered as Portal */}
+      {isMounted && selectedService && createPortal(
+        <ServiceDetailModal
+          isOpen={isServiceModalOpen}
+          onClose={() => setIsServiceModalOpen(false)}
+          service={selectedService}
+        />,
+        document.body
+      )}
+
+      {/* Study Abroad Modal - Rendered as Portal */}
+      {isMounted && createPortal(
+        <StudyAbroadModal
+          isOpen={isStudyAbroadModalOpen}
+          onClose={() => setIsStudyAbroadModalOpen(false)}
+        />,
+        document.body
+      )}
+
+      {/* Mobile Menu - Rendered as Portal */}
+      {isMounted && isMobileMenuOpen && createPortal(
         <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden fixed inset-0 z-[9999] bg-background/95 backdrop-blur-lg"
-            >
-              <div className="h-full overflow-y-auto pt-20">
-                <nav className="bg-background/90 backdrop-blur-lg border border-border/40 rounded-xl p-4 m-4">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden fixed inset-0 z-[9999] bg-background/95 backdrop-blur-lg"
+          >
+            <div className="h-full overflow-y-auto pt-20">
+              <nav className="bg-background/90 backdrop-blur-lg border border-border/40 rounded-xl p-4 m-4">
                 <ul className="space-y-2">
                   {menuItems.map((item) => (
                     <li key={item.label}>
@@ -455,29 +476,10 @@ export function Header() {
                     </li>
                   ))}
                 </ul>
-                </nav>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-      
-      {/* Service Detail Modal - Rendered as Portal */}
-      {isMounted && selectedService && createPortal(
-        <ServiceDetailModal
-          isOpen={isServiceModalOpen}
-          onClose={() => setIsServiceModalOpen(false)}
-          service={selectedService}
-        />,
-        document.body
-      )}
-
-      {/* Study Abroad Modal - Rendered as Portal */}
-      {isMounted && createPortal(
-        <StudyAbroadModal
-          isOpen={isStudyAbroadModalOpen}
-          onClose={() => setIsStudyAbroadModalOpen(false)}
-        />,
+              </nav>
+            </div>
+          </motion.div>
+        </AnimatePresence>,
         document.body
       )}
     </header>
