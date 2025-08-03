@@ -49,7 +49,7 @@ export default function ContactCTA() {
             className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 border-primary/20 hover:border-primary/40 hover:bg-primary/10 transition-all group w-full sm:w-auto sm:min-w-[200px]"
             asChild
           >
-            <a href="https://wa.me/919825574590?text=Hi, I want to get started with my abroad journey">
+            <a href="https://wa.me/918454073913?text=Hi, I want to get started with my abroad journey">
               <MessageCircle className="mr-2 md:mr-3 h-4 md:h-5 w-4 md:w-5 text-green-400" />
               WhatsApp Us Now
             </a>
@@ -59,7 +59,7 @@ export default function ContactCTA() {
         {/* Contact Options */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-border">
           <a 
-            href="tel:+919825574590"
+            href="tel:+918454073913"
             className="flex items-center justify-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-all group"
           >
             <Phone className="h-4 w-4 text-primary" />
@@ -67,7 +67,7 @@ export default function ContactCTA() {
           </a>
           
           <a 
-            href="https://wa.me/919825574590"
+            href="https://wa.me/918454073913"
             className="flex items-center justify-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-all group"
             target="_blank"
             rel="noopener noreferrer"

@@ -42,7 +42,7 @@ export default function FinalCTA() {
             className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 border-primary/20 hover:border-primary/40 hover:bg-primary/10 transition-all group w-full sm:w-auto sm:min-w-[200px] md:min-w-[240px]"
             asChild
           >
-            <a href="tel:+919825574590">
+            <a href="tel:+918454073913">
               <Phone className="mr-2 md:mr-3 h-4 md:h-5 w-4 md:w-5 text-green-400" />
               Talk to an Expert Today
             </a>

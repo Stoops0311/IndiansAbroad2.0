@@ -40,10 +40,10 @@ export default function Footer() {
                 <Phone className="h-4 w-4 text-primary flex-shrink-0" />
                 <div>
                   <a 
-                    href="tel:+919825574590" 
+                    href="tel:+918454073913" 
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +91 (982) 557-4590
+                    +91 (845) 407-3913
                   </a>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function Footer() {
                 className="border-primary/30 hover:border-primary/50 hover:bg-primary/10"
                 asChild
               >
-                <a href="https://wa.me/919825574590" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/918454073913" target="_blank" rel="noopener noreferrer">
                   Chat on WhatsApp
                 </a>
               </Button>

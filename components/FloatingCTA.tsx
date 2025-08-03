@@ -27,12 +27,12 @@ export default function FloatingCTA() {
 
   const handleWhatsAppClick = () => {
     const message = "Hi! I'm exploring work opportunities abroad and would like help choosing the right country for my profile. Can you help me get started?";
-    const whatsappUrl = `https://wa.me/919825574590?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/918454073913?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const handleCallClick = () => {
-    window.location.href = "tel:+919825574590";
+    window.location.href = "tel:+918454073913";
   };
 
   return (
@@ -91,7 +91,7 @@ export default function FloatingCTA() {
                 className="w-full border-white/30 text-white hover:bg-white/10"
               >
                 <Phone className="mr-2 h-4 w-4" />
-                Call Now: +91 982 557 4590
+                Call Now: +91 845 407 3913
               </Button>
             </div>
           </div>

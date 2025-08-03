@@ -52,7 +52,7 @@ export default function Hero() {
                   className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 border-primary/20 hover:border-primary/40 hover:bg-primary/10 transition-all group text-black dark:text-white"
                   asChild
                 >
-                  <a href="https://wa.me/919825574590" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/918454073913" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-2 h-4 md:h-5 w-4 md:w-5 text-green-500" />
                     Chat on WhatsApp
                   </a>
