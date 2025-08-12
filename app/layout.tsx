@@ -18,10 +18,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.indiansabroad.in'),
   title: {
-    default: "Indians Abroad - Expert Immigration & Study Abroad Consultants | Visa Services for Canada, Australia, USA, Germany & UK",
-    template: "%s | Indians Abroad - Immigration Consultants"
+    default: "Indians Abroad - Immigration & Study Abroad Consultants",
+    template: "%s | Indians Abroad"
   },
-  description: "Indians Abroad offers expert immigration consulting services to help you work and settle abroad with ease. We provide comprehensive visa services, study abroad guidance, permanent residency applications for Canada, Australia, USA, Germany, and UK. Our MARA and RCIC certified consultants ensure stress-free immigration with personalized solutions, university partnerships, and proven success stories from thousands of satisfied clients worldwide.",
+  description: "Expert immigration consultants helping Indians work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK. Get PR applications, study abroad guidance, and personalized immigration solutions with proven success.",
   keywords: ["immigration consultant", "study abroad", "visa services", "Canada PR", "Australia PR", "work visa", "student visa", "Indians abroad", "MARA agent", "RCIC consultant"],
   authors: [{ name: "Indians Abroad" }],
   creator: "Indians Abroad",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     apple: "/Logo.png?v=2",
   },
   openGraph: {
-    title: "Indians Abroad - Expert Immigration & Study Abroad Consultants | Visa Services for Canada, Australia, USA, Germany & UK",
-    description: "Indians Abroad offers expert immigration consulting services to help you work and settle abroad with ease. We provide comprehensive visa services, study abroad guidance, permanent residency applications for Canada, Australia, USA, Germany, and UK.",
+    title: "Indians Abroad - Immigration & Study Abroad Consultants",
+    description: "Expert immigration consultants helping Indians work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK.",
     url: "https://www.indiansabroad.in",
     siteName: "Indians Abroad",
     images: [{
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Indians Abroad - Expert Immigration & Study Abroad Consultants",
-    description: "Indians Abroad offers expert immigration consulting services to help you work and settle abroad with ease. Comprehensive visa services, study abroad guidance, and PR applications for Canada, Australia, USA, Germany & UK.",
+    title: "Indians Abroad - Immigration & Study Abroad Consultants",
+    description: "Expert immigration consultants helping Indians work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK.",
     images: ["/Logo.png"],
     creator: "@indiansabroad"
   },

@@ -32,7 +32,7 @@ export default function Hero() {
                   Work & Settle Abroad Without the Stress
                 </h1>
                 <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-lg">
-                  Get expert guidance for job visas, PR, and permanent settlement in countries like Canada, Germany, UK, Australia, and more.
+                  Expert immigration consultants helping you work and settle abroad with stress-free visa guidance for Canada, Germany, UK, Australia, and more countries worldwide.
                 </p>
               </div>
               

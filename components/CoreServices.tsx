@@ -56,7 +56,7 @@ export default function CoreServices() {
                 Our Core Services
               </h2>
               <p className="text-sm md:text-base lg:text-lg text-muted-foreground">
-                Comprehensive support for your international career journey
+                Comprehensive immigration services to help you work and settle abroad successfully. Our expert consultants provide end-to-end support for visa applications, permanent residency processes, and career development across multiple countries including Canada, Australia, USA, Germany, and UK.
               </p>
             </div>
           </div>

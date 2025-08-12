@@ -91,13 +91,13 @@ export default function CountriesGrid() {
                   ))}
                 </div>
                 
-                <Link href="/services" className="w-full">
+                <Link href={`/destinations?country=${country.name.toLowerCase()}`} className="w-full">
                   <Button 
                     size="sm" 
                     variant="outline" 
                     className="w-full text-xs border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all"
                   >
-                    Learn More
+                    Explore {country.name}
                     <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
@@ -107,9 +107,9 @@ export default function CountriesGrid() {
         </div>
         
         <div className="mt-6 text-center">
-          <Link href="/services">
+          <Link href="/destinations">
             <Button className="text-sm px-6">
-              View All Countries
+              View All Destinations
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>

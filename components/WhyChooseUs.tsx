@@ -58,7 +58,7 @@ export default function WhyChooseUs() {
                 Why Choose Us
               </BentoTitle>
               <BentoDescription className="text-sm md:text-base font-medium text-muted-foreground leading-relaxed">
-                We're Not Just a Visa Agency. We're Your Abroad Partner.
+                We're not just immigration consultants - we're your trusted partner for working and settling abroad successfully. With MARA and RCIC certifications, our expert team provides personalized guidance for every step of your international journey, from initial consultation to post-landing support.
               </BentoDescription>
             </div>
           </div>
