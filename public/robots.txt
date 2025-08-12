@@ -1,0 +1,52 @@
+# Robots.txt for Indians Abroad
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /about
+Allow: /services
+Allow: /destinations
+Allow: /success-stories
+Allow: /contact
+Allow: /careers
+Allow: /eligibility
+Allow: /news
+Allow: /news/*
+
+# Block admin and test pages
+Disallow: /admin
+Disallow: /test-news
+Disallow: /signin
+Disallow: /coming-soon
+
+# Block API routes
+Disallow: /api/
+
+# Block assets and internal files
+Disallow: /_next/
+Disallow: /static/
+
+# Sitemap location
+Sitemap: https://www.indiansabroad.in/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Common bot specific rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block irrelevant bots that might cause the Hawaiian dress issue
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
