@@ -1,39 +1,63 @@
 import { MetadataRoute } from 'next'
+import { fetchQuery } from 'convex/nextjs'
+import { api } from '@/convex/_generated/api'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.indiansabroad.in'
   
-  // Static pages
+  // Static pages with optimized priorities and change frequencies
   const staticPages = [
-    '',
-    '/about',
-    '/services',
-    '/destinations',
-    '/success-stories',
-    '/contact',
-    '/careers',
-    '/eligibility',
-    '/news',
-    '/terms'
+    { path: '', changeFreq: 'daily', priority: 1.0 },
+    { path: '/services', changeFreq: 'weekly', priority: 0.95 },
+    { path: '/contact', changeFreq: 'monthly', priority: 0.9 },
+    { path: '/destinations', changeFreq: 'weekly', priority: 0.85 },
+    { path: '/about', changeFreq: 'monthly', priority: 0.8 },
+    { path: '/success-stories', changeFreq: 'weekly', priority: 0.8 },
+    { path: '/eligibility', changeFreq: 'weekly', priority: 0.75 },
+    { path: '/careers', changeFreq: 'weekly', priority: 0.7 },
+    { path: '/news', changeFreq: 'daily', priority: 0.9 },
+    { path: '/terms', changeFreq: 'yearly', priority: 0.3 },
   ]
   
-  const staticRoutes = staticPages.map((route) => ({
-    url: `${baseUrl}${route}`,
+  const staticRoutes: MetadataRoute.Sitemap = staticPages.map((page) => ({
+    url: `${baseUrl}${page.path}`,
     lastModified: new Date(),
-    changeFrequency: route === '' || route === '/news' ? 'daily' as const : 'weekly' as const,
-    priority: route === '' ? 1.0 : route === '/contact' || route === '/services' ? 0.9 : 0.8,
+    changeFrequency: page.changeFreq as 'daily' | 'weekly' | 'monthly' | 'yearly',
+    priority: page.priority,
   }))
 
-  // Add news articles (we'll fetch these dynamically in a real app)
-  // For now, we'll add a placeholder pattern
-  const newsRoutes = [
+  // Fetch dynamic news articles from Convex
+  let newsRoutes: MetadataRoute.Sitemap = []
+  
+  try {
+    // Fetch all published news articles
+    const articles = await fetchQuery(api.news.getPublished, {
+      limit: 1000 // Adjust based on your needs
+    })
+    
+    if (articles && articles.length > 0) {
+      newsRoutes = articles.map((article) => ({
+        url: `${baseUrl}/news/${article._id}`,
+        lastModified: article.updatedAt ? new Date(article.updatedAt) : new Date(article.createdAt),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+        images: article.featuredImage ? [article.featuredImage] : undefined,
+      }))
+    }
+  } catch (error) {
+    // If Convex fetch fails, continue with static routes only
+    console.error('Failed to fetch news articles for sitemap:', error)
+  }
+
+  // Additional important pages that might be added in the future
+  const additionalRoutes: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/news/sample-article`,
+      url: `${baseUrl}/sitemap.xml`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
+      changeFrequency: 'weekly',
+      priority: 0.3,
     }
   ]
 
-  return [...staticRoutes, ...newsRoutes]
+  return [...staticRoutes, ...newsRoutes, ...additionalRoutes]
 }
