@@ -19,6 +19,12 @@ Disallow: /test-news
 Disallow: /signin
 Disallow: /coming-soon
 
+# Block old .aspx pages and DNN URLs
+Disallow: /*.aspx
+Disallow: /*DNN=*
+Disallow: /*cid=*
+Disallow: /home.aspx
+
 # Block API routes
 Disallow: /api/
 
