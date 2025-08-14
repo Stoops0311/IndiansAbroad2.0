@@ -192,7 +192,7 @@ export function Header() {
               {/* Gradient glow effect on hover */}
               <div className="absolute inset-0 bg-primary rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
               
-              {/* Logo with solid purple color */}
+              {/* Logo with Indian flag tricolor gradient for Independence Day */}
               <div className="relative h-full w-full">
                 <img 
                   src="/logo-new.svg" 
@@ -204,8 +204,9 @@ export function Header() {
                   }}
                 />
                 <div 
-                  className="absolute inset-0 bg-primary dark:bg-white"
+                  className="absolute inset-0 dark:[--center-color:#FFFFFF] [--center-color:#000080]"
                   style={{
+                    background: 'radial-gradient(circle at center, var(--center-color) 0%, var(--center-color) 20%, #138808 20%, #138808 45%, #FF9933 45%, #FF9933 100%)',
                     maskImage: 'url(/logo-new.svg)',
                     WebkitMaskImage: 'url(/logo-new.svg)',
                     maskSize: 'contain',
@@ -219,7 +220,17 @@ export function Header() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-sm md:text-lg lg:text-xl font-bold text-primary dark:text-white leading-tight">INDIANS ABROAD</span>
+              <span 
+                className="text-sm md:text-lg lg:text-xl font-bold leading-tight"
+                style={{
+                  background: 'linear-gradient(135deg, #FF9933 0%, #FF9933 33%, #138808 66%, #138808 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                INDIANS ABROAD
+              </span>
               <span className="text-[11px] md:text-xs text-muted-foreground hidden sm:block">Empowering Dreams Worldwide</span>
             </div>
           </Link>
