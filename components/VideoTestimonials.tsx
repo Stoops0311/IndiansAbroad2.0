@@ -47,6 +47,19 @@ const videoTestimonials = [
     achievement: "Business Systems Specialist Success",
     quote: "Real abroad journey transformation",
     details: "Rohit Punjabi's Real Abroad Journey | Business Systems Specialist Success Story | Indians_Abroad"
+  },
+  {
+    id: 4,
+    name: "Success Story",
+    profession: "Professional Journey",
+    country: "International",
+    flag: "",
+    duration: "Career Success",
+    thumbnail: "https://img.youtube.com/vi/BGp2eZSJlvM/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=BGp2eZSJlvM",
+    achievement: "International Career Success",
+    quote: "Transforming dreams into reality",
+    details: "Inspiring journey of professional growth and international success"
   }
 ];
 
