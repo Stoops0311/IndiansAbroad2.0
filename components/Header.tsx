@@ -78,7 +78,7 @@ const menuItems: MenuItem[] = [
   {
     icon: <LogIn className="h-5 w-5" />,
     label: "Sign In",
-    href: "/signin",
+    href: "https://crm.indiansabroad.in",
     gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
     iconColor: "text-primary",
   },
