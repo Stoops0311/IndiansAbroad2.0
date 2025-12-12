@@ -13,33 +13,33 @@ import VideoTestimonialsModal from "./VideoTestimonialsModal";
 const videoTestimonials = [
   {
     id: 1,
-    name: "Kulveer Singh",
+    name: "Kulveer",
     country: "Canada",
     duration: "Financial Analyst Journey",
     role: "Financial Analyst",
     thumbnail: "https://img.youtube.com/vi/4zqYn_0y78A/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/watch?v=4zqYn_0y78A",
-    quote: "How Kulveer Singh Moved Abroad as a Financial Analyst"
+    quote: "How Kulveer Moved Abroad as a Financial Analyst"
   },
   {
     id: 2,
-    name: "Yogita Lunkad",
+    name: "Yogita",
     country: "Germany",
     duration: "Opportunity Card Success",
     role: "Immigration Success Story",
     thumbnail: "https://img.youtube.com/vi/IvGYk6owjUk/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/watch?v=IvGYk6owjUk",
-    quote: "Yogita Lunkad's Inspiring Abroad Journey | Opportunity Card"
+    quote: "Yogita's Inspiring Abroad Journey | Opportunity Card"
   },
   {
     id: 3,
-    name: "Rohit Punjabi",
+    name: "Rohit",
     country: "Abroad",
     duration: "Business Systems Success",
     role: "Business Systems Specialist",
     thumbnail: "https://img.youtube.com/vi/3zlQbkcYmOA/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/watch?v=3zlQbkcYmOA",
-    quote: "Rohit Punjabi's Real Abroad Journey | Business Systems Specialist Success Story"
+    quote: "Rohit's Real Abroad Journey | Business Systems Specialist Success Story"
   }
 ];
 
