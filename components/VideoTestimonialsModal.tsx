@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 const allVideoTestimonials = [
   {
     id: 1,
-    name: "Kulveer Singh",
+    name: "Kulveer",
     profession: "Financial Analyst",
     country: "Germany",
     duration: "Success Story",
@@ -17,23 +17,23 @@ const allVideoTestimonials = [
     videoUrl: "https://www.youtube.com/watch?v=4zqYn_0y78A",
     achievement: "Moved Abroad Successfully",
     quote: "From India to Germany as Financial Analyst",
-    details: "How Kulveer Singh Moved Abroad as a Financial Analyst | Real Story by Indians_Abroad"
+    details: "How Kulveer Moved Abroad as a Financial Analyst | Real Story by Indians_Abroad"
   },
   {
     id: 2,
-    name: "Yogita Lunkad", 
+    name: "Yogita",
     profession: "Immigration Success",
     country: "Germany",
     duration: "Opportunity Card",
-    thumbnail: "https://img.youtube.com/vi/IvGYk6owjUk/maxresdefault.jpg", 
+    thumbnail: "https://img.youtube.com/vi/IvGYk6owjUk/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/watch?v=IvGYk6owjUk",
     achievement: "Opportunity Card Success",
     quote: "Inspiring journey to Germany",
-    details: "Yogita Lunkad's Inspiring Abroad Journey | Indians_Abroad Success Story | Opportunity Card"
+    details: "Yogita's Inspiring Abroad Journey | Indians_Abroad Success Story | Opportunity Card"
   },
   {
     id: 3,
-    name: "Rohit Punjabi",
+    name: "Rohit",
     profession: "Business Systems Specialist",
     country: "Abroad",
     duration: "Success Story",
@@ -41,7 +41,7 @@ const allVideoTestimonials = [
     videoUrl: "https://www.youtube.com/watch?v=3zlQbkcYmOA",
     achievement: "Business Systems Specialist Success",
     quote: "Real abroad journey transformation",
-    details: "Rohit Punjabi's Real Abroad Journey | Business Systems Specialist Success Story | Indians_Abroad"
+    details: "Rohit's Real Abroad Journey | Business Systems Specialist Success Story | Indians_Abroad"
   },
   {
     id: 4,
