@@ -19,7 +19,7 @@ export default function ContactInfo() {
     {
       icon: <MapPin className="h-5 w-5" />,
       label: "Address",
-      value: "18th Floor Cyber One Business Park, Sector 30A, Vashi, Navi Mumbai, Maharashtra 400705",
+      value: "Office No-2608, 26th floor, Plan S Business Park, Opp. D.Y.Patil Stadium, Navi Mumbai. 400705",
       type: "address"
     },
     {
