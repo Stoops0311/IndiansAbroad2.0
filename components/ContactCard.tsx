@@ -122,9 +122,8 @@ export default function ContactCard({
               <div>
                 <div className="text-sm font-medium text-white/90 mb-1">Office Address</div>
                 <div className="text-sm text-white/70">
-                  18th Floor Cyber One Business Park,<br />
-                  Sector 30A, Vashi, Navi Mumbai,<br />
-                  Maharashtra 400705
+                  Office No-2608, 26th floor, Plan S Business Park,<br />
+                  Opp. D.Y.Patil Stadium, Navi Mumbai. 400705
                 </div>
               </div>
             </div>

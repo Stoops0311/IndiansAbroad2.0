@@ -31,7 +31,7 @@ export default function Footer() {
                 <MapPin className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <span className="text-sm text-muted-foreground">
-                    18th Floor Cyber One Business Park, Sector 30A, Vashi, Navi Mumbai, Maharashtra 400705
+                    Office No-2608, 26th floor, Plan S Business Park, Opp. D.Y.Patil Stadium, Navi Mumbai. 400705
                   </span>
                 </div>
               </div>
