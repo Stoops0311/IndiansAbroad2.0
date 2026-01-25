@@ -16,9 +16,9 @@ interface Particle {
 }
 
 const INDIAN_FLAG_COLORS = [
-  "#FF9933", // Saffron
-  "#FFFFFF", // White
-  "#138808", // Green
+  "#E8985A", // Muted saffron
+  "#F0F0F0", // Off-white
+  "#5A9E5A", // Muted green
 ];
 
 interface ConfettiProps {
