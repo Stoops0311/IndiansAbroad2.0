@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Header } from "@/components/Header";
+import { RepublicDayCelebration } from "@/components/RepublicDayCelebration";
 import { ConvexProvider } from "@/components/ConvexProvider";
 import { organizationStructuredData } from "./structured-data";
 import "./globals.css";
@@ -94,6 +95,7 @@ export default function RootLayout({
       >
         <ConvexProvider>
           <Header />
+          <RepublicDayCelebration />
           <main className="pt-24 md:pt-28 lg:pt-32">
             {children}
           </main>
