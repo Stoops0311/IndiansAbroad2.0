@@ -20,11 +20,11 @@ export default function SuccessStoriesPage() {
             <TrustMetrics />
             
             {/* Written Reviews + Video Testimonials Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-              <div className="lg:col-span-2">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 lg:max-h-[700px]">
+              <div className="lg:col-span-2 max-h-[700px]">
                 <WrittenTestimonials />
               </div>
-              <div className="lg:col-span-1">
+              <div className="lg:col-span-1 max-h-[700px]">
                 <VideoTestimonials />
               </div>
             </div>

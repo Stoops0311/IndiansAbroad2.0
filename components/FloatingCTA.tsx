@@ -1,201 +1,151 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { 
-  MessageCircle, 
-  X, 
-  Target, 
-  ArrowRight,
-  HelpCircle,
-  Phone
-} from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Send } from "lucide-react";
+
+const WHATSAPP_NUMBER = "918454073913";
+
+const quickActions = [
+  { label: "Talk to Experts", message: "Hi! I'd like to talk to an immigration expert about working abroad." },
+  { label: "Check Eligibility", message: "Hi! I want to check my eligibility for working/settling abroad." },
+  { label: "Free Consultation", message: "Hi! I'd like to book a free consultation session." },
+];
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  );
+}
 
 export default function FloatingCTA() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 3000); // Show after 3 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (!isVisible) return null;
-
-  const handleWhatsAppClick = () => {
-    const message = "Hi! I'm exploring work opportunities abroad and would like help choosing the right country for my profile. Can you help me get started?";
-    const whatsappUrl = `https://wa.me/918454073913?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+  const handleSend = () => {
+    if (!message.trim()) return;
+    const url = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message.trim())}`;
+    window.open(url, "_blank");
   };
 
-  const handleCallClick = () => {
-    window.location.href = "tel:+918454073913";
+  const handleQuickAction = (presetMessage: string) => {
+    const url = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(presetMessage)}`;
+    window.open(url, "_blank");
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
   };
 
   return (
     <>
-      {/* Mobile Floating Widget */}
-      <div className="md:hidden fixed bottom-4 left-4 right-4 z-50">
-        {!isExpanded ? (
-          <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-4 shadow-2xl border border-primary/30 backdrop-blur-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-full bg-white/20">
-                  <HelpCircle className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-white">Confused which country?</div>
-                  <div className="text-xs text-white/80">Get personalized suggestions</div>
+      {/* Chat Popup */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="fixed bottom-20 right-4 md:bottom-24 md:right-8 z-50 w-[calc(100%-2rem)] md:w-[380px] rounded-2xl overflow-hidden shadow-2xl"
+          >
+            {/* Header */}
+            <div className="bg-[#075E54] px-4 py-3 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <img
+                  src="/Logo.png"
+                  alt="Indians Abroad"
+                  className="w-8 h-8 object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = "none";
+                  }}
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-white font-semibold text-sm">Indians Abroad</h3>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-[#25D366]" />
+                  <span className="text-white/80 text-xs">Online</span>
                 </div>
               </div>
-              <Button
-                size="sm"
-                onClick={() => setIsExpanded(true)}
-                className="bg-white/20 hover:bg-white/30 text-white border-white/30"
-              >
-                Help Me
-              </Button>
-            </div>
-          </div>
-        ) : (
-          <div className="bg-gradient-to-br from-primary/95 to-primary/80 rounded-2xl p-6 shadow-2xl border border-primary/30 backdrop-blur-lg">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-lg font-bold text-white">Get Country Suggestions</h3>
               <button
-                onClick={() => setIsExpanded(false)}
-                className="p-1 rounded-full hover:bg-white/20 transition-colors"
+                onClick={() => setIsOpen(false)}
+                className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
               >
-                <X className="h-4 w-4 text-white" />
+                <X className="h-5 w-5 text-white" />
               </button>
             </div>
-            
-            <p className="text-sm text-white/90 mb-4">
-              Not sure which country suits your profile? Our experts will help you choose the best destination based on your skills and goals.
-            </p>
-            
-            <div className="space-y-3">
-              <Button
-                onClick={handleWhatsAppClick}
-                className="w-full bg-green-600 hover:bg-green-700 text-white shadow-lg"
-              >
-                <MessageCircle className="mr-2 h-4 w-4" />
-                WhatsApp Free Consultation
-              </Button>
-              
-              <Button
-                onClick={handleCallClick}
-                variant="outline"
-                className="w-full border-white/30 text-white hover:bg-white/10"
-              >
-                <Phone className="mr-2 h-4 w-4" />
-                Call Now: +91 845 407 3913
-              </Button>
-            </div>
-          </div>
-        )}
-      </div>
 
-      {/* Desktop Floating Widget */}
-      <div className="hidden md:block fixed bottom-8 right-8 z-50">
-        {!isExpanded ? (
-          <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-4 shadow-2xl border border-primary/30 backdrop-blur-lg max-w-sm">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded-full bg-white/20 animate-pulse">
-                <Target className="h-5 w-5 text-white" />
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-white">Confused which country is right for you?</div>
+            {/* Chat Area */}
+            <div className="bg-[#ECE5DD] dark:bg-[#0B141A] px-4 py-5 min-h-[120px]">
+              {/* Welcome Message Bubble */}
+              <div className="relative max-w-[85%]">
+                <div className="bg-white dark:bg-[#1F2C34] rounded-lg rounded-tl-none px-4 py-3 shadow-sm">
+                  <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
+                    Hi 👋 Looking to work or settle abroad? We can help you get started!
+                  </p>
+                  <span className="text-[10px] text-gray-400 mt-1 block text-right">
+                    {new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                  </span>
+                </div>
               </div>
             </div>
-            
-            <div className="flex gap-2">
-              <Button
-                size="sm"
-                onClick={() => setIsExpanded(true)}
-                className="bg-white/20 hover:bg-white/30 text-white border-white/30 flex-1"
-              >
-                Get Free Suggestion
-                <ArrowRight className="ml-2 h-3 w-3" />
-              </Button>
-              <Button
-                size="sm"
-                variant="ghost"
-                onClick={() => setIsVisible(false)}
-                className="text-white/70 hover:text-white hover:bg-white/10 p-2"
-              >
-                <X className="h-4 w-4" />
-              </Button>
+
+            {/* Quick Action Buttons */}
+            <div className="bg-[#ECE5DD] dark:bg-[#0B141A] px-4 pb-3 flex gap-2 flex-wrap">
+              {quickActions.map((action) => (
+                <button
+                  key={action.label}
+                  onClick={() => handleQuickAction(action.message)}
+                  className="px-3 py-1.5 bg-white dark:bg-[#1F2C34] border border-[#25D366] rounded-full text-xs text-[#075E54] dark:text-[#25D366] hover:bg-[#25D366]/10 transition-colors whitespace-nowrap"
+                >
+                  {action.label}
+                </button>
+              ))}
             </div>
-          </div>
-        ) : (
-          <div className="bg-gradient-to-br from-primary/95 to-primary/80 rounded-2xl p-6 shadow-2xl border border-primary/30 backdrop-blur-lg max-w-md">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h3 className="text-lg font-bold text-white mb-1">Get Personalized Country Suggestions</h3>
-                <p className="text-sm text-white/80">Free consultation with our experts</p>
-              </div>
+
+            {/* Input Bar */}
+            <div className="bg-[#F0F0F0] dark:bg-[#1A2028] px-3 py-2.5 flex items-center gap-2">
+              <input
+                type="text"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type a message..."
+                className="flex-1 bg-white dark:bg-[#2A3942] rounded-full px-4 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder:text-gray-400 outline-none border-none"
+              />
               <button
-                onClick={() => setIsExpanded(false)}
-                className="p-1 rounded-full hover:bg-white/20 transition-colors"
+                onClick={handleSend}
+                disabled={!message.trim()}
+                className="w-10 h-10 rounded-full bg-[#25D366] hover:bg-[#1DA851] disabled:opacity-40 disabled:hover:bg-[#25D366] flex items-center justify-center transition-colors flex-shrink-0"
               >
-                <X className="h-4 w-4 text-white" />
+                <Send className="h-4 w-4 text-white" />
               </button>
             </div>
-            
-            <div className="space-y-3 mb-4">
-              <div className="flex items-center gap-2 text-sm text-white/90">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span>Based on your skills & experience</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-white/90">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span>Current job market analysis</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-white/90">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span>Visa requirements & timeline</span>
-              </div>
-            </div>
-            
-            <div className="space-y-3">
-              <Button
-                onClick={handleWhatsAppClick}
-                className="w-full bg-green-600 hover:bg-green-700 text-white shadow-lg"
-              >
-                <MessageCircle className="mr-2 h-4 w-4" />
-                Start WhatsApp Chat
-              </Button>
-              
-              <div className="grid grid-cols-2 gap-2">
-                <Button
-                  onClick={handleCallClick}
-                  variant="outline"
-                  size="sm"
-                  className="border-white/30 text-white hover:bg-white/10"
-                >
-                  <Phone className="mr-1 h-3 w-3" />
-                  Call Now
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-white/30 text-white hover:bg-white/10"
-                  asChild
-                >
-                  <a href="/contact">
-                    <Target className="mr-1 h-3 w-3" />
-                    Free Check
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
+
+      {/* Floating WhatsApp Button */}
+      <motion.button
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1DA851] shadow-lg hover:shadow-xl flex items-center justify-center transition-colors"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        aria-label={isOpen ? "Close chat" : "Open WhatsApp chat"}
+      >
+        {isOpen ? (
+          <X className="h-6 w-6 text-white" />
+        ) : (
+          <WhatsAppIcon className="h-7 w-7 text-white" />
+        )}
+      </motion.button>
     </>
   );
 }

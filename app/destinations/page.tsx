@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import DestinationsHero from "@/components/DestinationsHero";
 import CountryCard from "@/components/CountryCard";
 import CountryComparison from "@/components/CountryComparison";
-import FloatingCTA from "@/components/FloatingCTA";
 import EligibilityForm from "@/components/EligibilityForm";
 import DesktopSidebar from "@/components/DesktopSidebar";
 
@@ -200,9 +199,6 @@ export default function DestinationsPage() {
           <EligibilityForm />
         </section>
       </div>
-      
-      {/* Floating CTA */}
-      <FloatingCTA />
       
       <Footer />
     </main>
