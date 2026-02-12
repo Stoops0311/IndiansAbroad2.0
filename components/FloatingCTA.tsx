@@ -21,7 +21,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export default function FloatingCTA() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [message, setMessage] = useState("");
 
   const handleSend = () => {
