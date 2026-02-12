@@ -61,72 +61,71 @@ export default function WrittenTestimonials() {
                   {allTestimonials.map((testimonial) => (
                     <Card
                       key={testimonial._id}
-                      className="break-inside-avoid mb-3 p-0 bg-muted/20 border-border hover:border-primary/40 hover:bg-muted/40 transition-all duration-300 cursor-pointer overflow-hidden rounded-xl group"
+                      className="break-inside-avoid mb-3 p-3 bg-muted/20 border-border hover:border-primary/40 hover:bg-muted/40 transition-all duration-300 cursor-pointer rounded-xl group"
                       onClick={() => setModalOpen(true)}
                     >
-                      {/* Document image */}
+                      {/* Stars */}
+                      <div className="flex gap-0.5 mb-2">
+                        {Array.from({ length: testimonial.rating }).map((_, i) => (
+                          <Star key={i} className="h-3 w-3 text-yellow-400 fill-current" />
+                        ))}
+                      </div>
+
+                      {/* Review text */}
+                      <blockquote className="text-[11px] md:text-xs text-foreground/85 italic leading-relaxed line-clamp-3 mb-2">
+                        &ldquo;{testimonial.review}&rdquo;
+                      </blockquote>
+
+                      {/* Supporting document image - constrained */}
                       {testimonial.supportingDocUrls &&
                        testimonial.supportingDocUrls.length > 0 &&
                        testimonial.supportingDocType === 'image' && (
-                        <div className="relative w-full overflow-hidden">
+                        <div className="mb-2">
                           <img
                             src={testimonial.supportingDocUrls[0]}
                             alt="Supporting document"
-                            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="w-full h-24 object-cover rounded-lg border border-primary/20"
                             loading="lazy"
                           />
-                          <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/40 to-transparent" />
-                          <div className="absolute bottom-2 left-2 flex gap-0.5">
-                            {Array.from({ length: testimonial.rating }).map((_, i) => (
-                              <Star key={i} className="h-3 w-3 text-yellow-400 fill-current drop-shadow-sm" />
-                            ))}
-                          </div>
                         </div>
                       )}
 
-                      {/* Content */}
-                      <div className="p-3">
-                        {/* Stars - only show here if no image above */}
-                        {(!testimonial.supportingDocUrls ||
-                          testimonial.supportingDocUrls.length === 0 ||
-                          testimonial.supportingDocType !== 'image') && (
-                          <div className="flex gap-0.5 mb-2">
-                            {Array.from({ length: testimonial.rating }).map((_, i) => (
-                              <Star key={i} className="h-3 w-3 text-yellow-400 fill-current" />
-                            ))}
-                          </div>
-                        )}
-
-                        <blockquote className="text-[11px] md:text-xs text-foreground/85 italic leading-relaxed line-clamp-3 mb-2">
-                          &ldquo;{testimonial.review}&rdquo;
-                        </blockquote>
-
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-2 min-w-0">
-                            {testimonial.photoUrl ? (
-                              <img
-                                src={testimonial.photoUrl}
-                                alt={testimonial.name}
-                                className="w-6 h-6 rounded-full object-cover flex-shrink-0"
-                              />
-                            ) : (
-                              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
-                                <User className="h-3 w-3 text-white" />
-                              </div>
-                            )}
-                            <div className="min-w-0">
-                              <h5 className="font-semibold text-foreground text-[11px] leading-tight truncate">
-                                {testimonial.name}
-                              </h5>
-                              <span className="text-[10px] text-muted-foreground truncate block">
-                                {testimonial.service}
-                              </span>
+                      {/* Author */}
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2 min-w-0">
+                          {testimonial.photoUrl ? (
+                            <img
+                              src={testimonial.photoUrl}
+                              alt={testimonial.name}
+                              className="w-6 h-6 rounded-full object-cover flex-shrink-0"
+                            />
+                          ) : (
+                            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
+                              <User className="h-3 w-3 text-white" />
                             </div>
+                          )}
+                          <div className="min-w-0">
+                            <h5 className="font-semibold text-foreground text-[11px] leading-tight truncate">
+                              {testimonial.name}
+                            </h5>
+                            <span className="text-[10px] text-muted-foreground truncate block">
+                              {testimonial.service}
+                            </span>
                           </div>
-                          <Badge className="bg-primary/15 text-primary text-[10px] border-none px-1.5 py-0.5 flex-shrink-0">
-                            {testimonial.flag} {testimonial.country}
-                          </Badge>
                         </div>
+                        <Badge className="bg-primary/15 text-primary text-[10px] border-none px-1.5 py-0.5 flex-shrink-0">
+                          {testimonial.flag} {testimonial.country}
+                        </Badge>
+                      </div>
+
+                      {/* Achievement + timeframe */}
+                      <div className="flex items-center justify-between text-[10px] mt-2 pt-2 border-t border-border">
+                        <span className="text-primary font-medium truncate">
+                          {testimonial.achievement}
+                        </span>
+                        <span className="text-muted-foreground flex-shrink-0">
+                          {testimonial.timeframe}
+                        </span>
                       </div>
                     </Card>
                   ))}

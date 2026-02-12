@@ -147,65 +147,54 @@ export default function SuccessStories() {
                   {allTestimonials.map((testimonial) => (
                     <Card
                       key={testimonial._id}
-                      className="break-inside-avoid mb-2 p-0 bg-foreground/5 border-primary/20 overflow-hidden rounded-xl hover:bg-foreground/10 transition-all duration-300 cursor-pointer group"
+                      className="break-inside-avoid mb-2 p-2.5 bg-foreground/5 border-primary/20 rounded-xl hover:bg-foreground/10 transition-all duration-300 cursor-pointer group"
                       onClick={() => setModalOpen(true)}
                     >
-                      {/* Document image */}
+                      {/* Stars */}
+                      <div className="flex gap-0.5 mb-1.5">
+                        {Array.from({ length: testimonial.rating }).map((_, i) => (
+                          <Star key={i} className="h-2.5 w-2.5 text-yellow-400 fill-current" />
+                        ))}
+                      </div>
+
+                      {/* Review text */}
+                      <blockquote className="text-[10px] md:text-[11px] text-foreground/85 italic leading-snug line-clamp-2 mb-2">
+                        &ldquo;{testimonial.review}&rdquo;
+                      </blockquote>
+
+                      {/* Supporting document image - constrained */}
                       {testimonial.supportingDocUrls &&
                        testimonial.supportingDocUrls.length > 0 &&
                        testimonial.supportingDocType === 'image' && (
-                        <div className="relative w-full overflow-hidden">
+                        <div className="mb-2">
                           <img
                             src={testimonial.supportingDocUrls[0]}
                             alt="Supporting document"
-                            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="w-full h-20 object-cover rounded-lg border border-primary/20"
                             loading="lazy"
                           />
-                          <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-black/40 to-transparent" />
-                          <div className="absolute bottom-1.5 left-1.5 flex gap-0.5">
-                            {Array.from({ length: testimonial.rating }).map((_, i) => (
-                              <Star key={i} className="h-2.5 w-2.5 text-yellow-400 fill-current drop-shadow-sm" />
-                            ))}
-                          </div>
                         </div>
                       )}
 
-                      {/* Content */}
-                      <div className="p-2.5">
-                        {/* Stars - only if no image */}
-                        {(!testimonial.supportingDocUrls ||
-                          testimonial.supportingDocUrls.length === 0 ||
-                          testimonial.supportingDocType !== 'image') && (
-                          <div className="flex gap-0.5 mb-1.5">
-                            {Array.from({ length: testimonial.rating }).map((_, i) => (
-                              <Star key={i} className="h-2.5 w-2.5 text-yellow-400 fill-current" />
-                            ))}
+                      {/* Author */}
+                      <div className="flex items-center gap-1.5">
+                        {testimonial.photoUrl ? (
+                          <img
+                            src={testimonial.photoUrl}
+                            alt={testimonial.name}
+                            className="w-5 h-5 rounded-full object-cover flex-shrink-0"
+                          />
+                        ) : (
+                          <div className="w-5 h-5 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
+                            <User className="h-2.5 w-2.5 text-white" />
                           </div>
                         )}
-
-                        <blockquote className="text-[10px] md:text-[11px] text-foreground/85 italic leading-snug line-clamp-2 mb-2">
-                          &ldquo;{testimonial.review}&rdquo;
-                        </blockquote>
-
-                        <div className="flex items-center gap-1.5">
-                          {testimonial.photoUrl ? (
-                            <img
-                              src={testimonial.photoUrl}
-                              alt={testimonial.name}
-                              className="w-5 h-5 rounded-full object-cover flex-shrink-0"
-                            />
-                          ) : (
-                            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center flex-shrink-0">
-                              <User className="h-2.5 w-2.5 text-white" />
-                            </div>
-                          )}
-                          <span className="font-medium text-foreground text-[10px] leading-tight truncate">
-                            {testimonial.name}
-                          </span>
-                          <Badge className="bg-primary/15 text-primary text-[9px] border-none px-1 py-0 leading-none ml-auto flex-shrink-0">
-                            {testimonial.flag}
-                          </Badge>
-                        </div>
+                        <span className="font-medium text-foreground text-[10px] leading-tight truncate">
+                          {testimonial.name}
+                        </span>
+                        <Badge className="bg-primary/15 text-primary text-[9px] border-none px-1 py-0 leading-none ml-auto flex-shrink-0">
+                          {testimonial.flag}
+                        </Badge>
                       </div>
                     </Card>
                   ))}
