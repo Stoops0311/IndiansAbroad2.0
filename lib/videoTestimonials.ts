@@ -180,5 +180,44 @@ export const allVideoTestimonials = [
     achievement: "Germany Opportunity Card Process",
     quote: "Step-by-step opportunity card guide",
     details: "Germany Opportunity Card 2025 | Full Process for Indian for Palak"
+  },
+  {
+    id: 15,
+    name: "Hareet",
+    profession: "Opportunity Card Holder",
+    country: "Germany",
+    flag: "🇩🇪",
+    duration: "Opportunity Card",
+    thumbnail: "https://img.youtube.com/vi/BJa5yuZq82o/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=BJa5yuZq82o",
+    achievement: "Germany Opportunity Card Success",
+    quote: "Successfully secured his visa to Germany",
+    details: "Germany Opportunity Card Success Story | How Hareet Secured His Visa"
+  },
+  {
+    id: 16,
+    name: "Dinesh",
+    profession: "Opportunity Card Holder",
+    country: "Germany",
+    flag: "🇩🇪",
+    duration: "Opportunity Card",
+    thumbnail: "https://img.youtube.com/vi/mXjQM7N_EIs/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=mXjQM7N_EIs",
+    achievement: "Germany Opportunity Card Success",
+    quote: "His journey to moving to Germany",
+    details: "Germany Opportunity Card Success Story | How Dinesh Moved to Germany"
+  },
+  {
+    id: 17,
+    name: "Arpita",
+    profession: "Opportunity Card Holder",
+    country: "Germany",
+    flag: "🇩🇪",
+    duration: "Opportunity Card",
+    thumbnail: "https://img.youtube.com/vi/Ck0KMqpSZv0/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=Ck0KMqpSZv0",
+    achievement: "Germany Opportunity Card Success",
+    quote: "How she secured her visa to Germany",
+    details: "Germany Opportunity Card Success Story | How Arpita Secured His Visa"
   }
 ];
