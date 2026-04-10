@@ -1,7 +1,7 @@
 export const organizationStructuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Indians Abroad",
+  "name": "MYST",
   "url": "https://www.indiansabroad.in",
   "logo": "https://www.indiansabroad.in/Logo.png",
   "description": "Expert immigration consultants helping Indians work and settle abroad with visa services, study abroad guidance, and PR applications.",
@@ -52,7 +52,7 @@ export const serviceStructuredData = {
   "description": "Comprehensive immigration consulting services including visa applications, PR processing, and study abroad guidance.",
   "provider": {
     "@type": "Organization",
-    "name": "Indians Abroad"
+    "name": "MYST"
   },
   "areaServed": ["Canada", "Australia", "USA", "Germany", "UK"],
   "hasOfferCatalog": {

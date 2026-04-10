@@ -30,7 +30,7 @@ const transformations = [
     emoji: "📄",
     details: "ATS-optimized resume that got noticed by global recruiters",
     timeline: "2 weeks",
-    color: "from-orange-500/20 to-purple-500/20"
+    color: "from-orange-500/20 to-primary/20"
   },
   {
     id: 4,

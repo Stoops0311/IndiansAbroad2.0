@@ -310,8 +310,8 @@ export default function StudyAbroadModal({ isOpen, onClose }: StudyAbroadModalPr
                       <div className="text-xl font-bold text-blue-400">{selectedCountry.placement.experienced}</div>
                       <div className="text-sm text-muted-foreground">Experienced</div>
                     </div>
-                    <div className="text-center p-4 rounded-lg bg-purple-500/10">
-                      <div className="text-xl font-bold text-purple-400">{selectedCountry.cost.roi}</div>
+                    <div className="text-center p-4 rounded-lg bg-primary/10">
+                      <div className="text-xl font-bold text-primary">{selectedCountry.cost.roi}</div>
                       <div className="text-sm text-muted-foreground">ROI</div>
                     </div>
                   </div>

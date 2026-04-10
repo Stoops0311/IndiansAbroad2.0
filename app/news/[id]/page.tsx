@@ -26,7 +26,7 @@ export async function generateMetadata({ params, searchParams }: NewsArticlePage
     // If article not found, return default metadata
     if (!article) {
       return {
-        title: "Article Not Found | Indians Abroad",
+        title: "Article Not Found | MYST",
         description: "The requested article could not be found.",
         robots: {
           index: false,
@@ -43,17 +43,17 @@ export async function generateMetadata({ params, searchParams }: NewsArticlePage
     
     // Fallback metadata in case of error
     return {
-      title: "Immigration News & Updates | Indians Abroad",
+      title: "Immigration News & Updates | MYST",
       description: "Stay updated with latest immigration, visa, and career news for Indians abroad. Expert insights and analysis.",
       openGraph: {
-        title: "Immigration News & Updates | Indians Abroad",
+        title: "Immigration News & Updates | MYST",
         description: "Stay updated with latest immigration, visa, and career news for Indians abroad",
         type: "article",
-        siteName: "Indians Abroad",
+        siteName: "MYST",
       },
       twitter: {
         card: "summary_large_image",
-        title: "Immigration News & Updates | Indians Abroad",
+        title: "Immigration News & Updates | MYST",
         description: "Stay updated with latest immigration, visa, and career news for Indians abroad",
       },
     };

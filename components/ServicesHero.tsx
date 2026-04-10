@@ -16,7 +16,7 @@ export default function ServicesHero() {
           </div>
         </div>
         
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-foreground mb-4">
           Our Services – From India to International, We Handle It All
         </h1>
         

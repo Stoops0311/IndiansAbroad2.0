@@ -9,20 +9,20 @@ import ContactCTA from "@/components/ContactCTA";
 import DesktopSidebar from "@/components/DesktopSidebar";
 
 export const metadata: Metadata = {
-  title: "Contact Indians Abroad - Immigration Consultants | Get Free Consultation for Visa & PR Services",
-  description: "Contact Indians Abroad for expert immigration consultation. Get free assessment for Canada PR, Australia PR, USA work visas, study abroad programs, and visa services. Our MARA & RCIC certified consultants are ready to help you with personalized immigration solutions. Call, email, or schedule a consultation today for stress-free immigration guidance and support.",
-  keywords: ["contact immigration consultant", "free immigration consultation", "Indians Abroad contact", "visa consultation", "immigration advice", "contact us", "immigration support", "free assessment"],
+  title: "Contact MYST - Immigration Consultants | Get Free Consultation for Visa & PR Services",
+  description: "Contact MYST for expert immigration consultation. Get free assessment for Canada PR, Australia PR, USA work visas, study abroad programs, and visa services. Our MARA & RCIC certified consultants are ready to help you with personalized immigration solutions. Call, email, or schedule a consultation today for stress-free immigration guidance and support.",
+  keywords: ["contact immigration consultant", "free immigration consultation", "MYST contact", "visa consultation", "immigration advice", "contact us", "immigration support", "free assessment"],
   alternates: {
     canonical: "https://www.indiansabroad.in/contact"
   },
   openGraph: {
-    title: "Contact Indians Abroad - Immigration Consultants | Get Free Consultation",
-    description: "Contact Indians Abroad for expert immigration consultation. Get free assessment for Canada PR, Australia PR, USA work visas, and study abroad programs.",
+    title: "Contact MYST - Immigration Consultants | Get Free Consultation",
+    description: "Contact MYST for expert immigration consultation. Get free assessment for Canada PR, Australia PR, USA work visas, and study abroad programs.",
     url: "https://www.indiansabroad.in/contact",
   },
   twitter: {
-    title: "Contact Indians Abroad - Immigration Consultants | Get Free Consultation",
-    description: "Contact Indians Abroad for expert immigration consultation. Get free assessment for Canada PR, Australia PR, USA work visas, and study abroad programs.",
+    title: "Contact MYST - Immigration Consultants | Get Free Consultation",
+    description: "Contact MYST for expert immigration consultation. Get free assessment for Canada PR, Australia PR, USA work visas, and study abroad programs.",
   }
 };
 

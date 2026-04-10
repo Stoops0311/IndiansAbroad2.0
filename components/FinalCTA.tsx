@@ -16,7 +16,7 @@ export default function FinalCTA() {
         </div>
         
         {/* Main Headline */}
-        <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground leading-tight">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-semibold text-foreground leading-tight">
           Your Dream Life Abroad Is Just One Call Away
         </h2>
         

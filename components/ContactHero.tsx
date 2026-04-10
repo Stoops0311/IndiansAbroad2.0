@@ -15,7 +15,7 @@ export default function ContactHero() {
           </div>
         </div>
         
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-foreground mb-4">
           Contact Us + Free Eligibility Check
         </h1>
         

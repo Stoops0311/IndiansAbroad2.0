@@ -93,7 +93,7 @@ const jobListings: JobListing[] = [
       "Support operations manager with daily tasks",
       "Adhere to compliance and regulatory standards"
     ],
-    gradient: "from-purple-500/20 to-purple-600/10",
+    gradient: "from-red-500/20 to-red-600/10",
     icon: <Briefcase className="h-6 w-6" />
   },
   {
@@ -284,7 +284,7 @@ export default function CareersPage() {
               <div className="p-3 rounded-full bg-primary/10">
                 <Briefcase className="h-8 w-8 text-primary" />
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+              <h1 className="text-4xl md:text-6xl font-display font-semibold text-foreground">
                 Join Our Team
               </h1>
             </div>

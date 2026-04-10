@@ -139,7 +139,7 @@ export default function NewsSidebar({
       </Card>
 
       {/* Newsletter Signup */}
-      <Card className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20">
+      <Card className="bg-gradient-to-br from-blue-50 to-red-50 dark:from-blue-950/20 dark:to-red-950/20">
         <CardHeader>
           <CardTitle className="text-lg">Stay Updated</CardTitle>
         </CardHeader>

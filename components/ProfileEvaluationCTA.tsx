@@ -17,7 +17,7 @@ export default function ProfileEvaluationCTA() {
         
         {/* Main Headline */}
         <div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-foreground leading-tight mb-4">
             Free Profile Evaluation
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">

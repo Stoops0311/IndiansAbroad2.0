@@ -74,7 +74,7 @@ export default function DestinationsHero() {
         </div>
         
         {/* Main Title */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-foreground mb-6 leading-tight">
           🌐 Work & Settle in These Top Countries
         </h1>
         

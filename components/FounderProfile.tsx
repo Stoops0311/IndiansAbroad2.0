@@ -65,14 +65,14 @@ export default function FounderProfile() {
             {/* Expandable Story */}
             <div className="space-y-3">
               <BentoDescription className="text-sm text-white/80 leading-relaxed">
-                Our founder's personal journey through the complex immigration process sparked the creation of Indians Abroad. 
+                Our founder's personal journey through the complex immigration process sparked the creation of MYST. 
                 Having experienced the challenges firsthand, they understood the need for genuine, transparent guidance.
               </BentoDescription>
               
               {showFullStory && (
                 <BentoDescription className="text-sm text-white/80 leading-relaxed">
                   Starting with just a vision to help fellow Indians achieve their dreams abroad, our founder has built 
-                  a company that prioritizes client success over profit. Today, Indians Abroad stands as a testament to 
+                  a company that prioritizes client success over profit. Today, MYST stands as a testament to 
                   the power of ethical business practices and genuine care for each client's journey.
                 </BentoDescription>
               )}

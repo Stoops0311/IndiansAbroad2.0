@@ -21,7 +21,7 @@ export default function WhyChooseStats() {
       number: "100%",
       label: "Transparency",
       icon: <Shield className="h-5 w-5" />,
-      color: "from-purple-500/20 to-purple-600/20"
+      color: "from-primary/20 to-primary/20"
     },
     {
       number: "15+",

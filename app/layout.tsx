@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import { Header } from "@/components/Header";
 import { RepublicDayCelebration } from "@/components/RepublicDayCelebration";
 import { ConvexProvider } from "@/components/ConvexProvider";
@@ -17,45 +17,51 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.indiansabroad.in'),
   title: {
-    default: "Indians Abroad - Immigration & Study Abroad Consultants",
-    template: "%s | Indians Abroad"
+    default: "MYST - Immigration & Study Abroad Consultants",
+    template: "%s | MYST"
   },
-  description: "Expert immigration consultants helping Indians work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK. Get PR applications, study abroad guidance, and personalized immigration solutions with proven success.",
-  keywords: ["immigration consultant", "study abroad", "visa services", "Canada PR", "Australia PR", "work visa", "student visa", "Indians abroad", "MARA agent", "RCIC consultant"],
-  authors: [{ name: "Indians Abroad" }],
-  creator: "Indians Abroad",
-  publisher: "Indians Abroad",
+  description: "Expert immigration consultants helping you work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK. Get PR applications, study abroad guidance, and personalized immigration solutions with proven success.",
+  keywords: ["immigration consultant", "study abroad", "visa services", "Canada PR", "Australia PR", "work visa", "student visa", "MYST immigration", "MARA agent", "RCIC consultant"],
+  authors: [{ name: "MYST" }],
+  creator: "MYST",
+  publisher: "MYST",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   icons: {
-    icon: "/Logo.png?v=2",
-    shortcut: "/Logo.png?v=2",
-    apple: "/Logo.png?v=2",
+    icon: "/Logo.png?v=3",
+    shortcut: "/Logo.png?v=3",
+    apple: "/Logo.png?v=3",
   },
   openGraph: {
-    title: "Indians Abroad - Immigration & Study Abroad Consultants",
-    description: "Expert immigration consultants helping Indians work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK.",
+    title: "MYST - Immigration & Study Abroad Consultants",
+    description: "Expert immigration consultants helping you work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK.",
     url: "https://www.indiansabroad.in",
-    siteName: "Indians Abroad",
+    siteName: "MYST",
     images: [{
       url: "/Logo.png",
       width: 512,
       height: 512,
-      alt: "Indians Abroad - Immigration Consultants Logo"
+      alt: "MYST - Immigration Consultants Logo"
     }],
     locale: "en_US",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Indians Abroad - Immigration & Study Abroad Consultants",
-    description: "Expert immigration consultants helping Indians work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK.",
+    title: "MYST - Immigration & Study Abroad Consultants",
+    description: "Expert immigration consultants helping you work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK.",
     images: ["/Logo.png"],
     creator: "@indiansabroad"
   },
@@ -92,7 +98,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} antialiased`}
       >
         <ConvexProvider>
           <Header />

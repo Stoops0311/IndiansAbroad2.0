@@ -265,7 +265,7 @@ export default function ScheduledArticlesManagement({ onLogout }: ScheduledArtic
             <Card>
               <CardContent className="p-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
                   <span className="text-sm font-medium">This Week</span>
                 </div>
                 <div className="text-2xl font-bold">{stats.upcomingWeek}</div>

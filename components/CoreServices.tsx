@@ -52,7 +52,7 @@ export default function CoreServices() {
               <Settings className="h-6 w-6 text-primary" />
             </BentoIcon>
             <div>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-display font-semibold text-foreground mb-2">
                 Our Core Services
               </h2>
               <p className="text-sm md:text-base lg:text-lg text-muted-foreground">

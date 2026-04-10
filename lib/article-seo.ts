@@ -37,7 +37,7 @@ export function generateSEOTitle(title: string, category: string): string {
     return `${title.substring(0, 42)}... | ${categoryPrefix}`;
   }
   
-  return `${title} | ${categoryPrefix} - Indians Abroad`;
+  return `${title} | ${categoryPrefix} - MYST`;
 }
 
 export function generateSEODescription(summary: string, tags: string[]): string {
@@ -82,16 +82,16 @@ export function generateArticleMetadata(article: ArticleData): Metadata {
     title: seoTitle,
     description: metaDescription,
     keywords: keywords.join(', '),
-    authors: [{ name: 'Indians Abroad Editorial Team' }],
+    authors: [{ name: 'MYST Editorial Team' }],
     openGraph: {
       title: article.title,
       description: article.summary,
       type: 'article',
       publishedTime: publishDate,
       modifiedTime: modifiedDate,
-      authors: ['Indians Abroad'],
+      authors: ['MYST'],
       tags: article.tags,
-      siteName: 'Indians Abroad',
+      siteName: 'MYST',
       locale: 'en_US',
       url: `${baseUrl}/news/${article._id}`,
       images: article.featuredImage ? [
@@ -106,7 +106,7 @@ export function generateArticleMetadata(article: ArticleData): Metadata {
           url: `${baseUrl}/og-image.jpg`,
           width: 1200,
           height: 630,
-          alt: 'Indians Abroad',
+          alt: 'MYST',
         }
       ],
     },
@@ -146,12 +146,12 @@ export function generateArticleSchema(article: any, url: string) {
     "dateModified": new Date(article.updatedAt || article.publishedAt || article.createdAt).toISOString(),
     "author": {
       "@type": "Organization",
-      "name": "Indians Abroad",
+      "name": "MYST",
       "url": "https://www.indiansabroad.in"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Indians Abroad",
+      "name": "MYST",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.indiansabroad.in/Logo.png"

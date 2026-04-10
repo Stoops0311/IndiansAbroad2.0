@@ -28,7 +28,7 @@ export default function Hero() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6 lg:space-y-8">
               <div className="space-y-4">
-                <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
+                <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-semibold leading-tight text-white">
                   Work & Settle Abroad Without the Stress
                 </h1>
                 <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-lg">

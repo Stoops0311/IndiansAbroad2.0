@@ -22,7 +22,7 @@ const features = [
     id: 3,
     title: "Partnered with Global Employers",
     icon: Handshake,
-    color: "text-purple-400"
+    color: "text-primary"
   },
   {
     id: 4,

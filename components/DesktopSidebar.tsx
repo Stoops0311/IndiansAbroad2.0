@@ -65,7 +65,7 @@ export default function DesktopSidebar() {
       icon: <BookOpen className="h-8 w-8" />,
       label: "Blog",
       href: "/coming-soon",
-      gradient: "from-purple-500/20 to-purple-600/10",
+      gradient: "from-red-500/20 to-red-600/10",
     },
     {
       icon: <MessageCircle className="h-8 w-8" />,
@@ -209,7 +209,7 @@ export default function DesktopSidebar() {
         <div 
           className="fixed right-0 top-4 bottom-4 w-1 z-30 hidden lg:block"
           style={{
-            background: 'linear-gradient(to bottom, transparent 0%, oklch(0.39 0.09 305) 50%, transparent 100%)',
+            background: 'linear-gradient(to bottom, transparent 0%, oklch(0.39 0.09 25) 50%, transparent 100%)',
             opacity: 0.3 + (cursorProximity * 0.4) // Becomes more visible as cursor approaches
           }}
         />
@@ -230,17 +230,17 @@ export default function DesktopSidebar() {
               <div 
                 className="w-12 h-12 rounded-full"
                 style={{
-                  background: 'linear-gradient(135deg, oklch(0.39 0.09 305) 0%, oklch(0.48 0.11 305) 100%)',
+                  background: 'linear-gradient(135deg, oklch(0.39 0.09 25) 0%, oklch(0.48 0.11 25) 100%)',
                   opacity: 0.3 + (cursorProximity * 0.5)
                 }}
               />
             </div>
-            
+
             {/* Main circle */}
-            <div 
+            <div
               className="relative w-12 h-12 rounded-full flex items-center justify-center"
               style={{
-                background: 'linear-gradient(135deg, oklch(0.39 0.09 305) 0%, oklch(0.48 0.11 305) 100%)',
+                background: 'linear-gradient(135deg, oklch(0.39 0.09 25) 0%, oklch(0.48 0.11 25) 100%)',
                 opacity: 0.4 + (cursorProximity * 0.6)
               }}
             >
@@ -268,7 +268,7 @@ export default function DesktopSidebar() {
             <div 
               className="absolute inset-0 w-12 h-12 rounded-full animate-ping"
               style={{
-                background: 'linear-gradient(135deg, oklch(0.39 0.09 305) 0%, oklch(0.48 0.11 305) 100%)',
+                background: 'linear-gradient(135deg, oklch(0.39 0.09 25) 0%, oklch(0.48 0.11 25) 100%)',
                 opacity: 0.2 + (cursorProximity * 0.4)
               }}
             />
@@ -278,7 +278,7 @@ export default function DesktopSidebar() {
               <div 
                 className="absolute right-full top-1/2 transform -translate-y-1/2 mr-3 whitespace-nowrap text-sm font-medium transition-all duration-300"
                 style={{
-                  color: 'oklch(0.39 0.09 305)',
+                  color: 'oklch(0.39 0.09 25)',
                   opacity: Math.min(1, (cursorProximity - 0.3) * 1.4) // Fade in earlier and reach full opacity
                 }}
               >
@@ -309,10 +309,10 @@ export default function DesktopSidebar() {
               boxShadow: 'none',
             }}
           >
-            {/* Light mode solid background - shows purple */}
+            {/* Light mode solid background - shows maroon */}
             <div className="absolute inset-0 dark:hidden rounded-2xl"
               style={{
-                background: 'lab(27.9275% 20.3486 -26.5494)',
+                background: 'lab(20% 30 15)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
               }}
@@ -400,7 +400,7 @@ export default function DesktopSidebar() {
                   
                   {/* Separator line - show for all except last item */}
                   {index < sidebarItems.length - 1 && (
-                    <div className="absolute bottom-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-purple-500/40 to-transparent z-20" />
+                    <div className="absolute bottom-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent z-20" />
                   )}
                 </motion.div>
               ))}

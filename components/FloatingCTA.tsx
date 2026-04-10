@@ -59,7 +59,7 @@ export default function FloatingCTA() {
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
                 <img
                   src="/Logo.png"
-                  alt="Indians Abroad"
+                  alt="MYST"
                   className="w-8 h-8 object-contain"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
@@ -68,7 +68,7 @@ export default function FloatingCTA() {
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-white font-semibold text-sm">Indians Abroad</h3>
+                <h3 className="text-white font-semibold text-sm">MYST</h3>
                 <div className="flex items-center gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-[#25D366]" />
                   <span className="text-white/80 text-xs">Online</span>

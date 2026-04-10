@@ -103,7 +103,7 @@ export default function CountryCard({ country }: CountryCardProps) {
           
           <div className="p-3 rounded-lg bg-foreground/5 border border-muted">
             <div className="flex items-center gap-2 mb-1">
-              <User className="h-4 w-4 text-purple-400" />
+              <User className="h-4 w-4 text-primary" />
               <span className="text-xs text-muted-foreground">Clients</span>
             </div>
             <div className="text-sm font-semibold text-foreground">{country.stats.clientsPlaced}</div>

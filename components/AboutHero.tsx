@@ -23,8 +23,8 @@ export default function AboutHero() {
         </div>
         
         {/* Main Headline */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-          About Indians Abroad
+        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-semibold text-white leading-tight">
+          About MYST
         </h1>
         
         {/* Subtitle */}

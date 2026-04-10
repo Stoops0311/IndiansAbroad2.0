@@ -36,8 +36,8 @@ export default function SignInPage() {
       className="min-h-screen flex items-center justify-center p-4"
       style={{
         background: resolvedTheme === 'dark' 
-          ? 'linear-gradient(to bottom, #000000 0%, oklch(0.48 0.11 305) 100%)'
-          : 'linear-gradient(to bottom, #ffffff 0%, oklch(0.39 0.09 305) 100%)'
+          ? 'linear-gradient(to bottom, #000000 0%, oklch(0.48 0.11 25) 100%)'
+          : 'linear-gradient(to bottom, #ffffff 0%, oklch(0.39 0.09 25) 100%)'
       }}
     >
       <div className="w-full max-w-md">
@@ -66,7 +66,7 @@ export default function SignInPage() {
               Authorized Sign In
             </CardTitle>
             <p className={resolvedTheme === 'dark' ? 'text-white/80' : 'text-black/80'}>
-              Access your Indians Abroad account
+              Access your MYST account
             </p>
           </CardHeader>
           

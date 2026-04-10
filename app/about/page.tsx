@@ -10,20 +10,20 @@ import EligibilityForm from "@/components/EligibilityForm";
 import DesktopSidebar from "@/components/DesktopSidebar";
 
 export const metadata: Metadata = {
-  title: "About Indians Abroad - MARA & RCIC Certified Immigration Consultants | Our Story, Mission & Vision",
-  description: "Learn about Indians Abroad - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad. Discover our mission to provide stress-free immigration services, our vision for global mobility, and why thousands choose us for Canada PR, Australia PR, study abroad guidance, and visa services across USA, Germany, and UK.",
-  keywords: ["about Indians Abroad", "MARA certified", "RCIC certified", "immigration consultants story", "trusted visa consultants", "immigration company background", "study abroad consultants", "migration experts"],
+  title: "About MYST - MARA & RCIC Certified Immigration Consultants | Our Story, Mission & Vision",
+  description: "Learn about MYST - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad. Discover our mission to provide stress-free immigration services, our vision for global mobility, and why thousands choose us for Canada PR, Australia PR, study abroad guidance, and visa services across USA, Germany, and UK.",
+  keywords: ["about MYST", "MARA certified", "RCIC certified", "immigration consultants story", "trusted visa consultants", "immigration company background", "study abroad consultants", "migration experts"],
   alternates: {
     canonical: "https://www.indiansabroad.in/about"
   },
   openGraph: {
-    title: "About Indians Abroad - MARA & RCIC Certified Immigration Consultants",
-    description: "Learn about Indians Abroad - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad.",
+    title: "About MYST - MARA & RCIC Certified Immigration Consultants",
+    description: "Learn about MYST - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad.",
     url: "https://www.indiansabroad.in/about",
   },
   twitter: {
-    title: "About Indians Abroad - MARA & RCIC Certified Immigration Consultants",
-    description: "Learn about Indians Abroad - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad.",
+    title: "About MYST - MARA & RCIC Certified Immigration Consultants",
+    description: "Learn about MYST - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad.",
   }
 };
 

@@ -14,8 +14,8 @@ export default function ComingSoonPage() {
       className="min-h-screen flex items-center justify-center p-4"
       style={{
         background: resolvedTheme === 'dark' 
-          ? 'linear-gradient(to bottom, #000000 0%, oklch(0.48 0.11 305) 100%)'
-          : 'linear-gradient(to bottom, #ffffff 0%, oklch(0.39 0.09 305) 100%)'
+          ? 'linear-gradient(to bottom, #000000 0%, oklch(0.48 0.11 25) 100%)'
+          : 'linear-gradient(to bottom, #ffffff 0%, oklch(0.39 0.09 25) 100%)'
       }}
     >
       <div className="w-full max-w-2xl">

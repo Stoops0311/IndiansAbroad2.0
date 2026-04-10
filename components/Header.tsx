@@ -36,21 +36,21 @@ const menuItems: MenuItem[] = [
     icon: <Home className="h-5 w-5" />,
     label: "Home",
     href: "/",
-    gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+    gradient: "radial-gradient(circle, rgba(88,13,17,0.15) 0%, rgba(120,20,25,0.06) 50%, rgba(88,13,17,0) 100%)",
     iconColor: "text-primary",
   },
   {
     icon: <Users className="h-5 w-5" />,
     label: "About Us",
     href: "/about",
-    gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+    gradient: "radial-gradient(circle, rgba(88,13,17,0.15) 0%, rgba(120,20,25,0.06) 50%, rgba(88,13,17,0) 100%)",
     iconColor: "text-primary",
   },
   {
     icon: <Briefcase className="h-5 w-5" />,
     label: "Services",
     href: "/services",
-    gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+    gradient: "radial-gradient(circle, rgba(88,13,17,0.15) 0%, rgba(120,20,25,0.06) 50%, rgba(88,13,17,0) 100%)",
     iconColor: "text-primary",
     hasDropdown: true,
   },
@@ -58,28 +58,28 @@ const menuItems: MenuItem[] = [
     icon: <Globe className="h-5 w-5" />,
     label: "Work Abroad Destinations",
     href: "/destinations",
-    gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+    gradient: "radial-gradient(circle, rgba(88,13,17,0.15) 0%, rgba(120,20,25,0.06) 50%, rgba(88,13,17,0) 100%)",
     iconColor: "text-primary",
   },
   {
     icon: <Trophy className="h-5 w-5" />,
     label: "Success Stories",
     href: "/success-stories",
-    gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+    gradient: "radial-gradient(circle, rgba(88,13,17,0.15) 0%, rgba(120,20,25,0.06) 50%, rgba(88,13,17,0) 100%)",
     iconColor: "text-primary",
   },
   {
     icon: <Phone className="h-5 w-5" />,
     label: "Contact Us",
     href: "/contact",
-    gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+    gradient: "radial-gradient(circle, rgba(88,13,17,0.15) 0%, rgba(120,20,25,0.06) 50%, rgba(88,13,17,0) 100%)",
     iconColor: "text-primary",
   },
   {
     icon: <LogIn className="h-5 w-5" />,
     label: "Sign In",
     href: "https://crm.indiansabroad.in",
-    gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+    gradient: "radial-gradient(circle, rgba(88,13,17,0.15) 0%, rgba(120,20,25,0.06) 50%, rgba(88,13,17,0) 100%)",
     iconColor: "text-primary",
   },
 ]
@@ -188,39 +188,9 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 md:gap-3">
-            <div className="relative h-[47px] w-[47px] md:h-[67px] md:w-[67px] lg:h-[77px] lg:w-[77px] group">
-              {/* Gradient glow effect on hover */}
-              <div className="absolute inset-0 bg-primary rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
-              
-              {/* Logo with solid purple color */}
-              <div className="relative h-full w-full">
-                <img 
-                  src="/logo-new.svg" 
-                  alt="Indians Abroad Logo" 
-                  className="absolute inset-0 h-full w-full object-contain"
-                  style={{
-                    filter: 'brightness(0) saturate(100%)',
-                    WebkitFilter: 'brightness(0) saturate(100%)'
-                  }}
-                />
-                <div 
-                  className="absolute inset-0 bg-primary dark:bg-white"
-                  style={{
-                    maskImage: 'url(/logo-new.svg)',
-                    WebkitMaskImage: 'url(/logo-new.svg)',
-                    maskSize: 'contain',
-                    WebkitMaskSize: 'contain',
-                    maskRepeat: 'no-repeat',
-                    WebkitMaskRepeat: 'no-repeat',
-                    maskPosition: 'center',
-                    WebkitMaskPosition: 'center'
-                  }}
-                ></div>
-              </div>
-            </div>
             <div className="flex flex-col">
-              <span className="text-sm md:text-lg lg:text-xl font-bold text-primary dark:text-white leading-tight">INDIANS ABROAD</span>
-              <span className="text-[11px] md:text-xs text-muted-foreground hidden sm:block">Empowering Dreams Worldwide</span>
+              <span className="text-sm md:text-lg lg:text-xl font-bold font-display tracking-[0.25em] text-primary dark:text-white leading-tight">MYST</span>
+              <span className="text-[11px] md:text-xs text-muted-foreground hidden sm:block">EDUTECH PRIVATE LIMITED</span>
             </div>
           </Link>
 

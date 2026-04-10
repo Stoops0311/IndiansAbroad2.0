@@ -158,7 +158,7 @@ async function fetchAndParseFeed(feed: typeof RSS_FEEDS[0]): Promise<RSSItem[]> 
     
     const response = await fetch(feed.url, {
       headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; IndiansAbroad/1.0; +https://indiansabroad.com)",
+        "User-Agent": "Mozilla/5.0 (compatible; MYST/1.0; +https://indiansabroad.com)",
         "Accept": "application/rss+xml, application/xml, text/xml, */*",
       },
     });
@@ -265,7 +265,7 @@ export const testFetchAllItemsFromFeed = action({
       
       const response = await fetch(feed.url, {
         headers: {
-          "User-Agent": "Mozilla/5.0 (compatible; IndiansAbroad/1.0; +https://indiansabroad.com)",
+          "User-Agent": "Mozilla/5.0 (compatible; MYST/1.0; +https://indiansabroad.com)",
           "Accept": "application/rss+xml, application/xml, text/xml, */*",
         },
       });
