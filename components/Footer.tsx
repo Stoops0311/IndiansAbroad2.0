@@ -12,9 +12,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xl font-bold font-display tracking-[0.15em] text-foreground mb-4">
-              MYST
-            </h3>
+            <div className="mb-4">
+              <img src="/Logo.jpeg" alt="MYST Edutech Logo" className="h-14 object-contain" />
+            </div>
             <p className="text-muted-foreground max-w-md">
               Your trusted partner for working and settling abroad. We provide end-to-end support for job visas, PR, and permanent settlement worldwide.
             </p>

@@ -154,7 +154,7 @@ export function generateArticleSchema(article: any, url: string) {
       "name": "MYST",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.indiansabroad.in/Logo.png"
+        "url": "https://www.indiansabroad.in/Logo.jpeg"
       }
     },
     "mainEntityOfPage": {

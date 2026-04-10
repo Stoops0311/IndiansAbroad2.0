@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/Logo.png?v=3",
-    shortcut: "/Logo.png?v=3",
-    apple: "/Logo.png?v=3",
+    icon: "/Logo.jpeg?v=3",
+    shortcut: "/Logo.jpeg?v=3",
+    apple: "/Logo.jpeg?v=3",
   },
   openGraph: {
     title: "MYST - Immigration & Study Abroad Consultants",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     url: "https://www.indiansabroad.in",
     siteName: "MYST",
     images: [{
-      url: "/Logo.png",
+      url: "/Logo.jpeg",
       width: 512,
       height: 512,
       alt: "MYST - Immigration Consultants Logo"
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MYST - Immigration & Study Abroad Consultants",
     description: "Expert immigration consultants helping you work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK.",
-    images: ["/Logo.png"],
+    images: ["/Logo.jpeg"],
     creator: "@indiansabroad"
   },
   robots: {

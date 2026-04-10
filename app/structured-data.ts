@@ -3,7 +3,7 @@ export const organizationStructuredData = {
   "@type": "Organization",
   "name": "MYST",
   "url": "https://www.indiansabroad.in",
-  "logo": "https://www.indiansabroad.in/Logo.png",
+  "logo": "https://www.indiansabroad.in/Logo.jpeg",
   "description": "Expert immigration consultants helping Indians work and settle abroad with visa services, study abroad guidance, and PR applications.",
   "address": {
     "@type": "PostalAddress",
