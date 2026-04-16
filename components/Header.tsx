@@ -189,7 +189,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/">
             <img
-              src="/Logo.jpeg"
+              src="/logo-side.png"
               alt="MYST Edutech Logo"
               className="h-[50px] md:h-[65px] lg:h-[75px] object-contain"
             />

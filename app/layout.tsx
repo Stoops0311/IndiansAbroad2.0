@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/Logo.jpeg?v=3",
-    shortcut: "/Logo.jpeg?v=3",
-    apple: "/Logo.jpeg?v=3",
+    icon: "/logo-mark.png?v=4",
+    shortcut: "/logo-mark.png?v=4",
+    apple: "/logo-mark.png?v=4",
   },
   openGraph: {
     title: "MYST - Immigration & Study Abroad Consultants",
