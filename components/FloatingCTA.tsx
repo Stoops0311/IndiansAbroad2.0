@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send } from "lucide-react";
 
-const WHATSAPP_NUMBER = "918454073913";
+const WHATSAPP_NUMBER = "918591012696";
 
 const quickActions = [
   { label: "Talk to Experts", message: "Hi! I'd like to talk to an immigration expert about working abroad." },

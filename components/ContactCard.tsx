@@ -25,8 +25,8 @@ export default function ContactCard({
     {
       icon: Phone,
       label: "Call Us",
-      value: "+91 (845) 407-3913",
-      href: "tel:+918454073913",
+      value: "+91 85910 12696",
+      href: "tel:+918591012696",
       emoji: "📞",
       color: "text-green-400"
     },
@@ -42,7 +42,7 @@ export default function ContactCard({
       icon: MessageCircle,
       label: "WhatsApp",
       value: "Chat Now",
-      href: "https://wa.me/918454073913",
+      href: "https://wa.me/918591012696",
       emoji: "💬",
       color: "text-green-500"
     }

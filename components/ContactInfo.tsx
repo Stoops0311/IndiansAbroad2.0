@@ -25,9 +25,9 @@ export default function ContactInfo() {
     {
       icon: <Phone className="h-5 w-5" />,
       label: "Phone",
-      value: "+91 (845) 407-3913",
+      value: "+91 85910 12696",
       type: "tel",
-      href: "tel:+918454073913"
+      href: "tel:+918591012696"
     },
     {
       icon: <Mail className="h-5 w-5" />,
@@ -41,7 +41,7 @@ export default function ContactInfo() {
       label: "WhatsApp",
       value: "Chat Now",
       type: "whatsapp",
-      href: "https://wa.me/918454073913?text=Hi, I'm interested in your services"
+      href: "https://wa.me/918591012696?text=Hi, I'm interested in your services"
     },
     {
       icon: <Clock className="h-5 w-5" />,
