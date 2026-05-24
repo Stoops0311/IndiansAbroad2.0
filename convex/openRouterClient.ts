@@ -132,7 +132,7 @@ Write in a professional yet accessible tone, providing actionable insights where
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
         "HTTP-Referer": "https://indiansabroad.com",
-        "X-Title": "MYST Daily Digest",
+        "X-Title": "Immigration News Daily Digest",
       },
       body: JSON.stringify({
         model: "meta-llama/llama-3.2-3b-instruct:free",
