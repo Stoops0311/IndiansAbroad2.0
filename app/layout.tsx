@@ -25,46 +25,46 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.indiansabroad.in'),
+  metadataBase: new URL(BRAND.siteUrl),
   title: {
-    default: "MYST - Immigration & Study Abroad Consultants",
-    template: "%s | MYST"
+    default: `${BRAND.name} - Immigration & Study Abroad Consultants`,
+    template: `%s | ${BRAND.name}`
   },
-  description: "Expert immigration consultants helping you work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK. Get PR applications, study abroad guidance, and personalized immigration solutions with proven success.",
-  keywords: ["immigration consultant", "study abroad", "visa services", "Canada PR", "Australia PR", "work visa", "student visa", "MYST immigration", "MARA agent", "RCIC consultant"],
-  authors: [{ name: "MYST" }],
-  creator: "MYST",
-  publisher: "MYST",
+  description: BRAND.description,
+  keywords: BRAND.keywords,
+  authors: [{ name: BRAND.name }],
+  creator: BRAND.name,
+  publisher: BRAND.name,
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   icons: {
-    icon: "/logo-mark.png?v=4",
-    shortcut: "/logo-mark.png?v=4",
-    apple: "/logo-mark.png?v=4",
+    icon: BRAND.favicon,
+    shortcut: BRAND.favicon,
+    apple: BRAND.favicon,
   },
   openGraph: {
-    title: "MYST - Immigration & Study Abroad Consultants",
-    description: "Expert immigration consultants helping you work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK.",
-    url: "https://www.indiansabroad.in",
-    siteName: "MYST",
+    title: `${BRAND.name} - Immigration & Study Abroad Consultants`,
+    description: BRAND.description,
+    url: BRAND.siteUrl,
+    siteName: BRAND.name,
     images: [{
-      url: "/Logo.jpeg",
+      url: BRAND.ogImage,
       width: 512,
       height: 512,
-      alt: "MYST - Immigration Consultants Logo"
+      alt: `${BRAND.name} - Immigration Consultants Logo`
     }],
     locale: "en_US",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "MYST - Immigration & Study Abroad Consultants",
-    description: "Expert immigration consultants helping you work and settle abroad. MARA & RCIC certified visa services for Canada, Australia, USA, Germany & UK.",
-    images: ["/Logo.jpeg"],
-    creator: "@indiansabroad"
+    title: `${BRAND.name} - Immigration & Study Abroad Consultants`,
+    description: BRAND.description,
+    images: [BRAND.ogImage],
+    creator: BRAND.twitter
   },
   robots: {
     index: true,
@@ -90,7 +90,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-brand={BRAND.theme}>
       <head>
-        <link rel="canonical" href="https://www.indiansabroad.in" />
+        <link rel="canonical" href={BRAND.siteUrl} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
