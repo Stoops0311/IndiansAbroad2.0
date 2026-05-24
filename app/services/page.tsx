@@ -6,22 +6,23 @@ import ServiceCard from "@/components/ServiceCard";
 import ProfileEvaluationCTA from "@/components/ProfileEvaluationCTA";
 import EligibilityForm from "@/components/EligibilityForm";
 import { servicesData } from "@/lib/services-data";
+import { BRAND } from "@/lib/brand/config";
 
 export const metadata: Metadata = {
   title: "Immigration Services - Visa, PR & Study Abroad Consultants | Canada, Australia, USA, Germany, UK Services",
-  description: "Comprehensive immigration services by MYST - expert MARA & RCIC certified consultants. Get Canada PR, Australia PR, USA work visas, Germany opportunity cards, UK study visas, and study abroad guidance. We offer visa consulting, document preparation, university admissions, language training, and career evaluation services with proven success rates and personalized support.",
+  description: `Comprehensive immigration services by ${BRAND.name} - expert MARA & RCIC certified consultants. Get Canada PR, Australia PR, USA work visas, Germany opportunity cards, UK study visas, and study abroad guidance. We offer visa consulting, document preparation, university admissions, language training, and career evaluation services with proven success rates and personalized support.`,
   keywords: ["immigration services", "visa services", "Canada PR", "Australia PR", "USA work visa", "study abroad", "Germany opportunity card", "UK visa", "visa consultant", "immigration lawyer", "PR application", "student visa"],
   alternates: {
-    canonical: "https://www.indiansabroad.in/services"
+    canonical: `${BRAND.siteUrl}/services`
   },
   openGraph: {
     title: "Immigration Services - Visa, PR & Study Abroad Consultants",
-    description: "Comprehensive immigration services by MYST - expert MARA & RCIC certified consultants. Get Canada PR, Australia PR, USA work visas, and study abroad guidance.",
-    url: "https://www.indiansabroad.in/services",
+    description: `Comprehensive immigration services by ${BRAND.name} - expert MARA & RCIC certified consultants. Get Canada PR, Australia PR, USA work visas, and study abroad guidance.`,
+    url: `${BRAND.siteUrl}/services`,
   },
   twitter: {
     title: "Immigration Services - Visa, PR & Study Abroad Consultants",
-    description: "Comprehensive immigration services by MYST - expert MARA & RCIC certified consultants. Get Canada PR, Australia PR, USA work visas, and study abroad guidance.",
+    description: `Comprehensive immigration services by ${BRAND.name} - expert MARA & RCIC certified consultants. Get Canada PR, Australia PR, USA work visas, and study abroad guidance.`,
   }
 };
 

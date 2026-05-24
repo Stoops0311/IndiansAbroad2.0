@@ -3,6 +3,7 @@ import { fetchQuery } from "convex/nextjs";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { generateArticleMetadata, generateArticleSchema } from "@/lib/article-seo";
+import { BRAND } from "@/lib/brand/config";
 import NewsArticleClient from "./NewsArticleClient";
 
 interface NewsArticlePageProps {
@@ -26,7 +27,7 @@ export async function generateMetadata({ params, searchParams }: NewsArticlePage
     // If article not found, return default metadata
     if (!article) {
       return {
-        title: "Article Not Found | MYST",
+        title: `Article Not Found | ${BRAND.name}`,
         description: "The requested article could not be found.",
         robots: {
           index: false,
@@ -43,17 +44,17 @@ export async function generateMetadata({ params, searchParams }: NewsArticlePage
     
     // Fallback metadata in case of error
     return {
-      title: "Immigration News & Updates | MYST",
+      title: `Immigration News & Updates | ${BRAND.name}`,
       description: "Stay updated with latest immigration, visa, and career news for Indians abroad. Expert insights and analysis.",
       openGraph: {
-        title: "Immigration News & Updates | MYST",
+        title: `Immigration News & Updates | ${BRAND.name}`,
         description: "Stay updated with latest immigration, visa, and career news for Indians abroad",
         type: "article",
-        siteName: "MYST",
+        siteName: BRAND.name,
       },
       twitter: {
         card: "summary_large_image",
-        title: "Immigration News & Updates | MYST",
+        title: `Immigration News & Updates | ${BRAND.name}`,
         description: "Stay updated with latest immigration, visa, and career news for Indians abroad",
       },
     };

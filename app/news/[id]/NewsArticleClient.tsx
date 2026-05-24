@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { useSearchParams } from "next/navigation";
 import { generateArticleSchema } from "@/lib/article-seo";
+import { BRAND } from "@/lib/brand/config";
 import Script from "next/script";
 
 interface NewsArticleClientProps {
@@ -92,7 +93,7 @@ export default function NewsArticleClient({ id }: NewsArticleClientProps) {
   };
 
   // Generate structured data for SEO
-  const structuredData = generateArticleSchema(article, `https://www.indiansabroad.in/news/${id}`);
+  const structuredData = generateArticleSchema(article, `${BRAND.siteUrl}/news/${id}`);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">

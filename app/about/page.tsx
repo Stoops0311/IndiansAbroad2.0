@@ -8,22 +8,23 @@ import VisionCard from "@/components/VisionCard";
 import WhyChooseStats from "@/components/WhyChooseStats";
 import EligibilityForm from "@/components/EligibilityForm";
 import DesktopSidebar from "@/components/DesktopSidebar";
+import { BRAND } from "@/lib/brand/config";
 
 export const metadata: Metadata = {
-  title: "About MYST - MARA & RCIC Certified Immigration Consultants | Our Story, Mission & Vision",
-  description: "Learn about MYST - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad. Discover our mission to provide stress-free immigration services, our vision for global mobility, and why thousands choose us for Canada PR, Australia PR, study abroad guidance, and visa services across USA, Germany, and UK.",
-  keywords: ["about MYST", "MARA certified", "RCIC certified", "immigration consultants story", "trusted visa consultants", "immigration company background", "study abroad consultants", "migration experts"],
+  title: `About ${BRAND.name} - MARA & RCIC Certified Immigration Consultants | Our Story, Mission & Vision`,
+  description: `Learn about ${BRAND.name} - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad. Discover our mission to provide stress-free immigration services, our vision for global mobility, and why thousands choose us for Canada PR, Australia PR, study abroad guidance, and visa services across USA, Germany, and UK.`,
+  keywords: [`about ${BRAND.name}`, "MARA certified", "RCIC certified", "immigration consultants story", "trusted visa consultants", "immigration company background", "study abroad consultants", "migration experts"],
   alternates: {
-    canonical: "https://www.indiansabroad.in/about"
+    canonical: `${BRAND.siteUrl}/about`
   },
   openGraph: {
-    title: "About MYST - MARA & RCIC Certified Immigration Consultants",
-    description: "Learn about MYST - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad.",
-    url: "https://www.indiansabroad.in/about",
+    title: `About ${BRAND.name} - MARA & RCIC Certified Immigration Consultants`,
+    description: `Learn about ${BRAND.name} - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad.`,
+    url: `${BRAND.siteUrl}/about`,
   },
   twitter: {
-    title: "About MYST - MARA & RCIC Certified Immigration Consultants",
-    description: "Learn about MYST - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad.",
+    title: `About ${BRAND.name} - MARA & RCIC Certified Immigration Consultants`,
+    description: `Learn about ${BRAND.name} - trusted MARA and RCIC certified immigration consultants with over a decade of experience helping Indians work and settle abroad.`,
   }
 };
 

@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
+import { BRAND } from "@/lib/brand/config";
 
 export default function TermsPage() {
   return (
@@ -14,7 +15,7 @@ export default function TermsPage() {
             
             <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                By enrolling in Myst Education, you agree to be bound by the following terms and conditions. This website is operated by MYST EDUCATION.
+                By enrolling in {BRAND.legalName}, you agree to be bound by the following terms and conditions. This website is operated by {BRAND.legalName}.
               </p>
 
               <div className="space-y-6">
@@ -28,7 +29,7 @@ export default function TermsPage() {
                 <section>
                   <h2 className="text-2xl font-semibold text-foreground mb-4">2. Services Provided</h2>
                   <p className="leading-relaxed">
-                    Myst Education offers immigration and study abroad consulting services. The specific services being offered to you will be detailed in your enrollment email sent by our team.
+                    {BRAND.legalName} offers immigration and study abroad consulting services. The specific services being offered to you will be detailed in your enrollment email sent by our team.
                   </p>
                 </section>
 
@@ -68,7 +69,7 @@ export default function TermsPage() {
                 <section>
                   <h2 className="text-2xl font-semibold text-foreground mb-4">7. Privacy Policy</h2>
                   <p className="leading-relaxed mb-4">
-                    Myst Education is committed to protecting your personal information. We collect, store, and use your data in compliance with applicable laws and regulations.
+                    {BRAND.legalName} is committed to protecting your personal information. We collect, store, and use your data in compliance with applicable laws and regulations.
                   </p>
                   <ul className="list-disc list-inside space-y-2 leading-relaxed">
                     <li>Your information will only be used for purposes related to the services you have enrolled for.</li>

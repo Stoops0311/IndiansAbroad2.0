@@ -3,6 +3,7 @@
 import { BentoCard } from "@/components/ui/bento";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe2 } from "lucide-react";
+import { BRAND } from "@/lib/brand/config";
 
 export default function AboutHero() {
   return (
@@ -24,7 +25,7 @@ export default function AboutHero() {
         
         {/* Main Headline */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-semibold text-white leading-tight">
-          About MYST
+          About {BRAND.name}
         </h1>
         
         {/* Subtitle */}

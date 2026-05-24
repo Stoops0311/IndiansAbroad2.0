@@ -8,6 +8,7 @@ import { Mail, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
+import { BRAND } from "@/lib/brand/config";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
@@ -66,7 +67,7 @@ export default function SignInPage() {
               Authorized Sign In
             </CardTitle>
             <p className={resolvedTheme === 'dark' ? 'text-white/80' : 'text-black/80'}>
-              Access your MYST account
+              Access your {BRAND.name} account
             </p>
           </CardHeader>
           
