@@ -1,9 +1,11 @@
+import { BRAND } from "@/lib/brand/config";
+
 export const organizationStructuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "MYST",
-  "url": "https://www.indiansabroad.in",
-  "logo": "https://www.indiansabroad.in/Logo.jpeg",
+  "name": BRAND.name,
+  "url": BRAND.siteUrl,
+  "logo": `${BRAND.siteUrl}${BRAND.ogImage}`,
   "description": "Expert immigration consultants helping Indians work and settle abroad with visa services, study abroad guidance, and PR applications.",
   "address": {
     "@type": "PostalAddress",
@@ -52,7 +54,7 @@ export const serviceStructuredData = {
   "description": "Comprehensive immigration consulting services including visa applications, PR processing, and study abroad guidance.",
   "provider": {
     "@type": "Organization",
-    "name": "MYST"
+    "name": BRAND.name
   },
   "areaServed": ["Canada", "Australia", "USA", "Germany", "UK"],
   "hasOfferCatalog": {
