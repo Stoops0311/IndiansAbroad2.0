@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Home, Instagram, ExternalLink, FileText, Newspaper, Briefcase } from "lucide-react";
 import Link from "next/link";
+import { BRAND } from "@/lib/brand/config";
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-4">
             <div className="mb-4">
-              <img src="/Logo.jpeg" alt="MYST Edutech Logo" className="h-14 object-contain" />
+              <img src={BRAND.logo.src} alt={BRAND.logo.alt} className="h-14 object-contain" />
             </div>
             <p className="text-muted-foreground max-w-md">
               Your trusted partner for working and settling abroad. We provide end-to-end support for job visas, PR, and permanent settlement worldwide.
@@ -145,7 +146,7 @@ export default function Footer() {
               {/* Product and Partnership Info */}
               <div className="text-center">
                 <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-sm text-foreground mb-4">
-                  <span className="font-medium">Product of Myst Education</span>
+                  <span className="font-medium">Product of {BRAND.legalName}</span>
                   <span className="hidden md:inline text-muted-foreground">|</span>
                   <span className="font-medium">Partnered with</span>
                 </div>
@@ -181,7 +182,7 @@ export default function Footer() {
               {/* Copyright */}
               <div className="text-center pt-4 border-t border-border">
                 <p className="text-sm text-muted-foreground font-medium">
-                  All Rights Reserved. © 2018 MYST
+                  All Rights Reserved. © 2018 {BRAND.name}
                 </p>
               </div>
             </div>

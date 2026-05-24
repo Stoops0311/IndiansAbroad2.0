@@ -11,6 +11,7 @@ import { servicesData, type ServiceData } from "@/lib/services-data"
 import ServiceDetailModal from "@/components/ServiceDetailModal"
 import StudyAbroadModal from "@/components/StudyAbroadModal"
 import { useTheme } from "@/contexts/ThemeContext"
+import { BRAND } from "@/lib/brand/config"
 
 interface MenuItem {
   icon: React.ReactNode
@@ -189,8 +190,8 @@ export function Header() {
           {/* Logo */}
           <Link href="/">
             <img
-              src="/logo-side.png"
-              alt="MYST Edutech Logo"
+              src={BRAND.logo.src}
+              alt={BRAND.logo.alt}
               className="h-[50px] md:h-[65px] lg:h-[75px] object-contain"
             />
           </Link>
