@@ -5,6 +5,7 @@ import { RepublicDayCelebration } from "@/components/RepublicDayCelebration";
 import { ConvexProvider } from "@/components/ConvexProvider";
 import FloatingCTA from "@/components/FloatingCTA";
 import { organizationStructuredData } from "./structured-data";
+import { BRAND } from "@/lib/brand/config";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -87,7 +88,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-brand={BRAND.theme}>
       <head>
         <link rel="canonical" href="https://www.indiansabroad.in" />
         <script

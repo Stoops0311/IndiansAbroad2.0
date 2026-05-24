@@ -8,7 +8,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-cormorant);
+  --font-display: var(--font-display-active);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,6 +46,10 @@
 
 :root {
   --radius: 0.625rem;
+  --font-display-active: var(--font-cormorant);
+}
+
+:root[data-brand="myst"] {
   /* Light mode colors - MYST maroon theme */
   --background: oklch(0.97 0.005 25);
   --foreground: oklch(0.12 0.015 25);
@@ -78,9 +82,46 @@
   --sidebar-accent-foreground: oklch(0.12 0.015 25);
   --sidebar-border: oklch(0.88 0.01 25);
   --sidebar-ring: oklch(0.30 0.12 25);
+  --font-display-active: var(--font-cormorant);
 }
 
-.dark {
+:root[data-brand="ia"] {
+  /* Light mode colors - Indians Abroad purple theme */
+  --background: oklch(0.98 0.01 270);
+  --foreground: oklch(0.15 0.02 270);
+  --card: oklch(1 0 270);
+  --card-foreground: oklch(0.15 0.02 270);
+  --popover: oklch(1 0 270);
+  --popover-foreground: oklch(0.15 0.02 270);
+  --primary: oklch(0.39 0.09 305);
+  --primary-foreground: oklch(0.98 0.01 270);
+  --secondary: oklch(0.94 0.02 270);
+  --secondary-foreground: oklch(0.15 0.02 270);
+  --muted: oklch(0.94 0.02 270);
+  --muted-foreground: oklch(0.45 0.04 270);
+  --accent: oklch(0.92 0.03 305);
+  --accent-foreground: oklch(0.15 0.02 270);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.90 0.02 270);
+  --input: oklch(0.95 0.02 270);
+  --ring: oklch(0.39 0.09 305);
+  --chart-1: oklch(0.39 0.09 305);
+  --chart-2: oklch(0.65 0.2 260);
+  --chart-3: oklch(0.75 0.15 300);
+  --chart-4: oklch(0.45 0.15 280);
+  --chart-5: oklch(0.85 0.2 280);
+  --sidebar: oklch(0.98 0.01 270);
+  --sidebar-foreground: oklch(0.15 0.02 270);
+  --sidebar-primary: oklch(0.39 0.09 305);
+  --sidebar-primary-foreground: oklch(0.98 0.01 270);
+  --sidebar-accent: oklch(0.94 0.02 270);
+  --sidebar-accent-foreground: oklch(0.15 0.02 270);
+  --sidebar-border: oklch(0.90 0.02 270);
+  --sidebar-ring: oklch(0.39 0.09 305);
+  --font-display-active: var(--font-geist-sans);
+}
+
+.dark[data-brand="myst"] {
   /* Dark mode colors - MYST maroon theme */
   --background: oklch(0.10 0.015 25);
   --foreground: oklch(0.95 0.005 25);
@@ -113,6 +154,41 @@
   --sidebar-accent-foreground: oklch(0.95 0.005 25);
   --sidebar-border: oklch(0.22 0.02 25);
   --sidebar-ring: oklch(0.50 0.14 25);
+}
+
+.dark[data-brand="ia"] {
+  /* Dark mode colors - Indians Abroad purple theme */
+  --background: oklch(0.13 0.02 270);
+  --foreground: oklch(0.98 0.01 270);
+  --card: oklch(0.17 0.02 270);
+  --card-foreground: oklch(0.98 0.01 270);
+  --popover: oklch(0.17 0.02 270);
+  --popover-foreground: oklch(0.98 0.01 270);
+  --primary: oklch(0.55 0.15 305);
+  --primary-foreground: oklch(0.98 0.01 270);
+  --secondary: oklch(0.25 0.03 270);
+  --secondary-foreground: oklch(0.98 0.01 270);
+  --muted: oklch(0.25 0.03 270);
+  --muted-foreground: oklch(0.70 0.04 270);
+  --accent: oklch(0.30 0.05 305);
+  --accent-foreground: oklch(0.98 0.01 270);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.27 0.03 270);
+  --input: oklch(0.25 0.03 270);
+  --ring: oklch(0.55 0.15 305);
+  --chart-1: oklch(0.55 0.15 305);
+  --chart-2: oklch(0.65 0.2 260);
+  --chart-3: oklch(0.75 0.15 300);
+  --chart-4: oklch(0.45 0.15 280);
+  --chart-5: oklch(0.85 0.2 280);
+  --sidebar: oklch(0.17 0.02 270);
+  --sidebar-foreground: oklch(0.98 0.01 270);
+  --sidebar-primary: oklch(0.55 0.15 305);
+  --sidebar-primary-foreground: oklch(0.98 0.01 270);
+  --sidebar-accent: oklch(0.25 0.03 270);
+  --sidebar-accent-foreground: oklch(0.98 0.01 270);
+  --sidebar-border: oklch(0.27 0.03 270);
+  --sidebar-ring: oklch(0.55 0.15 305);
 }
 
 @layer base {
