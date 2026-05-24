@@ -1,5 +1,6 @@
 // Article SEO optimization utilities
 import { Metadata } from "next";
+import { BRAND } from "@/lib/brand/config";
 
 interface ArticleData {
   _id: string;
@@ -37,7 +38,7 @@ export function generateSEOTitle(title: string, category: string): string {
     return `${title.substring(0, 42)}... | ${categoryPrefix}`;
   }
   
-  return `${title} | ${categoryPrefix} - MYST`;
+  return `${title} | ${categoryPrefix} - ${BRAND.name}`;
 }
 
 export function generateSEODescription(summary: string, tags: string[]): string {
@@ -52,7 +53,7 @@ export function generateSEODescription(summary: string, tags: string[]): string 
 }
 
 export function generateArticleMetadata(article: ArticleData): Metadata {
-  const baseUrl = 'https://www.indiansabroad.in';
+  const baseUrl = BRAND.siteUrl;
   
   // Use existing SEO functions for consistency
   const seoTitle = generateSEOTitle(article.title, article.category);
@@ -82,16 +83,16 @@ export function generateArticleMetadata(article: ArticleData): Metadata {
     title: seoTitle,
     description: metaDescription,
     keywords: keywords.join(', '),
-    authors: [{ name: 'MYST Editorial Team' }],
+    authors: [{ name: `${BRAND.name} Editorial Team` }],
     openGraph: {
       title: article.title,
       description: article.summary,
       type: 'article',
       publishedTime: publishDate,
       modifiedTime: modifiedDate,
-      authors: ['MYST'],
+      authors: [BRAND.name],
       tags: article.tags,
-      siteName: 'MYST',
+      siteName: BRAND.name,
       locale: 'en_US',
       url: `${baseUrl}/news/${article._id}`,
       images: article.featuredImage ? [
@@ -103,10 +104,10 @@ export function generateArticleMetadata(article: ArticleData): Metadata {
         }
       ] : [
         {
-          url: `${baseUrl}/og-image.jpg`,
+          url: `${baseUrl}${BRAND.ogImage}`,
           width: 1200,
           height: 630,
-          alt: 'MYST',
+          alt: BRAND.name,
         }
       ],
     },
@@ -114,9 +115,9 @@ export function generateArticleMetadata(article: ArticleData): Metadata {
       card: article.featuredImage ? 'summary_large_image' : 'summary',
       title: article.title,
       description: article.summary,
-      images: article.featuredImage ? [article.featuredImage] : [`${baseUrl}/og-image.jpg`],
-      creator: '@indiansabroad',
-      site: '@indiansabroad',
+      images: article.featuredImage ? [article.featuredImage] : [`${baseUrl}${BRAND.ogImage}`],
+      creator: BRAND.twitter,
+      site: BRAND.twitter,
     },
     alternates: {
       canonical: `${baseUrl}/news/${article._id}`,
@@ -146,15 +147,15 @@ export function generateArticleSchema(article: any, url: string) {
     "dateModified": new Date(article.updatedAt || article.publishedAt || article.createdAt).toISOString(),
     "author": {
       "@type": "Organization",
-      "name": "MYST",
-      "url": "https://www.indiansabroad.in"
+      "name": BRAND.name,
+      "url": BRAND.siteUrl
     },
     "publisher": {
       "@type": "Organization",
-      "name": "MYST",
+      "name": BRAND.name,
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.indiansabroad.in/Logo.jpeg"
+        "url": `${BRAND.siteUrl}${BRAND.ogImage}`
       }
     },
     "mainEntityOfPage": {
@@ -170,6 +171,6 @@ export function generateArticleSchema(article: any, url: string) {
       "name": "Immigration Services",
       "description": "Immigration consulting and visa services for Indians abroad"
     },
-    "image": article.featuredImage || "https://www.indiansabroad.in/og-image.jpg"
+    "image": article.featuredImage || `${BRAND.siteUrl}${BRAND.ogImage}`
   };
 }

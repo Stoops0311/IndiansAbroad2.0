@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next'
 import { fetchQuery } from 'convex/nextjs'
 import { api } from '@/convex/_generated/api'
+import { BRAND } from '@/lib/brand/config'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.indiansabroad.in'
+  const baseUrl = BRAND.siteUrl
   
   // Static pages with optimized priorities and change frequencies
   const staticPages = [
