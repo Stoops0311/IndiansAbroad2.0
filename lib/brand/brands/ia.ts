@@ -4,6 +4,7 @@ export const ia: BrandConfig = {
   key: "ia",
   name: "Indians Abroad",
   legalName: "Indians Abroad",
+  parentCompany: "MYST Education",
   subtitle: null,
   domain: "indiansabroad.in",
   siteUrl: "https://www.indiansabroad.in",

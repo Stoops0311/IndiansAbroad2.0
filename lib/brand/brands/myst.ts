@@ -4,6 +4,7 @@ export const myst: BrandConfig = {
   key: "myst",
   name: "MYST",
   legalName: "MYST Edutech Private Limited",
+  parentCompany: "MYST Education",
   subtitle: "EDUTECH PRIVATE LIMITED",
   domain: "mysteducation.com",
   siteUrl: "https://mysteducation.com",

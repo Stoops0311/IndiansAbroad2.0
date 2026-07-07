@@ -6,6 +6,8 @@ export interface BrandConfig {
   name: string;
   /** Full legal entity name for legal/footer contexts. */
   legalName: string;
+  /** Parent company that owns the brand, shown as "Product of ..." in the footer. */
+  parentCompany: string;
   /** Optional small-caps subtitle under the name; null hides it. */
   subtitle: string | null;
   /** Bare domain without protocol, e.g. "mysteducation.com". */

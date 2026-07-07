@@ -147,7 +147,7 @@ export default function Footer() {
               {/* Product and Partnership Info */}
               <div className="text-center">
                 <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-sm text-foreground mb-4">
-                  <span className="font-medium">Product of {BRAND.legalName}</span>
+                  <span className="font-medium">Product of {BRAND.parentCompany}</span>
                   <span className="hidden md:inline text-muted-foreground">|</span>
                   <span className="font-medium">Partnered with</span>
                 </div>
