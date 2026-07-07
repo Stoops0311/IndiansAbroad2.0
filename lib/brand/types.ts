@@ -20,6 +20,18 @@ export interface BrandConfig {
   keywords: string[];
   /** Header/footer logo image. */
   logo: { src: string; width: number; height: number; alt: string };
+  /**
+   * When true, the logo asset is a monochrome emblem that gets tinted to the
+   * brand color via a CSS mask (purple in light mode, white in dark mode) and
+   * the `wordmark` text is rendered alongside it. When false/omitted, the logo
+   * is a self-contained lockup image already containing the wordmark.
+   */
+  logoTint?: boolean;
+  /**
+   * Text lockup rendered next to a tinted emblem. null/omitted when the logo
+   * image already contains the wordmark.
+   */
+  wordmark?: { name: string; tagline?: string } | null;
   /** Favicon path (served from /public). */
   favicon: string;
   /** Open Graph / social share image path. */

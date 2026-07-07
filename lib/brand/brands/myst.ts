@@ -23,6 +23,8 @@ export const myst: BrandConfig = {
     "RCIC consultant",
   ],
   logo: { src: "/brands/myst/logo-side.png", width: 200, height: 75, alt: "MYST Edutech Logo" },
+  logoTint: false,
+  wordmark: null,
   favicon: "/brands/myst/logo-mark.png",
   ogImage: "/brands/myst/Logo.jpeg",
   theme: "myst",

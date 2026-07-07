@@ -23,6 +23,8 @@ export const ia: BrandConfig = {
     "RCIC consultant",
   ],
   logo: { src: "/brands/ia/logo-new.svg", width: 200, height: 60, alt: "Indians Abroad Logo" },
+  logoTint: true,
+  wordmark: { name: "INDIANS ABROAD", tagline: "Empowering Dreams Worldwide" },
   favicon: "/brands/ia/Logo.png",
   ogImage: "/brands/ia/Logo.png",
   theme: "ia",

@@ -11,7 +11,7 @@ import { servicesData, type ServiceData } from "@/lib/services-data"
 import ServiceDetailModal from "@/components/ServiceDetailModal"
 import StudyAbroadModal from "@/components/StudyAbroadModal"
 import { useTheme } from "@/contexts/ThemeContext"
-import { BRAND } from "@/lib/brand/config"
+import { BrandLogo } from "@/components/BrandLogo"
 
 interface MenuItem {
   icon: React.ReactNode
@@ -188,11 +188,10 @@ export function Header() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/">
-            <img
-              src={BRAND.logo.src}
-              alt={BRAND.logo.alt}
-              className="h-[50px] md:h-[65px] lg:h-[75px] object-contain"
+          <Link href="/" className="flex items-center">
+            <BrandLogo
+              emblemClass="h-[47px] w-[47px] md:h-[67px] md:w-[67px] lg:h-[77px] lg:w-[77px]"
+              lockupClass="h-[50px] md:h-[65px] lg:h-[75px] object-contain"
             />
           </Link>
 

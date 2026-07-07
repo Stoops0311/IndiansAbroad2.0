@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Home, Instagram, ExternalLink, FileText, Newspaper, Briefcase } from "lucide-react";
 import Link from "next/link";
 import { BRAND } from "@/lib/brand/config";
+import { BrandLogo } from "@/components/BrandLogo";
 
 export default function Footer() {
   return (
@@ -14,7 +15,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-4">
             <div className="mb-4">
-              <img src={BRAND.logo.src} alt={BRAND.logo.alt} className="h-14 object-contain" />
+              <BrandLogo emblemClass="h-14 w-14" lockupClass="h-14 object-contain" />
             </div>
             <p className="text-muted-foreground max-w-md">
               Your trusted partner for working and settling abroad. We provide end-to-end support for job visas, PR, and permanent settlement worldwide.
