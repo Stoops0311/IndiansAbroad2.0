@@ -209,7 +209,7 @@ export default function DesktopSidebar() {
         <div 
           className="fixed right-0 top-4 bottom-4 w-1 z-30 hidden lg:block"
           style={{
-            background: 'linear-gradient(to bottom, transparent 0%, oklch(0.39 0.09 25) 50%, transparent 100%)',
+            background: 'linear-gradient(to bottom, transparent 0%, var(--primary) 50%, transparent 100%)',
             opacity: 0.3 + (cursorProximity * 0.4) // Becomes more visible as cursor approaches
           }}
         />
@@ -230,7 +230,7 @@ export default function DesktopSidebar() {
               <div 
                 className="w-12 h-12 rounded-full"
                 style={{
-                  background: 'linear-gradient(135deg, oklch(0.39 0.09 25) 0%, oklch(0.48 0.11 25) 100%)',
+                  background: 'linear-gradient(135deg, var(--primary) 0%, color-mix(in oklch, var(--primary) 80%, white) 100%)',
                   opacity: 0.3 + (cursorProximity * 0.5)
                 }}
               />
@@ -240,7 +240,7 @@ export default function DesktopSidebar() {
             <div
               className="relative w-12 h-12 rounded-full flex items-center justify-center"
               style={{
-                background: 'linear-gradient(135deg, oklch(0.39 0.09 25) 0%, oklch(0.48 0.11 25) 100%)',
+                background: 'linear-gradient(135deg, var(--primary) 0%, color-mix(in oklch, var(--primary) 80%, white) 100%)',
                 opacity: 0.4 + (cursorProximity * 0.6)
               }}
             >
@@ -268,7 +268,7 @@ export default function DesktopSidebar() {
             <div 
               className="absolute inset-0 w-12 h-12 rounded-full animate-ping"
               style={{
-                background: 'linear-gradient(135deg, oklch(0.39 0.09 25) 0%, oklch(0.48 0.11 25) 100%)',
+                background: 'linear-gradient(135deg, var(--primary) 0%, color-mix(in oklch, var(--primary) 80%, white) 100%)',
                 opacity: 0.2 + (cursorProximity * 0.4)
               }}
             />
@@ -278,7 +278,7 @@ export default function DesktopSidebar() {
               <div 
                 className="absolute right-full top-1/2 transform -translate-y-1/2 mr-3 whitespace-nowrap text-sm font-medium transition-all duration-300"
                 style={{
-                  color: 'oklch(0.39 0.09 25)',
+                  color: 'var(--primary)',
                   opacity: Math.min(1, (cursorProximity - 0.3) * 1.4) // Fade in earlier and reach full opacity
                 }}
               >
@@ -312,7 +312,7 @@ export default function DesktopSidebar() {
             {/* Light mode solid background - shows maroon */}
             <div className="absolute inset-0 dark:hidden rounded-2xl"
               style={{
-                background: 'lab(20% 30 15)',
+                background: 'var(--primary)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
               }}
