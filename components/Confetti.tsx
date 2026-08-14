@@ -15,7 +15,7 @@ interface Particle {
   opacity: number;
 }
 
-const INDIAN_FLAG_COLORS = [
+const DEFAULT_COLORS = [
   "#E8985A", // Muted saffron
   "#F0F0F0", // Off-white
   "#5A9E5A", // Muted green
@@ -24,9 +24,10 @@ const INDIAN_FLAG_COLORS = [
 interface ConfettiProps {
   duration?: number; // Duration in milliseconds
   particleCount?: number;
+  colors?: string[];
 }
 
-export function Confetti({ duration = 8000, particleCount = 150 }: ConfettiProps) {
+export function Confetti({ duration = 8000, particleCount = 150, colors = DEFAULT_COLORS }: ConfettiProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number | null>(null);
@@ -39,33 +40,38 @@ export function Confetti({ duration = 8000, particleCount = 150 }: ConfettiProps
       y: -20,
       vx: (Math.random() - 0.5) * 2, // Slight horizontal drift
       vy: Math.random() * 3 + 2, // Fall speed
-      color: INDIAN_FLAG_COLORS[Math.floor(Math.random() * INDIAN_FLAG_COLORS.length)],
+      color: colors[Math.floor(Math.random() * colors.length)],
       rotation: Math.random() * 360,
       rotationSpeed: (Math.random() - 0.5) * 10,
       width: Math.random() * 8 + 6,
       height: Math.random() * 12 + 8,
       opacity: 1,
     };
-  }, []);
+  }, [colors]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Set canvas size
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * pixelRatio;
+      canvas.height = window.innerHeight * pixelRatio;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
     };
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
     // Initialize particles
     for (let i = 0; i < particleCount; i++) {
-      const particle = createParticle(canvas.width);
+      const particle = createParticle(window.innerWidth);
       // Stagger initial positions
       particle.y = -Math.random() * 500;
       particlesRef.current.push(particle);
@@ -85,7 +91,7 @@ export function Confetti({ duration = 8000, particleCount = 150 }: ConfettiProps
         return;
       }
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
       // Calculate global fade
       let globalOpacity = 1;
@@ -103,11 +109,11 @@ export function Confetti({ duration = 8000, particleCount = 150 }: ConfettiProps
         particle.vx += (Math.random() - 0.5) * 0.1;
 
         // Reset particle if it goes off screen
-        if (particle.y > canvas.height + 20) {
+        if (particle.y > window.innerHeight + 20) {
           if (elapsed < fadeStartRef.current) {
             // Only reset if not in fade phase
             particle.y = -20;
-            particle.x = Math.random() * canvas.width;
+            particle.x = Math.random() * window.innerWidth;
           }
         }
 
