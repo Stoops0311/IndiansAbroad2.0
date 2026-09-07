@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test-testimonials-api": "node scripts/test-testimonials-api.mjs",
     "upload-testimonials": "node scripts/bulkUploadTestimonials.js",
     "parse-universities": "node scripts/parseUniversitiesCSV.js",
     "migrate-to-backblaze": "node scripts/migrate-to-backblaze.js",
